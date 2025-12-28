@@ -58,8 +58,12 @@ function applyTranslations() {
             if (attr) {
                 element.setAttribute(attr, translation);
             } else {
+                // For span elements inside links/other elements, just replace text content
+                if (element.tagName === 'SPAN') {
+                    element.textContent = translation;
+                }
                 // Preserve HTML structure if element has children with specific classes
-                if (element.querySelector('.favorites-count, .notice-label, .notice-disclaimer')) {
+                else if (element.querySelector('.favorites-count, .notice-label, .notice-disclaimer')) {
                     // For complex elements, only replace text nodes
                     replaceTextNodes(element, translation);
                 } else {
