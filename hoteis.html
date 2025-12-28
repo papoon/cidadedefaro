@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onde Comer em Faro - Guia de Faro</title>
+    <title>Onde Ficar em Faro - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Estilos específicos para página de restaurantes */
+        /* Estilos específicos para página de hotéis */
         
         .search-filter-section {
             background: white;
@@ -41,7 +41,7 @@
             pointer-events: none;
         }
 
-        #search-restaurantes {
+        #search-hoteis {
             width: 100%;
             padding: 0.875rem 3rem;
             font-size: 1rem;
@@ -52,7 +52,7 @@
             font-family: inherit;
         }
 
-        #search-restaurantes:focus {
+        #search-hoteis:focus {
             border-color: #667eea;
             box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
         }
@@ -178,13 +178,13 @@
             font-weight: 500;
         }
 
-        .restaurantes-grid {
+        .hoteis-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.5rem;
         }
 
-        .restaurante-card {
+        .hotel-card {
             background: white;
             border: 1px solid #e2e8f0;
             border-radius: 12px;
@@ -195,13 +195,13 @@
             flex-direction: column;
         }
 
-        .restaurante-card:hover {
+        .hotel-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             border-color: #667eea;
         }
 
-        .restaurante-header {
+        .hotel-header {
             display: flex;
             align-items: center;
             gap: 0.75rem;
@@ -209,11 +209,11 @@
             flex-wrap: wrap;
         }
 
-        .restaurante-icon {
+        .hotel-icon {
             font-size: 2rem;
         }
 
-        .restaurante-tipo {
+        .hotel-tipo {
             font-size: 0.75rem;
             padding: 0.25rem 0.75rem;
             background: #667eea;
@@ -234,14 +234,14 @@
             margin-left: auto;
         }
 
-        .restaurante-nome {
+        .hotel-nome {
             font-size: 1.25rem;
             color: #2d3748;
             margin-bottom: 1rem;
             font-weight: 600;
         }
 
-        .restaurante-info {
+        .hotel-info {
             flex: 1;
         }
 
@@ -268,7 +268,11 @@
             color: #48bb78;
         }
 
-        .restaurante-descricao {
+        .info-value.classificacao {
+            color: #f59e0b;
+        }
+
+        .hotel-descricao {
             margin: 1rem 0;
             padding: 1rem;
             background: #f7fafc;
@@ -276,23 +280,43 @@
             border-left: 4px solid #667eea;
         }
 
-        .restaurante-descricao p {
+        .hotel-descricao p {
             font-size: 0.9rem;
             color: #4a5568;
             line-height: 1.6;
             margin: 0;
         }
 
-        .restaurante-actions {
+        .hotel-servicos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .servico-badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            background: #e6fffa;
+            color: #234e52;
+            border-radius: 6px;
+            border: 1px solid #b2f5ea;
+            font-weight: 500;
+        }
+
+        .hotel-actions {
             margin-top: 1rem;
             padding-top: 1rem;
             border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
         }
 
-        .btn-map {
+        .btn-map,
+        .btn-website {
             display: inline-block;
             padding: 0.625rem 1rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
             border-radius: 8px;
@@ -300,11 +324,25 @@
             font-size: 0.9rem;
             transition: all 0.3s ease;
             text-align: center;
+            flex: 1;
+        }
+
+        .btn-map {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
 
         .btn-map:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-website {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        }
+
+        .btn-website:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(72, 187, 120, 0.4);
         }
 
         .no-results {
@@ -364,12 +402,12 @@
                 padding: 1.5rem;
             }
 
-            .restaurantes-grid {
+            .hoteis-grid {
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
 
-            .restaurante-card {
+            .hotel-card {
                 padding: 1.25rem;
             }
 
@@ -387,14 +425,23 @@
                 align-items: flex-start;
                 gap: 0.5rem;
             }
+
+            .hotel-actions {
+                flex-direction: column;
+            }
+
+            .btn-map,
+            .btn-website {
+                width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
-            .restaurante-icon {
+            .hotel-icon {
                 font-size: 1.5rem;
             }
 
-            .restaurante-nome {
+            .hotel-nome {
                 font-size: 1.125rem;
             }
 
@@ -434,8 +481,8 @@
 
     <main>
         <section class="hero">
-            <h2>Onde Comer em Faro</h2>
-            <p>Descubra os melhores cafés, pastelarias e restaurantes de Faro. Pesquise, filtre e encontre o local perfeito para comer ou tomar café na capital algarvia.</p>
+            <h2>Onde Ficar em Faro</h2>
+            <p>Encontre o alojamento perfeito em Faro. Hotéis, hostels, apartamentos e alojamentos locais para todos os gostos e orçamentos.</p>
         </section>
 
         <!-- Pesquisa e Filtros -->
@@ -446,9 +493,9 @@
                     <span class="search-icon" aria-hidden="true">🔍</span>
                     <input 
                         type="search" 
-                        id="search-restaurantes" 
+                        id="search-hoteis" 
                         placeholder="Pesquisar por nome, descrição ou morada..."
-                        aria-label="Campo de pesquisa de restaurantes"
+                        aria-label="Campo de pesquisa de alojamentos"
                         autocomplete="off"
                     />
                     <button id="clear-search" title="Limpar pesquisa" aria-label="Limpar pesquisa">✕</button>
@@ -459,59 +506,37 @@
                 <h3>🎯 Filtros</h3>
                 
                 <div class="filter-group">
-                    <h4>Tipo</h4>
+                    <h4>🏨 Tipo de Alojamento</h4>
                     <div class="filter-options">
                         <label class="filter-checkbox">
-                            <input type="checkbox" data-filter-type="tipo" value="Café" />
-                            <span>☕ Café</span>
+                            <input type="checkbox" data-filter-type="tipo" value="Hotel" />
+                            <span>🏨 Hotel</span>
                         </label>
                         <label class="filter-checkbox">
-                            <input type="checkbox" data-filter-type="tipo" value="Pastelaria" />
-                            <span>🍰 Pastelaria</span>
+                            <input type="checkbox" data-filter-type="tipo" value="Hostel" />
+                            <span>🏠 Hostel</span>
                         </label>
                         <label class="filter-checkbox">
-                            <input type="checkbox" data-filter-type="tipo" value="Restaurante" />
-                            <span>🍽️ Restaurante</span>
+                            <input type="checkbox" data-filter-type="tipo" value="Alojamento Local" />
+                            <span>🏡 Alojamento Local</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="tipo" value="Apartamento" />
+                            <span>🏢 Apartamento</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="filter-group">
-                    <h4>Categoria</h4>
-                    <div class="filter-options">
-                        <label class="filter-checkbox">
-                            <input type="checkbox" data-filter-type="categoria" value="Tradicional" />
-                            <span>Tradicional</span>
-                        </label>
-                        <label class="filter-checkbox">
-                            <input type="checkbox" data-filter-type="categoria" value="Vegetariano" />
-                            <span>Vegetariano</span>
-                        </label>
-                        <label class="filter-checkbox">
-                            <input type="checkbox" data-filter-type="categoria" value="Take-away" />
-                            <span>Take-away</span>
-                        </label>
-                        <label class="filter-checkbox">
-                            <input type="checkbox" data-filter-type="categoria" value="Marisqueira" />
-                            <span>Marisqueira</span>
-                        </label>
-                        <label class="filter-checkbox">
-                            <input type="checkbox" data-filter-type="categoria" value="Fast-food" />
-                            <span>Fast-food</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="filter-group">
-                    <h4>Zona</h4>
+                    <h4>📍 Zona</h4>
                     <div class="filter-options">
                         <label class="filter-checkbox">
                             <input type="checkbox" data-filter-type="zona" value="Centro" />
                             <span>Centro</span>
                         </label>
                         <label class="filter-checkbox">
-                            <input type="checkbox" data-filter-type="zona" value="Baixa" />
-                            <span>Baixa</span>
+                            <input type="checkbox" data-filter-type="zona" value="Cidade Velha" />
+                            <span>Cidade Velha</span>
                         </label>
                         <label class="filter-checkbox">
                             <input type="checkbox" data-filter-type="zona" value="Universidade" />
@@ -525,7 +550,7 @@
                 </div>
 
                 <div class="filter-group">
-                    <h4>Preço</h4>
+                    <h4>💶 Preço por Noite</h4>
                     <div class="filter-options">
                         <label class="filter-checkbox">
                             <input type="checkbox" data-filter-type="preco" value="€" />
@@ -542,6 +567,46 @@
                     </div>
                 </div>
 
+                <div class="filter-group">
+                    <h4>⭐ Classificação</h4>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="classificacao" value="1-2" />
+                            <span>1-2 estrelas</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="classificacao" value="3" />
+                            <span>3 estrelas</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="classificacao" value="4-5" />
+                            <span>4-5 estrelas</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>🛏️ Serviços</h4>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="servicos" value="Pequeno-almoço" />
+                            <span>🍳 Pequeno-almoço</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="servicos" value="Wi-Fi" />
+                            <span>📶 Wi-Fi</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="servicos" value="Estacionamento" />
+                            <span>🅿️ Estacionamento</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="servicos" value="Piscina" />
+                            <span>🏊 Piscina</span>
+                        </label>
+                    </div>
+                </div>
+
                 <div class="filter-actions">
                     <button id="clear-filters">🔄 Limpar Filtros</button>
                 </div>
@@ -551,12 +616,12 @@
         <!-- Resultados -->
         <section>
             <div class="results-header">
-                <h2>Estabelecimentos</h2>
-                <span id="results-count">Mostrando 0 de 0 estabelecimentos</span>
+                <h2>Alojamentos Disponíveis</h2>
+                <span id="results-count">Mostrando 0 de 0 alojamentos</span>
             </div>
-            <div id="restaurantes-container">
+            <div id="hoteis-container">
                 <div class="loading">
-                    <p>A carregar estabelecimentos...</p>
+                    <p>A carregar alojamentos...</p>
                 </div>
             </div>
         </section>
@@ -564,12 +629,12 @@
 
     <footer>
         <p>&copy; 2024 Guia de Faro</p>
-        <p class="data-sources">Dados atualizados regularmente. Recomendamos confirmar horários e disponibilidade diretamente com os estabelecimentos.</p>
+        <p class="data-sources">Dados atualizados regularmente. Recomendamos confirmar disponibilidade e preços diretamente com os estabelecimentos.</p>
     </footer>
 
     <script src="js/favorites.js"></script>
     <script src="js/search.js"></script>
-    <script src="js/restaurantes.js"></script>
+    <script src="js/hoteis.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
