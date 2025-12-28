@@ -60,6 +60,18 @@ function formatarDistancia(km) {
     }
 }
 
+// Função para mostrar mensagem de erro
+function mostrarErro(mensagem) {
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = `
+        <div style="background: #fed7d7; border: 2px solid #e53e3e; border-radius: 8px; padding: 1.5rem; text-align: center; color: #742a2a;">
+            <strong>⚠️ ${mensagem}</strong>
+        </div>
+    `;
+    resultsContainer.classList.add('active');
+    resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
 // Função principal para calcular tempo de viagem
 function calcularTempo() {
     const origemId = document.getElementById('origem').value;
@@ -67,12 +79,12 @@ function calcularTempo() {
 
     // Validação
     if (!origemId || !destinoId) {
-        alert('Por favor, selecione origem e destino.');
+        mostrarErro('Por favor, selecione origem e destino.');
         return;
     }
 
     if (origemId === destinoId) {
-        alert('Origem e destino não podem ser o mesmo local.');
+        mostrarErro('Origem e destino não podem ser o mesmo local.');
         return;
     }
 
@@ -86,6 +98,7 @@ function calcularTempo() {
     );
 
     // Fator de correção para considerar ruas (aproximadamente 1.3x a distância em linha reta)
+    // Este fator compensa o facto de que as rotas reais seguem ruas e não são linhas retas
     const fatorRua = 1.3;
     const distanciaReal = distanciaReta * fatorRua;
 
@@ -94,6 +107,43 @@ function calcularTempo() {
     const tempoBicicleta = (distanciaReal / velocidades.bicicleta) * 60; // em minutos
 
     // Atualizar interface
+    const resultsContainer = document.getElementById('results');
+    
+    // Restaurar estrutura de resultados se necessário (caso tenha sido substituída por erro)
+    if (!document.getElementById('tempo-pe')) {
+        resultsContainer.innerHTML = `
+            <div class="result-card">
+                <h4>🚶‍♂️ A pé</h4>
+                <div class="result-info">
+                    <div class="result-item">
+                        <div class="result-label">Tempo estimado</div>
+                        <div class="result-value" id="tempo-pe">--</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Distância</div>
+                        <div class="result-value" id="distancia-pe">--</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="result-card">
+                <h4>🚴‍♂️ De bicicleta</h4>
+                <div class="result-info">
+                    <div class="result-item">
+                        <div class="result-label">Tempo estimado</div>
+                        <div class="result-value" id="tempo-bicicleta">--</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Distância</div>
+                        <div class="result-value" id="distancia-bicicleta">--</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="mapa-rota" class="map-container"></div>
+        `;
+    }
+    
     document.getElementById('tempo-pe').textContent = formatarTempo(tempoPe);
     document.getElementById('distancia-pe').textContent = formatarDistancia(distanciaReal);
     
@@ -101,7 +151,6 @@ function calcularTempo() {
     document.getElementById('distancia-bicicleta').textContent = formatarDistancia(distanciaReal);
 
     // Mostrar resultados
-    const resultsContainer = document.getElementById('results');
     resultsContainer.classList.add('active');
 
     // Scroll suave para os resultados
@@ -212,5 +261,11 @@ document.addEventListener('DOMContentLoaded', function() {
         selectDestino.addEventListener('change', function() {
             document.getElementById('results').classList.remove('active');
         });
+    }
+
+    // Adicionar listener para o botão de calcular
+    const btnCalcular = document.getElementById('btn-calcular');
+    if (btnCalcular) {
+        btnCalcular.addEventListener('click', calcularTempo);
     }
 });
