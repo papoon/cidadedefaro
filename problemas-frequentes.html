@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problemas Frequentes na Cidade - Guia de Faro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .problem-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .problem-card h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .problem-card .icon {
+            font-size: 2rem;
+        }
+        
+        .problem-description {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #667eea;
+        }
+        
+        .problem-description p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+        
+        .contact-box {
+            background: #f0fdf4;
+            border-left: 4px solid #48bb78;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-box h4 {
+            color: #2d3748;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .contact-item {
+            margin: 0.75rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .contact-item strong {
+            color: #2d3748;
+            min-width: 100px;
+        }
+        
+        .phone-number {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0.5rem 0;
+        }
+        
+        .info-box {
+            background: #edf2f7;
+            border-left: 4px solid #667eea;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .info-box p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+        
+        .info-box strong {
+            color: #2d3748;
+        }
+        
+        .info-box ul {
+            list-style: disc;
+            padding-left: 2rem;
+            margin-top: 0.5rem;
+        }
+        
+        .info-box ul li {
+            margin: 0.25rem 0;
+        }
+        
+        .useful-links {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .useful-links h4 {
+            color: #2d3748;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .useful-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .useful-links ul li {
+            padding: 0.5rem 0;
+        }
+        
+        .useful-links ul li a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .useful-links ul li a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .tips-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .tips-box h4 {
+            color: #2d3748;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tips-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-box ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .tips-box ul li:before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .problem-card {
+                padding: 1.5rem;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            
+            .contact-item strong {
+                min-width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guia de Faro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="transportes.html">Transportes</a></li>
+                <li><a href="saude.html">Saúde</a></li>
+                <li><a href="ambiente.html">Ambiente</a></li>
+                <li><a href="lazer.html">Lazer</a></li>
+                <li><a href="oque-fazer-hoje.html">O que fazer hoje</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="problemas-frequentes.html">Problemas Frequentes</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Problemas Frequentes na Cidade</h2>
+            <p>Guia prático para resolver os problemas urbanos mais comuns em Faro. Saiba quem contactar, como resolver e onde reclamar.</p>
+        </section>
+
+        <!-- Buracos nas Estradas -->
+        <section class="problem-card">
+            <h3><span class="icon">🚧</span>Buracos nas Estradas</h3>
+            
+            <div class="problem-description">
+                <p><strong>Descrição do Problema:</strong></p>
+                <p>Buracos e irregularidades no pavimento podem causar acidentes e danos em veículos. É importante reportar estas situações para que sejam reparadas rapidamente.</p>
+            </div>
+            
+            <div class="contact-box">
+                <h4>🏛️ Entidade Responsável</h4>
+                <p><strong>Câmara Municipal de Faro - Divisão de Infraestruturas e Obras Municipais</strong></p>
+                
+                <div class="contact-item">
+                    <strong>📞 Telefone:</strong>
+                    <span class="phone-number">289 870 870</span>
+                </div>
+                
+                <div class="contact-item">
+                    <strong>✉️ E-mail:</strong>
+                    <span>geral@cm-faro.pt</span>
+                </div>
+                
+                <div class="contact-item">
+                    <strong>⏰ Horário:</strong>
+                    <span>Segunda a Sexta, das 9h00 às 17h00</span>
+                </div>
+                
+                <div class="contact-item">
+                    <strong>🌐 Online:</strong>
+                    <span>Balcão Virtual da Câmara Municipal</span>
+                </div>
+            </div>
+            
+            <div class="useful-links">
+                <h4>🔗 Links Úteis</h4>
+                <ul>
+                    <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer">Portal da Câmara Municipal de Faro</a></li>
+                    <li><a href="https://www.portaldocidadao.pt" target="_blank" rel="noopener noreferrer">Portal do Cidadão</a></li>
+                </ul>
+            </div>
+            
+            <div class="tips-box">
+                <h4>💡 Como Reportar</h4>
+                <ul>
+                    <li>Indique a localização exata (rua e número, se possível)</li>
+                    <li>Tire fotografias do buraco para anexar à reclamação</li>
+                    <li>Mencione o tamanho aproximado e profundidade</li>
+                    <li>Se causou danos no veículo, guarde comprovativos</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Lixo Fora do Horário -->
+        <section class="problem-card">
+            <h3><span class="icon">🗑️</span>Lixo Fora do Horário</h3>
+            
+            <div class="problem-description">
+                <p><strong>Descrição do Problema:</strong></p>
+                <p>Lixo depositado fora dos horários de recolha pode causar mau cheiro, atrair animais e insetos, e prejudicar a higiene pública. É fundamental respeitar os horários de recolha.</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>📅 Horários de Recolha em Faro:</strong></p>
+                <ul>
+                    <li><strong>Lixo Doméstico (Contentores Pretos):</strong> Recolha diária, de preferência após as 20h00</li>
+                    <li><strong>Reciclagem (Ecopontos):</strong> Disponível 24h, pode depositar a qualquer hora</li>
+                    <li><strong>Monstros (Objetos Volumosos):</strong> Apenas com marcação prévia</li>
+                </ul>
+            </div>
+            
+            <div class="contact-box">
+                <h4>🏛️ Entidade Responsável</h4>
+                <p><strong>Câmara Municipal de Faro - Divisão de Ambiente e Serviços Urbanos</strong></p>
+                
+                <div class="contact-item">
+                    <strong>📞 Telefone:</strong>
+                    <span class="phone-number">289 870 870</span>
+                </div>
+                
+                <div class="contact-item">
+                    <strong>✉️ E-mail:</strong>
+                    <span>ambiente@cm-faro.pt</span>
+                </div>
+                
+                <div class="contact-item">
+                    <strong>⏰ Horário:</strong>
+                    <span>Segunda a Sexta, das 9h00 às 17h00</span>
+                </div>
+            </div>
+            
+            <div class="useful-links">
+                <h4>🔗 Links Úteis</h4>
+                <ul>
+                    <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer">Portal da Câmara Municipal de Faro</a></li>
+                    <li><a href="ambiente.html">Página de Ambiente e Reciclagem</a></li>
+                </ul>
+            </div>
+            
+            <div class="tips-box">
+                <h4>💡 Como Reportar</h4>
+                <ul>
+                    <li>Indique o local exato onde o lixo foi depositado irregularmente</li>
+                    <li>Tire fotografias como comprovativo</li>
+                    <li>Mencione o tipo de resíduo (doméstico, volumoso, etc.)</li>
+                    <li>Se possível, indique o dia e hora em que observou a situação</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Iluminação Pública -->
+        <section class="problem-card">
+            <h3><span class="icon">💡</span>Iluminação Pública</h3>
+            
+            <div class="problem-description">
+                <p><strong>Descrição do Problema:</strong></p>
+                <p>Falhas na iluminação pública comprometem a segurança dos cidadãos e podem aumentar a criminalidade. Lâmpadas fundidas, postes danificados ou áreas escuras devem ser reportadas.</p>
+            </div>
+            
+            <div class="contact-box">
+                <h4>🏛️ Entidade Responsável</h4>
+                <p><strong>Câmara Municipal de Faro - Divisão de Infraestruturas e Serviços Urbanos</strong></p>
+                
+                <div class="contact-item">
+                    <strong>📞 Telefone:</strong>
+                    <span class="phone-number">289 870 870</span>
+                </div>
+                
+                <div class="contact-item">
+                    <strong>✉️ E-mail:</strong>
+                    <span>geral@cm-faro.pt</span>
+                </div>
+                
+                <div class="contact-item">
+                    <strong>🚨 Linha de Emergência (avarias graves):</strong>
+                    <span class="phone-number">289 870 899</span>
+                </div>
+                
+                <div class="contact-item">
+                    <strong>⏰ Horário:</strong>
+                    <span>Segunda a Sexta, das 9h00 às 17h00 (Linha de emergência 24h)</span>
+                </div>
+            </div>
+            
+            <div class="useful-links">
+                <h4>🔗 Links Úteis</h4>
+                <ul>
+                    <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer">Portal da Câmara Municipal de Faro</a></li>
+                    <li><a href="https://www.portaldocidadao.pt" target="_blank" rel="noopener noreferrer">Portal do Cidadão</a></li>
+                </ul>
+            </div>
+            
+            <div class="tips-box">
+                <h4>💡 Como Reportar</h4>
+                <ul>
+                    <li>Indique a rua e o número do poste (se visível)</li>
+                    <li>Descreva o problema: lâmpada fundida, poste inclinado, fios expostos, etc.</li>
+                    <li>Tire fotografias, se possível</li>
+                    <li>Em caso de perigo imediato (fios caídos), contacte a linha de emergência</li>
+                    <li>Anote o número de reclamação para seguimento</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Estacionamento -->
+        <section class="problem-card">
+            <h3><span class="icon">🚗</span>Estacionamento</h3>
+            
+            <div class="problem-description">
+                <p><strong>Descrição do Problema:</strong></p>
+                <p>Problemas relacionados com estacionamento irregular, veículos abandonados, ocupação indevida de lugares reservados ou parquímetros avariados são situações comuns que podem ser reportadas.</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>🚫 Situações Irregulares Mais Comuns:</strong></p>
+                <ul>
+                    <li>Estacionamento em lugar de deficiente sem dístico</li>
+                    <li>Estacionamento em passadeiras ou passeios</li>
+                    <li>Veículos abandonados ou em estado degradado</li>
+                    <li>Estacionamento em zona proibida ou de carga e descarga</li>
+                    <li>Parquímetros avariados</li>
+                </ul>
+            </div>
+            
+            <div class="contact-box">
+                <h4>🏛️ Entidades Responsáveis</h4>
+                
+                <p><strong>Polícia Municipal de Faro (Fiscalização e Multas)</strong></p>
+                <div class="contact-item">
+                    <strong>📞 Telefone:</strong>
+                    <span class="phone-number">289 870 880</span>
+                </div>
+                <div class="contact-item">
+                    <strong>⏰ Horário:</strong>
+                    <span>Segunda a Sexta, das 9h00 às 19h00</span>
+                </div>
+                
+                <br>
+                
+                <p><strong>Câmara Municipal de Faro (Parquímetros e Zonas de Estacionamento)</strong></p>
+                <div class="contact-item">
+                    <strong>📞 Telefone:</strong>
+                    <span class="phone-number">289 870 870</span>
+                </div>
+                <div class="contact-item">
+                    <strong>✉️ E-mail:</strong>
+                    <span>geral@cm-faro.pt</span>
+                </div>
+            </div>
+            
+            <div class="useful-links">
+                <h4>🔗 Links Úteis</h4>
+                <ul>
+                    <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer">Portal da Câmara Municipal de Faro</a></li>
+                    <li><a href="https://www.gnr.pt" target="_blank" rel="noopener noreferrer">GNR - Guarda Nacional Republicana</a></li>
+                    <li><a href="https://www.psp.pt" target="_blank" rel="noopener noreferrer">PSP - Polícia de Segurança Pública</a></li>
+                    <li><a href="transportes.html">Página de Transportes</a></li>
+                </ul>
+            </div>
+            
+            <div class="tips-box">
+                <h4>💡 Como Reportar</h4>
+                <ul>
+                    <li>Anote a matrícula do veículo infrator (se aplicável)</li>
+                    <li>Tire fotografias que mostrem claramente a infração</li>
+                    <li>Indique o local exato (rua e número)</li>
+                    <li>Mencione a data e hora da ocorrência</li>
+                    <li>Para veículos abandonados, forneça descrição detalhada (marca, cor, estado)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Informações Gerais -->
+        <section class="problem-card">
+            <h3><span class="icon">ℹ️</span>Informações Gerais</h3>
+            
+            <div class="info-box">
+                <p><strong>📋 Procedimento Geral de Reclamação:</strong></p>
+                <ul>
+                    <li>Recolha toda a informação relevante (local, data, fotografias)</li>
+                    <li>Contacte a entidade responsável por telefone, e-mail ou presencialmente</li>
+                    <li>Solicite um número de protocolo ou reclamação</li>
+                    <li>Guarde todos os comprovativos</li>
+                    <li>Faça seguimento da reclamação se não houver resposta em tempo útil</li>
+                </ul>
+            </div>
+            
+            <div class="contact-box">
+                <h4>📞 Contactos de Emergência</h4>
+                <div class="contact-item">
+                    <strong>🚨 Emergências:</strong>
+                    <span class="phone-number">112</span>
+                </div>
+                <div class="contact-item">
+                    <strong>🚔 PSP (Polícia):</strong>
+                    <span class="phone-number">289 899 899</span>
+                </div>
+                <div class="contact-item">
+                    <strong>🚒 Bombeiros de Faro:</strong>
+                    <span class="phone-number">289 803 550</span>
+                </div>
+            </div>
+            
+            <div class="useful-links">
+                <h4>🔗 Outros Links Úteis</h4>
+                <ul>
+                    <li><a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer">Livro de Reclamações Online</a></li>
+                    <li><a href="https://www.provedor-jus.pt" target="_blank" rel="noopener noreferrer">Provedor de Justiça</a></li>
+                    <li><a href="https://www.dgaj.mj.pt" target="_blank" rel="noopener noreferrer">Direção-Geral da Administração da Justiça</a></li>
+                </ul>
+            </div>
+            
+            <div class="tips-box">
+                <h4>💡 Dicas para Melhorar a Cidade</h4>
+                <ul>
+                    <li>Seja um cidadão ativo - reporte problemas quando os identificar</li>
+                    <li>Mantenha sempre um tom educado e construtivo nas reclamações</li>
+                    <li>Partilhe informação útil com vizinhos e comunidade</li>
+                    <li>Participe em assembleias e reuniões de freguesia</li>
+                    <li>Respeite o espaço público e dê o exemplo</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Guia de Faro</p>
+        <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Polícia Municipal de Faro, Portal do Cidadão</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
