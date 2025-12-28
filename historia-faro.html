@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>História de Faro - Linha do Tempo - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
     <style>
         .timeline-container {
             position: relative;
@@ -177,10 +178,10 @@
     </style>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <h1>Guia de Faro</h1>
-        <nav>
-            <ul>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul role="menubar">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="transportes.html">Transportes</a></li>
                 <li><a href="saude.html">Saúde</a></li>
@@ -197,7 +198,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
         <section class="hero">
             <h2>Linha do Tempo da Cidade de Faro</h2>
             <p>Descubra a rica história de Faro através dos séculos, desde a sua fundação até aos dias de hoje.</p>
@@ -381,11 +382,12 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2024 Guia de Faro</p>
         <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Museu Municipal de Faro, Universidade do Algarve</p>
     </footer>
 
+    <script src="js/accessibility.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/search.js"></script>
     <script src="js/main.js"></script>

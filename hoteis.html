@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onde Ficar em Faro - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
     <style>
         /* Estilos específicos para página de hotéis */
         
@@ -457,10 +458,10 @@
     </style>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <h1>Guia de Faro</h1>
-        <nav>
-            <ul>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul role="menubar">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="transportes.html">Transportes</a></li>
                 <li><a href="saude.html">Saúde</a></li>
@@ -479,7 +480,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
         <section class="hero">
             <h2>Onde Ficar em Faro</h2>
             <p>Encontre o alojamento perfeito em Faro. Hotéis, hostels, apartamentos e alojamentos locais para todos os gostos e orçamentos.</p>
@@ -627,11 +628,12 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2024 Guia de Faro</p>
         <p class="data-sources">Dados atualizados regularmente. Recomendamos confirmar disponibilidade e preços diretamente com os estabelecimentos.</p>
     </footer>
 
+    <script src="js/accessibility.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/search.js"></script>
     <script src="js/hoteis.js"></script>

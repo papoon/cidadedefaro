@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lazer e Cultura - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
     <style>
         .culture-card {
             background: white;
@@ -222,10 +223,10 @@
     </style>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <h1>Guia de Faro</h1>
-        <nav>
-            <ul>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul role="menubar">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="transportes.html">Transportes</a></li>
                 <li><a href="saude.html">Saúde</a></li>
@@ -242,7 +243,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
         <section class="hero">
             <h2>Lazer e Cultura</h2>
             <p>Descubra o melhor de Faro: praias deslumbrantes, museus fascinantes, espaços verdes relaxantes e eventos culturais únicos. Explore a rica herança cultural e as maravilhas naturais da capital algarvia.</p>
@@ -613,11 +614,12 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2024 Guia de Faro</p>
         <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Turismo do Algarve, Turismo de Portugal</p>
     </footer>
 
+    <script src="js/accessibility.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/search.js"></script>
     <script src="js/main.js"></script>

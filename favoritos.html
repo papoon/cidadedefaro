@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
 </head>
 <body>
-    <header>
+    <header role="banner">
         <h1>Guia de Faro</h1>
-        <nav>
-            <ul>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul role="menubar">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="transportes.html">Transportes</a></li>
                 <li><a href="saude.html">Saúde</a></li>
@@ -27,7 +28,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
         <section class="hero">
             <h2>⭐ Os Meus Favoritos</h2>
             <p>Aqui encontra todos os locais, serviços e páginas que guardou como favoritos para acesso rápido.</p>
@@ -47,11 +48,12 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2024 Guia de Faro</p>
         <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal, GEO API PT</p>
     </footer>
 
+    <script src="js/accessibility.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/search.js"></script>
     <script src="js/main.js"></script>

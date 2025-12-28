@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mapa - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin=""/>
 </head>
 <body>
-    <header>
+    <header role="banner">
         <h1>Guia de Faro</h1>
-        <nav>
-            <ul>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul role="menubar">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="transportes.html">Transportes</a></li>
                 <li><a href="saude.html">Saúde</a></li>
@@ -30,7 +31,7 @@
         </nav>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
         <section id="mapa-section">
             <h2>Localização de Faro</h2>
             
@@ -65,10 +66,11 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2024 Guia de Faro</p>
     </footer>
 
+    <script src="js/accessibility.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin=""></script>
