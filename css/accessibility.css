@@ -318,6 +318,78 @@ body.high-contrast textarea:focus {
     outline: 3px solid #ffff00;
 }
 
+/* Alto contraste - Barra de Acessibilidade */
+body.high-contrast .accessibility-toolbar {
+    background: #000;
+}
+
+body.high-contrast .accessibility-toggle {
+    background: #fff;
+    color: #000;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .accessibility-toggle:hover,
+body.high-contrast .accessibility-toggle:focus {
+    background: #ffff00;
+    color: #000;
+    border-color: #ffff00;
+}
+
+body.high-contrast .accessibility-menu {
+    background: #000;
+    border: 3px solid #fff;
+}
+
+body.high-contrast .accessibility-menu h3 {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+body.high-contrast .accessibility-group label {
+    color: #fff;
+}
+
+body.high-contrast .btn-accessibility {
+    background: #000;
+    color: #fff;
+    border-color: #fff;
+}
+
+body.high-contrast .btn-accessibility:hover,
+body.high-contrast .btn-accessibility:focus {
+    background: #ffff00;
+    color: #000;
+    border-color: #ffff00;
+}
+
+body.high-contrast .btn-toggle[aria-checked="true"] {
+    background: #ffff00;
+    color: #000;
+    border-color: #ffff00;
+}
+
+body.high-contrast .font-size-display {
+    background: #000;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .accessibility-info {
+    border-top-color: #fff;
+}
+
+body.high-contrast .accessibility-info p,
+body.high-contrast .accessibility-info li {
+    color: #fff;
+}
+
+body.high-contrast .accessibility-info kbd {
+    background: #000;
+    color: #fff;
+    border-color: #fff;
+}
+
 /* ===================================
    MELHORIAS DE FOCO PARA NAVEGAÇÃO POR TECLADO
    =================================== */
@@ -445,23 +517,26 @@ a {
 }
 
 /* Garantir que elementos interativos tenham tamanho mínimo adequado (WCAG AA - 2.5.5) */
-/* Aplicado a botões, links clicáveis e elementos de formulário */
-button,
+/* Aplicado cuidadosamente para não quebrar layouts existentes */
+button:not(.inline),
 input[type="submit"],
 input[type="button"],
 input[type="checkbox"],
 input[type="radio"],
 .btn,
-[role="button"],
-[role="menuitem"],
-a.card,
 .btn-favorite,
-.btn-accessibility {
+.btn-accessibility,
+[role="button"]:not(a) {
     min-height: 44px;
     min-width: 44px;
+}
+
+/* Links de navegação e cards já têm tamanho adequado via padding no CSS principal */
+/* Botões específicos da acessibilidade usam inline-flex para alinhamento */
+.btn-accessibility,
+.btn-favorite,
+.accessibility-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
-
-/* Links de navegação têm tamanho adequado via padding no CSS principal */

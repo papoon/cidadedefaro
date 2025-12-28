@@ -6,8 +6,7 @@
     // Estado da acessibilidade
     const accessibilityState = {
         fontSize: parseInt(localStorage.getItem('accessibility-fontSize')) || 100,
-        highContrast: localStorage.getItem('accessibility-highContrast') === 'true',
-        focusVisible: true
+        highContrast: localStorage.getItem('accessibility-highContrast') === 'true'
     };
 
     // Inicializar acessibilidade quando DOM carregar
@@ -202,10 +201,6 @@
             e.preventDefault();
             const main = document.querySelector('main');
             if (main) {
-                // Adicionar ID se não existir
-                if (!main.id) {
-                    main.id = 'main-content';
-                }
                 main.setAttribute('tabindex', '-1');
                 main.focus();
                 main.addEventListener('blur', () => main.removeAttribute('tabindex'), { once: true });
