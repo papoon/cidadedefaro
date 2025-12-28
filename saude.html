@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-          crossorigin=""/>
+          crossorigin="anonymous"/>
     <style>
         .service-card {
             background: white;
@@ -290,10 +290,10 @@
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""></script>
+            crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <script>
-        // Coordenadas dos serviços de saúde em Faro
+        // Coordenadas dos serviços de saúde em Faro (coordenadas aproximadas baseadas nas moradas)
         const servicosSaude = [
             {
                 nome: 'Hospital de Faro',
@@ -379,7 +379,7 @@
                             icone = iconeFarmacia;
                             break;
                         default:
-                            icone = null;
+                            icone = iconeCentro; // Use centro icon as default
                     }
 
                     const marcador = L.marker(servico.coordenadas, { icon: icone }).addTo(mapa);
