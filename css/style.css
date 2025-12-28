@@ -157,6 +157,89 @@ footer .data-sources {
     font-weight: 600;
 }
 
+/* ===================================
+   DADOS DO MUNICÍPIO (GEO API PT)
+   =================================== */
+
+.dados-faro-section {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.dados-municipio h3 {
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background: #f7fafc;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.info-label {
+    font-size: 0.875rem;
+    color: #718096;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.info-value {
+    font-size: 1.25rem;
+    color: #2d3748;
+    font-weight: 600;
+}
+
+.fonte-dados {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #a0aec0;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #718096;
+}
+
+.loading p {
+    font-size: 1.125rem;
+}
+
+.erro-dados {
+    text-align: center;
+    padding: 2rem;
+    color: #e53e3e;
+}
+
+.erro-dados p {
+    margin-bottom: 0.5rem;
+}
+
+/* ===================================
+   CARDS GRID
+   =================================== */
+
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -303,6 +386,19 @@ footer .data-sources {
     .hero p {
         font-size: 1rem;
     }
+
+    .dados-faro-section {
+        padding: 1.5rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .info-value {
+        font-size: 1.125rem;
+    }
     
     .cards-grid {
         grid-template-columns: 1fr;
@@ -356,6 +452,22 @@ footer .data-sources {
     
     .hero {
         padding: 1.5rem 0.75rem;
+    }
+
+    .dados-faro-section {
+        padding: 1rem;
+    }
+
+    .dados-municipio h3 {
+        font-size: 1.25rem;
+    }
+
+    .info-item {
+        padding: 0.75rem;
+    }
+
+    .info-value {
+        font-size: 1rem;
     }
     
     .card {

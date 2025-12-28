@@ -27,6 +27,10 @@
             <p>O seu guia completo para viver e visitar Faro. Encontre informações essenciais sobre transportes, saúde, ambiente e lazer na cidade.</p>
         </section>
 
+        <!-- Informações do Município via GEO API PT -->
+        <section id="dados-faro" class="dados-faro-section">
+        </section>
+
         <section class="cards-container">
             <h2>Explore as Secções</h2>
             <div class="cards-grid">
@@ -59,9 +63,16 @@
 
     <footer>
         <p>&copy; 2024 Guia de Faro</p>
-        <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal</p>
+        <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal, GEO API PT</p>
     </footer>
 
+    <script src="js/dados-api.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Carregar dados de Faro quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            exibirDadosFaro('dados-faro');
+        });
+    </script>
 </body>
 </html>
