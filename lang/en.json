@@ -1,0 +1,71 @@
+{
+  "site": {
+    "title": "Faro Guide",
+    "description": "Complete guide to living and visiting Faro - information about transport, health, environment and leisure in the city"
+  },
+  "nav": {
+    "home": "Home",
+    "transport": "Transport",
+    "health": "Health",
+    "environment": "Environment",
+    "leisure": "Leisure",
+    "restaurants": "Where to Eat",
+    "hotels": "Where to Stay",
+    "what_to_do": "What to do today",
+    "map": "Map",
+    "faq": "Common Issues",
+    "living": "Living in Faro",
+    "mobility": "Mobility",
+    "history": "History",
+    "premium": "📘 Premium Guide",
+    "favorites": "⭐ Favorites"
+  },
+  "home": {
+    "hero_title": "Welcome to Faro Practical Guide",
+    "hero_description": "Your complete guide to living and visiting Faro. Find essential information about transport, health, environment and leisure in the city.",
+    "premium_notice_label": "📘 New:",
+    "premium_notice_text": "Download the <a href=\"guia-premium.html\">Faro Premium Guide</a> with offline maps, transport tips and detailed events.",
+    "premium_notice_disclaimer": "Voluntary support • Website remains 100% free",
+    "sections_title": "Explore Sections",
+    "card_transport_title": "Transport",
+    "card_transport_desc": "Information about buses, trains and mobility in the city",
+    "card_health_title": "Health",
+    "card_health_desc": "Health centers, hospitals and medical services",
+    "card_environment_title": "Environment",
+    "card_environment_desc": "Sustainability, recycling and green spaces",
+    "card_leisure_title": "Leisure",
+    "card_leisure_desc": "Culture, tourism and leisure activities",
+    "card_restaurants_title": "Where to Eat",
+    "card_restaurants_desc": "Discover cafes, bakeries and restaurants in Faro",
+    "card_hotels_title": "Where to Stay",
+    "card_hotels_desc": "Hotels, hostels and accommodations in Faro",
+    "card_living_title": "Living in Faro",
+    "card_living_desc": "Essential guide for new residents in the city",
+    "card_faq_title": "Common Issues",
+    "card_faq_desc": "Learn how to solve common urban problems in the city",
+    "card_premium_title": "Premium Guide",
+    "card_premium_desc": "Detailed content with offline maps, transport and events (voluntary support)"
+  },
+  "footer": {
+    "copyright": "© 2024 Faro Guide",
+    "data_sources": "Data sources: Faro City Council, Citizen Portal, Tourism of Portugal, GEO API PT",
+    "donation_message": "Support this project voluntarily",
+    "donation_button": "Support the Project"
+  },
+  "pages": {
+    "transport_title": "Night Transport - Faro Guide",
+    "health_title": "Health - Faro Guide",
+    "environment_title": "Environment - Faro Guide",
+    "leisure_title": "Leisure - Faro Guide",
+    "restaurants_title": "Restaurants - Faro Guide",
+    "hotels_title": "Hotels - Faro Guide",
+    "living_title": "Living in Faro - Faro Guide",
+    "faq_title": "Common Issues - Faro Guide",
+    "mobility_title": "Mobility - Faro Guide",
+    "history_title": "History of Faro - Faro Guide",
+    "map_title": "Map - Faro Guide",
+    "what_to_do_title": "What to do today - Faro Guide",
+    "premium_title": "Premium Guide - Faro Guide",
+    "favorites_title": "Favorites - Faro Guide"
+  }
+}

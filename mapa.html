@@ -19,24 +19,32 @@
 </head>
 <body>
     <header role="banner">
-        <h1>Guia de Faro</h1>
+        <h1><span data-i18n="site.title">Guia de Faro</span></h1>
+        <div id="lang-switcher">
+            <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" aria-label="Mudar para Português">
+                🇵🇹 PT
+            </button>
+            <button data-lang="en" onclick="window.i18n.switchLanguage('en')" aria-label="Switch to English">
+                🇬🇧 EN
+            </button>
+        </div>
         <nav role="navigation" aria-label="Menu principal">
             <ul role="menubar">
-                <li role="none"><a href="index.html" role="menuitem">Início</a></li>
-                <li role="none"><a href="transportes.html" role="menuitem">Transportes</a></li>
-                <li role="none"><a href="saude.html" role="menuitem">Saúde</a></li>
-                <li role="none"><a href="ambiente.html" role="menuitem">Ambiente</a></li>
-                <li role="none"><a href="lazer.html" role="menuitem">Lazer</a></li>
-                <li role="none"><a href="restaurantes.html" role="menuitem">Onde Comer</a></li>
-                <li role="none"><a href="hoteis.html" role="menuitem">Onde Ficar</a></li>
-                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem">O que fazer hoje</a></li>
-                <li role="none"><a href="mapa.html" role="menuitem">Mapa</a></li>
-                <li role="none"><a href="problemas-frequentes.html" role="menuitem">Problemas Frequentes</a></li>
-                <li role="none"><a href="viver-em-faro.html" role="menuitem">Viver em Faro</a></li>
-                <li role="none"><a href="mobilidade.html" role="menuitem">Mobilidade</a></li>
-                <li role="none"><a href="historia-faro.html" role="menuitem">História</a></li>
-                <li role="none"><a href="guia-premium.html" role="menuitem">📘 Guia Premium</a></li>
-                <li role="none"><a href="favoritos.html" role="menuitem">⭐ Favoritos <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
+                <li role="none"><a href="index.html" role="menuitem"><span data-i18n="nav.home">Início</span></a></li>
+                <li role="none"><a href="transportes.html" role="menuitem"><span data-i18n="nav.transport">Transportes</span></a></li>
+                <li role="none"><a href="saude.html" role="menuitem"><span data-i18n="nav.health">Saúde</span></a></li>
+                <li role="none"><a href="ambiente.html" role="menuitem"><span data-i18n="nav.environment">Ambiente</span></a></li>
+                <li role="none"><a href="lazer.html" role="menuitem"><span data-i18n="nav.leisure">Lazer</span></a></li>
+                <li role="none"><a href="restaurantes.html" role="menuitem"><span data-i18n="nav.restaurants">Onde Comer</span></a></li>
+                <li role="none"><a href="hoteis.html" role="menuitem"><span data-i18n="nav.hotels">Onde Ficar</span></a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem"><span data-i18n="nav.what_to_do">O que fazer hoje</span></a></li>
+                <li role="none"><a href="mapa.html" role="menuitem"><span data-i18n="nav.map">Mapa</span></a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem"><span data-i18n="nav.faq">Problemas Frequentes</span></a></li>
+                <li role="none"><a href="viver-em-faro.html" role="menuitem"><span data-i18n="nav.living">Viver em Faro</span></a></li>
+                <li role="none"><a href="mobilidade.html" role="menuitem"><span data-i18n="nav.mobility">Mobilidade</span></a></li>
+                <li role="none"><a href="historia-faro.html" role="menuitem"><span data-i18n="nav.history">História</span></a></li>
+                <li role="none"><a href="guia-premium.html" role="menuitem"><span data-i18n="nav.premium">📘 Guia Premium</span></a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem"><span data-i18n="nav.favorites">⭐ Favoritos</span> <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
             </ul>
         </nav>
     </header>
@@ -86,6 +94,9 @@
             </a>
         </div>
     </footer>
+
+    <script src="js/i18n.js"></script>
+
 
     <script src="js/pwa.js"></script>
     <script src="js/accessibility.js"></script>
