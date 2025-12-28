@@ -30,6 +30,34 @@
     <main>
         <section id="mapa-section">
             <h2>Localização de Faro</h2>
+            
+            <!-- Controles de Serviços Próximos -->
+            <div id="servicos-controls">
+                <button id="btn-localizacao" class="btn btn-primary">
+                    📍 Serviços perto de mim
+                </button>
+                
+                <div id="filtros-servicos" style="display: none;">
+                    <h3>Filtrar serviços:</h3>
+                    <label class="filtro-checkbox">
+                        <input type="checkbox" id="filtro-farmacias" checked>
+                        <span class="filtro-icon">💊</span> Farmácias
+                    </label>
+                    <label class="filtro-checkbox">
+                        <input type="checkbox" id="filtro-hospitais" checked>
+                        <span class="filtro-icon">🏥</span> Hospitais
+                    </label>
+                    <label class="filtro-checkbox">
+                        <input type="checkbox" id="filtro-multibancos" checked>
+                        <span class="filtro-icon">🏧</span> Multibancos
+                    </label>
+                    <label class="filtro-checkbox">
+                        <input type="checkbox" id="filtro-supermercados" checked>
+                        <span class="filtro-icon">🛒</span> Supermercados
+                    </label>
+                </div>
+            </div>
+            
             <div id="mapa"></div>
         </section>
     </main>
