@@ -72,6 +72,7 @@ class FavoritesManager {
     /**
      * Remove item dos favoritos
      * @param {string} id - ID do item a remover
+     * @returns {boolean} True se removido com sucesso, false caso contrário
      */
     removeFavorite(id) {
         const initialLength = this.favorites.length;

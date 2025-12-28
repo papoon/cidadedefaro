@@ -229,7 +229,9 @@ class SearchManager {
      * @returns {string} Texto com destaque HTML
      */
     highlightMatch(text, searchTerm) {
-        const regex = new RegExp(`(${searchTerm})`, 'gi');
+        // Escape special regex characters to prevent RegExp errors
+        const escapedTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const regex = new RegExp(`(${escapedTerm})`, 'gi');
         return text.replace(regex, '<mark>$1</mark>');
     }
 
