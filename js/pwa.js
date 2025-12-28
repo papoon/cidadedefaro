@@ -9,10 +9,10 @@ if ('serviceWorker' in navigator) {
             .then((registration) => {
                 console.log('✓ Service Worker registrado com sucesso:', registration.scope);
                 
-                // Verificar atualizações periodicamente
+                // Verificar atualizações periodicamente (a cada 15 minutos)
                 setInterval(() => {
                     registration.update();
-                }, 60000); // A cada minuto
+                }, 900000); // A cada 15 minutos
                 
                 // Notificar usuário quando houver atualização
                 registration.addEventListener('updatefound', () => {
@@ -230,7 +230,9 @@ function mostrarNotificacao(mensagem, tipo = 'success') {
     setTimeout(() => {
         toast.style.animation = 'fadeOut 0.3s ease-out';
         setTimeout(() => {
-            document.body.removeChild(toast);
+            if (toast && toast.parentNode) {
+                toast.remove();
+            }
         }, 300);
     }, 3000);
 }

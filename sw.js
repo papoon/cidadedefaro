@@ -62,7 +62,7 @@ self.addEventListener('install', (event) => {
                 ...HTML_PAGES,
                 ...PAGE_SCRIPTS,
                 ...DATA_FILES
-            ].map(url => new Request(url, { cache: 'reload' })));
+            ]);
         }).then(() => {
             console.log('[Service Worker] Precache concluído');
             // Forçar ativação imediata
@@ -173,7 +173,9 @@ self.addEventListener('fetch', (event) => {
     }
     
     // Estratégia para Leaflet tiles - Cache First com duração longa
-    if (url.hostname.includes('tile.openstreetmap.org')) {
+    if (url.hostname === 'a.tile.openstreetmap.org' || 
+        url.hostname === 'b.tile.openstreetmap.org' || 
+        url.hostname === 'c.tile.openstreetmap.org') {
         event.respondWith(
             caches.match(request).then((cachedResponse) => {
                 if (cachedResponse) {
@@ -200,7 +202,7 @@ self.addEventListener('fetch', (event) => {
     }
     
     // Estratégia para CDN externo (Leaflet) - Cache First com fallback para network
-    if (url.hostname.includes('unpkg.com') || url.hostname.includes('cdnjs.cloudflare.com')) {
+    if (url.hostname === 'unpkg.com' || url.hostname === 'cdnjs.cloudflare.com') {
         event.respondWith(
             caches.match(request).then((cachedResponse) => {
                 if (cachedResponse) {
@@ -224,7 +226,7 @@ self.addEventListener('fetch', (event) => {
     }
     
     // Estratégia para APIs externas - Network Only (não cachear)
-    if (url.hostname.includes('overpass-api.de') || url.hostname.includes('api.')) {
+    if (url.hostname === 'overpass-api.de' || url.hostname.endsWith('.api.')) {
         event.respondWith(fetch(request));
         return;
     }
