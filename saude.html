@@ -5,6 +5,136 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saúde - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <style>
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .service-card .icon {
+            font-size: 2rem;
+        }
+        
+        .service-info {
+            margin-bottom: 1rem;
+        }
+        
+        .service-info p {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+        
+        .service-info strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .btn-maps {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+        }
+        
+        .btn-maps:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .emergency-item {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #e53e3e;
+            text-align: center;
+        }
+        
+        .emergency-item .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #e53e3e;
+            margin: 0.5rem 0;
+        }
+        
+        .emergency-item .label {
+            font-size: 0.875rem;
+            color: #718096;
+            font-weight: 600;
+        }
+        
+        .location-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .location-list li {
+            background: #f7fafc;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .location-list li strong {
+            display: block;
+            color: #2d3748;
+            margin-bottom: 0.25rem;
+        }
+        
+        #mapa-saude {
+            height: 400px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            margin-top: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.25rem;
+            }
+            
+            .emergency-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            #mapa-saude {
+                height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,16 +152,251 @@
     </header>
 
     <main>
-        <section>
-            <h2>Saúde</h2>
-            <p>Informações sobre saúde em Faro.</p>
+        <section class="hero">
+            <h2>Saúde e Serviços Essenciais</h2>
+            <p>Informações sobre hospitais, centros de saúde, farmácias e contactos de emergência em Faro.</p>
+        </section>
+
+        <!-- Hospital de Faro -->
+        <section class="service-card">
+            <h3><span class="icon">🏥</span>Hospital de Faro</h3>
+            <div class="service-info">
+                <p><strong>Nome:</strong> Centro Hospitalar Universitário do Algarve - Hospital de Faro</p>
+                <p><strong>Morada:</strong> Leão Penedo, 8000-386 Faro</p>
+                <p><strong>Telefone:</strong> 289 891 100</p>
+                <p><strong>Urgências:</strong> Disponível 24 horas</p>
+                <p><strong>Serviços:</strong> Urgências gerais, cirurgia, medicina interna, pediatria, obstetrícia, e outras especialidades</p>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=Centro+Hospitalar+Universitário+do+Algarve+Hospital+de+Faro" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-maps">📍 Ver no Google Maps</a>
+        </section>
+
+        <!-- Centros de Saúde -->
+        <section class="service-card">
+            <h3><span class="icon">🏢</span>Centros de Saúde</h3>
+            <div class="service-info">
+                <ul class="location-list">
+                    <li>
+                        <strong>Centro de Saúde de Faro</strong>
+                        Morada: Rua Leão Penedo, 8000-355 Faro<br>
+                        Telefone: 289 891 000<br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Centro+de+Saúde+de+Faro" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-maps">📍 Ver no Google Maps</a>
+                    </li>
+                    <li>
+                        <strong>USF Conde de Oeiras</strong>
+                        Morada: Avenida Dr. João Lúcio, Montenegro, 8000-503 Faro<br>
+                        Telefone: 289 803 200<br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=USF+Conde+de+Oeiras+Faro" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-maps">📍 Ver no Google Maps</a>
+                    </li>
+                    <li>
+                        <strong>USF Ria Formosa</strong>
+                        Morada: Rua Leão Penedo, 8000-355 Faro<br>
+                        Telefone: 289 803 100<br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=USF+Ria+Formosa+Faro" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-maps">📍 Ver no Google Maps</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Farmácias -->
+        <section class="service-card">
+            <h3><span class="icon">💊</span>Farmácias</h3>
+            <div class="service-info">
+                <p><strong>Informação:</strong> Existem várias farmácias em Faro, com serviço de rotatividade 24 horas.</p>
+                <ul class="location-list">
+                    <li>
+                        <strong>Farmácia Central de Faro</strong>
+                        Morada: Rua Dr. Francisco Gomes, 1, 8000-166 Faro<br>
+                        Telefone: 289 822 625<br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Farmácia+Central+de+Faro" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-maps">📍 Ver no Google Maps</a>
+                    </li>
+                    <li>
+                        <strong>Farmácia Barrocal</strong>
+                        Morada: Avenida 5 de Outubro, 24, 8000-076 Faro<br>
+                        Telefone: 289 822 001<br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Farmácia+Barrocal+Faro" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-maps">📍 Ver no Google Maps</a>
+                    </li>
+                    <li>
+                        <strong>Farmácia Estoi</strong>
+                        Morada: Largo da República, 8005-464 Estoi<br>
+                        Telefone: 289 991 101<br>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Farmácia+Estoi" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="btn-maps">📍 Ver no Google Maps</a>
+                    </li>
+                </ul>
+                <p><strong>Farmácias de Serviço:</strong> Para consultar a farmácia de serviço mais próxima, ligue para 
+                   <strong>Linha Saúde 24: 808 24 24 24</strong> ou consulte <a href="https://www.portaldasfarmacias.pt" target="_blank" rel="noopener noreferrer">www.portaldasfarmacias.pt</a></p>
+            </div>
+        </section>
+
+        <!-- Contactos de Emergência -->
+        <section class="service-card">
+            <h3><span class="icon">🚨</span>Contactos de Emergência</h3>
+            <div class="emergency-grid">
+                <div class="emergency-item">
+                    <div class="label">Emergência Geral</div>
+                    <div class="number">112</div>
+                </div>
+                <div class="emergency-item">
+                    <div class="label">Saúde 24</div>
+                    <div class="number">808 24 24 24</div>
+                </div>
+                <div class="emergency-item">
+                    <div class="label">Bombeiros de Faro</div>
+                    <div class="number">289 895 100</div>
+                </div>
+                <div class="emergency-item">
+                    <div class="label">Centro de Informação Antivenenos</div>
+                    <div class="number">800 250 250</div>
+                </div>
+            </div>
+            <div class="service-info" style="margin-top: 1.5rem;">
+                <p><strong>Nota importante:</strong> Em caso de emergência médica grave, ligue sempre para o <strong>112</strong>.</p>
+                <p>A <strong>Linha Saúde 24 (808 24 24 24)</strong> está disponível 24 horas para aconselhamento de saúde não urgente.</p>
+            </div>
+        </section>
+
+        <!-- Mapa com Localizações -->
+        <section class="service-card">
+            <h3><span class="icon">🗺️</span>Mapa de Serviços de Saúde</h3>
+            <p>Localização dos principais serviços de saúde em Faro:</p>
+            <div id="mapa-saude"></div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Guia de Faro</p>
+        <p class="data-sources">Fontes de dados: Centro Hospitalar Universitário do Algarve, SNS, Ordem dos Farmacêuticos</p>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
     <script src="js/main.js"></script>
+    <script>
+        // Coordenadas dos serviços de saúde em Faro
+        const servicosSaude = [
+            {
+                nome: 'Hospital de Faro',
+                coordenadas: [37.0195, -7.9357],
+                tipo: 'hospital',
+                descricao: 'Centro Hospitalar Universitário do Algarve - Urgências 24h'
+            },
+            {
+                nome: 'Centro de Saúde de Faro',
+                coordenadas: [37.0190, -7.9350],
+                tipo: 'centro',
+                descricao: 'Centro de Saúde Principal'
+            },
+            {
+                nome: 'USF Conde de Oeiras',
+                coordenadas: [37.0165, -7.9385],
+                tipo: 'centro',
+                descricao: 'Unidade de Saúde Familiar'
+            },
+            {
+                nome: 'Farmácia Central',
+                coordenadas: [37.0167, -7.9318],
+                tipo: 'farmacia',
+                descricao: 'Farmácia no centro de Faro'
+            }
+        ];
+
+        // Inicializar mapa quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            const mapaElemento = document.getElementById('mapa-saude');
+            
+            if (!mapaElemento) {
+                console.error('Elemento do mapa não encontrado');
+                return;
+            }
+
+            if (typeof L === 'undefined') {
+                console.error('Leaflet não carregado');
+                return;
+            }
+
+            try {
+                // Criar mapa centrado em Faro
+                const mapa = L.map('mapa-saude').setView([37.0194, -7.9322], 14);
+
+                // Adicionar camada de tiles
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                    maxZoom: 19,
+                    minZoom: 10
+                }).addTo(mapa);
+
+                // Ícones personalizados para diferentes tipos de serviços
+                const iconeHospital = L.divIcon({
+                    html: '<div style="font-size: 24px;">🏥</div>',
+                    className: 'custom-icon',
+                    iconSize: [32, 32]
+                });
+
+                const iconeCentro = L.divIcon({
+                    html: '<div style="font-size: 24px;">🏢</div>',
+                    className: 'custom-icon',
+                    iconSize: [32, 32]
+                });
+
+                const iconeFarmacia = L.divIcon({
+                    html: '<div style="font-size: 24px;">💊</div>',
+                    className: 'custom-icon',
+                    iconSize: [32, 32]
+                });
+
+                // Adicionar marcadores para cada serviço
+                servicosSaude.forEach(servico => {
+                    let icone;
+                    switch(servico.tipo) {
+                        case 'hospital':
+                            icone = iconeHospital;
+                            break;
+                        case 'centro':
+                            icone = iconeCentro;
+                            break;
+                        case 'farmacia':
+                            icone = iconeFarmacia;
+                            break;
+                        default:
+                            icone = null;
+                    }
+
+                    const marcador = L.marker(servico.coordenadas, { icon: icone }).addTo(mapa);
+                    
+                    marcador.bindPopup(`
+                        <div style="text-align: center;">
+                            <strong>${servico.nome}</strong><br>
+                            ${servico.descricao}
+                        </div>
+                    `);
+                });
+
+                console.log('Mapa de saúde inicializado com sucesso');
+            } catch (erro) {
+                console.error('Erro ao inicializar o mapa:', erro);
+            }
+        });
+    </script>
 </body>
 </html>
