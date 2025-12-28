@@ -117,6 +117,35 @@
             margin-top: 1rem;
         }
         
+        /* Show more functionality for pharmacies */
+        .farmacia-extra {
+            display: none;
+        }
+        
+        .farmacia-extra.show {
+            display: block;
+        }
+        
+        .btn-ver-mais {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #edf2f7;
+            color: #4a5568;
+            text-decoration: none;
+            border: 2px solid #cbd5e0;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+            text-align: center;
+        }
+        
+        .btn-ver-mais:hover {
+            background-color: #e2e8f0;
+            border-color: #a0aec0;
+        }
+        
         @media (max-width: 768px) {
             .service-card {
                 padding: 1.5rem;
@@ -260,7 +289,7 @@
                            rel="noopener noreferrer" 
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
-                    <li>
+                    <li class="farmacia-extra">
                         <strong>Farmácia Moderna</strong>
                         Morada: Rua do Pé da Cruz, 45, 8000-290 Faro<br>
                         Telefone: 289 823 088<br>
@@ -269,7 +298,7 @@
                            rel="noopener noreferrer" 
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
-                    <li>
+                    <li class="farmacia-extra">
                         <strong>Farmácia Algarve</strong>
                         Morada: Rua Conselheiro Bivar, 8000-255 Faro<br>
                         Telefone: 289 807 120<br>
@@ -278,7 +307,7 @@
                            rel="noopener noreferrer" 
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
-                    <li>
+                    <li class="farmacia-extra">
                         <strong>Farmácia São Brás</strong>
                         Morada: Rua de São Brás, 8000-426 Faro<br>
                         Telefone: 289 821 890<br>
@@ -287,7 +316,7 @@
                            rel="noopener noreferrer" 
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
-                    <li>
+                    <li class="farmacia-extra">
                         <strong>Farmácia Montenegro</strong>
                         Morada: Rua Dr. João Lúcio, Montenegro, 8000-503 Faro<br>
                         Telefone: 289 817 530<br>
@@ -296,7 +325,7 @@
                            rel="noopener noreferrer" 
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
-                    <li>
+                    <li class="farmacia-extra">
                         <strong>Farmácia Campina</strong>
                         Morada: Praça da Campina, 8000-157 Faro<br>
                         Telefone: 289 822 990<br>
@@ -305,7 +334,7 @@
                            rel="noopener noreferrer" 
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
-                    <li>
+                    <li class="farmacia-extra">
                         <strong>Farmácia Estoi</strong>
                         Morada: Largo da República, 8005-464 Estoi<br>
                         Telefone: 289 991 101<br>
@@ -314,7 +343,7 @@
                            rel="noopener noreferrer" 
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
-                    <li>
+                    <li class="farmacia-extra">
                         <strong>Farmácia Conceição</strong>
                         Morada: Largo de Nossa Senhora da Conceição, 8000-163 Faro<br>
                         Telefone: 289 826 890<br>
@@ -323,7 +352,7 @@
                            rel="noopener noreferrer" 
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
-                    <li>
+                    <li class="farmacia-extra">
                         <strong>Farmácia Fórum Algarve</strong>
                         Morada: Fórum Algarve Shopping, EN125, 8000-126 Faro<br>
                         Telefone: 289 889 350<br>
@@ -332,7 +361,7 @@
                            rel="noopener noreferrer" 
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
-                    <li>
+                    <li class="farmacia-extra">
                         <strong>Farmácia São Pedro</strong>
                         Morada: Rua de São Pedro, 8000-554 Faro<br>
                         Telefone: 289 823 450<br>
@@ -341,7 +370,7 @@
                            rel="noopener noreferrer" 
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
-                    <li>
+                    <li class="farmacia-extra">
                         <strong>Farmácia Popular de Faro</strong>
                         Morada: Rua Vasco da Gama, 8000-411 Faro<br>
                         Telefone: 289 822 340<br>
@@ -351,6 +380,7 @@
                            class="btn-maps">📍 Ver no Google Maps</a>
                     </li>
                 </ul>
+                <button id="btn-ver-mais-farmacias" class="btn-ver-mais" onclick="toggleFarmacias()">Ver mais farmácias</button>
                 <p><strong>Farmácias de Serviço:</strong> Para consultar a farmácia de serviço mais próxima, ligue para 
                    <strong>Linha Saúde 24: 808 24 24 24</strong> ou consulte <a href="https://www.portaldasfarmacias.pt" target="_blank" rel="noopener noreferrer">www.portaldasfarmacias.pt</a></p>
             </div>
@@ -401,6 +431,22 @@
             crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <script>
+        // Function to toggle pharmacy list visibility
+        function toggleFarmacias() {
+            const extraFarmacias = document.querySelectorAll('.farmacia-extra');
+            const btn = document.getElementById('btn-ver-mais-farmacias');
+            
+            extraFarmacias.forEach(farmacia => {
+                farmacia.classList.toggle('show');
+            });
+            
+            if (btn.textContent === 'Ver mais farmácias') {
+                btn.textContent = 'Ver menos farmácias';
+            } else {
+                btn.textContent = 'Ver mais farmácias';
+            }
+        }
+        
         // Coordenadas dos serviços de saúde em Faro (coordenadas aproximadas baseadas nas moradas)
         const servicosSaude = [
             {
