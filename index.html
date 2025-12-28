@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guia de Faro - Página Inicial</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
 </head>
 <body>
     <header>
@@ -54,6 +57,11 @@
                 </a>
             </div>
         </section>
+
+        <section id="mapa-section">
+            <h2>Localização de Faro</h2>
+            <div id="mapa"></div>
+        </section>
     </main>
 
     <footer>
@@ -61,6 +69,10 @@
         <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal</p>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
     <script src="js/main.js"></script>
+    <script src="js/mapa.js"></script>
 </body>
 </html>
