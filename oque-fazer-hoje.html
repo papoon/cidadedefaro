@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que fazer hoje em Faro - Guia de Faro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para a página "O que fazer hoje" */
+        
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 2px solid #e2e8f0;
+            background: white;
+            color: #4a5568;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: #667eea;
+        }
+        
+        .filter-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .filter-btn .icon {
+            font-size: 1.25rem;
+        }
+        
+        .activities-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .activity-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .activity-card.hidden {
+            display: none;
+        }
+        
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .activity-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .activity-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2d3748;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .activity-description {
+            color: #4a5568;
+            line-height: 1.6;
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .activity-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+        
+        .activity-tag {
+            padding: 0.25rem 0.75rem;
+            background: #edf2f7;
+            color: #4a5568;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        
+        .activity-tag.sol {
+            background: #fef3c7;
+            color: #92400e;
+        }
+        
+        .activity-tag.chuva {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+        
+        .activity-tag.familia {
+            background: #fce7f3;
+            color: #831843;
+        }
+        
+        .activity-tag.estudantes {
+            background: #d1fae5;
+            color: #065f46;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #718096;
+            font-size: 1.125rem;
+            grid-column: 1 / -1;
+        }
+        
+        .no-results.hidden {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .filter-container {
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .activities-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .activity-icon {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guia de Faro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="transportes.html">Transportes</a></li>
+                <li><a href="saude.html">Saúde</a></li>
+                <li><a href="ambiente.html">Ambiente</a></li>
+                <li><a href="lazer.html">Lazer</a></li>
+                <li><a href="oque-fazer-hoje.html">O que fazer hoje</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>O que fazer hoje em Faro</h2>
+            <p>Sugestões práticas e simples para aproveitar o dia em Faro. Filtre por categoria e encontre a atividade perfeita para si!</p>
+        </section>
+
+        <!-- Filtros -->
+        <section class="filter-container">
+            <button class="filter-btn active" data-filter="todos">
+                <span class="icon">✨</span>
+                <span>Todos</span>
+            </button>
+            <button class="filter-btn" data-filter="sol">
+                <span class="icon">🌤️</span>
+                <span>Dia de sol</span>
+            </button>
+            <button class="filter-btn" data-filter="chuva">
+                <span class="icon">🌧️</span>
+                <span>Dia de chuva</span>
+            </button>
+            <button class="filter-btn" data-filter="familia">
+                <span class="icon">👨‍👩‍👧‍👦</span>
+                <span>Família</span>
+            </button>
+            <button class="filter-btn" data-filter="estudantes">
+                <span class="icon">🎓</span>
+                <span>Estudantes</span>
+            </button>
+        </section>
+
+        <!-- Atividades -->
+        <section class="activities-container" id="activities">
+            <!-- Atividades de sol -->
+            <div class="activity-card" data-categories="sol,familia">
+                <div class="activity-icon">🏖️</div>
+                <h3 class="activity-title">Visitar as Praias da Ria Formosa</h3>
+                <p class="activity-description">Apanhe o barco no cais e descubra as ilhas paradisíacas de Faro. Praia de Faro, Ilha Deserta ou Culatra são opções perfeitas para um dia de sol.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag sol">☀️ Dia de sol</span>
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="sol,familia">
+                <div class="activity-icon">🚴</div>
+                <h3 class="activity-title">Ciclovias e Parques</h3>
+                <p class="activity-description">Explore o Parque Ribeirinho de Faro de bicicleta ou a pé. Vista deslumbrante sobre a Ria Formosa e a marina.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag sol">☀️ Dia de sol</span>
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="sol">
+                <div class="activity-icon">🦆</div>
+                <h3 class="activity-title">Centro de Educação Ambiental</h3>
+                <p class="activity-description">Visite a Quinta de Marim no Parque Natural da Ria Formosa. Trilhos pedestres e observação de aves num ambiente natural único.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag sol">☀️ Dia de sol</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="sol,familia">
+                <div class="activity-icon">⛴️</div>
+                <h3 class="activity-title">Passeio de Barco pela Ria</h3>
+                <p class="activity-description">Tours pela Ria Formosa com observação da fauna e flora. Passeios ao pôr do sol são especialmente bonitos.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag sol">☀️ Dia de sol</span>
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="sol,familia">
+                <div class="activity-icon">🏛️</div>
+                <h3 class="activity-title">Centro Histórico</h3>
+                <p class="activity-description">Passeie pelas ruas calcetadas do centro histórico, visite a Sé Catedral e suba ao Arco da Vila para uma vista panorâmica.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag sol">☀️ Dia de sol</span>
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="sol">
+                <div class="activity-icon">⛳</div>
+                <h3 class="activity-title">Golfe</h3>
+                <p class="activity-description">Aproveite os campos de golfe de classe mundial na Quinta do Lago e Vale do Lobo, próximos de Faro.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag sol">☀️ Dia de sol</span>
+                </div>
+            </div>
+
+            <!-- Atividades de chuva -->
+            <div class="activity-card" data-categories="chuva,familia">
+                <div class="activity-icon">🏛️</div>
+                <h3 class="activity-title">Museu Municipal de Faro</h3>
+                <p class="activity-description">Descubra a história de Faro no antigo Convento de Nossa Senhora da Assunção. Coleções de arqueologia e arte sacra.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag chuva">🌧️ Dia de chuva</span>
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="chuva,familia">
+                <div class="activity-icon">🔬</div>
+                <h3 class="activity-title">Centro Ciência Viva</h3>
+                <p class="activity-description">Espaço interativo dedicado à ciência. Perfeito para crianças e adultos curiosos explorarem exposições sobre o mar e astronomia.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag chuva">🌧️ Dia de chuva</span>
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="chuva,familia">
+                <div class="activity-icon">🎬</div>
+                <h3 class="activity-title">Cinema</h3>
+                <p class="activity-description">Veja as últimas estreias no cinema do Fórum Algarve. Várias salas com tecnologia 3D e IMAX.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag chuva">🌧️ Dia de chuva</span>
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="chuva">
+                <div class="activity-icon">🎭</div>
+                <h3 class="activity-title">Teatro das Figuras</h3>
+                <p class="activity-description">Assista a peças de teatro, concertos ou exposições no principal espaço cultural de Faro.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag chuva">🌧️ Dia de chuva</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="chuva,estudantes">
+                <div class="activity-icon">📚</div>
+                <h3 class="activity-title">Biblioteca Municipal</h3>
+                <p class="activity-description">Espaço moderno para ler, estudar ou usar a internet. Vasto acervo bibliográfico e salas de estudo.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag chuva">🌧️ Dia de chuva</span>
+                    <span class="activity-tag estudantes">🎓 Estudantes</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="chuva,familia">
+                <div class="activity-icon">🛍️</div>
+                <h3 class="activity-title">Fórum Algarve Shopping</h3>
+                <p class="activity-description">Centro comercial com lojas, restaurantes, cinema e zona de entretenimento. Perfeito para passar o dia em família.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag chuva">🌧️ Dia de chuva</span>
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="chuva">
+                <div class="activity-icon">💀</div>
+                <h3 class="activity-title">Capela dos Ossos</h3>
+                <p class="activity-description">Visite esta capela única decorada com ossos e caveiras. Uma experiência cultural e histórica singular.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag chuva">🌧️ Dia de chuva</span>
+                </div>
+            </div>
+
+            <!-- Atividades para família -->
+            <div class="activity-card" data-categories="familia">
+                <div class="activity-icon">🌳</div>
+                <h3 class="activity-title">Jardim Manuel Bivar</h3>
+                <p class="activity-description">Jardim histórico junto ao porto, perfeito para um piquenique ou simplesmente relaxar com a família.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="familia,sol">
+                <div class="activity-icon">🎪</div>
+                <h3 class="activity-title">Parque Infantil</h3>
+                <p class="activity-description">Parques infantis bem equipados no Parque Ribeirinho e em vários jardins da cidade.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag sol">☀️ Dia de sol</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="familia">
+                <div class="activity-icon">🍦</div>
+                <h3 class="activity-title">Passear pelo Porto</h3>
+                <p class="activity-description">Caminhe pela zona ribeirinha, aprecie a vista para a Ria Formosa e pare para um gelado numa esplanada.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag familia">👨‍👩‍👧‍👦 Família</span>
+                </div>
+            </div>
+
+            <!-- Atividades para estudantes -->
+            <div class="activity-card" data-categories="estudantes">
+                <div class="activity-icon">☕</div>
+                <h3 class="activity-title">Cafés e Espaços de Estudo</h3>
+                <p class="activity-description">Cafés com Wi-Fi e ambiente tranquilo para estudar. Zona da Baixa e próximo à Universidade do Algarve.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag estudantes">🎓 Estudantes</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="estudantes">
+                <div class="activity-icon">🎵</div>
+                <h3 class="activity-title">Vida Noturna</h3>
+                <p class="activity-description">Bares e discotecas na zona da Marina e Centro Histórico. Ambiente jovem e animado, especialmente ao fim de semana.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag estudantes">🎓 Estudantes</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="estudantes,sol">
+                <div class="activity-icon">🏃</div>
+                <h3 class="activity-title">Desporto ao Ar Livre</h3>
+                <p class="activity-description">Campos de futebol, basquetebol e instalações desportivas públicas. Zona desportiva de Montenegro e outros complexos.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag estudantes">🎓 Estudantes</span>
+                    <span class="activity-tag sol">☀️ Dia de sol</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="estudantes">
+                <div class="activity-icon">🍕</div>
+                <h3 class="activity-title">Restaurantes Económicos</h3>
+                <p class="activity-description">Restaurantes com menus económicos para estudantes. Várias opções perto da Universidade e no centro da cidade.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag estudantes">🎓 Estudantes</span>
+                </div>
+            </div>
+
+            <div class="activity-card" data-categories="estudantes,chuva">
+                <div class="activity-icon">🎮</div>
+                <h3 class="activity-title">Espaços de Gaming</h3>
+                <p class="activity-description">Cafés e espaços com consolas e jogos de tabuleiro. Ambiente descontraído para conviver com amigos.</p>
+                <div class="activity-tags">
+                    <span class="activity-tag estudantes">🎓 Estudantes</span>
+                    <span class="activity-tag chuva">🌧️ Dia de chuva</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="no-results hidden" id="no-results">
+            <p>😔 Nenhuma atividade encontrada para este filtro.</p>
+            <p>Tente selecionar outro tipo de atividade.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Guia de Faro</p>
+        <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Turismo do Algarve</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Script para filtros de atividades
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const activityCards = document.querySelectorAll('.activity-card');
+            const noResults = document.getElementById('no-results');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class de todos os botões
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Adiciona active class ao botão clicado
+                    this.classList.add('active');
+                    
+                    // Obtém o filtro selecionado
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Filtra as atividades
+                    let visibleCount = 0;
+                    activityCards.forEach(card => {
+                        const categories = card.getAttribute('data-categories');
+                        
+                        if (filter === 'todos' || categories.includes(filter)) {
+                            card.classList.remove('hidden');
+                            visibleCount++;
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                    
+                    // Mostra mensagem se não houver resultados
+                    if (visibleCount === 0) {
+                        noResults.classList.remove('hidden');
+                    } else {
+                        noResults.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
