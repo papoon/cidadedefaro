@@ -440,12 +440,16 @@ a {
     text-decoration-skip-ink: auto;
 }
 
-/* Garantir que elementos interativos tenham tamanho mínimo (WCAG) */
+/* Garantir que elementos interativos tenham tamanho mínimo adequado (WCAG) */
+/* Aplicado apenas a botões e elementos com papel de botão para evitar quebra de layout */
 button,
-a,
 input[type="submit"],
 input[type="button"],
+.btn,
 [role="button"] {
     min-height: 44px;
     min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }

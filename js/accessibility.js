@@ -202,6 +202,10 @@
             e.preventDefault();
             const main = document.querySelector('main');
             if (main) {
+                // Adicionar ID se não existir
+                if (!main.id) {
+                    main.id = 'main-content';
+                }
                 main.setAttribute('tabindex', '-1');
                 main.focus();
                 main.addEventListener('blur', () => main.removeAttribute('tabindex'), { once: true });
@@ -209,19 +213,17 @@
         });
         
         document.body.insertBefore(skipLink, document.body.firstChild);
-        
-        // Adicionar ID ao main se não existir
-        const main = document.querySelector('main');
-        if (main && !main.id) {
-            main.id = 'main-content';
-        }
     }
 
     // Configurar navegação por teclado
     function setupKeyboardNavigation() {
         // Atalhos de teclado globais
-        // Nota: Alt+A pode conflitar com alguns leitores de tela, mas é um compromisso
-        // razoável dado que a maioria dos leitores de tela modernos usa outras combinações
+        // NOTA IMPORTANTE: Alt+A pode conflitar com alguns leitores de tela ou funcionalidades
+        // do navegador. Se você usa tecnologia assistiva e este atalho causar problemas,
+        // pode sempre usar Tab para navegar até o botão de acessibilidade ou desabilitar
+        // os atalhos via configurações do seu leitor de tela.
+        // Escolhemos Alt+A por ser intuitivo (A de Acessibilidade), mas esteja ciente de
+        // possíveis conflitos com JAWS, NVDA ou outras ferramentas.
         document.addEventListener('keydown', (e) => {
             // Alt + A: Abrir menu de acessibilidade (case insensitive)
             if (e.altKey && e.key.toLowerCase() === 'a') {
