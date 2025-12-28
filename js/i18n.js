@@ -14,7 +14,7 @@ function initI18n() {
 // Load language file and apply translations
 async function loadLanguage(lang) {
     try {
-        const response = await fetch(`/lang/${lang}.json`);
+        const response = await fetch(`lang/${lang}.json`);
         if (!response.ok) {
             throw new Error(`Failed to load language file: ${lang}`);
         }
