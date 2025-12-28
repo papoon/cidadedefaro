@@ -185,6 +185,59 @@ footer p {
 }
 
 /* ===================================
+   BOTÃO DE DOAÇÕES
+   =================================== */
+
+.donation-container {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.donation-message {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-style: italic;
+    margin: 0;
+}
+
+.donation-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 0.875rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.donation-button:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.donation-button:focus {
+    outline: 3px solid #ffd54f;
+    outline-offset: 2px;
+}
+
+.donation-icon {
+    font-size: 1.125rem;
+}
+
+/* ===================================
    HERO SECTION
    =================================== */
 
@@ -634,6 +687,15 @@ footer p {
     footer {
         padding: 1rem;
         font-size: 0.9rem;
+    }
+
+    .donation-button {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.875rem;
+    }
+
+    .donation-icon {
+        font-size: 1rem;
     }
 
     #mapa-section {
