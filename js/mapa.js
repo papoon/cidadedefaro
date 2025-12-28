@@ -272,9 +272,11 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
                 const numero = elemento.tags?.['addr:housenumber'] || '';
                 
                 const marcador = L.marker([lat, lng], { 
-                    icon: icone,
-                    tipo: tipo // Armazenar tipo para filtragem
+                    icon: icone
                 }).addTo(grupoMarcadoresServicos);
+                
+                // Store service type as a custom property on the marker instance
+                marcador._serviceTipo = tipo;
 
                 // Criar conteúdo do popup
                 let popupContent = `
@@ -319,11 +321,17 @@ function atualizarServicosVisiveis() {
     };
 
     grupoMarcadoresServicos.eachLayer(function(marcador) {
-        const tipo = marcador.options.tipo;
+        // Use custom property attached to the marker instance
+        const tipo = marcador._serviceTipo;
         if (filtros[tipo]) {
-            marcador.addTo(mapa);
+            // Check if marker is not already on the map before adding
+            if (!mapa.hasLayer(marcador)) {
+                mapa.addLayer(marcador);
+            }
         } else {
-            mapa.removeLayer(marcador);
+            if (mapa.hasLayer(marcador)) {
+                mapa.removeLayer(marcador);
+            }
         }
     });
 }
