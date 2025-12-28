@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onde Comer em Faro - Guia de Faro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilos específicos para página de restaurantes */
+        
+        .search-filter-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-box {
+            margin-bottom: 2rem;
+        }
+
+        .search-box h3 {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .search-input-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input-container .search-icon {
+            position: absolute;
+            left: 1rem;
+            font-size: 1.25rem;
+            color: #718096;
+            pointer-events: none;
+        }
+
+        #search-restaurantes {
+            width: 100%;
+            padding: 0.875rem 3rem;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        #search-restaurantes:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        #clear-search {
+            position: absolute;
+            right: 0.75rem;
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            color: #718096;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+            display: none;
+        }
+
+        #clear-search:hover {
+            background-color: #f7fafc;
+            color: #2d3748;
+        }
+
+        .filters-section {
+            margin-top: 1.5rem;
+        }
+
+        .filters-section h3 {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .filter-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-group h4 {
+            font-size: 0.875rem;
+            color: #2d3748;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .filter-checkbox {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: #f7fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        .filter-checkbox:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+        }
+
+        .filter-checkbox input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+        }
+
+        .filter-checkbox input[type="checkbox"]:checked {
+            accent-color: #667eea;
+        }
+
+        .filter-actions {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        #clear-filters {
+            padding: 0.625rem 1.25rem;
+            background: #edf2f7;
+            color: #4a5568;
+            border: 1px solid #cbd5e0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        #clear-filters:hover {
+            background: #e2e8f0;
+            border-color: #a0aec0;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .results-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        #results-count {
+            font-size: 0.9rem;
+            color: #718096;
+            font-weight: 500;
+        }
+
+        .restaurantes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .restaurante-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .restaurante-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .restaurante-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .restaurante-icon {
+            font-size: 2rem;
+        }
+
+        .restaurante-tipo {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: #667eea;
+            color: white;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .destaque-badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: #fbbf24;
+            color: #78350f;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        .restaurante-nome {
+            font-size: 1.25rem;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .restaurante-info {
+            flex: 1;
+        }
+
+        .info-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #718096;
+            white-space: nowrap;
+        }
+
+        .info-value {
+            color: #4a5568;
+        }
+
+        .info-value.preco {
+            font-weight: 700;
+            color: #48bb78;
+        }
+
+        .restaurante-descricao {
+            margin: 1rem 0;
+            padding: 1rem;
+            background: #f7fafc;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .restaurante-descricao p {
+            font-size: 0.9rem;
+            color: #4a5568;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .restaurante-actions {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .btn-map {
+            display: inline-block;
+            padding: 0.625rem 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-map:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .no-results-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .no-results h3 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        .no-results p {
+            color: #718096;
+            font-size: 1rem;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .loading p {
+            font-size: 1.125rem;
+            color: #718096;
+        }
+
+        .error-message {
+            text-align: center;
+            padding: 3rem;
+            background: #fff5f5;
+            border: 2px solid #feb2b2;
+            border-radius: 12px;
+            color: #c53030;
+        }
+
+        .error-message p {
+            margin: 0.5rem 0;
+            font-size: 1rem;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .search-filter-section {
+                padding: 1.5rem;
+            }
+
+            .restaurantes-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .restaurante-card {
+                padding: 1.25rem;
+            }
+
+            .filter-options {
+                flex-direction: column;
+            }
+
+            .filter-checkbox {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .results-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .restaurante-icon {
+                font-size: 1.5rem;
+            }
+
+            .restaurante-nome {
+                font-size: 1.125rem;
+            }
+
+            .info-row {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .search-filter-section {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guia de Faro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="transportes.html">Transportes</a></li>
+                <li><a href="saude.html">Saúde</a></li>
+                <li><a href="ambiente.html">Ambiente</a></li>
+                <li><a href="lazer.html">Lazer</a></li>
+                <li><a href="restaurantes.html">Onde Comer</a></li>
+                <li><a href="oque-fazer-hoje.html">O que fazer hoje</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="problemas-frequentes.html">Problemas Frequentes</a></li>
+                <li><a href="viver-em-faro.html">Viver em Faro</a></li>
+                <li><a href="mobilidade.html">Mobilidade</a></li>
+                <li><a href="historia-faro.html">História</a></li>
+                <li><a href="favoritos.html">⭐ Favoritos <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Onde Comer em Faro</h2>
+            <p>Descubra os melhores cafés, pastelarias e restaurantes de Faro. Pesquise, filtre e encontre o local perfeito para comer ou tomar café na capital algarvia.</p>
+        </section>
+
+        <!-- Pesquisa e Filtros -->
+        <section class="search-filter-section">
+            <div class="search-box">
+                <h3>🔍 Pesquisar</h3>
+                <div class="search-input-container">
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                    <input 
+                        type="search" 
+                        id="search-restaurantes" 
+                        placeholder="Pesquisar por nome, descrição ou morada..."
+                        aria-label="Campo de pesquisa de restaurantes"
+                        autocomplete="off"
+                    />
+                    <button id="clear-search" title="Limpar pesquisa" aria-label="Limpar pesquisa">✕</button>
+                </div>
+            </div>
+
+            <div class="filters-section">
+                <h3>🎯 Filtros</h3>
+                
+                <div class="filter-group">
+                    <h4>Tipo</h4>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="tipo" value="Café" />
+                            <span>☕ Café</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="tipo" value="Pastelaria" />
+                            <span>🍰 Pastelaria</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="tipo" value="Restaurante" />
+                            <span>🍽️ Restaurante</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Categoria</h4>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="categoria" value="Tradicional" />
+                            <span>Tradicional</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="categoria" value="Vegetariano" />
+                            <span>Vegetariano</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="categoria" value="Take-away" />
+                            <span>Take-away</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="categoria" value="Marisqueira" />
+                            <span>Marisqueira</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="categoria" value="Fast-food" />
+                            <span>Fast-food</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Zona</h4>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="zona" value="Centro" />
+                            <span>Centro</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="zona" value="Baixa" />
+                            <span>Baixa</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="zona" value="Universidade" />
+                            <span>Universidade</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="zona" value="Praia" />
+                            <span>Praia</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <h4>Preço</h4>
+                    <div class="filter-options">
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="preco" value="€" />
+                            <span>€ (Económico)</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="preco" value="€€" />
+                            <span>€€ (Moderado)</span>
+                        </label>
+                        <label class="filter-checkbox">
+                            <input type="checkbox" data-filter-type="preco" value="€€€" />
+                            <span>€€€ (Premium)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-actions">
+                    <button id="clear-filters">🔄 Limpar Filtros</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resultados -->
+        <section>
+            <div class="results-header">
+                <h2>Estabelecimentos</h2>
+                <span id="results-count">Mostrando 0 de 0 estabelecimentos</span>
+            </div>
+            <div id="restaurantes-container">
+                <div class="loading">
+                    <p>A carregar estabelecimentos...</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Guia de Faro</p>
+        <p class="data-sources">Dados atualizados regularmente. Recomendamos confirmar horários e disponibilidade diretamente com os estabelecimentos.</p>
+    </footer>
+
+    <script src="js/favorites.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/restaurantes.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
