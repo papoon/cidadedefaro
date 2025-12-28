@@ -14,7 +14,7 @@ function inicializarMapa() {
     // Verifica se o elemento do mapa existe
     const mapaElemento = document.getElementById('mapa');
     if (!mapaElemento) {
-        console.log('Elemento do mapa não encontrado');
+        console.error('Elemento do mapa não encontrado');
         return;
     }
 
