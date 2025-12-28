@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobilidade & Cidade - Guia de Faro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    <style>
+        .simulator-container {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .simulator-container h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .location-selector {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .location-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .location-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .location-group label {
+            display: block;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .location-group select {
+            width: 100%;
+            padding: 0.75rem;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            background: white;
+            color: #4a5568;
+            cursor: pointer;
+            transition: border-color 0.2s ease;
+        }
+
+        .location-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .results-container {
+            display: none;
+            margin-top: 1.5rem;
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-card h4 {
+            color: #2d3748;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .result-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .result-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .result-label {
+            font-size: 0.875rem;
+            color: #718096;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .result-value {
+            font-size: 1.5rem;
+            color: #2d3748;
+            font-weight: 700;
+        }
+
+        .map-container {
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .parking-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .parking-section h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .parking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .parking-zone {
+            background: #f7fafc;
+            border-radius: 8px;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+        }
+
+        .parking-zone.paid {
+            border-left-color: #f59e0b;
+        }
+
+        .parking-zone.free {
+            border-left-color: #10b981;
+        }
+
+        .parking-zone h4 {
+            color: #2d3748;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .parking-zone ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .parking-zone ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        .parking-zone ul li:before {
+            content: "📍";
+            position: absolute;
+            left: 0;
+        }
+
+        .info-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-box h4 {
+            color: #2d3748;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-box p {
+            color: #78350f;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .info-box ul {
+            list-style: disc;
+            padding-left: 2rem;
+            margin-top: 0.5rem;
+        }
+
+        .info-box ul li {
+            color: #78350f;
+            margin: 0.5rem 0;
+        }
+
+        .schedule-box {
+            background: #e0e7ff;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+
+        .schedule-box h4 {
+            color: #2d3748;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .schedule-box p {
+            color: #312e81;
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .tips-box {
+            background: #d1fae5;
+            border-left: 4px solid #10b981;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .tips-box h4 {
+            color: #2d3748;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tips-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-box ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #064e3b;
+        }
+
+        .tips-box ul li:before {
+            content: "💡";
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .simulator-container,
+            .parking-section {
+                padding: 1.5rem;
+            }
+
+            .result-info {
+                grid-template-columns: 1fr;
+            }
+
+            .parking-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Guia de Faro</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="transportes.html">Transportes</a></li>
+                <li><a href="saude.html">Saúde</a></li>
+                <li><a href="ambiente.html">Ambiente</a></li>
+                <li><a href="lazer.html">Lazer</a></li>
+                <li><a href="oque-fazer-hoje.html">O que fazer hoje</a></li>
+                <li><a href="mapa.html">Mapa</a></li>
+                <li><a href="problemas-frequentes.html">Problemas Frequentes</a></li>
+                <li><a href="viver-em-faro.html">Viver em Faro</a></li>
+                <li><a href="mobilidade.html">Mobilidade</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Mobilidade & Cidade</h2>
+            <p>Descubra quanto tempo demora entre pontos da cidade e encontre as melhores zonas de estacionamento em Faro.</p>
+        </section>
+
+        <!-- Simulador de Tempo -->
+        <section class="simulator-container">
+            <h3>🚶‍♂️ Quanto tempo demoro até...</h3>
+            
+            <div class="location-selector">
+                <div class="location-group">
+                    <label for="origem">De onde:</label>
+                    <select id="origem">
+                        <option value="">Selecione o ponto de partida</option>
+                        <option value="centro">Centro Histórico (Arco da Vila)</option>
+                        <option value="estacao">Estação de Comboios</option>
+                        <option value="forum">Forum Algarve</option>
+                        <option value="aeroporto">Aeroporto de Faro</option>
+                        <option value="hospital">Hospital de Faro</option>
+                        <option value="universidade">Universidade do Algarve (Penha)</option>
+                        <option value="praia">Praia de Faro</option>
+                        <option value="marina">Marina de Faro</option>
+                    </select>
+                </div>
+
+                <div class="location-group">
+                    <label for="destino">Para onde:</label>
+                    <select id="destino">
+                        <option value="">Selecione o destino</option>
+                        <option value="centro">Centro Histórico (Arco da Vila)</option>
+                        <option value="estacao">Estação de Comboios</option>
+                        <option value="forum">Forum Algarve</option>
+                        <option value="aeroporto">Aeroporto de Faro</option>
+                        <option value="hospital">Hospital de Faro</option>
+                        <option value="universidade">Universidade do Algarve (Penha)</option>
+                        <option value="praia">Praia de Faro</option>
+                        <option value="marina">Marina de Faro</option>
+                    </select>
+                </div>
+
+                <button class="calculate-btn" id="btn-calcular">Calcular Tempo de Viagem</button>
+            </div>
+
+            <div id="results" class="results-container">
+                <div class="result-card">
+                    <h4>🚶‍♂️ A pé</h4>
+                    <div class="result-info">
+                        <div class="result-item">
+                            <div class="result-label">Tempo estimado</div>
+                            <div class="result-value" id="tempo-pe">--</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Distância</div>
+                            <div class="result-value" id="distancia-pe">--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-card">
+                    <h4>🚴‍♂️ De bicicleta</h4>
+                    <div class="result-info">
+                        <div class="result-item">
+                            <div class="result-label">Tempo estimado</div>
+                            <div class="result-value" id="tempo-bicicleta">--</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Distância</div>
+                            <div class="result-value" id="distancia-bicicleta">--</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mapa-rota" class="map-container"></div>
+            </div>
+        </section>
+
+        <!-- Zonas de Estacionamento -->
+        <section class="parking-section">
+            <h3>🅿️ Zonas de Estacionamento</h3>
+
+            <div class="parking-grid">
+                <!-- Zonas Pagas -->
+                <div class="parking-zone paid">
+                    <h4>💳 Zonas Pagas</h4>
+                    <ul>
+                        <li>Zona 1 (Centro Histórico): Rua de Santo António, Largo de São Francisco</li>
+                        <li>Zona 2 (Baixa): Rua Conselheiro Bivar, Praça D. Francisco Gomes</li>
+                        <li>Zona 3 (Avenidas): Avenida da República, Avenida 5 de Outubro</li>
+                        <li>Rua 1º de Dezembro</li>
+                        <li>Jardim Manuel Bivar (perímetro)</li>
+                    </ul>
+                </div>
+
+                <!-- Zonas Gratuitas -->
+                <div class="parking-zone free">
+                    <h4>✅ Zonas Gratuitas</h4>
+                    <ul>
+                        <li>Zona Ribeirinha (junto à Ria Formosa)</li>
+                        <li>Ruas residenciais fora do centro</li>
+                        <li>Estrada Nacional 125 (áreas permitidas)</li>
+                        <li>Zona Industrial (fins de semana)</li>
+                        <li>Praias (estacionamento livre no inverno)</li>
+                    </ul>
+                </div>
+
+                <!-- Parques Públicos -->
+                <div class="parking-zone">
+                    <h4>🏢 Parques Públicos</h4>
+                    <ul>
+                        <li>Parque de Estacionamento da Câmara Municipal</li>
+                        <li>Parque Forum Algarve (pago)</li>
+                        <li>Parque do Hospital de Faro</li>
+                        <li>Parque da Estação de Comboios</li>
+                        <li>Parque do Mercado Municipal</li>
+                        <li>Parque da Marina de Faro</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Horários de Pagamento -->
+            <div class="schedule-box">
+                <h4>🕐 Horários de Pagamento</h4>
+                <p><strong>Segunda a Sexta:</strong> 9h00 - 19h00</p>
+                <p><strong>Sábado:</strong> 9h00 - 13h00</p>
+                <p><strong>Domingo e Feriados:</strong> Gratuito</p>
+                <p><strong>Mês de Agosto:</strong> Horário alargado até às 21h00 (verificar sinalização local)</p>
+            </div>
+
+            <!-- Preços -->
+            <div class="info-box">
+                <h4>💰 Preços Indicativos</h4>
+                <ul>
+                    <li><strong>Zona 1 (Centro):</strong> €0,60/hora</li>
+                    <li><strong>Zona 2 (Baixa):</strong> €0,50/hora</li>
+                    <li><strong>Zona 3 (Avenidas):</strong> €0,40/hora</li>
+                    <li><strong>Parques cobertos:</strong> €0,50-€1,00/hora</li>
+                    <li><strong>Pagamento:</strong> Parquímetros (moedas e cartão) ou aplicação móvel "Emel Faro"</li>
+                </ul>
+                <p><strong>Nota:</strong> Preços podem variar. Consulte sempre a sinalização local.</p>
+            </div>
+
+            <!-- Dicas de Estacionamento -->
+            <div class="tips-box">
+                <h4>💡 Dicas de Estacionamento</h4>
+                <ul>
+                    <li>Utilize a aplicação móvel para pagamento - é mais conveniente</li>
+                    <li>Chegue cedo se precisar estacionar no centro (manhãs de segunda a sexta)</li>
+                    <li>Considere parques cobertos para estadias longas - são mais seguros</li>
+                    <li>Aos fins de semana, estacione na zona ribeirinha e caminhe até ao centro</li>
+                    <li>Respeite sempre as zonas de cargas e descargas (limitadas a 30 minutos)</li>
+                    <li>Lugares para pessoas com mobilidade reduzida requerem dístico válido</li>
+                    <li>Evite estacionar em frente a garagens ou entradas - pode ser multado</li>
+                    <li>No verão, utilize transportes públicos ou bicicleta para evitar procura de estacionamento</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Guia de Faro</p>
+        <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão</p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+    <script src="js/main.js"></script>
+    <script src="js/mobilidade.js"></script>
+</body>
+</html>
