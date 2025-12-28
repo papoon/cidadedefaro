@@ -5,29 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favoritos - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
 </head>
 <body>
-    <header>
+    <header role="banner">
         <h1>Guia de Faro</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="transportes.html">Transportes</a></li>
-                <li><a href="saude.html">Saúde</a></li>
-                <li><a href="ambiente.html">Ambiente</a></li>
-                <li><a href="lazer.html">Lazer</a></li>
-                <li><a href="oque-fazer-hoje.html">O que fazer hoje</a></li>
-                <li><a href="mapa.html">Mapa</a></li>
-                <li><a href="problemas-frequentes.html">Problemas Frequentes</a></li>
-                <li><a href="viver-em-faro.html">Viver em Faro</a></li>
-                <li><a href="mobilidade.html">Mobilidade</a></li>
-                <li><a href="historia-faro.html">História</a></li>
-                <li><a href="favoritos.html">⭐ Favoritos</a></li>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Início</a></li>
+                <li role="none"><a href="transportes.html" role="menuitem">Transportes</a></li>
+                <li role="none"><a href="saude.html" role="menuitem">Saúde</a></li>
+                <li role="none"><a href="ambiente.html" role="menuitem">Ambiente</a></li>
+                <li role="none"><a href="lazer.html" role="menuitem">Lazer</a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem">O que fazer hoje</a></li>
+                <li role="none"><a href="mapa.html" role="menuitem">Mapa</a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem">Problemas Frequentes</a></li>
+                <li role="none"><a href="viver-em-faro.html" role="menuitem">Viver em Faro</a></li>
+                <li role="none"><a href="mobilidade.html" role="menuitem">Mobilidade</a></li>
+                <li role="none"><a href="historia-faro.html" role="menuitem">História</a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem">⭐ Favoritos</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content" role="main">
         <section class="hero">
             <h2>⭐ Os Meus Favoritos</h2>
             <p>Aqui encontra todos os locais, serviços e páginas que guardou como favoritos para acesso rápido.</p>
@@ -47,11 +48,12 @@
         </section>
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <p>&copy; 2024 Guia de Faro</p>
         <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal, GEO API PT</p>
     </footer>
 
+    <script src="js/accessibility.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/search.js"></script>
     <script src="js/main.js"></script>

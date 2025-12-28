@@ -1,0 +1,542 @@
+/* ===================================
+   ACESSIBILIDADE - ESTILOS
+   =================================== */
+
+/* Screen reader only (visually hidden but accessible to screen readers) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* Skip link para navegação por teclado */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #667eea;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0 0 8px 0;
+    z-index: 10000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ===================================
+   BARRA DE FERRAMENTAS DE ACESSIBILIDADE
+   =================================== */
+
+.accessibility-toolbar {
+    position: fixed;
+    top: 20%;
+    right: 0;
+    z-index: 9999;
+}
+
+.accessibility-toggle {
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px 0 0 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.accessibility-toggle:hover,
+.accessibility-toggle:focus {
+    background: #5568d3;
+    padding-right: 1.25rem;
+}
+
+.accessibility-toggle:focus {
+    outline: 3px solid #fbbf24;
+    outline-offset: 2px;
+}
+
+.accessibility-menu {
+    position: absolute;
+    right: 100%;
+    top: 0;
+    background: white;
+    border-radius: 8px 0 0 8px;
+    box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.15);
+    padding: 1.5rem;
+    min-width: 300px;
+    max-width: 350px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(20px);
+    transition: all 0.3s ease;
+}
+
+.accessibility-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.accessibility-menu h3 {
+    color: #2d3748;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.accessibility-group {
+    margin-bottom: 1.5rem;
+}
+
+.accessibility-group label {
+    display: block;
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.accessibility-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.btn-accessibility {
+    background: #f7fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-accessibility:hover {
+    background: #edf2f7;
+    border-color: #667eea;
+    transform: translateY(-2px);
+}
+
+.btn-accessibility:focus {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+.btn-accessibility:active {
+    transform: translateY(0);
+}
+
+.btn-toggle {
+    flex: 1;
+    justify-content: center;
+}
+
+.btn-toggle[aria-checked="true"] {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.font-size-display {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    background: #edf2f7;
+    border-radius: 6px;
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.accessibility-info {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e2e8f0;
+}
+
+.accessibility-info p {
+    color: #718096;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.accessibility-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.accessibility-info li {
+    color: #718096;
+    font-size: 0.8rem;
+    padding: 0.25rem 0;
+    display: flex;
+    align-items: center;
+}
+
+.accessibility-info kbd {
+    background: #f7fafc;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    padding: 0.125rem 0.375rem;
+    font-size: 0.75rem;
+    font-family: monospace;
+    margin: 0 0.25rem;
+}
+
+/* ===================================
+   MODO DE ALTO CONTRASTE
+   =================================== */
+
+body.high-contrast {
+    background-color: #000;
+    color: #fff;
+}
+
+body.high-contrast header {
+    background: #000;
+    border-bottom: 3px solid #fff;
+}
+
+body.high-contrast nav a {
+    color: #fff;
+    border: 2px solid #fff;
+    margin: 0.25rem;
+}
+
+body.high-contrast nav a:hover,
+body.high-contrast nav a:focus,
+body.high-contrast nav a.active {
+    background-color: #fff;
+    color: #000;
+}
+
+body.high-contrast main {
+    background-color: #000;
+}
+
+body.high-contrast .hero,
+body.high-contrast .card,
+body.high-contrast .dados-faro-section,
+body.high-contrast section,
+body.high-contrast .search-filter-section,
+body.high-contrast .info-item {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6,
+body.high-contrast p,
+body.high-contrast a,
+body.high-contrast li,
+body.high-contrast label,
+body.high-contrast .info-label,
+body.high-contrast .info-value,
+body.high-contrast .card p {
+    color: #fff;
+}
+
+body.high-contrast a:hover,
+body.high-contrast a:focus {
+    color: #ffff00;
+    text-decoration: underline;
+}
+
+body.high-contrast .card:hover {
+    background-color: #1a1a1a;
+    border-color: #ffff00;
+}
+
+body.high-contrast .btn,
+body.high-contrast .btn-primary,
+body.high-contrast button {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .btn:hover,
+body.high-contrast .btn:focus,
+body.high-contrast button:hover,
+body.high-contrast button:focus {
+    background-color: #ffff00;
+    color: #000;
+    border-color: #ffff00;
+}
+
+body.high-contrast footer {
+    background: #000;
+    border-top: 3px solid #fff;
+}
+
+body.high-contrast .search-input,
+body.high-contrast input,
+body.high-contrast select,
+body.high-contrast textarea {
+    background-color: #000;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .search-input:focus,
+body.high-contrast input:focus,
+body.high-contrast select:focus,
+body.high-contrast textarea:focus {
+    border-color: #ffff00;
+    outline: 3px solid #ffff00;
+}
+
+/* Alto contraste - Barra de Acessibilidade */
+body.high-contrast .accessibility-toolbar {
+    background: #000;
+}
+
+body.high-contrast .accessibility-toggle {
+    background: #fff;
+    color: #000;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .accessibility-toggle:hover,
+body.high-contrast .accessibility-toggle:focus {
+    background: #ffff00;
+    color: #000;
+    border-color: #ffff00;
+}
+
+body.high-contrast .accessibility-menu {
+    background: #000;
+    border: 3px solid #fff;
+}
+
+body.high-contrast .accessibility-menu h3 {
+    color: #fff;
+    border-bottom-color: #fff;
+}
+
+body.high-contrast .accessibility-group label {
+    color: #fff;
+}
+
+body.high-contrast .btn-accessibility {
+    background: #000;
+    color: #fff;
+    border-color: #fff;
+}
+
+body.high-contrast .btn-accessibility:hover,
+body.high-contrast .btn-accessibility:focus {
+    background: #ffff00;
+    color: #000;
+    border-color: #ffff00;
+}
+
+body.high-contrast .btn-toggle[aria-checked="true"] {
+    background: #ffff00;
+    color: #000;
+    border-color: #ffff00;
+}
+
+body.high-contrast .font-size-display {
+    background: #000;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+body.high-contrast .accessibility-info {
+    border-top-color: #fff;
+}
+
+body.high-contrast .accessibility-info p,
+body.high-contrast .accessibility-info li {
+    color: #fff;
+}
+
+body.high-contrast .accessibility-info kbd {
+    background: #000;
+    color: #fff;
+    border-color: #fff;
+}
+
+/* ===================================
+   MELHORIAS DE FOCO PARA NAVEGAÇÃO POR TECLADO
+   =================================== */
+
+body.keyboard-navigation a:focus,
+body.keyboard-navigation button:focus,
+body.keyboard-navigation input:focus,
+body.keyboard-navigation select:focus,
+body.keyboard-navigation textarea:focus,
+body.keyboard-navigation [tabindex]:focus,
+body.keyboard-navigation [role="button"]:focus,
+body.keyboard-navigation [role="menuitem"]:focus {
+    outline: 3px solid #667eea;
+    outline-offset: 2px;
+}
+
+body.high-contrast.keyboard-navigation a:focus,
+body.high-contrast.keyboard-navigation button:focus,
+body.high-contrast.keyboard-navigation input:focus,
+body.high-contrast.keyboard-navigation select:focus,
+body.high-contrast.keyboard-navigation textarea:focus,
+body.high-contrast.keyboard-navigation [tabindex]:focus,
+body.high-contrast.keyboard-navigation [role="button"]:focus,
+body.high-contrast.keyboard-navigation [role="menuitem"]:focus {
+    outline: 3px solid #ffff00;
+    outline-offset: 2px;
+}
+
+/* Melhorar contraste de texto */
+body a {
+    color: #5568d3;
+}
+
+body a:hover {
+    color: #667eea;
+}
+
+/* Garantir contraste mínimo nos cards */
+.card h3 {
+    color: #1a202c;
+}
+
+.card p {
+    color: #4a5568;
+}
+
+/* ===================================
+   RESPONSIVO - ACESSIBILIDADE
+   =================================== */
+
+@media (max-width: 768px) {
+    .accessibility-toolbar {
+        top: auto;
+        bottom: 1rem;
+        right: 0;
+    }
+    
+    .accessibility-menu {
+        bottom: 100%;
+        top: auto;
+        right: 0;
+        border-radius: 8px 8px 0 0;
+        max-width: calc(100vw - 2rem);
+    }
+    
+    .accessibility-menu.show {
+        transform: translateY(0);
+    }
+    
+    .accessibility-toggle {
+        border-radius: 8px 0 0 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .accessibility-menu {
+        padding: 1rem;
+        min-width: 280px;
+    }
+    
+    .accessibility-menu h3 {
+        font-size: 1rem;
+    }
+    
+    .btn-accessibility {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.9rem;
+    }
+    
+    .accessibility-info {
+        font-size: 0.75rem;
+    }
+}
+
+/* ===================================
+   MELHORIAS DE LEITURA
+   =================================== */
+
+/* Melhorar espaçamento de linha para leitura */
+body {
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.3;
+}
+
+p {
+    max-width: 75ch;
+    margin-bottom: 1em;
+}
+
+/* Garantir que listas sejam legíveis */
+ul, ol {
+    padding-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.5em;
+}
+
+/* Melhorar legibilidade de links */
+a {
+    text-decoration-skip-ink: auto;
+}
+
+/* Garantir que elementos interativos tenham tamanho mínimo adequado (WCAG AA - 2.5.5) */
+/* Aplicado cuidadosamente para não quebrar layouts existentes */
+button:not(.inline),
+input[type="submit"],
+input[type="button"],
+input[type="checkbox"],
+input[type="radio"],
+.btn,
+.btn-favorite,
+.btn-accessibility,
+[role="button"]:not(a) {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Links de navegação e cards já têm tamanho adequado via padding no CSS principal */
+/* Botões específicos da acessibilidade usam inline-flex para alinhamento */
+.btn-accessibility,
+.btn-favorite,
+.accessibility-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
