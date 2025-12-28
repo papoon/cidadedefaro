@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="description" content="Guia Premium de Faro - Conteúdo detalhado com mapas offline, dicas de transporte e eventos">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Guia Faro">
+    
+    <title>Guia Premium - Guia de Faro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <style>
+        .premium-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .premium-hero h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .premium-hero .icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .premium-hero p {
+            font-size: 1.125rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        
+        .premium-content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .premium-content h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .feature-card {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .feature-card h4 {
+            color: #2d3748;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card p {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .download-section h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        
+        .download-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .download-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background-color: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1.125rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .download-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .download-button:focus {
+            outline: 3px solid #ffd54f;
+            outline-offset: 3px;
+        }
+        
+        .download-button .icon {
+            font-size: 1.5rem;
+        }
+        
+        .transparency-notice {
+            background: #edf2f7;
+            border-left: 4px solid #48bb78;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .transparency-notice h4 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .transparency-notice h4 .icon {
+            font-size: 1.5rem;
+        }
+        
+        .transparency-notice ul {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        
+        .transparency-notice li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .transparency-notice li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+        
+        .content-preview {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .content-preview h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .content-list li {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: #f7fafc;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .content-list li .icon {
+            color: #667eea;
+            font-size: 1.25rem;
+        }
+        
+        .voluntary-support {
+            background: #fff5e6;
+            border-left: 4px solid #f6ad55;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .voluntary-support h4 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .voluntary-support h4 .icon {
+            font-size: 1.5rem;
+        }
+        
+        .voluntary-support p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <h1>Guia de Faro</h1>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Início</a></li>
+                <li role="none"><a href="transportes.html" role="menuitem">Transportes</a></li>
+                <li role="none"><a href="saude.html" role="menuitem">Saúde</a></li>
+                <li role="none"><a href="ambiente.html" role="menuitem">Ambiente</a></li>
+                <li role="none"><a href="lazer.html" role="menuitem">Lazer</a></li>
+                <li role="none"><a href="restaurantes.html" role="menuitem">Onde Comer</a></li>
+                <li role="none"><a href="hoteis.html" role="menuitem">Onde Ficar</a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem">O que fazer hoje</a></li>
+                <li role="none"><a href="mapa.html" role="menuitem">Mapa</a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem">Problemas Frequentes</a></li>
+                <li role="none"><a href="viver-em-faro.html" role="menuitem">Viver em Faro</a></li>
+                <li role="none"><a href="mobilidade.html" role="menuitem">Mobilidade</a></li>
+                <li role="none"><a href="historia-faro.html" role="menuitem">História</a></li>
+                <li role="none"><a href="guia-premium.html" role="menuitem" aria-current="page">📘 Guia Premium</a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem">⭐ Favoritos <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <div class="premium-hero">
+            <div class="icon" role="img" aria-label="Ícone de livro">📘</div>
+            <h2>Guia Premium de Faro</h2>
+            <p>Conteúdo Complementar Detalhado com Mapas Offline, Dicas de Transporte, Eventos e Muito Mais</p>
+        </div>
+
+        <div class="transparency-notice">
+            <h4><span class="icon" role="img" aria-label="Ícone de verificação">✅</span>Transparência Total</h4>
+            <ul>
+                <li>Todo o conteúdo do site continua <strong>100% gratuito e acessível</strong></li>
+                <li>O Guia Premium é um <strong>conteúdo complementar opcional</strong></li>
+                <li>Apoio completamente <strong>voluntário</strong> para quem desejar contribuir</li>
+                <li>Não há conteúdo bloqueado - o site permanece gratuito para todos</li>
+            </ul>
+        </div>
+
+        <div class="premium-content">
+            <h3><span class="icon" role="img" aria-label="Ícone de estrela">⭐</span>O que está incluído no Guia Premium?</h3>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="icon" role="img" aria-label="Ícone de mapa">🗺️</span>
+                    <h4>Mapas Offline</h4>
+                    <p>Coordenadas GPS de pontos importantes, zonas da cidade detalhadas e orientação para usar sem internet</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="icon" role="img" aria-label="Ícone de autocarro">🚌</span>
+                    <h4>Transportes Detalhados</h4>
+                    <p>Linhas de autocarros completas, horários, tarifários atualizados, dicas de comboios e táxis</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="icon" role="img" aria-label="Ícone de calendário">📅</span>
+                    <h4>Eventos e Festividades</h4>
+                    <p>Calendário completo de eventos anuais, festividades locais, vida cultural e entretenimento</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="icon" role="img" aria-label="Ícone de garfo e faca">🍽️</span>
+                    <h4>Gastronomia Local</h4>
+                    <p>Pratos típicos detalhados, restaurantes recomendados, mercados locais e frases úteis em português</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="icon" role="img" aria-label="Ícone de hotel">🏨</span>
+                    <h4>Guia de Alojamento</h4>
+                    <p>Comparação de opções por categoria, preços médios e dicas práticas para reservas</p>
+                </div>
+                
+                <div class="feature-card">
+                    <span class="icon" role="img" aria-label="Ícone de telefone">📞</span>
+                    <h4>Contactos Essenciais</h4>
+                    <p>Lista completa de emergências, serviços públicos, embaixadas e contactos úteis</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-preview">
+            <h3>Conteúdo do PDF (Todas as 11 Secções)</h3>
+            <ul class="content-list">
+                <li><span class="icon">📖</span> 1. Introdução ao Guia de Faro</li>
+                <li><span class="icon">🗺️</span> 2. Mapas Offline e Orientação (coordenadas GPS, zonas)</li>
+                <li><span class="icon">🚌</span> 3. Transportes Detalhados (autocarros, comboios, táxis)</li>
+                <li><span class="icon">🎉</span> 4. Eventos e Festividades (calendário anual completo)</li>
+                <li><span class="icon">🍽️</span> 5. Gastronomia Local (pratos típicos, restaurantes)</li>
+                <li><span class="icon">🏨</span> 6. Alojamento (por categoria e preços)</li>
+                <li><span class="icon">🏥</span> 7. Saúde e Emergências (contactos, farmácias)</li>
+                <li><span class="icon">🌙</span> 8. Vida Noturna e Entretenimento</li>
+                <li><span class="icon">🛍️</span> 9. Compras e Mercados (centros comerciais, supermercados)</li>
+                <li><span class="icon">💡</span> 10. Dicas Práticas Essenciais (idioma, moeda, clima)</li>
+                <li><span class="icon">📞</span> 11. Contactos Úteis (serviços, embaixadas)</li>
+            </ul>
+        </div>
+
+        <div class="voluntary-support">
+            <h4><span class="icon" role="img" aria-label="Ícone de coração">❤️</span>Apoio Voluntário</h4>
+            <p>Este guia premium foi criado como forma de oferecer conteúdo adicional para quem desejar apoiar o projeto Guia de Faro.</p>
+            <p>O pagamento é <strong>completamente voluntário</strong> e simbólico. Todo o apoio ajuda a manter o site gratuito ativo e a criar mais conteúdo útil para a comunidade.</p>
+            <p>Se preferir, pode apoiar o projeto através de uma doação direta no link "Apoiar o Projeto" no rodapé do site.</p>
+        </div>
+
+        <div class="download-section">
+            <h3>Descarregue o Guia Premium</h3>
+            <p>PDF de 20KB com 11 secções detalhadas sobre Faro. Apoio voluntário para ajudar a manter o projeto.</p>
+            <a href="guia-premium-faro.pdf" download class="download-button" aria-label="Descarregar Guia Premium de Faro em PDF">
+                <span class="icon" role="img" aria-label="Ícone de download">📥</span>
+                <span>Descarregar PDF Gratuito</span>
+            </a>
+            <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9;">
+                Caso deseje contribuir voluntariamente, pode fazê-lo através do botão "Apoiar o Projeto" no rodapé.
+            </p>
+        </div>
+
+        <div class="premium-content">
+            <h3><span class="icon" role="img" aria-label="Ícone de pergunta">❓</span>Perguntas Frequentes</h3>
+            
+            <div class="transparency-notice" style="background: #f7fafc; border-left-color: #667eea;">
+                <h4 style="margin-top: 0;">O site gratuito continua disponível?</h4>
+                <p style="margin-bottom: 0;"><strong>Sim!</strong> Todo o conteúdo do site GuiadeFaro.pt continua 100% gratuito e acessível. O Guia Premium é apenas um complemento opcional.</p>
+            </div>
+            
+            <div class="transparency-notice" style="background: #f7fafc; border-left-color: #667eea;">
+                <h4 style="margin-top: 0;">Tenho de pagar para aceder ao site?</h4>
+                <p style="margin-bottom: 0;"><strong>Não!</strong> O site é totalmente gratuito. O Guia Premium é opcional e o apoio é voluntário.</p>
+            </div>
+            
+            <div class="transparency-notice" style="background: #f7fafc; border-left-color: #667eea;">
+                <h4 style="margin-top: 0;">Como posso usar o guia offline?</h4>
+                <p style="margin-bottom: 0;">Descarregue o PDF para o seu dispositivo e terá acesso a todas as informações sem necessidade de internet.</p>
+            </div>
+            
+            <div class="transparency-notice" style="background: #f7fafc; border-left-color: #667eea;">
+                <h4 style="margin-top: 0;">O conteúdo é atualizado?</h4>
+                <p style="margin-bottom: 0;">Sim, o guia é atualizado regularmente com informações precisas sobre Faro. Esta edição é de 2024.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2024 Guia de Faro</p>
+        <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal, GEO API PT</p>
+        <div class="donation-container">
+            <p class="donation-message">Apoie este projeto de forma voluntária</p>
+            <a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" class="donation-button" aria-label="Apoiar o projeto com uma doação voluntária">
+                <span class="donation-icon" role="img" aria-label="Ícone de café">☕</span>
+                <span>Apoiar o Projeto</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/pwa.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
