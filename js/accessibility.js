@@ -220,9 +220,11 @@
     // Configurar navegação por teclado
     function setupKeyboardNavigation() {
         // Atalhos de teclado globais
+        // Nota: Alt+A pode conflitar com alguns leitores de tela, mas é um compromisso
+        // razoável dado que a maioria dos leitores de tela modernos usa outras combinações
         document.addEventListener('keydown', (e) => {
-            // Alt + A: Abrir menu de acessibilidade
-            if (e.altKey && e.key === 'a') {
+            // Alt + A: Abrir menu de acessibilidade (case insensitive)
+            if (e.altKey && e.key.toLowerCase() === 'a') {
                 e.preventDefault();
                 const toggleBtn = document.querySelector('.accessibility-toggle');
                 const menu = document.querySelector('.accessibility-menu');
@@ -243,8 +245,8 @@
                 adjustFontSize(-10);
             }
             
-            // Alt + C: Toggle contraste
-            if (e.altKey && e.key === 'c') {
+            // Alt + C: Toggle contraste (case insensitive)
+            if (e.altKey && e.key.toLowerCase() === 'c') {
                 e.preventDefault();
                 toggleHighContrast();
             }
