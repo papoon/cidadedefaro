@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const href = link.getAttribute('href');
         if (href === currentPage || (currentPage === '' && href === 'index.html')) {
             link.classList.add('active');
+            // também definir aria-current para melhoria de acessibilidade
+            try { link.setAttribute('aria-current', 'page'); } catch (e) { /* ignore */ }
         }
     });
 });

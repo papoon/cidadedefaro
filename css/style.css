@@ -53,22 +53,83 @@ nav ul {
 }
 
 nav a {
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 6px;
-    transition: all 0.3s ease;
-    font-weight: 500;
+    transition: all 0.2s ease;
+    font-weight: 600;
     display: block;
+    /* improve legibility on gradient backgrounds */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.45);
 }
 
 nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.18);
     transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
-nav a.active {
-    background-color: rgba(255, 255, 255, 0.25);
+nav a.active,
+nav a[aria-current="page"] {
+    /* stronger, high-contrast selected state */
+    background-color: rgba(0,0,0,0.36);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transform: translateY(-1px);
+}
+
+/* keyboard focus visible */
+nav a:focus,
+nav a:focus-visible {
+    outline: 3px solid #ffd54f; /* warm yellow ring for strong visibility */
+    outline-offset: 2px;
+    background-color: rgba(0,0,0,0.28);
+}
+
+/* --- stronger contrast variant: make nav items pill-like over the gradient --- */
+nav ul {
+    /* give nav items a subtle contrasting bar against the header */
+    align-items: center;
+}
+
+/* default pills (slightly dark) so white text reads reliably across the gradient) */
+nav a {
+    /* stronger default pill so white text contrasts across the gradient */
+    background-color: rgba(0,0,0,0.28);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.45);
+}
+
+nav a:hover {
+    background-color: rgba(0,0,0,0.42);
+}
+
+/* selected / current page: high contrast yellow with black text */
+nav a.active,
+nav a[aria-current="page"] {
+    background-color: #ffd54f;
+    color: #000000;
+    text-shadow: none;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    border-color: rgba(0,0,0,0.08);
+    font-weight: 700;
+}
+
+nav a:focus,
+nav a:focus-visible {
+    /* keep focus visible but keep white text for non-selected items */
+    color: #ffffff;
+    background-color: rgba(0,0,0,0.42);
+    outline: 3px solid #ffd54f;
+    outline-offset: 2px;
+}
+
+/* explicitly target non-selected items to ensure strong text contrast */
+nav a:not(.active):not([aria-current="page"]) {
+    color: #ffffff; /* explicit white */
+    font-weight: 700; /* bolder for legibility */
+    letter-spacing: 0.01em;
 }
 
 /* ===================================
@@ -101,6 +162,11 @@ section h2 {
 footer {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
+    /* center footer content horizontally and vertically and stack items */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     padding: 1.5rem;
     width: 100%;
@@ -111,6 +177,11 @@ footer .data-sources {
     font-size: 0.875rem;
     margin-top: 0.5rem;
     opacity: 0.9;
+}
+
+footer p {
+    margin: 0.25rem 0;
+    max-width: 1100px; /* keep lines readable on very wide screens */
 }
 
 /* ===================================
