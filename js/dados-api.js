@@ -75,26 +75,33 @@ async function exibirDadosFaro(elementoId) {
     const dados = await buscarDadosFaro();
     
     if (dados) {
-        // Exibir dados com sucesso
+        // Função auxiliar para escapar HTML e prevenir XSS
+        const escapeHtml = (text) => {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        };
+        
+        // Exibir dados com sucesso (com sanitização)
         elemento.innerHTML = `
             <div class="dados-municipio">
                 <h3>📍 Informações do Município</h3>
                 <div class="info-grid">
                     <div class="info-item">
                         <span class="info-label">Município:</span>
-                        <span class="info-value">${dados.nome}</span>
+                        <span class="info-value">${escapeHtml(String(dados.nome))}</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Distrito:</span>
-                        <span class="info-value">${dados.distrito}</span>
+                        <span class="info-value">${escapeHtml(String(dados.distrito))}</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">População:</span>
-                        <span class="info-value">${dados.populacao}</span>
+                        <span class="info-value">${escapeHtml(String(dados.populacao))}</span>
                     </div>
                     <div class="info-item">
                         <span class="info-label">Área:</span>
-                        <span class="info-value">${dados.area}</span>
+                        <span class="info-value">${escapeHtml(String(dados.area))}</span>
                     </div>
                 </div>
                 <p class="fonte-dados">Fonte: GEO API PT</p>
