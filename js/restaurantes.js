@@ -156,7 +156,7 @@ function renderRestaurantes(restaurantes, container) {
         const destaque = rest.destaque ? `<span class="destaque-badge">${rest.destaque}</span>` : '';
         
         html += `
-            <div class="restaurante-card" data-id="${rest.id}">
+            <div class="restaurante-card" id="${rest.id}" data-id="${rest.id}">
                 <div class="restaurante-header">
                     <div class="restaurante-icon" role="img" aria-label="Ícone ${rest.tipo}">${icon}</div>
                     <div class="restaurante-tipo">${rest.tipo}</div>
