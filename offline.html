@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modo Offline - Guia de Faro</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <style>
+        .offline-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .offline-icon {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .offline-container h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        
+        .offline-container p {
+            color: #4a5568;
+            max-width: 500px;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .cached-pages {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .cached-pages h3 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .cached-pages ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .cached-pages li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .cached-pages a {
+            color: #667eea;
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        
+        .cached-pages a:hover {
+            background-color: #edf2f7;
+        }
+        
+        .retry-button {
+            background-color: #667eea;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .retry-button:hover {
+            background-color: #5568d3;
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <h1>Guia de Faro</h1>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">Início</a></li>
+                <li role="none"><a href="transportes.html" role="menuitem">Transportes</a></li>
+                <li role="none"><a href="saude.html" role="menuitem">Saúde</a></li>
+                <li role="none"><a href="ambiente.html" role="menuitem">Ambiente</a></li>
+                <li role="none"><a href="lazer.html" role="menuitem">Lazer</a></li>
+                <li role="none"><a href="restaurantes.html" role="menuitem">Onde Comer</a></li>
+                <li role="none"><a href="hoteis.html" role="menuitem">Onde Ficar</a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem">O que fazer hoje</a></li>
+                <li role="none"><a href="mapa.html" role="menuitem">Mapa</a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem">Problemas Frequentes</a></li>
+                <li role="none"><a href="viver-em-faro.html" role="menuitem">Viver em Faro</a></li>
+                <li role="none"><a href="mobilidade.html" role="menuitem">Mobilidade</a></li>
+                <li role="none"><a href="historia-faro.html" role="menuitem">História</a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem">⭐ Favoritos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <div class="offline-container">
+            <div class="offline-icon" role="img" aria-label="Sem conexão">📡</div>
+            <h2>Você está offline</h2>
+            <p>
+                Parece que você está sem conexão à internet. Algumas funcionalidades podem estar limitadas,
+                mas você ainda pode acessar as páginas que já visitou anteriormente.
+            </p>
+            <button class="retry-button" onclick="window.location.reload()">
+                🔄 Tentar Novamente
+            </button>
+            
+            <div class="cached-pages">
+                <h3>📚 Páginas disponíveis offline:</h3>
+                <ul>
+                    <li><a href="index.html">🏠 Início</a></li>
+                    <li><a href="transportes.html">🚌 Transportes</a></li>
+                    <li><a href="saude.html">🏥 Saúde</a></li>
+                    <li><a href="ambiente.html">🌿 Ambiente</a></li>
+                    <li><a href="lazer.html">🎭 Lazer</a></li>
+                    <li><a href="restaurantes.html">🍽️ Onde Comer</a></li>
+                    <li><a href="hoteis.html">🏨 Onde Ficar</a></li>
+                    <li><a href="mapa.html">🗺️ Mapa</a></li>
+                    <li><a href="favoritos.html">⭐ Favoritos</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2024 Guia de Faro</p>
+        <p class="data-sources">Modo Offline Ativo</p>
+    </footer>
+
+    <script src="js/accessibility.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
