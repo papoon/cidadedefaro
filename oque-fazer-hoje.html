@@ -459,7 +459,7 @@
                     activityCards.forEach(card => {
                         const categories = card.getAttribute('data-categories');
                         
-                        if (filter === 'todos' || categories.includes(filter)) {
+                        if (filter === 'todos' || (categories && categories.includes(filter))) {
                             card.classList.remove('hidden');
                             visibleCount++;
                         } else {
