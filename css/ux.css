@@ -376,7 +376,7 @@ body.dark-mode .filter-btn.active {
    SMOOTH TRANSITIONS
    =================================== */
 
-* {
+html {
     scroll-behavior: smooth;
 }
 

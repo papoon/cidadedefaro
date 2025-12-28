@@ -125,7 +125,7 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-fade-in');
@@ -210,7 +210,10 @@
         initAnimations();
         initKeyboardNavigation();
 
-        console.log('✨ UX features initialized');
+        // Development mode logging (can be removed in production)
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            console.log('✨ UX features initialized');
+        }
     }
 
     // Start initialization
