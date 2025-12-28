@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Faro - Página Inicial</title>
+    <title data-i18n="site.title">Guia de Faro</title>
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#667eea">
-    <meta name="description" content="Guia completo para viver e visitar Faro - informações sobre transportes, saúde, ambiente e lazer na cidade">
+    <meta name="description" content="Guia completo para viver e visitar Faro - informações sobre transportes, saúde, ambiente e lazer na cidade" data-i18n="site.description" data-i18n-attr="content">
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -18,40 +18,47 @@
 </head>
 <body>
     <header role="banner">
-        <h1>Guia de Faro</h1>
+        <h1 data-i18n="site.title">Guia de Faro</h1>
+        <div id="lang-switcher">
+            <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" aria-label="Mudar para Português">
+                🇵🇹 PT
+            </button>
+            <button data-lang="en" onclick="window.i18n.switchLanguage('en')" aria-label="Switch to English">
+                🇬🇧 EN
+            </button>
+        </div>
         <nav role="navigation" aria-label="Menu principal">
             <ul role="menubar">
-                <li role="none"><a href="index.html" role="menuitem">Início</a></li>
-                <li role="none"><a href="transportes.html" role="menuitem">Transportes</a></li>
-                <li role="none"><a href="saude.html" role="menuitem">Saúde</a></li>
-                <li role="none"><a href="ambiente.html" role="menuitem">Ambiente</a></li>
-                <li role="none"><a href="lazer.html" role="menuitem">Lazer</a></li>
-                <li role="none"><a href="restaurantes.html" role="menuitem">Onde Comer</a></li>
-                <li role="none"><a href="hoteis.html" role="menuitem">Onde Ficar</a></li>
-                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem">O que fazer hoje</a></li>
-                <li role="none"><a href="mapa.html" role="menuitem">Mapa</a></li>
-                <li role="none"><a href="problemas-frequentes.html" role="menuitem">Problemas Frequentes</a></li>
-                <li role="none"><a href="viver-em-faro.html" role="menuitem">Viver em Faro</a></li>
-                <li role="none"><a href="mobilidade.html" role="menuitem">Mobilidade</a></li>
-                <li role="none"><a href="historia-faro.html" role="menuitem">História</a></li>
-                <li role="none"><a href="guia-premium.html" role="menuitem">📘 Guia Premium</a></li>
-                <li role="none"><a href="favoritos.html" role="menuitem">⭐ Favoritos <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
+                <li role="none"><a href="index.html" role="menuitem" data-i18n="nav.home">Início</a></li>
+                <li role="none"><a href="transportes.html" role="menuitem" data-i18n="nav.transport">Transportes</a></li>
+                <li role="none"><a href="saude.html" role="menuitem" data-i18n="nav.health">Saúde</a></li>
+                <li role="none"><a href="ambiente.html" role="menuitem" data-i18n="nav.environment">Ambiente</a></li>
+                <li role="none"><a href="lazer.html" role="menuitem" data-i18n="nav.leisure">Lazer</a></li>
+                <li role="none"><a href="restaurantes.html" role="menuitem" data-i18n="nav.restaurants">Onde Comer</a></li>
+                <li role="none"><a href="hoteis.html" role="menuitem" data-i18n="nav.hotels">Onde Ficar</a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem" data-i18n="nav.what_to_do">O que fazer hoje</a></li>
+                <li role="none"><a href="mapa.html" role="menuitem" data-i18n="nav.map">Mapa</a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem" data-i18n="nav.faq">Problemas Frequentes</a></li>
+                <li role="none"><a href="viver-em-faro.html" role="menuitem" data-i18n="nav.living">Viver em Faro</a></li>
+                <li role="none"><a href="mobilidade.html" role="menuitem" data-i18n="nav.mobility">Mobilidade</a></li>
+                <li role="none"><a href="historia-faro.html" role="menuitem" data-i18n="nav.history">História</a></li>
+                <li role="none"><a href="guia-premium.html" role="menuitem" data-i18n="nav.premium">📘 Guia Premium</a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem" data-i18n="nav.favorites">⭐ Favoritos <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
             </ul>
         </nav>
     </header>
 
     <main id="main-content" role="main">
         <section class="hero" aria-labelledby="hero-title">
-            <h2 id="hero-title">Bem-vindo ao Guia Prático de Faro</h2>
-            <p>O seu guia completo para viver e visitar Faro. Encontre informações essenciais sobre transportes, saúde, ambiente e lazer na cidade.</p>
+            <h2 id="hero-title" data-i18n="home.hero_title">Bem-vindo ao Guia Prático de Faro</h2>
+            <p data-i18n="home.hero_description">O seu guia completo para viver e visitar Faro. Encontre informações essenciais sobre transportes, saúde, ambiente e lazer na cidade.</p>
             
             <!-- Premium Guide Notice -->
             <div class="premium-notice">
                 <p>
-                    <span class="notice-label">📘 Novo:</span> 
-                    Descarregue o <a href="guia-premium.html">Guia Premium de Faro</a> 
-                    com mapas offline, dicas de transporte e eventos detalhados. 
-                    <span class="notice-disclaimer">Apoio voluntário • Site continua 100% gratuito</span>
+                    <span class="notice-label" data-i18n="home.premium_notice_label">📘 Novo:</span> 
+                    <span data-i18n="home.premium_notice_text">Descarregue o <a href="guia-premium.html">Guia Premium de Faro</a> com mapas offline, dicas de transporte e eventos detalhados.</span>
+                    <span class="notice-disclaimer" data-i18n="home.premium_notice_disclaimer">Apoio voluntário • Site continua 100% gratuito</span>
                 </p>
             </div>
         </section>
@@ -61,77 +68,78 @@
         </section>
 
         <section class="cards-container" aria-labelledby="sections-title">
-            <h2 id="sections-title">Explore as Secções</h2>
+            <h2 id="sections-title" data-i18n="home.sections_title">Explore as Secções</h2>
             <div class="cards-grid">
                 <a href="transportes.html" class="card">
                     <div class="card-icon" role="img" aria-label="Ícone de autocarro">🚌</div>
-                    <h3>Transportes</h3>
-                    <p>Informações sobre autocarros, comboios e mobilidade na cidade</p>
+                    <h3 data-i18n="home.card_transport_title">Transportes</h3>
+                    <p data-i18n="home.card_transport_desc">Informações sobre autocarros, comboios e mobilidade na cidade</p>
                 </a>
 
                 <a href="saude.html" class="card">
                     <div class="card-icon" role="img" aria-label="Ícone de hospital">🏥</div>
-                    <h3>Saúde</h3>
-                    <p>Centros de saúde, hospitais e serviços médicos</p>
+                    <h3 data-i18n="home.card_health_title">Saúde</h3>
+                    <p data-i18n="home.card_health_desc">Centros de saúde, hospitais e serviços médicos</p>
                 </a>
 
                 <a href="ambiente.html" class="card">
                     <div class="card-icon" role="img" aria-label="Ícone de planta">🌿</div>
-                    <h3>Ambiente</h3>
-                    <p>Sustentabilidade, reciclagem e espaços verdes</p>
+                    <h3 data-i18n="home.card_environment_title">Ambiente</h3>
+                    <p data-i18n="home.card_environment_desc">Sustentabilidade, reciclagem e espaços verdes</p>
                 </a>
 
                 <a href="lazer.html" class="card">
                     <div class="card-icon" role="img" aria-label="Ícone de máscara teatral">🎭</div>
-                    <h3>Lazer</h3>
-                    <p>Cultura, turismo e atividades de lazer</p>
+                    <h3 data-i18n="home.card_leisure_title">Lazer</h3>
+                    <p data-i18n="home.card_leisure_desc">Cultura, turismo e atividades de lazer</p>
                 </a>
 
                 <a href="restaurantes.html" class="card">
                     <div class="card-icon" role="img" aria-label="Ícone de garfo e faca">🍽️</div>
-                    <h3>Onde Comer</h3>
-                    <p>Descubra cafés, pastelarias e restaurantes em Faro</p>
+                    <h3 data-i18n="home.card_restaurants_title">Onde Comer</h3>
+                    <p data-i18n="home.card_restaurants_desc">Descubra cafés, pastelarias e restaurantes em Faro</p>
                 </a>
 
                 <a href="hoteis.html" class="card">
                     <div class="card-icon" role="img" aria-label="Ícone de hotel">🏨</div>
-                    <h3>Onde Ficar</h3>
-                    <p>Hotéis, hostels e alojamentos em Faro</p>
+                    <h3 data-i18n="home.card_hotels_title">Onde Ficar</h3>
+                    <p data-i18n="home.card_hotels_desc">Hotéis, hostels e alojamentos em Faro</p>
                 </a>
 
                 <a href="viver-em-faro.html" class="card">
                     <div class="card-icon" role="img" aria-label="Ícone de casa">🏠</div>
-                    <h3>Viver em Faro</h3>
-                    <p>Guia essencial para novos residentes na cidade</p>
+                    <h3 data-i18n="home.card_living_title">Viver em Faro</h3>
+                    <p data-i18n="home.card_living_desc">Guia essencial para novos residentes na cidade</p>
                 </a>
 
                 <a href="problemas-frequentes.html" class="card">
                     <div class="card-icon" role="img" aria-label="Ícone de ferramentas">🛠️</div>
-                    <h3>Problemas Frequentes</h3>
-                    <p>Saiba como resolver problemas urbanos comuns na cidade</p>
+                    <h3 data-i18n="home.card_faq_title">Problemas Frequentes</h3>
+                    <p data-i18n="home.card_faq_desc">Saiba como resolver problemas urbanos comuns na cidade</p>
                 </a>
 
                 <a href="guia-premium.html" class="card card-premium">
                     <div class="card-icon" role="img" aria-label="Ícone de livro premium">📘</div>
-                    <h3>Guia Premium</h3>
-                    <p>Conteúdo detalhado com mapas offline, transporte e eventos (apoio voluntário)</p>
+                    <h3 data-i18n="home.card_premium_title">Guia Premium</h3>
+                    <p data-i18n="home.card_premium_desc">Conteúdo detalhado com mapas offline, transporte e eventos (apoio voluntário)</p>
                 </a>
             </div>
         </section>
     </main>
 
     <footer role="contentinfo">
-        <p>&copy; 2024 Guia de Faro</p>
-        <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal, GEO API PT</p>
+        <p data-i18n="footer.copyright">&copy; 2024 Guia de Faro</p>
+        <p class="data-sources" data-i18n="footer.data_sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal, GEO API PT</p>
         <div class="donation-container">
-            <p class="donation-message">Apoie este projeto de forma voluntária</p>
+            <p class="donation-message" data-i18n="footer.donation_message">Apoie este projeto de forma voluntária</p>
             <a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" class="donation-button" aria-label="Apoiar o projeto com uma doação voluntária">
                 <span class="donation-icon" role="img" aria-label="Ícone de café">☕</span>
-                <span>Apoiar o Projeto</span>
+                <span data-i18n="footer.donation_button">Apoiar o Projeto</span>
             </a>
         </div>
     </footer>
 
+    <script src="js/i18n.js"></script>
     <script src="js/pwa.js"></script>
     <script src="js/accessibility.js"></script>
     <script src="js/favorites.js"></script>

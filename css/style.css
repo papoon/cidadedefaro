@@ -1262,3 +1262,65 @@ footer p {
 .card-premium p {
     color: rgba(255, 255, 255, 0.95);
 }
+
+/* ===================================
+   LANGUAGE SWITCHER
+   =================================== */
+
+#lang-switcher {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0.25rem;
+    border-radius: 8px;
+    width: fit-content;
+    margin-left: auto;
+}
+
+#lang-switcher button {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+#lang-switcher button:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+#lang-switcher button.active {
+    background: rgba(255, 255, 255, 0.95);
+    color: #667eea;
+    border-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+#lang-switcher button:focus,
+#lang-switcher button:focus-visible {
+    outline: 2px solid #ffd54f;
+    outline-offset: 2px;
+}
+
+/* Responsive language switcher */
+@media (max-width: 768px) {
+    #lang-switcher {
+        margin: 0 auto 1rem auto;
+    }
+    
+    #lang-switcher button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
