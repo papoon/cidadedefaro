@@ -322,22 +322,26 @@ body.high-contrast textarea:focus {
    MELHORIAS DE FOCO PARA NAVEGAÇÃO POR TECLADO
    =================================== */
 
-body.keyboard-navigation *:focus {
-    outline: 3px solid #667eea;
-    outline-offset: 2px;
-}
-
 body.keyboard-navigation a:focus,
 body.keyboard-navigation button:focus,
 body.keyboard-navigation input:focus,
 body.keyboard-navigation select:focus,
 body.keyboard-navigation textarea:focus,
-body.keyboard-navigation [tabindex]:focus {
+body.keyboard-navigation [tabindex]:focus,
+body.keyboard-navigation [role="button"]:focus,
+body.keyboard-navigation [role="menuitem"]:focus {
     outline: 3px solid #667eea;
     outline-offset: 2px;
 }
 
-body.high-contrast.keyboard-navigation *:focus {
+body.high-contrast.keyboard-navigation a:focus,
+body.high-contrast.keyboard-navigation button:focus,
+body.high-contrast.keyboard-navigation input:focus,
+body.high-contrast.keyboard-navigation select:focus,
+body.high-contrast.keyboard-navigation textarea:focus,
+body.high-contrast.keyboard-navigation [tabindex]:focus,
+body.high-contrast.keyboard-navigation [role="button"]:focus,
+body.high-contrast.keyboard-navigation [role="menuitem"]:focus {
     outline: 3px solid #ffff00;
     outline-offset: 2px;
 }
@@ -440,16 +444,24 @@ a {
     text-decoration-skip-ink: auto;
 }
 
-/* Garantir que elementos interativos tenham tamanho mínimo adequado (WCAG) */
-/* Aplicado apenas a botões e elementos com papel de botão para evitar quebra de layout */
+/* Garantir que elementos interativos tenham tamanho mínimo adequado (WCAG AA - 2.5.5) */
+/* Aplicado a botões, links clicáveis e elementos de formulário */
 button,
 input[type="submit"],
 input[type="button"],
+input[type="checkbox"],
+input[type="radio"],
 .btn,
-[role="button"] {
+[role="button"],
+[role="menuitem"],
+a.card,
+.btn-favorite,
+.btn-accessibility {
     min-height: 44px;
     min-width: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
+
+/* Links de navegação têm tamanho adequado via padding no CSS principal */
