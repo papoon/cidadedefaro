@@ -15,8 +15,14 @@
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/ux.css">
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" aria-label="Alternar modo escuro" aria-pressed="false">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
     <header role="banner">
         <h1 data-i18n="site.title">Guia de Faro</h1>
         <div id="lang-switcher">
@@ -69,56 +75,67 @@
 
         <section class="cards-container" aria-labelledby="sections-title">
             <h2 id="sections-title" data-i18n="home.sections_title">Explore as Secções</h2>
+            
+            <!-- Filter Container -->
+            <div class="filter-container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="info">Informação</button>
+                    <button class="filter-btn" data-filter="tourism">Turismo</button>
+                    <button class="filter-btn" data-filter="services">Serviços</button>
+                </div>
+            </div>
+            
             <div class="cards-grid">
-                <a href="transportes.html" class="card">
+                <a href="transportes.html" class="card" data-filter-category="info,services">
                     <div class="card-icon" role="img" aria-label="Ícone de autocarro">🚌</div>
                     <h3 data-i18n="home.card_transport_title">Transportes</h3>
                     <p data-i18n="home.card_transport_desc">Informações sobre autocarros, comboios e mobilidade na cidade</p>
                 </a>
 
-                <a href="saude.html" class="card">
+                <a href="saude.html" class="card" data-filter-category="info,services">
                     <div class="card-icon" role="img" aria-label="Ícone de hospital">🏥</div>
                     <h3 data-i18n="home.card_health_title">Saúde</h3>
                     <p data-i18n="home.card_health_desc">Centros de saúde, hospitais e serviços médicos</p>
                 </a>
 
-                <a href="ambiente.html" class="card">
+                <a href="ambiente.html" class="card" data-filter-category="info,services">
                     <div class="card-icon" role="img" aria-label="Ícone de planta">🌿</div>
                     <h3 data-i18n="home.card_environment_title">Ambiente</h3>
                     <p data-i18n="home.card_environment_desc">Sustentabilidade, reciclagem e espaços verdes</p>
                 </a>
 
-                <a href="lazer.html" class="card">
+                <a href="lazer.html" class="card" data-filter-category="tourism">
                     <div class="card-icon" role="img" aria-label="Ícone de máscara teatral">🎭</div>
                     <h3 data-i18n="home.card_leisure_title">Lazer</h3>
                     <p data-i18n="home.card_leisure_desc">Cultura, turismo e atividades de lazer</p>
                 </a>
 
-                <a href="restaurantes.html" class="card">
+                <a href="restaurantes.html" class="card" data-filter-category="tourism,services">
                     <div class="card-icon" role="img" aria-label="Ícone de garfo e faca">🍽️</div>
                     <h3 data-i18n="home.card_restaurants_title">Onde Comer</h3>
                     <p data-i18n="home.card_restaurants_desc">Descubra cafés, pastelarias e restaurantes em Faro</p>
                 </a>
 
-                <a href="hoteis.html" class="card">
+                <a href="hoteis.html" class="card" data-filter-category="tourism,services">
                     <div class="card-icon" role="img" aria-label="Ícone de hotel">🏨</div>
                     <h3 data-i18n="home.card_hotels_title">Onde Ficar</h3>
                     <p data-i18n="home.card_hotels_desc">Hotéis, hostels e alojamentos em Faro</p>
                 </a>
 
-                <a href="viver-em-faro.html" class="card">
+                <a href="viver-em-faro.html" class="card" data-filter-category="info">
                     <div class="card-icon" role="img" aria-label="Ícone de casa">🏠</div>
                     <h3 data-i18n="home.card_living_title">Viver em Faro</h3>
                     <p data-i18n="home.card_living_desc">Guia essencial para novos residentes na cidade</p>
                 </a>
 
-                <a href="problemas-frequentes.html" class="card">
+                <a href="problemas-frequentes.html" class="card" data-filter-category="info,services">
                     <div class="card-icon" role="img" aria-label="Ícone de ferramentas">🛠️</div>
                     <h3 data-i18n="home.card_faq_title">Problemas Frequentes</h3>
                     <p data-i18n="home.card_faq_desc">Saiba como resolver problemas urbanos comuns na cidade</p>
                 </a>
 
-                <a href="guia-premium.html" class="card card-premium">
+                <a href="guia-premium.html" class="card card-premium" data-filter-category="tourism,info">
                     <div class="card-icon" role="img" aria-label="Ícone de livro premium">📘</div>
                     <h3 data-i18n="home.card_premium_title">Guia Premium</h3>
                     <p data-i18n="home.card_premium_desc">Conteúdo detalhado com mapas offline, transporte e eventos (apoio voluntário)</p>
@@ -145,6 +162,7 @@
     <script src="js/favorites.js"></script>
     <script src="js/search.js"></script>
     <script src="js/dados-api.js"></script>
+    <script src="js/ux.js"></script>
     <script src="js/main.js"></script>
     <script>
         // Carregar dados de Faro quando a página carregar

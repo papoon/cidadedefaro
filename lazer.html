@@ -13,6 +13,7 @@
     <title>Lazer e Cultura - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/ux.css">
     <style>
         .culture-card {
             background: white;
@@ -230,6 +231,11 @@
     </style>
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" aria-label="Alternar modo escuro" aria-pressed="false">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
     <header role="banner">
         <h1><span data-i18n="site.title">Guia de Faro</span></h1>
         <div id="lang-switcher">
@@ -651,6 +657,7 @@
     <script src="js/accessibility.js"></script>
     <script src="js/favorites.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/ux.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
