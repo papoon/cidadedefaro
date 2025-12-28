@@ -75,7 +75,7 @@ class HoteisManager {
         // Aplicar filtros por classificação
         if (this.activeFilters.classificacao.length > 0) {
             results = results.filter(hotel => {
-                const rating = parseInt(hotel.classificacao);
+                const rating = parseInt(hotel.classificacao, 10);
                 return this.activeFilters.classificacao.some(filter => {
                     if (filter === '1-2') return rating >= 1 && rating <= 2;
                     if (filter === '3') return rating === 3;
@@ -143,6 +143,24 @@ class HoteisManager {
 // Instância global
 const hoteisManager = new HoteisManager();
 
+// Ícones por tipo (constantes)
+const TIPO_ICONS = {
+    'Hotel': '🏨',
+    'Hostel': '🏠',
+    'Alojamento Local': '🏡',
+    'Apartamento': '🏢'
+};
+
+// Ícones de serviços (constantes)
+const SERVICO_ICONS = {
+    'Pequeno-almoço': '🍳',
+    'Wi-Fi': '📶',
+    'Estacionamento': '🅿️',
+    'Piscina': '🏊',
+    'Cozinha': '🍴',
+    'Cozinha Partilhada': '🍴'
+};
+
 /**
  * Renderiza cards de hotéis
  */
@@ -160,37 +178,19 @@ function renderHoteis(hoteis, container) {
         return;
     }
 
-    // Ícones por tipo
-    const tipoIcons = {
-        'Hotel': '🏨',
-        'Hostel': '🏠',
-        'Alojamento Local': '🏡',
-        'Apartamento': '🏢'
-    };
-
-    // Ícones de serviços
-    const servicoIcons = {
-        'Pequeno-almoço': '🍳',
-        'Wi-Fi': '📶',
-        'Estacionamento': '🅿️',
-        'Piscina': '🏊',
-        'Cozinha': '🍴',
-        'Cozinha Partilhada': '🍴'
-    };
-
     let html = '<div class="hoteis-grid">';
 
     hoteis.forEach(hotel => {
-        const icon = tipoIcons[hotel.tipo] || '🏨';
+        const icon = TIPO_ICONS[hotel.tipo] || '🏨';
         const destaque = hotel.destaque ? `<span class="destaque-badge">${hotel.destaque}</span>` : '';
-        const stars = '⭐'.repeat(parseInt(hotel.classificacao));
+        const stars = '⭐'.repeat(parseInt(hotel.classificacao, 10));
         
         // Renderizar serviços com ícones
         let servicosHtml = '';
         if (hotel.servicos && hotel.servicos.length > 0) {
             servicosHtml = '<div class="hotel-servicos">';
             hotel.servicos.forEach(servico => {
-                const servicoIcon = servicoIcons[servico] || '✓';
+                const servicoIcon = SERVICO_ICONS[servico] || '✓';
                 servicosHtml += `<span class="servico-badge" title="${servico}">${servicoIcon} ${servico}</span>`;
             });
             servicosHtml += '</div>';
