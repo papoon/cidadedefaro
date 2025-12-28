@@ -21,6 +21,7 @@
                 <li><a href="problemas-frequentes.html">Problemas Frequentes</a></li>
                 <li><a href="viver-em-faro.html">Viver em Faro</a></li>
                 <li><a href="mobilidade.html">Mobilidade</a></li>
+                <li><a href="favoritos.html">⭐ Favoritos <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
             </ul>
         </nav>
     </header>
@@ -82,12 +83,30 @@
         <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal, GEO API PT</p>
     </footer>
 
+    <script src="js/favorites.js"></script>
+    <script src="js/search.js"></script>
     <script src="js/dados-api.js"></script>
     <script src="js/main.js"></script>
     <script>
         // Carregar dados de Faro quando a página carregar
         document.addEventListener('DOMContentLoaded', function() {
             exibirDadosFaro('dados-faro');
+            
+            // Adicionar botões de favoritos aos cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const title = card.querySelector('h3')?.textContent;
+                const url = card.getAttribute('href');
+                if (title && url) {
+                    const pageId = 'page-' + url.replace('.html', '');
+                    const favoriteBtn = createFavoriteButton(pageId, 'page', title, url);
+                    favoriteBtn.style.position = 'absolute';
+                    favoriteBtn.style.top = '1rem';
+                    favoriteBtn.style.right = '1rem';
+                    card.style.position = 'relative';
+                    card.appendChild(favoriteBtn);
+                }
+            });
         });
     </script>
 </body>
