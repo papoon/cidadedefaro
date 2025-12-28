@@ -8,9 +8,15 @@ const FARO_COORDENADAS = {
 
 // Variável para armazenar a instância do mapa
 let mapa = null;
+let mapaInicializado = false;
 
 // Função para inicializar mapa
 function inicializarMapa() {
+    // Previne inicialização duplicada
+    if (mapaInicializado) {
+        return;
+    }
+
     // Verifica se o elemento do mapa existe
     const mapaElemento = document.getElementById('mapa');
     if (!mapaElemento) {
@@ -47,6 +53,7 @@ function inicializarMapa() {
             </div>
         `).openPopup();
 
+        mapaInicializado = true;
         console.log('Mapa inicializado com sucesso');
     } catch (erro) {
         console.error('Erro ao inicializar o mapa:', erro);
