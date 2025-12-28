@@ -3,8 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ambiente - Guia de Faro</title>
+    <title>Ambiente e Reciclagem - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .environment-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .environment-card h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .environment-card .icon {
+            font-size: 2rem;
+        }
+        
+        .recycling-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .recycling-item {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .recycling-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .recycling-item .bin-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .recycling-item .bin-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        
+        .recycling-item .bin-color {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        
+        .bin-color.amarelo {
+            background-color: #fef3c7;
+            color: #92400e;
+        }
+        
+        .bin-color.azul {
+            background-color: #dbeafe;
+            color: #1e3a8a;
+        }
+        
+        .bin-color.verde {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        
+        .bin-color.vermelho {
+            background-color: #fee2e2;
+            color: #991b1b;
+        }
+        
+        .recycling-item ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+        
+        .recycling-item ul li {
+            padding: 0.25rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+        
+        .recycling-item ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #48bb78;
+            font-weight: bold;
+        }
+        
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-list li {
+            background: #f7fafc;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            border-radius: 8px;
+            border-left: 4px solid #48bb78;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+        
+        .tips-list li .tip-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .tips-list li .tip-text {
+            flex: 1;
+        }
+        
+        .tips-list li .tip-text strong {
+            color: #2d3748;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .location-item {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .location-item strong {
+            display: block;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .location-item p {
+            margin: 0.25rem 0;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+        
+        .info-box {
+            background: #edf2f7;
+            border-left: 4px solid #667eea;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .info-box p {
+            margin: 0.5rem 0;
+            line-height: 1.6;
+        }
+        
+        .info-box strong {
+            color: #2d3748;
+        }
+        
+        .contact-info {
+            background: #f0fdf4;
+            border-left: 4px solid #48bb78;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+        
+        .contact-info .phone {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin: 0.5rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .environment-card {
+                padding: 1.5rem;
+            }
+            
+            .recycling-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,14 +240,287 @@
     </header>
 
     <main>
-        <section>
-            <h2>Ambiente</h2>
-            <p>Informações sobre ambiente em Faro.</p>
+        <section class="hero">
+            <h2>Ambiente e Reciclagem</h2>
+            <p>Informações sobre sustentabilidade, reciclagem e cuidados ambientais em Faro. Juntos, podemos fazer a diferença pela nossa cidade e pelo planeta.</p>
+        </section>
+
+        <!-- O que Reciclar -->
+        <section class="environment-card">
+            <h3><span class="icon">♻️</span>O que Reciclar</h3>
+            <p>Conheça os diferentes tipos de ecopontos e o que deve depositar em cada um:</p>
+            
+            <div class="recycling-grid">
+                <div class="recycling-item">
+                    <span class="bin-icon">🟡</span>
+                    <div class="bin-name">Embalão Amarelo</div>
+                    <span class="bin-color amarelo">Plástico e Metal</span>
+                    <ul>
+                        <li>Garrafas de plástico</li>
+                        <li>Embalagens de plástico</li>
+                        <li>Latas de bebidas</li>
+                        <li>Latas de conserva</li>
+                        <li>Aerossóis vazios</li>
+                        <li>Tabuleiros de alumínio</li>
+                    </ul>
+                </div>
+                
+                <div class="recycling-item">
+                    <span class="bin-icon">🔵</span>
+                    <div class="bin-name">Papelão Azul</div>
+                    <span class="bin-color azul">Papel e Cartão</span>
+                    <ul>
+                        <li>Jornais e revistas</li>
+                        <li>Caixas de cartão</li>
+                        <li>Papel de embrulho</li>
+                        <li>Sacos de papel</li>
+                        <li>Papel de escrita</li>
+                        <li>Livros (sem capa dura)</li>
+                    </ul>
+                </div>
+                
+                <div class="recycling-item">
+                    <span class="bin-icon">🟢</span>
+                    <div class="bin-name">Vidrão Verde</div>
+                    <span class="bin-color verde">Vidro</span>
+                    <ul>
+                        <li>Garrafas de vidro</li>
+                        <li>Frascos de vidro</li>
+                        <li>Boiões</li>
+                        <li>Garrafões</li>
+                        <li>Embalagens de vidro (sem tampa)</li>
+                    </ul>
+                </div>
+                
+                <div class="recycling-item">
+                    <span class="bin-icon">🔴</span>
+                    <div class="bin-name">Pilhão Vermelho</div>
+                    <span class="bin-color vermelho">Pilhas e Baterias</span>
+                    <ul>
+                        <li>Pilhas alcalinas</li>
+                        <li>Pilhas recarregáveis</li>
+                        <li>Baterias de telemóveis</li>
+                        <li>Baterias de equipamentos</li>
+                        <li>Acumuladores</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>⚠️ Não reciclar nos ecopontos:</strong></p>
+                <p>• Fraldas e toalhitas • Espelhos e vidros de janela • Cerâmica e loiça • Embalagens sujas de alimentos • Papel de alumínio • Embalagens de produtos perigosos</p>
+            </div>
+        </section>
+
+        <!-- Ecopontos em Faro -->
+        <section class="environment-card">
+            <h3><span class="icon">📍</span>Ecopontos em Faro</h3>
+            <p>Principais localizações de ecopontos na cidade de Faro:</p>
+            
+            <div class="location-grid">
+                <div class="location-item">
+                    <strong>Ecoponto - Centro Histórico</strong>
+                    <p>📍 Largo de São Francisco</p>
+                    <p>🗑️ Amarelo, Azul e Verde</p>
+                </div>
+                
+                <div class="location-item">
+                    <strong>Ecoponto - Avenida da República</strong>
+                    <p>📍 Junto ao Jardim Manuel Bivar</p>
+                    <p>🗑️ Amarelo, Azul, Verde e Vermelho</p>
+                </div>
+                
+                <div class="location-item">
+                    <strong>Ecoponto - Fórum Algarve</strong>
+                    <p>📍 Parque de estacionamento</p>
+                    <p>🗑️ Amarelo, Azul, Verde e Vermelho</p>
+                </div>
+                
+                <div class="location-item">
+                    <strong>Ecoponto - Montenegro</strong>
+                    <p>📍 Largo de Montenegro</p>
+                    <p>🗑️ Amarelo, Azul e Verde</p>
+                </div>
+                
+                <div class="location-item">
+                    <strong>Ecoponto - Parque Ribeirinho</strong>
+                    <p>📍 Junto à Doca de Faro</p>
+                    <p>🗑️ Amarelo, Azul, Verde e Vermelho</p>
+                </div>
+                
+                <div class="location-item">
+                    <strong>Ecoponto - Estádio de Faro</strong>
+                    <p>📍 Próximo do Estádio Algarve</p>
+                    <p>🗑️ Amarelo, Azul e Verde</p>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>💡 Dica:</strong> Existem mais de 100 ecopontos espalhados pela cidade. Use os ecopontos mais próximos da sua residência para facilitar a reciclagem diária.</p>
+            </div>
+        </section>
+
+        <!-- Recolha de Monstros -->
+        <section class="environment-card">
+            <h3><span class="icon">🛋️</span>Recolha de Monstros</h3>
+            <p>Serviço gratuito para recolha de resíduos volumosos (móveis, colchões, eletrodomésticos grandes, etc.)</p>
+            
+            <div class="info-box">
+                <p><strong>🗓️ Como funciona:</strong></p>
+                <p>A recolha de monstros deve ser <strong>agendada previamente</strong> com os serviços municipais. Não abandone objetos volumosos na via pública sem marcação.</p>
+            </div>
+            
+            <div class="contact-info">
+                <p><strong>📞 Para agendar a recolha:</strong></p>
+                <p class="phone">289 870 870</p>
+                <p><strong>⏰ Horário de atendimento:</strong> Segunda a Sexta, das 9h00 às 17h00</p>
+                <p><strong>✉️ E-mail:</strong> geral@cm-faro.pt</p>
+                <p><strong>🌐 Online:</strong> Balcão Virtual da Câmara Municipal de Faro</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>📋 O que pode ser recolhido:</strong></p>
+                <p>• Móveis velhos (sofás, armários, mesas, cadeiras)<br>
+                • Colchões e estofos<br>
+                • Eletrodomésticos grandes (frigoríficos, fogões, máquinas de lavar)<br>
+                • Portas e janelas<br>
+                • Bicicletas e objetos volumosos</p>
+                <br>
+                <p><strong>⚠️ Atenção:</strong> Resíduos perigosos, entulho de obras e pneus devem ser entregues no Ecocentro.</p>
+            </div>
+        </section>
+
+        <!-- Ecocentro de Faro -->
+        <section class="environment-card">
+            <h3><span class="icon">🏭</span>Ecocentro de Faro</h3>
+            <p>Centro de recolha para resíduos que não podem ser depositados nos ecopontos comuns.</p>
+            
+            <div class="info-box">
+                <p><strong>📍 Localização:</strong> Zona Industrial de Faro, Sítio das Barradas</p>
+                <p><strong>⏰ Horário:</strong></p>
+                <p>• <strong>Segunda a Sexta:</strong> 9h00 - 18h00<br>
+                • <strong>Sábados:</strong> 9h00 - 13h00<br>
+                • <strong>Domingos e Feriados:</strong> Encerrado</p>
+                <p><strong>📞 Contacto:</strong> 289 870 870</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>♻️ O que pode depositar no Ecocentro:</strong></p>
+                <p>• Eletrodomésticos e equipamentos eletrónicos<br>
+                • Pilhas e baterias<br>
+                • Lâmpadas fluorescentes<br>
+                • Óleos alimentares usados<br>
+                • Óleos de motor<br>
+                • Tintas e vernizes<br>
+                • Pneus<br>
+                • Madeira<br>
+                • Entulho de pequenas obras<br>
+                • Resíduos de jardim (em grandes quantidades)</p>
+            </div>
+            
+            <div class="contact-info">
+                <p><strong>🚗 Acesso:</strong> Gratuito para particulares (mediante apresentação de documento de identificação e comprovativo de residência em Faro)</p>
+            </div>
+        </section>
+
+        <!-- Dicas Ambientais -->
+        <section class="environment-card">
+            <h3><span class="icon">🌱</span>Dicas Ambientais</h3>
+            <p>Pequenos gestos que fazem a diferença para um Faro mais sustentável:</p>
+            
+            <ul class="tips-list">
+                <li>
+                    <span class="tip-icon">💧</span>
+                    <div class="tip-text">
+                        <strong>Poupe Água</strong>
+                        Feche a torneira enquanto escova os dentes e prefira duches rápidos. Uma torneira aberta desperdiça cerca de 12 litros de água por minuto.
+                    </div>
+                </li>
+                
+                <li>
+                    <span class="tip-icon">💡</span>
+                    <div class="tip-text">
+                        <strong>Economize Energia</strong>
+                        Desligue aparelhos em stand-by e prefira lâmpadas LED. Podem reduzir o consumo energético em até 80%.
+                    </div>
+                </li>
+                
+                <li>
+                    <span class="tip-icon">🛍️</span>
+                    <div class="tip-text">
+                        <strong>Use Sacos Reutilizáveis</strong>
+                        Leve sempre um saco reutilizável nas compras. Um saco de plástico demora centenas de anos a degradar-se.
+                    </div>
+                </li>
+                
+                <li>
+                    <span class="tip-icon">🚲</span>
+                    <div class="tip-text">
+                        <strong>Mobilidade Sustentável</strong>
+                        Opte por caminhar, andar de bicicleta ou usar transportes públicos sempre que possível. Reduz a poluição e faz bem à saúde.
+                    </div>
+                </li>
+                
+                <li>
+                    <span class="tip-icon">🥗</span>
+                    <div class="tip-text">
+                        <strong>Evite o Desperdício Alimentar</strong>
+                        Planeie as refeições, aproveite sobras e faça compostagem. Em Portugal, desperdiça-se cerca de 1 milhão de toneladas de alimentos por ano.
+                    </div>
+                </li>
+                
+                <li>
+                    <span class="tip-icon">♻️</span>
+                    <div class="tip-text">
+                        <strong>Recicle Corretamente</strong>
+                        Lave as embalagens antes de reciclar e separe corretamente os materiais. A reciclagem poupa recursos naturais e energia.
+                    </div>
+                </li>
+                
+                <li>
+                    <span class="tip-icon">🌳</span>
+                    <div class="tip-text">
+                        <strong>Cuide dos Espaços Verdes</strong>
+                        Respeite jardins e parques, não deixe lixo e contribua para manter Faro limpa e verde.
+                    </div>
+                </li>
+                
+                <li>
+                    <span class="tip-icon">🌊</span>
+                    <div class="tip-text">
+                        <strong>Proteja a Ria Formosa</strong>
+                        A Ria Formosa é um tesouro natural. Não deixe lixo nas praias e respeite a fauna e flora locais.
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Informações Adicionais -->
+        <section class="environment-card">
+            <h3><span class="icon">ℹ️</span>Informações e Contactos</h3>
+            
+            <div class="contact-info">
+                <p><strong>📞 Linha de Ambiente da Câmara Municipal de Faro:</strong></p>
+                <p class="phone">289 870 870</p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>🌐 Links Úteis:</strong></p>
+                <p>• <a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer">Câmara Municipal de Faro</a><br>
+                • <a href="https://www.apambiente.pt" target="_blank" rel="noopener noreferrer">Agência Portuguesa do Ambiente</a><br>
+                • <a href="https://www.pontoverde.pt" target="_blank" rel="noopener noreferrer">Sociedade Ponto Verde (Reciclagem)</a></p>
+            </div>
+            
+            <div class="info-box">
+                <p><strong>📱 Denúncias Ambientais:</strong></p>
+                <p>Se observar situações de poluição, deposição ilegal de resíduos ou outras infrações ambientais, contacte a Linha de Ambiente Municipal ou a GNR - Serviço de Proteção da Natureza e do Ambiente (SEPNA).</p>
+            </div>
         </section>
     </main>
 
     <footer>
         <p>&copy; 2024 Guia de Faro</p>
+        <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Agência Portuguesa do Ambiente, Sociedade Ponto Verde</p>
     </footer>
 
     <script src="js/main.js"></script>
