@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     navLinks.forEach(link => {
         if (link.getAttribute('href') === currentPage) {
-            link.style.backgroundColor = '#34495e';
+            link.classList.add('active');
         }
     });
 });

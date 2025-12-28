@@ -10,6 +10,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     color: #333;
+    padding-bottom: 60px;
 }
 
 /* Header */
@@ -39,6 +40,10 @@ nav a {
 }
 
 nav a:hover {
+    background-color: #34495e;
+}
+
+nav a.active {
     background-color: #34495e;
 }
 
