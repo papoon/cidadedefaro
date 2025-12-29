@@ -147,21 +147,21 @@
 </head>
 <body>
     <!-- Dark Mode Toggle -->
-    <button id="dark-mode-toggle" aria-label="Alternar modo escuro" aria-pressed="false">
+    <button id="dark-mode-toggle" data-i18n="ui.dark_mode_toggle" data-i18n-attr="aria-label" aria-label="Alternar modo escuro" aria-pressed="false">
         <span class="dark-mode-icon">🌙</span>
     </button>
 
     <header role="banner">
         <h1><span data-i18n="site.title">Guia de Faro</span></h1>
         <div id="lang-switcher">
-            <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" aria-label="Mudar para Português">
+            <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" data-i18n="ui.lang_switch_pt" data-i18n-attr="aria-label" aria-label="Mudar para Português">
                 🇵🇹 PT
             </button>
-            <button data-lang="en" onclick="window.i18n.switchLanguage('en')" aria-label="Switch to English">
+            <button data-lang="en" onclick="window.i18n.switchLanguage('en')" data-i18n="ui.lang_switch_en" data-i18n-attr="aria-label" aria-label="Switch to English">
                 🇬🇧 EN
             </button>
         </div>
-        <nav role="navigation" aria-label="Menu principal">
+        <nav role="navigation" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
             <ul role="menubar">
                 <li role="none"><a href="index.html" role="menuitem"><span data-i18n="nav.home">Início</span></a></li>
                 <li role="none"><a href="transportes.html" role="menuitem"><span data-i18n="nav.transport">Transportes</span></a></li>
@@ -505,8 +505,8 @@
         <p class="data-sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, SNS, IMT</p>
         <div class="donation-container">
             <p class="donation-message">Apoie este projeto de forma voluntária</p>
-            <a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" class="donation-button" aria-label="Apoiar o projeto com uma doação voluntária">
-                <span class="donation-icon" role="img" aria-label="Ícone de café">☕</span>
+            <a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" class="donation-button" data-i18n="ui.donation_aria_label" data-i18n-attr="aria-label" aria-label="Apoiar o projeto com uma doação voluntária">
+                <span class="donation-icon" role="img" data-i18n="ui.icon_coffee" data-i18n-attr="aria-label" aria-label="Ícone de café">☕</span>
                 <span>Apoiar o Projeto</span>
             </a>
         </div>

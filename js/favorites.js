@@ -116,7 +116,8 @@ class FavoritesManager {
      * Limpa todos os favoritos
      */
     clearAllFavorites() {
-        if (confirm('Tem certeza que deseja remover todos os favoritos?')) {
+        const confirmMsg = window.i18n?.t('favorites.confirm_clear_all') || 'Tem certeza que deseja remover todos os favoritos?';
+        if (confirm(confirmMsg)) {
             this.favorites = [];
             this.saveFavorites();
             console.log('Todos os favoritos foram removidos');
@@ -181,8 +182,9 @@ function createFavoriteButton(id, type, title, url, metadata = {}) {
     button.className = 'btn-favorite';
     button.setAttribute('data-id', id);
     button.setAttribute('data-type', type);
-    button.setAttribute('title', 'Adicionar aos favoritos');
-    button.setAttribute('aria-label', 'Adicionar aos favoritos');
+    const addText = window.i18n?.t('favorites.add_to_favorites') || 'Adicionar aos favoritos';
+    button.setAttribute('title', addText);
+    button.setAttribute('aria-label', addText);
     
     const isFav = favoritesManager.isFavorite(id);
     button.classList.toggle('is-favorite', isFav);
@@ -199,14 +201,18 @@ function createFavoriteButton(id, type, title, url, metadata = {}) {
             favoritesManager.removeFavorite(itemId);
             this.classList.remove('is-favorite');
             this.innerHTML = '☆';
-            this.setAttribute('title', 'Adicionar aos favoritos');
-            showNotification('Removido dos favoritos', 'info');
+            const addLabel = window.i18n?.t('favorites.add_to_favorites') || 'Adicionar aos favoritos';
+            this.setAttribute('title', addLabel);
+            const removedMsg = window.i18n?.t('favorites.removed_from_favorites') || 'Removido dos favoritos';
+            showNotification(removedMsg, 'info');
         } else {
             favoritesManager.addFavorite(itemId, type, title, url, metadata);
             this.classList.add('is-favorite');
             this.innerHTML = '⭐';
-            this.setAttribute('title', 'Remover dos favoritos');
-            showNotification('Adicionado aos favoritos', 'success');
+            const removeLabel = window.i18n?.t('favorites.remove_from_favorites') || 'Remover dos favoritos';
+            this.setAttribute('title', removeLabel);
+            const addedMsg = window.i18n?.t('favorites.added_to_favorites') || 'Adicionado aos favoritos';
+            showNotification(addedMsg, 'success');
         }
     });
     
@@ -250,10 +256,12 @@ function renderFavoritesList(container, filterType = null) {
         : favoritesManager.getAllFavorites();
     
     if (favorites.length === 0) {
+        const emptyTitle = window.i18n?.t('favorites.empty_title') || 'Ainda não tem favoritos guardados.';
+        const emptyDesc = window.i18n?.t('favorites.empty_description') || 'Adicione páginas, serviços e locais aos seus favoritos para acesso rápido!';
         container.innerHTML = `
             <div class="empty-favorites">
-                <p>📌 Ainda não tem favoritos guardados.</p>
-                <p>Adicione páginas, serviços e locais aos seus favoritos para acesso rápido!</p>
+                <p>📌 ${emptyTitle}</p>
+                <p>${emptyDesc}</p>
             </div>
         `;
         return;
@@ -267,9 +275,9 @@ function renderFavoritesList(container, filterType = null) {
     };
     
     const typeLabels = {
-        page: '📄 Páginas',
-        service: '🏢 Serviços',
-        location: '📍 Locais'
+        page: window.i18n?.t('favorites.type_pages') || 'Páginas',
+        service: window.i18n?.t('favorites.type_services') || 'Serviços',
+        location: window.i18n?.t('favorites.type_locations') || 'Locais'
     };
     
     const typeIcons = {
@@ -291,16 +299,18 @@ function renderFavoritesList(container, filterType = null) {
         
         items.forEach(item => {
             const date = new Date(item.addedAt).toLocaleDateString('pt-PT');
+            const addedOnText = window.i18n?.t('favorites.added_on') || 'Adicionado em';
+            const removeText = window.i18n?.t('favorites.remove_button') || 'Remover';
             html += `
                 <li class="favorite-item" data-id="${item.id}">
                     <div class="favorite-content">
                         <span class="favorite-icon">${typeIcons[type]}</span>
                         <div class="favorite-info">
                             <a href="${item.url}" class="favorite-title">${item.title}</a>
-                            <span class="favorite-date">Adicionado em ${date}</span>
+                            <span class="favorite-date">${addedOnText} ${date}</span>
                         </div>
                     </div>
-                    <button class="btn-remove-favorite" data-id="${item.id}" title="Remover">
+                    <button class="btn-remove-favorite" data-id="${item.id}" title="${removeText}">
                         🗑️
                     </button>
                 </li>
@@ -321,7 +331,8 @@ function renderFavoritesList(container, filterType = null) {
             e.preventDefault();
             const id = this.getAttribute('data-id');
             if (favoritesManager.removeFavorite(id)) {
-                showNotification('Favorito removido', 'info');
+                const removedMsg = window.i18n?.t('favorites.favorite_removed') || 'Favorito removido';
+                showNotification(removedMsg, 'info');
                 renderFavoritesList(container, filterType);
             }
         });

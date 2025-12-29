@@ -312,10 +312,12 @@ async function initializeHoteisPage() {
     const loaded = await hoteisManager.loadHoteis();
     
     if (!loaded) {
+        const errorMsg = window.i18n?.t('errors.load_hotels') || '❌ Erro ao carregar dados dos alojamentos.';
+        const tryAgain = window.i18n?.t('errors.try_again') || 'Por favor, tente novamente mais tarde.';
         container.innerHTML = `
             <div class="error-message">
-                <p>❌ Erro ao carregar dados dos alojamentos.</p>
-                <p>Por favor, tente novamente mais tarde.</p>
+                <p>${errorMsg}</p>
+                <p>${tryAgain}</p>
             </div>
         `;
         return;
