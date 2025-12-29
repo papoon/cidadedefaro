@@ -6,6 +6,10 @@ const FARO_COORDENADAS = {
     lng: -7.9322
 };
 
+// Configurações de timeout para requisições
+const FETCH_TIMEOUT_MS = 20000; // 20 segundos
+const OVERPASS_TIMEOUT_S = 15; // 15 segundos
+
 // Variável para armazenar a instância do mapa
 let mapa = null;
 let mapaInicializado = false;
@@ -242,10 +246,14 @@ async function buscarServicosProximos(lat, lng) {
             throw new Error('Não foi possível carregar nenhum serviço');
         }
         
+        if (sucessos < 4) {
+            alert(`Alguns serviços não puderam ser carregados. Mostrando ${sucessos} de 4 tipos de serviços.`);
+        }
+        
         console.log(`Serviços carregados: ${sucessos} de 4 tipos`);
     } catch (erro) {
         console.error('Erro ao buscar serviços:', erro);
-        alert('Erro ao buscar alguns serviços próximos. Alguns resultados podem estar incompletos.');
+        alert('Erro ao buscar serviços próximos. Por favor, tente novamente.');
     }
 }
 
@@ -255,7 +263,7 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
     
     // Query Overpass QL
     const query = `
-        [out:json][timeout:15];
+        [out:json][timeout:${OVERPASS_TIMEOUT_S}];
         (
             node["${chave}"="${valor}"](around:${raio},${lat},${lng});
             way["${chave}"="${valor}"](around:${raio},${lat},${lng});
@@ -265,7 +273,7 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
 
     // Create an AbortController for timeout control
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 20000); // 20 second timeout
+    const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
 
     try {
         const resposta = await fetch(overpassUrl, {
@@ -273,8 +281,6 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
             body: 'data=' + encodeURIComponent(query),
             signal: controller.signal
         });
-
-        clearTimeout(timeoutId);
 
         if (!resposta.ok) {
             throw new Error(`Erro HTTP: ${resposta.status}`);
@@ -329,8 +335,6 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
             }
         });
     } catch (erro) {
-        clearTimeout(timeoutId);
-        
         if (erro.name === 'AbortError') {
             console.error(`Timeout ao buscar ${tipo}`);
             throw new Error(`Timeout ao buscar ${tipo}`);
@@ -338,6 +342,8 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
         
         console.error(`Erro ao buscar ${tipo}:`, erro);
         throw erro;
+    } finally {
+        clearTimeout(timeoutId);
     }
 }
 
