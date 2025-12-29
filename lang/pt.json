@@ -117,5 +117,51 @@
     "contact_issues_link": "Abrir Issue no GitHub",
     "contact_support_title": "Apoiar o Projeto",
     "contact_support_link": "Fazer uma doação voluntária"
+  },
+  "ui": {
+    "dark_mode_toggle": "Alternar modo escuro",
+    "lang_switch_pt": "Mudar para Português",
+    "lang_switch_en": "Switch to English",
+    "main_menu": "Menu principal",
+    "filter_all": "Todos",
+    "filter_info": "Informação",
+    "filter_tourism": "Turismo",
+    "filter_services": "Serviços"
+  },
+  "favorites": {
+    "page_title": "Os Meus Favoritos",
+    "page_description": "Aqui encontra todos os locais, serviços e páginas que guardou como favoritos para acesso rápido.",
+    "clear_all": "Limpar Todos",
+    "export": "Exportar",
+    "add_to_favorites": "Adicionar aos favoritos",
+    "remove_from_favorites": "Remover dos favoritos",
+    "added_to_favorites": "Adicionado aos favoritos",
+    "removed_from_favorites": "Removido dos favoritos",
+    "confirm_clear_all": "Tem certeza que deseja remover todos os favoritos?",
+    "empty_title": "Ainda não tem favoritos guardados.",
+    "empty_description": "Adicione páginas, serviços e locais aos seus favoritos para acesso rápido!",
+    "type_pages": "Páginas",
+    "type_services": "Serviços",
+    "type_locations": "Locais",
+    "added_on": "Adicionado em",
+    "remove_button": "Remover",
+    "favorite_removed": "Favorito removido"
+  },
+  "accessibility": {
+    "toolbar_label": "Ferramentas de acessibilidade",
+    "open_menu": "Abrir menu de acessibilidade",
+    "menu_title": "Opções de Acessibilidade",
+    "font_size_label": "Tamanho da Letra",
+    "decrease_font": "Diminuir tamanho da letra",
+    "reset_font": "Redefinir tamanho da letra",
+    "increase_font": "Aumentar tamanho da letra",
+    "contrast_label": "Contraste",
+    "toggle_contrast": "Alternar modo de alto contraste",
+    "high_contrast": "Alto Contraste",
+    "keyboard_shortcuts": "Atalhos de teclado:",
+    "shortcut_open_menu": "Abrir menu",
+    "shortcut_increase": "Aumentar letra",
+    "shortcut_decrease": "Diminuir letra",
+    "shortcut_contrast": "Alto contraste"
   }
 }

@@ -148,6 +148,11 @@ function getCurrentLanguage() {
     return currentLang;
 }
 
+// Get translation for a specific key
+function getTranslation(key) {
+    return getNestedTranslation(key);
+}
+
 // Initialize on DOM ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initI18n);
@@ -159,5 +164,7 @@ if (document.readyState === 'loading') {
 window.i18n = {
     switchLanguage,
     getCurrentLanguage,
-    loadLanguage
+    loadLanguage,
+    getTranslation,
+    t: getTranslation // alias for convenience
 };

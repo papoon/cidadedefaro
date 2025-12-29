@@ -117,5 +117,51 @@
     "contact_issues_link": "Open Issue on GitHub",
     "contact_support_title": "Support the Project",
     "contact_support_link": "Make a voluntary donation"
+  },
+  "ui": {
+    "dark_mode_toggle": "Toggle dark mode",
+    "lang_switch_pt": "Switch to Portuguese",
+    "lang_switch_en": "Switch to English",
+    "main_menu": "Main menu",
+    "filter_all": "All",
+    "filter_info": "Information",
+    "filter_tourism": "Tourism",
+    "filter_services": "Services"
+  },
+  "favorites": {
+    "page_title": "My Favorites",
+    "page_description": "Here you'll find all the locations, services and pages you've saved as favorites for quick access.",
+    "clear_all": "Clear All",
+    "export": "Export",
+    "add_to_favorites": "Add to favorites",
+    "remove_from_favorites": "Remove from favorites",
+    "added_to_favorites": "Added to favorites",
+    "removed_from_favorites": "Removed from favorites",
+    "confirm_clear_all": "Are you sure you want to remove all favorites?",
+    "empty_title": "You don't have any saved favorites yet.",
+    "empty_description": "Add pages, services and locations to your favorites for quick access!",
+    "type_pages": "Pages",
+    "type_services": "Services",
+    "type_locations": "Locations",
+    "added_on": "Added on",
+    "remove_button": "Remove",
+    "favorite_removed": "Favorite removed"
+  },
+  "accessibility": {
+    "toolbar_label": "Accessibility tools",
+    "open_menu": "Open accessibility menu",
+    "menu_title": "Accessibility Options",
+    "font_size_label": "Font Size",
+    "decrease_font": "Decrease font size",
+    "reset_font": "Reset font size",
+    "increase_font": "Increase font size",
+    "contrast_label": "Contrast",
+    "toggle_contrast": "Toggle high contrast mode",
+    "high_contrast": "High Contrast",
+    "keyboard_shortcuts": "Keyboard shortcuts:",
+    "shortcut_open_menu": "Open menu",
+    "shortcut_increase": "Increase font",
+    "shortcut_decrease": "Decrease font",
+    "shortcut_contrast": "High contrast"
   }
 }

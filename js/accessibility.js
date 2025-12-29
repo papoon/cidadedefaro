@@ -22,38 +22,56 @@
         const toolbar = document.createElement('div');
         toolbar.className = 'accessibility-toolbar';
         toolbar.setAttribute('role', 'toolbar');
-        toolbar.setAttribute('aria-label', 'Ferramentas de acessibilidade');
+        
+        // Get translations with fallbacks
+        const toolbarLabel = window.i18n?.t('accessibility.toolbar_label') || 'Ferramentas de acessibilidade';
+        const openMenu = window.i18n?.t('accessibility.open_menu') || 'Abrir menu de acessibilidade';
+        const menuTitle = window.i18n?.t('accessibility.menu_title') || 'Opções de Acessibilidade';
+        const fontSizeLabel = window.i18n?.t('accessibility.font_size_label') || 'Tamanho da Letra';
+        const decreaseFont = window.i18n?.t('accessibility.decrease_font') || 'Diminuir tamanho da letra';
+        const resetFont = window.i18n?.t('accessibility.reset_font') || 'Redefinir tamanho da letra';
+        const increaseFont = window.i18n?.t('accessibility.increase_font') || 'Aumentar tamanho da letra';
+        const contrastLabel = window.i18n?.t('accessibility.contrast_label') || 'Contraste';
+        const toggleContrast = window.i18n?.t('accessibility.toggle_contrast') || 'Alternar modo de alto contraste';
+        const highContrast = window.i18n?.t('accessibility.high_contrast') || 'Alto Contraste';
+        const keyboardShortcuts = window.i18n?.t('accessibility.keyboard_shortcuts') || 'Atalhos de teclado:';
+        const shortcutOpenMenu = window.i18n?.t('accessibility.shortcut_open_menu') || 'Abrir menu';
+        const shortcutIncrease = window.i18n?.t('accessibility.shortcut_increase') || 'Aumentar letra';
+        const shortcutDecrease = window.i18n?.t('accessibility.shortcut_decrease') || 'Diminuir letra';
+        const shortcutContrast = window.i18n?.t('accessibility.shortcut_contrast') || 'Alto contraste';
+        
+        toolbar.setAttribute('aria-label', toolbarLabel);
         
         toolbar.innerHTML = `
             <button class="accessibility-toggle" 
-                    aria-label="Abrir menu de acessibilidade"
+                    aria-label="${openMenu}"
                     aria-expanded="false"
                     aria-controls="accessibility-menu">
                 <span aria-hidden="true">♿</span>
-                <span class="sr-only">Acessibilidade</span>
+                <span class="sr-only">${toolbarLabel}</span>
             </button>
             <div class="accessibility-menu" id="accessibility-menu" role="menu" aria-hidden="true">
-                <h3>Opções de Acessibilidade</h3>
+                <h3>${menuTitle}</h3>
                 
                 <div class="accessibility-group" role="group" aria-labelledby="font-size-label">
-                    <label id="font-size-label">Tamanho da Letra</label>
+                    <label id="font-size-label">${fontSizeLabel}</label>
                     <div class="accessibility-controls">
                         <button class="btn-accessibility" 
                                 id="decrease-font" 
                                 role="menuitem"
-                                aria-label="Diminuir tamanho da letra">
+                                aria-label="${decreaseFont}">
                             <span aria-hidden="true">A-</span>
                         </button>
                         <button class="btn-accessibility" 
                                 id="reset-font" 
                                 role="menuitem"
-                                aria-label="Redefinir tamanho da letra">
+                                aria-label="${resetFont}">
                             <span aria-hidden="true">A</span>
                         </button>
                         <button class="btn-accessibility" 
                                 id="increase-font" 
                                 role="menuitem"
-                                aria-label="Aumentar tamanho da letra">
+                                aria-label="${increaseFont}">
                             <span aria-hidden="true">A+</span>
                         </button>
                     </div>
@@ -61,26 +79,26 @@
                 </div>
                 
                 <div class="accessibility-group" role="group" aria-labelledby="contrast-label">
-                    <label id="contrast-label">Contraste</label>
+                    <label id="contrast-label">${contrastLabel}</label>
                     <div class="accessibility-controls">
                         <button class="btn-accessibility btn-toggle" 
                                 id="toggle-contrast" 
                                 role="menuitemcheckbox"
                                 aria-checked="${accessibilityState.highContrast}"
-                                aria-label="Alternar modo de alto contraste">
+                                aria-label="${toggleContrast}">
                             <span aria-hidden="true">◐</span>
-                            <span>Alto Contraste</span>
+                            <span>${highContrast}</span>
                         </button>
                     </div>
                 </div>
                 
                 <div class="accessibility-info">
-                    <p><small>Atalhos de teclado:</small></p>
+                    <p><small>${keyboardShortcuts}</small></p>
                     <ul>
-                        <li><kbd>Alt</kbd> + <kbd>A</kbd>: Abrir menu</li>
-                        <li><kbd>Alt</kbd> + <kbd>+</kbd>: Aumentar letra</li>
-                        <li><kbd>Alt</kbd> + <kbd>-</kbd>: Diminuir letra</li>
-                        <li><kbd>Alt</kbd> + <kbd>C</kbd>: Alto contraste</li>
+                        <li><kbd>Alt</kbd> + <kbd>A</kbd>: ${shortcutOpenMenu}</li>
+                        <li><kbd>Alt</kbd> + <kbd>+</kbd>: ${shortcutIncrease}</li>
+                        <li><kbd>Alt</kbd> + <kbd>-</kbd>: ${shortcutDecrease}</li>
+                        <li><kbd>Alt</kbd> + <kbd>C</kbd>: ${shortcutContrast}</li>
                     </ul>
                 </div>
             </div>
