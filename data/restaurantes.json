@@ -10,7 +10,7 @@
     "preco": "€",
     "descricao": "Café histórico no coração de Faro, conhecido pelos seus pastéis de nata e ambiente tradicional.",
     "telefone": "289 826 523",
-    "mapsLink": "https://goo.gl/maps/example1",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Alian%C3%A7a%2C%20Rua%20Dr.%20Francisco%20Gomes%2C%207-11%2C%20Faro",
     "destaque": "Popular"
   },
   {
@@ -24,7 +24,7 @@
     "preco": "€",
     "descricao": "Pastelaria tradicional com uma grande variedade de bolos e doces regionais.",
     "telefone": "289 823 456",
-    "mapsLink": "https://goo.gl/maps/example2",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Pastelaria%20Veneza%2C%20Pra%C3%A7a%20Ferreira%20de%20Almeida%2C%2021%2C%20Faro",
     "destaque": "Bom para famílias"
   },
   {
@@ -38,7 +38,7 @@
     "preco": "€€",
     "descricao": "Restaurante de cozinha portuguesa tradicional no centro histórico de Faro.",
     "telefone": "289 878 422",
-    "mapsLink": "https://goo.gl/maps/example3",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Faz%20Gostos%2C%20Rua%20do%20Castelo%2C%2013%2C%20Faro",
     "destaque": "Bom para famílias"
   },
   {
@@ -52,7 +52,7 @@
     "preco": "€€",
     "descricao": "Cozinha algarvia autêntica num ambiente acolhedor no centro histórico.",
     "telefone": "289 821 143",
-    "mapsLink": "https://goo.gl/maps/example4",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Tert%C3%BAlia%20Algarvia%2C%20Pra%C3%A7a%20Dom%20Afonso%20III%2C%2013%2C%20Faro",
     "destaque": "Popular"
   },
   {
@@ -66,7 +66,7 @@
     "preco": "€€€",
     "descricao": "Especialidade em marisco fresco e peixe, com vista para a Ria Formosa.",
     "telefone": "289 813 529",
-    "mapsLink": "https://goo.gl/maps/example5"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Taberna%20da%20Mar%C3%A9%2C%20Cais%20da%20Porta%20Nova%2C%20Faro"
   },
   {
     "id": "rest-6",
@@ -79,7 +79,7 @@
     "preco": "€€",
     "descricao": "Restaurante vegetariano e vegano com opções saudáveis e criativas.",
     "telefone": "289 805 234",
-    "mapsLink": "https://goo.gl/maps/example6",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Veggie%20Garden%2C%20Rua%20Conselheiro%20Bivar%2C%2045%2C%20Faro",
     "destaque": "Vegetariano"
   },
   {
@@ -93,7 +93,7 @@
     "preco": "€",
     "descricao": "Pizzaria com opções de take-away e entrega ao domicílio.",
     "telefone": "289 892 145",
-    "mapsLink": "https://goo.gl/maps/example7"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Pizza%20na%20Pra%C3%A7a%2C%20Pra%C3%A7a%20da%20Liberdade%2C%208%2C%20Faro"
   },
   {
     "id": "rest-8",
@@ -106,7 +106,7 @@
     "preco": "€",
     "descricao": "Café familiar perfeito para o pequeno-almoço ou lanche da tarde.",
     "telefone": "289 824 567",
-    "mapsLink": "https://goo.gl/maps/example8"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Central%2C%20Rua%20de%20Portugal%2C%2028%2C%20Faro"
   },
   {
     "id": "rest-9",
@@ -119,7 +119,7 @@
     "preco": "€",
     "descricao": "Especialidade em petiscos e refeições rápidas para levar.",
     "telefone": "289 817 932",
-    "mapsLink": "https://goo.gl/maps/example9"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=O%20Cantinho%20do%20Petisco%2C%20Avenida%20da%20Rep%C3%BAblica%2C%20120%2C%20Faro"
   },
   {
     "id": "rest-10",
@@ -132,7 +132,7 @@
     "preco": "€",
     "descricao": "Pastelaria conhecida pelos seus folhados e croissants frescos.",
     "telefone": "289 803 421",
-    "mapsLink": "https://goo.gl/maps/example10"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Pastelaria%20Gardy%2C%20Rua%20Vasco%20da%20Gama%2C%2015%2C%20Faro"
   },
   {
     "id": "rest-11",
@@ -145,7 +145,7 @@
     "preco": "€",
     "descricao": "Cantina universitária aberta ao público com refeições económicas.",
     "telefone": "289 800 100",
-    "mapsLink": "https://goo.gl/maps/example11"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Restaurante%20Universit%C3%A1rio%2C%20Campus%20Gambelas%2C%20Universidade%20do%20Algarve"
   },
   {
     "id": "rest-12",
@@ -158,7 +158,7 @@
     "preco": "€€",
     "descricao": "Café na Praia de Faro com esplanada e vista para o mar.",
     "telefone": "289 817 456",
-    "mapsLink": "https://goo.gl/maps/example12"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20da%20Praia%2C%20Praia%20de%20Faro"
   },
   {
     "id": "rest-13",
@@ -171,7 +171,7 @@
     "preco": "€€€",
     "descricao": "Marisqueira tradicional com uma excelente seleção de marisco fresco.",
     "telefone": "289 823 337",
-    "mapsLink": "https://goo.gl/maps/example13",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Marisqueira%20Fialho%2C%20Pra%C3%A7a%20Ferreira%20de%20Almeida%2C%2016%2C%20Faro",
     "destaque": "Popular"
   },
   {
@@ -185,7 +185,7 @@
     "preco": "€€",
     "descricao": "Hambúrgueres artesanais com ingredientes de qualidade.",
     "telefone": "289 808 765",
-    "mapsLink": "https://goo.gl/maps/example14"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Hamburgueria%20do%20Bairro%2C%20Rua%20de%20Santo%20Ant%C3%B3nio%2C%2065%2C%20Faro"
   },
   {
     "id": "rest-15",
@@ -198,7 +198,7 @@
     "preco": "€",
     "descricao": "Pastelaria acolhedora com bolos caseiros e salgados deliciosos.",
     "telefone": "289 825 674",
-    "mapsLink": "https://goo.gl/maps/example15"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Pastelaria%20Bijou%2C%20Rua%201%C2%BA%20de%20Dezembro%2C%2034%2C%20Faro"
   },
   {
     "id": "rest-16",
@@ -211,7 +211,7 @@
     "preco": "€€",
     "descricao": "Restaurante 100% vegetariano e vegano com pratos criativos e saudáveis.",
     "telefone": "289 815 923",
-    "mapsLink": "https://goo.gl/maps/example16",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Green%20Life%2C%20Rua%20Infante%20D.%20Henrique%2C%2022%2C%20Faro",
     "destaque": "Vegetariano"
   },
   {
@@ -225,7 +225,7 @@
     "preco": "€",
     "descricao": "Snack bar com petiscos, bebidas e refeições ligeiras junto à praia.",
     "telefone": "289 818 234",
-    "mapsLink": "https://goo.gl/maps/example17"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Snack%20Bar%20Praia%2C%20Praia%20de%20Faro"
   },
   {
     "id": "rest-18",
@@ -238,7 +238,7 @@
     "preco": "€€",
     "descricao": "Restaurante junto à marina com vista para a Ria Formosa e cozinha portuguesa.",
     "telefone": "289 819 345",
-    "mapsLink": "https://goo.gl/maps/example18"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=O%20Navegador%2C%20Doca%20de%20Faro%2C%20Faro"
   },
   {
     "id": "rest-19",
@@ -251,7 +251,7 @@
     "preco": "€",
     "descricao": "Café popular entre estudantes, com preços acessíveis e ambiente descontraído.",
     "telefone": "289 800 150",
-    "mapsLink": "https://goo.gl/maps/example19"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Acad%C3%A9mico%2C%20Campus%20Gambelas%2C%20Faro"
   },
   {
     "id": "rest-20",
@@ -264,7 +264,7 @@
     "preco": "€",
     "descricao": "Churrasqueira com frango assado e refeições para levar.",
     "telefone": "289 822 567",
-    "mapsLink": "https://goo.gl/maps/example20",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Churrasqueira%20S%C3%A3o%20Pedro%2C%20Rua%20S%C3%A3o%20Pedro%2C%2089%2C%20Faro",
     "destaque": "Bom para famílias"
   }
 ]
