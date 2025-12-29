@@ -126,7 +126,18 @@
     "filter_all": "Todos",
     "filter_info": "Informação",
     "filter_tourism": "Turismo",
-    "filter_services": "Serviços"
+    "filter_services": "Serviços",
+    "icon_bus": "Ícone de autocarro",
+    "icon_hospital": "Ícone de hospital",
+    "icon_plant": "Ícone de planta",
+    "icon_theater": "Ícone de máscara teatral",
+    "icon_food": "Ícone de garfo e faca",
+    "icon_hotel": "Ícone de hotel",
+    "icon_home": "Ícone de casa",
+    "icon_tools": "Ícone de ferramentas",
+    "icon_book": "Ícone de livro premium",
+    "icon_coffee": "Ícone de café",
+    "donation_aria_label": "Apoiar o projeto com uma doação voluntária"
   },
   "favorites": {
     "page_title": "Os Meus Favoritos",
@@ -163,5 +174,12 @@
     "shortcut_increase": "Aumentar letra",
     "shortcut_decrease": "Diminuir letra",
     "shortcut_contrast": "Alto contraste"
+  },
+  "errors": {
+    "load_hotels": "❌ Erro ao carregar dados dos alojamentos.",
+    "load_restaurants": "❌ Erro ao carregar dados dos estabelecimentos.",
+    "no_results": "😕 Nenhum resultado encontrado",
+    "try_again": "Por favor, tente novamente mais tarde.",
+    "search_tip": "Tente usar outras palavras-chave"
   }
 }

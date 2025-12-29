@@ -269,10 +269,12 @@ async function initializeRestaurantesPage() {
     const loaded = await restaurantesManager.loadRestaurantes();
     
     if (!loaded) {
+        const errorMsg = window.i18n?.t('errors.load_restaurants') || '❌ Erro ao carregar dados dos estabelecimentos.';
+        const tryAgain = window.i18n?.t('errors.try_again') || 'Por favor, tente novamente mais tarde.';
         container.innerHTML = `
             <div class="error-message">
-                <p>❌ Erro ao carregar dados dos estabelecimentos.</p>
-                <p>Por favor, tente novamente mais tarde.</p>
+                <p>${errorMsg}</p>
+                <p>${tryAgain}</p>
             </div>
         `;
         return;

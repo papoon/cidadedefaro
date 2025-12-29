@@ -126,7 +126,18 @@
     "filter_all": "All",
     "filter_info": "Information",
     "filter_tourism": "Tourism",
-    "filter_services": "Services"
+    "filter_services": "Services",
+    "icon_bus": "Bus icon",
+    "icon_hospital": "Hospital icon",
+    "icon_plant": "Plant icon",
+    "icon_theater": "Theater mask icon",
+    "icon_food": "Fork and knife icon",
+    "icon_hotel": "Hotel icon",
+    "icon_home": "Home icon",
+    "icon_tools": "Tools icon",
+    "icon_book": "Premium book icon",
+    "icon_coffee": "Coffee icon",
+    "donation_aria_label": "Support the project with a voluntary donation"
   },
   "favorites": {
     "page_title": "My Favorites",
@@ -163,5 +174,12 @@
     "shortcut_increase": "Increase font",
     "shortcut_decrease": "Decrease font",
     "shortcut_contrast": "High contrast"
+  },
+  "errors": {
+    "load_hotels": "❌ Error loading accommodation data.",
+    "load_restaurants": "❌ Error loading establishment data.",
+    "no_results": "😕 No results found",
+    "try_again": "Please try again later.",
+    "search_tip": "Try using other keywords"
   }
 }

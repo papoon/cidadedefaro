@@ -308,10 +308,12 @@ function renderSearchResults(results, container) {
     if (!container) return;
 
     if (results.length === 0) {
+        const noResults = window.i18n?.t('errors.no_results') || '😕 Nenhum resultado encontrado';
+        const searchTip = window.i18n?.t('errors.search_tip') || 'Tente usar outras palavras-chave';
         container.innerHTML = `
             <div class="search-no-results">
-                <p>😕 Nenhum resultado encontrado</p>
-                <p class="search-tip">Tente usar outras palavras-chave</p>
+                <p>${noResults}</p>
+                <p class="search-tip">${searchTip}</p>
             </div>
         `;
         container.classList.add('show');
