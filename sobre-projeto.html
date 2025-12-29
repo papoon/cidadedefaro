@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Guia Faro">
+    <title data-i18n="pages.about_title">Sobre o Projeto - Guia de Faro</title>
+    <meta name="description" content="Conheça o objetivo social, tecnologias e APIs utilizadas no Guia de Faro" data-i18n="pages.about_description" data-i18n-attr="content">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <link rel="stylesheet" href="css/ux.css">
+    
+    <style>
+        .about-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-section h3 {
+            color: #2d3748;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .about-section p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        .about-section ul {
+            margin: 1.5rem 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        .about-section li {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+        }
+        
+        .about-section li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        
+        .api-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .api-card {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .api-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .api-card h4 {
+            color: #2d3748;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .api-card p {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .api-card .api-url {
+            color: #667eea;
+            font-size: 0.875rem;
+            word-break: break-all;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-card {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .contact-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-card h4 {
+            color: #2d3748;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        .contact-card a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+        
+        .license-box {
+            background: #f7fafc;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .license-box h4 {
+            color: #2d3748;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .license-box p {
+            color: #4a5568;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tech-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 1.5rem;
+            }
+            
+            .about-section h3 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" aria-label="Alternar modo escuro" aria-pressed="false">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <header role="banner">
+        <h1><span data-i18n="site.title">Guia de Faro</span></h1>
+        <div id="lang-switcher">
+            <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" aria-label="Mudar para Português">
+                🇵🇹 PT
+            </button>
+            <button data-lang="en" onclick="window.i18n.switchLanguage('en')" aria-label="Switch to English">
+                🇬🇧 EN
+            </button>
+        </div>
+        <nav role="navigation" aria-label="Menu principal">
+            <ul role="menubar">
+                <li role="none"><a href="index.html" role="menuitem"><span data-i18n="nav.home">Início</span></a></li>
+                <li role="none"><a href="transportes.html" role="menuitem"><span data-i18n="nav.transport">Transportes</span></a></li>
+                <li role="none"><a href="saude.html" role="menuitem"><span data-i18n="nav.health">Saúde</span></a></li>
+                <li role="none"><a href="ambiente.html" role="menuitem"><span data-i18n="nav.environment">Ambiente</span></a></li>
+                <li role="none"><a href="lazer.html" role="menuitem"><span data-i18n="nav.leisure">Lazer</span></a></li>
+                <li role="none"><a href="restaurantes.html" role="menuitem"><span data-i18n="nav.restaurants">Onde Comer</span></a></li>
+                <li role="none"><a href="hoteis.html" role="menuitem"><span data-i18n="nav.hotels">Onde Ficar</span></a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem"><span data-i18n="nav.what_to_do">O que fazer hoje</span></a></li>
+                <li role="none"><a href="mapa.html" role="menuitem"><span data-i18n="nav.map">Mapa</span></a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem"><span data-i18n="nav.faq">Problemas Frequentes</span></a></li>
+                <li role="none"><a href="viver-em-faro.html" role="menuitem"><span data-i18n="nav.living">Viver em Faro</span></a></li>
+                <li role="none"><a href="mobilidade.html" role="menuitem"><span data-i18n="nav.mobility">Mobilidade</span></a></li>
+                <li role="none"><a href="historia-faro.html" role="menuitem"><span data-i18n="nav.history">História</span></a></li>
+                <li role="none"><a href="guia-premium.html" role="menuitem"><span data-i18n="nav.premium">📘 Guia Premium</span></a></li>
+                <li role="none"><a href="sobre-projeto.html" role="menuitem"><span data-i18n="nav.about">ℹ️ Sobre o Projeto</span></a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem"><span data-i18n="nav.favorites">⭐ Favoritos</span> <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="hero">
+            <h2 data-i18n="about.hero_title">Sobre o Projeto</h2>
+            <p data-i18n="about.hero_description">Conheça o objetivo social, tecnologias utilizadas e informações sobre o desenvolvimento do Guia de Faro.</p>
+        </section>
+
+        <!-- Objetivo Social -->
+        <section class="about-section">
+            <h3><span role="img" aria-label="Alvo">🎯</span> <span data-i18n="about.objective_title">Objetivo Social</span></h3>
+            <p data-i18n="about.objective_p1">O <strong>Guia de Faro</strong> é um projeto de utilidade pública desenvolvido com o objetivo de democratizar o acesso à informação sobre a cidade de Faro. Criado de forma independente e sem fins lucrativos, este guia digital oferece informações essenciais para residentes e visitantes de forma completamente gratuita.</p>
+            <p data-i18n="about.objective_p2">A missão principal é facilitar o dia a dia de quem vive ou visita Faro, reunindo num único local informações sobre:</p>
+            <ul>
+                <li data-i18n="about.objective_list_1">Transportes públicos e mobilidade urbana</li>
+                <li data-i18n="about.objective_list_2">Serviços de saúde e farmácias</li>
+                <li data-i18n="about.objective_list_3">Informações ambientais e sustentabilidade</li>
+                <li data-i18n="about.objective_list_4">Cultura, turismo e atividades de lazer</li>
+                <li data-i18n="about.objective_list_5">Restaurantes, hotéis e alojamentos</li>
+                <li data-i18n="about.objective_list_6">Informações práticas para novos residentes</li>
+            </ul>
+            <p data-i18n="about.objective_p3">O projeto tem especial atenção à acessibilidade, incluindo suporte para tecnologias assistivas, modo escuro e conteúdo disponível em português e inglês.</p>
+        </section>
+
+        <!-- Tecnologias Usadas -->
+        <section class="about-section">
+            <h3><span role="img" aria-label="Computador">💻</span> <span data-i18n="about.tech_title">Tecnologias Utilizadas</span></h3>
+            <p data-i18n="about.tech_description">O Guia de Faro é desenvolvido com tecnologias web modernas, priorizando performance, acessibilidade e facilidade de manutenção:</p>
+            
+            <div class="tech-stack">
+                <span class="tech-badge">HTML5</span>
+                <span class="tech-badge">CSS3</span>
+                <span class="tech-badge">JavaScript (ES6+)</span>
+                <span class="tech-badge">PWA (Progressive Web App)</span>
+                <span class="tech-badge">Responsive Design</span>
+                <span class="tech-badge">Acessibilidade WCAG</span>
+            </div>
+            
+            <p style="margin-top: 1.5rem;" data-i18n="about.tech_features">O projeto é 100% frontend, sem necessidade de servidor backend, o que garante maior velocidade de carregamento e facilita a hospedagem e manutenção. Inclui funcionalidades como:</p>
+            <ul>
+                <li data-i18n="about.tech_features_1">Progressive Web App (PWA) com suporte offline</li>
+                <li data-i18n="about.tech_features_2">Modo escuro com preferência persistente</li>
+                <li data-i18n="about.tech_features_3">Internacionalização (Português e Inglês)</li>
+                <li data-i18n="about.tech_features_4">Sistema de favoritos local</li>
+                <li data-i18n="about.tech_features_5">Busca global de conteúdo</li>
+                <li data-i18n="about.tech_features_6">Mapas interativos com Leaflet.js</li>
+            </ul>
+        </section>
+
+        <!-- APIs Utilizadas -->
+        <section class="about-section">
+            <h3><span role="img" aria-label="Conexão">🔌</span> <span data-i18n="about.apis_title">APIs e Fontes de Dados</span></h3>
+            <p data-i18n="about.apis_description">O projeto integra dados de múltiplas fontes públicas e abertas para fornecer informações precisas e atualizadas:</p>
+            
+            <div class="api-grid">
+                <div class="api-card">
+                    <h4>🗺️ GEO API PT</h4>
+                    <p data-i18n="about.api_geo_desc">API portuguesa de dados geográficos e demográficos dos municípios de Portugal.</p>
+                    <p class="api-url">geoapi.pt</p>
+                </div>
+                
+                <div class="api-card">
+                    <h4>🏛️ Câmara Municipal de Faro</h4>
+                    <p data-i18n="about.api_cmf_desc">Informações oficiais sobre serviços municipais, transportes e equipamentos públicos.</p>
+                    <p class="api-url">cm-faro.pt</p>
+                </div>
+                
+                <div class="api-card">
+                    <h4>🏥 Portal do Cidadão</h4>
+                    <p data-i18n="about.api_portal_desc">Dados sobre serviços de saúde, farmácias e outros serviços públicos.</p>
+                    <p class="api-url">portaldocidadao.pt</p>
+                </div>
+                
+                <div class="api-card">
+                    <h4>🏖️ Turismo de Portugal</h4>
+                    <p data-i18n="about.api_turismo_desc">Informações turísticas oficiais, eventos e pontos de interesse.</p>
+                    <p class="api-url">visitportugal.com</p>
+                </div>
+                
+                <div class="api-card">
+                    <h4>🗺️ OpenStreetMap</h4>
+                    <p data-i18n="about.api_osm_desc">Mapas colaborativos abertos utilizados para visualização geográfica.</p>
+                    <p class="api-url">openstreetmap.org</p>
+                </div>
+                
+                <div class="api-card">
+                    <h4>🚌 Proximo Autocarro</h4>
+                    <p data-i18n="about.api_proximo_desc">Dados de transportes públicos e horários em tempo real.</p>
+                    <p class="api-url">proximoautocarro.pt</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Licença -->
+        <section class="about-section">
+            <h3><span role="img" aria-label="Documento">📄</span> <span data-i18n="about.license_title">Licença</span></h3>
+            <p data-i18n="about.license_description">Este projeto é de código aberto e está disponível sob licença livre para uso público.</p>
+            
+            <div class="license-box">
+                <h4 data-i18n="about.license_box_title">Licença de Uso Livre</h4>
+                <p data-i18n="about.license_box_p1">✓ O conteúdo deste site pode ser consultado livremente por qualquer pessoa</p>
+                <p data-i18n="about.license_box_p2">✓ O código-fonte está disponível para consulta e contribuições</p>
+                <p data-i18n="about.license_box_p3">✓ As informações são fornecidas com finalidade educacional e informativa</p>
+                <p data-i18n="about.license_box_p4">✓ Todos os dados de APIs externas estão sujeitos às licenças das respetivas fontes</p>
+            </div>
+        </section>
+
+        <!-- Autor -->
+        <section class="about-section">
+            <h3><span role="img" aria-label="Pessoa">👤</span> <span data-i18n="about.author_title">Autor</span></h3>
+            <p data-i18n="about.author_description">O Guia de Faro é desenvolvido e mantido de forma independente como um projeto pessoal de utilidade pública. O desenvolvimento é feito de forma voluntária, sem fins lucrativos, com o objetivo de contribuir para a comunidade local.</p>
+            <p data-i18n="about.author_support">Se este projeto é útil para si, considere apoiá-lo de forma voluntária através do botão "Apoiar o Projeto" no rodapé da página. O site permanecerá sempre 100% gratuito e sem publicidade.</p>
+        </section>
+
+        <!-- Contacto -->
+        <section class="about-section">
+            <h3><span role="img" aria-label="Envelope">✉️</span> <span data-i18n="about.contact_title">Contacto</span></h3>
+            <p data-i18n="about.contact_description">Para sugestões, correções ou questões sobre o projeto:</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="icon" role="img" aria-label="GitHub">💻</div>
+                    <h4 data-i18n="about.contact_github_title">Código Fonte</h4>
+                    <p><a href="https://github.com/papoon/cidadedefaro" target="_blank" rel="noopener noreferrer">github.com/papoon/cidadedefaro</a></p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="icon" role="img" aria-label="Issues">🐛</div>
+                    <h4 data-i18n="about.contact_issues_title">Reportar Problemas</h4>
+                    <p><a href="https://github.com/papoon/cidadedefaro/issues" target="_blank" rel="noopener noreferrer" data-i18n="about.contact_issues_link">Abrir Issue no GitHub</a></p>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="icon" role="img" aria-label="Café">☕</div>
+                    <h4 data-i18n="about.contact_support_title">Apoiar o Projeto</h4>
+                    <p><a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" data-i18n="about.contact_support_link">Fazer uma doação voluntária</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p data-i18n="footer.copyright">&copy; 2024 Guia de Faro</p>
+        <p class="data-sources" data-i18n="footer.data_sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal, GEO API PT</p>
+        <div class="donation-container">
+            <p class="donation-message" data-i18n="footer.donation_message">Apoie este projeto de forma voluntária</p>
+            <a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" class="donation-button" aria-label="Apoiar o projeto com uma doação voluntária">
+                <span class="donation-icon" role="img" aria-label="Ícone de café">☕</span>
+                <span data-i18n="footer.donation_button">Apoiar o Projeto</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/pwa.js"></script>
+    <script src="js/accessibility.js"></script>
+    <script src="js/favorites.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/ux.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
