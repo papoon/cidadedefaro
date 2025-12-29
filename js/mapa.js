@@ -219,25 +219,21 @@ async function buscarServicosProximos(lat, lng) {
     // Limpar marcadores existentes
     grupoMarcadoresServicos.clearLayers();
 
+    // Helper para buscar serviço com tratamento de erro
+    const buscarComTratamento = (chave, valor, tipo, nomeTipo) => {
+        return buscarServico(lat, lng, raio, chave, valor, tipo).catch(e => {
+            console.warn(`Falha ao buscar ${nomeTipo}:`, e.message);
+            return null;
+        });
+    };
+
     try {
         // Buscar todos os tipos de serviços em paralelo
         const promessas = [
-            buscarServico(lat, lng, raio, 'amenity', 'pharmacy', 'farmacias').catch(e => {
-                console.warn('Falha ao buscar farmácias:', e.message);
-                return null;
-            }),
-            buscarServico(lat, lng, raio, 'amenity', 'hospital', 'hospitais').catch(e => {
-                console.warn('Falha ao buscar hospitais:', e.message);
-                return null;
-            }),
-            buscarServico(lat, lng, raio, 'amenity', 'atm', 'multibancos').catch(e => {
-                console.warn('Falha ao buscar multibancos:', e.message);
-                return null;
-            }),
-            buscarServico(lat, lng, raio, 'shop', 'supermarket', 'supermercados').catch(e => {
-                console.warn('Falha ao buscar supermercados:', e.message);
-                return null;
-            })
+            buscarComTratamento('amenity', 'pharmacy', 'farmacias', 'farmácias'),
+            buscarComTratamento('amenity', 'hospital', 'hospitais', 'hospitais'),
+            buscarComTratamento('amenity', 'atm', 'multibancos', 'multibancos'),
+            buscarComTratamento('shop', 'supermarket', 'supermercados', 'supermercados')
         ];
 
         const resultados = await Promise.all(promessas);
