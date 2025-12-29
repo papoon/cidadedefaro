@@ -1114,6 +1114,8 @@ footer p {
 @media (max-width: 768px) {
     .search-container {
         max-width: 100%;
+        /* avoid overlap with fixed top controls (dark-mode, lang, accessibility) */
+        margin-top: 5rem;
     }
     
     .search-input {
@@ -1158,6 +1160,11 @@ footer p {
     .search-input {
         padding: 0.625rem 2.5rem 0.625rem 2.5rem;
         font-size: 0.875rem;
+    }
+
+    /* slightly larger offset for very small screens */
+    .search-container {
+        margin-top: 4rem;
     }
     
     .search-icon {
@@ -1278,6 +1285,11 @@ footer p {
     border-radius: 8px;
     width: fit-content;
     margin-left: auto;
+    /* On larger screens place the language switcher near the dark-mode toggle */
+    position: fixed;
+    top: 1rem;
+    right: calc(1rem + 3.5rem);
+    z-index: 9998;
 }
 
 #lang-switcher button {
@@ -1316,7 +1328,13 @@ footer p {
 /* Responsive language switcher */
 @media (max-width: 768px) {
     #lang-switcher {
-        margin: 0 auto 1rem auto;
+        /* keep the top-right fixed arrangement on mobile, but use smaller spacing */
+        position: fixed;
+        top: 0.75rem;
+        right: calc(0.75rem + 2.75rem);
+        margin: 0;
+        padding: 0.15rem;
+        background: rgba(0,0,0,0.08);
     }
     
     #lang-switcher button {
