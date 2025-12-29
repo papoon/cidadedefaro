@@ -217,17 +217,35 @@ async function buscarServicosProximos(lat, lng) {
     try {
         // Buscar todos os tipos de serviços em paralelo
         const promessas = [
-            buscarServico(lat, lng, raio, 'amenity', 'pharmacy', 'farmacias'),
-            buscarServico(lat, lng, raio, 'amenity', 'hospital', 'hospitais'),
-            buscarServico(lat, lng, raio, 'amenity', 'atm', 'multibancos'),
-            buscarServico(lat, lng, raio, 'shop', 'supermarket', 'supermercados')
+            buscarServico(lat, lng, raio, 'amenity', 'pharmacy', 'farmacias').catch(e => {
+                console.warn('Falha ao buscar farmácias:', e.message);
+                return null;
+            }),
+            buscarServico(lat, lng, raio, 'amenity', 'hospital', 'hospitais').catch(e => {
+                console.warn('Falha ao buscar hospitais:', e.message);
+                return null;
+            }),
+            buscarServico(lat, lng, raio, 'amenity', 'atm', 'multibancos').catch(e => {
+                console.warn('Falha ao buscar multibancos:', e.message);
+                return null;
+            }),
+            buscarServico(lat, lng, raio, 'shop', 'supermarket', 'supermercados').catch(e => {
+                console.warn('Falha ao buscar supermercados:', e.message);
+                return null;
+            })
         ];
 
-        await Promise.all(promessas);
-        console.log('Todos os serviços foram carregados');
+        const resultados = await Promise.all(promessas);
+        const sucessos = resultados.filter(r => r !== null).length;
+        
+        if (sucessos === 0) {
+            throw new Error('Não foi possível carregar nenhum serviço');
+        }
+        
+        console.log(`Serviços carregados: ${sucessos} de 4 tipos`);
     } catch (erro) {
         console.error('Erro ao buscar serviços:', erro);
-        alert('Erro ao buscar serviços próximos. Por favor, tente novamente.');
+        alert('Erro ao buscar alguns serviços próximos. Alguns resultados podem estar incompletos.');
     }
 }
 
@@ -237,7 +255,7 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
     
     // Query Overpass QL
     const query = `
-        [out:json][timeout:25];
+        [out:json][timeout:15];
         (
             node["${chave}"="${valor}"](around:${raio},${lat},${lng});
             way["${chave}"="${valor}"](around:${raio},${lat},${lng});
@@ -245,11 +263,18 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
         out center;
     `;
 
+    // Create an AbortController for timeout control
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 20000); // 20 second timeout
+
     try {
         const resposta = await fetch(overpassUrl, {
             method: 'POST',
-            body: 'data=' + encodeURIComponent(query)
+            body: 'data=' + encodeURIComponent(query),
+            signal: controller.signal
         });
+
+        clearTimeout(timeoutId);
 
         if (!resposta.ok) {
             throw new Error(`Erro HTTP: ${resposta.status}`);
@@ -304,6 +329,13 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
             }
         });
     } catch (erro) {
+        clearTimeout(timeoutId);
+        
+        if (erro.name === 'AbortError') {
+            console.error(`Timeout ao buscar ${tipo}`);
+            throw new Error(`Timeout ao buscar ${tipo}`);
+        }
+        
         console.error(`Erro ao buscar ${tipo}:`, erro);
         throw erro;
     }
