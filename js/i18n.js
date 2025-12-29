@@ -55,10 +55,14 @@ function applyTranslations() {
         if (translation) {
             // Check if element has data-i18n-attr to translate attribute instead of content
             const attr = element.getAttribute('data-i18n-attr');
+            const htmlMode = element.getAttribute('data-i18n-html') === 'true';
             if (attr) {
                 element.setAttribute(attr, translation);
+            } else if (htmlMode) {
+                // Explicit HTML mode: inject translation as HTML. Use only when translations are trusted.
+                element.innerHTML = translation;
             } else {
-                // For span elements inside links/other elements, just replace text content
+                // For span elements inside links/other elements, default to textContent to avoid accidental HTML injection
                 if (element.tagName === 'SPAN') {
                     element.textContent = translation;
                 }

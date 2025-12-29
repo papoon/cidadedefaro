@@ -26,7 +26,6 @@
     "hero_description": "O seu guia completo para viver e visitar Faro. Encontre informações essenciais sobre transportes, saúde, ambiente e lazer na cidade.",
     "premium_notice_label": "📘 Novo:",
     "premium_notice_text": "Descarregue o <a href=\"guia-premium.html\">Guia Premium de Faro</a> com mapas offline, dicas de transporte e eventos detalhados.",
-    "premium_notice_disclaimer": "Apoio voluntário • Site continua 100% gratuito",
     "sections_title": "Explore as Secções",
     "card_transport_title": "Transportes",
     "card_transport_desc": "Informações sobre autocarros, comboios e mobilidade na cidade",
@@ -48,7 +47,7 @@
     "card_premium_desc": "Conteúdo detalhado com mapas offline, transporte e eventos (apoio voluntário)"
   },
   "footer": {
-    "copyright": "© 2024 Guia de Faro",
+    "copyright": "© 2025 Guia de Faro",
     "data_sources": "Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal, GEO API PT",
     "donation_message": "Apoie este projeto de forma voluntária",
     "donation_button": "Apoiar o Projeto"

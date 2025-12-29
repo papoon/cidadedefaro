@@ -36,13 +36,8 @@ async function buscarDadosFaro() {
         source: 'embedded'
     };
 
-    // Tentar múltiplos endpoints (algumas variações e formatos possíveis)
-    const endpoints = [
-        'https://geoapi.pt/municipio/Faro',
-        'https://geoapi.pt/municipio/faro',
-        'https://geoapi.pt/municipio/Faro.json',
-        'https://geoapi.pt/municipio/faro.json'
-    ];
+    // We'll use the local data file only (no external API calls)
+    const localPath = '/data/municipio-faro.json';
 
     // Helper: tenta extrair propriedade ignorando acentos/maiúsculas
     const pick = (obj, candidates) => {
@@ -83,99 +78,31 @@ async function buscarDadosFaro() {
         console.warn('Erro ao ler cache local:', e);
     }
 
-    // 2) se estivermos em ambiente de desenvolvimento (localhost) e protocolo HTTP(S), tentar arquivo local primeiro
-    const isLocalHost = (location.hostname === 'localhost' || location.hostname === '127.0.0.1');
+    // Always attempt to load data from the local JSON file
     const canFetchLocal = location.protocol !== 'file:'; // fetch to /data works only over http(s)
-    if (isLocalHost && canFetchLocal) {
-        try {
-            const lr = await fetch('/data/municipio-faro.json');
-            if (lr && lr.ok) {
-                const localData = await lr.json();
-                console.log('Usando dados locais de /data/municipio-faro.json (dev)');
-                const result = {
-                    nome: localData.nome || localData.municipio || 'Faro',
-                    distrito: localData.distrito || 'Faro',
-                    populacao: localData.populacao || 'N/A',
-                    area: localData.area || 'N/A',
-                    source: 'local'
-                };
-                try { localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: result })); } catch (e) {}
-                return result;
-            }
-        } catch (e) {
-            console.warn('Falha ao buscar arquivo local de desenvolvimento:', e);
-        }
-    }
-
-    for (const url of endpoints) {
-        try {
-            const resp = await fetchWithTimeout(url, 6000);
-            if (!resp.ok) {
-                console.warn(`Endpoint ${url} respondeu com status ${resp.status}`);
-                continue;
-            }
-
-            // tentar parse JSON (algumas respostas podem ser texto)
-            let dadosRaw;
-            try {
-                dadosRaw = await resp.json();
-            } catch (e) {
-                // se não for JSON, tentar texto e procurar um JSON embutido
-                const txt = await resp.text();
-                try {
-                    dadosRaw = JSON.parse(txt);
-                } catch (ee) {
-                    console.warn('Resposta não é JSON:', txt.slice(0, 200));
-                    continue;
-                }
-            }
-
-            console.log(`Dados recebidos de ${url}:`, dadosRaw);
-
-            // alguns endpoints retornam um objeto com propriedades aninhadas
-            const root = dadosRaw || {};
-            const candidateObj = root.properties || root.result || root.data || root;
-
-            const nome = pick(candidateObj, ['Município', 'Municipio', 'municipio', 'nome', 'name']) || 'Faro';
-            const distrito = pick(candidateObj, ['Distrito', 'distrito', 'district']) || 'Faro';
-            const populacao = pick(candidateObj, ['População', 'Populacao', 'populacao', 'population']) || 'N/A';
-            const area = pick(candidateObj, ['Área', 'Area', 'area']) || 'N/A';
-
-            const result = { nome, distrito, populacao, area, source: 'geoapi' };
-            // armazenar em cache
-            try { localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: result })); } catch (e) {}
-            return result;
-
-        } catch (err) {
-            if (err.name === 'AbortError') {
-                console.warn(`Pedido ao ${url} expirou (timeout)`);
-            } else {
-                console.warn(`Erro ao aceder ${url}:`, err.message || err);
-            }
-            // tentar próximo endpoint
-            continue;
-        }
-    }
-
-    // fallback: tentar um ficheiro local (se existir) se protocolo permitir
     if (canFetchLocal) {
         try {
-            const localResp2 = await fetch('/data/municipio-faro.json');
-            if (localResp2.ok) {
-                const localData = await localResp2.json();
+            const resp = await fetch(localPath, { cache: 'no-cache' });
+            if (resp && resp.ok) {
+                const localData = await resp.json();
+                console.log('Usando dados locais de /data/municipio-faro.json');
                 const result = {
                     nome: localData.nome || localData.municipio || 'Faro',
                     distrito: localData.distrito || 'Faro',
-                    populacao: localData.populacao || 'N/A',
+                    populacao: localData.populacao || localData.population || 'N/A',
                     area: localData.area || 'N/A',
                     source: 'local'
                 };
                 try { localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: result })); } catch (e) {}
                 return result;
+            } else {
+                console.warn(`Falha ao carregar ${localPath}: status ${resp && resp.status}`);
             }
         } catch (e) {
-            // ignorar
+            console.warn('Erro ao buscar /data/municipio-faro.json:', e);
         }
+    } else {
+        console.warn('Protocolo file:// detectado — não é possível carregar /data/municipio-faro.json via fetch');
     }
 
     console.error('Não foi possível obter os dados de Faro a partir dos endpoints testados. Retornando fallback embutido.');
