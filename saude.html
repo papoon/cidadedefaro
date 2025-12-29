@@ -344,22 +344,6 @@
     <script src="js/farmacias.js"></script>
     <script src="js/main.js"></script>
     <script>
-        // Function to toggle pharmacy list visibility
-        function toggleFarmacias() {
-            const extraFarmacias = document.querySelectorAll('.farmacia-extra');
-            const btn = document.getElementById('btn-ver-mais-farmacias');
-            
-            extraFarmacias.forEach(farmacia => {
-                farmacia.classList.toggle('show');
-            });
-            
-            if (btn.textContent === 'Ver mais farmácias') {
-                btn.textContent = 'Ver menos farmácias';
-            } else {
-                btn.textContent = 'Ver mais farmácias';
-            }
-        }
-        
         // Coordenadas dos serviços de saúde em Faro (excluindo farmácias, que serão carregadas do JSON)
         const servicosSaudeFixos = [
             {
