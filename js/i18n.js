@@ -57,7 +57,11 @@ function applyTranslations() {
             const attr = element.getAttribute('data-i18n-attr');
             const htmlMode = element.getAttribute('data-i18n-html') === 'true';
             if (attr) {
-                element.setAttribute(attr, translation);
+                // Support multiple attributes separated by comma
+                const attrs = attr.split(',').map(a => a.trim());
+                attrs.forEach(a => {
+                    element.setAttribute(a, translation);
+                });
             } else if (htmlMode) {
                 // Explicit HTML mode: inject translation as HTML. Use only when translations are trusted.
                 element.innerHTML = translation;
@@ -72,6 +76,21 @@ function applyTranslations() {
                     replaceTextNodes(element, translation);
                 } else {
                     element.innerHTML = translation;
+                }
+            }
+        }
+        
+        // Handle secondary translation attributes (data-i18n2, data-i18n-attr2)
+        const key2 = element.getAttribute('data-i18n2');
+        if (key2) {
+            const translation2 = getNestedTranslation(key2);
+            if (translation2) {
+                const attr2 = element.getAttribute('data-i18n-attr2');
+                if (attr2) {
+                    const attrs2 = attr2.split(',').map(a => a.trim());
+                    attrs2.forEach(a => {
+                        element.setAttribute(a, translation2);
+                    });
                 }
             }
         }

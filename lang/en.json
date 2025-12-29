@@ -137,7 +137,12 @@
     "icon_tools": "Tools icon",
     "icon_book": "Premium book icon",
     "icon_coffee": "Coffee icon",
-    "donation_aria_label": "Support the project with a voluntary donation"
+    "donation_aria_label": "Support the project with a voluntary donation",
+    "search_placeholder": "Search by name, description or address...",
+    "filter_services_label": "Filter services:",
+    "clear_search": "Clear search",
+    "search_hotels_label": "Hotels search field",
+    "search_restaurants_label": "Restaurants search field"
   },
   "favorites": {
     "page_title": "My Favorites",

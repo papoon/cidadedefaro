@@ -137,7 +137,12 @@
     "icon_tools": "Ícone de ferramentas",
     "icon_book": "Ícone de livro premium",
     "icon_coffee": "Ícone de café",
-    "donation_aria_label": "Apoiar o projeto com uma doação voluntária"
+    "donation_aria_label": "Apoiar o projeto com uma doação voluntária",
+    "search_placeholder": "Pesquisar por nome, descrição ou morada...",
+    "filter_services_label": "Filtrar serviços:",
+    "clear_search": "Limpar pesquisa",
+    "search_hotels_label": "Campo de pesquisa de alojamentos",
+    "search_restaurants_label": "Campo de pesquisa de restaurantes"
   },
   "favorites": {
     "page_title": "Os Meus Favoritos",
