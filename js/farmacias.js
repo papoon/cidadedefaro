@@ -92,7 +92,7 @@ function getFarmaciasParaMapa(farmacias) {
  * Inicializa lista de farmácias na página de saúde
  */
 async function initializeFarmaciasSection() {
-    const container = document.querySelector('.location-list');
+    const container = document.getElementById('farmacias-list');
     
     if (!container) {
         console.warn('Container de farmácias não encontrado');
