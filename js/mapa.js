@@ -9,6 +9,7 @@ const FARO_COORDENADAS = {
 // Configurações de timeout para requisições
 const FETCH_TIMEOUT_MS = 20000; // 20 segundos
 const OVERPASS_TIMEOUT_S = 15; // 15 segundos
+const TOTAL_SERVICE_TYPES = 4; // Número total de tipos de serviços
 
 // Variável para armazenar a instância do mapa
 let mapa = null;
@@ -246,11 +247,11 @@ async function buscarServicosProximos(lat, lng) {
             throw new Error('Não foi possível carregar nenhum serviço');
         }
         
-        if (sucessos < 4) {
-            alert(`Alguns serviços não puderam ser carregados. Mostrando ${sucessos} de 4 tipos de serviços.`);
+        if (sucessos < TOTAL_SERVICE_TYPES) {
+            alert(`Alguns serviços não puderam ser carregados. Mostrando ${sucessos} de ${TOTAL_SERVICE_TYPES} tipos de serviços.`);
         }
         
-        console.log(`Serviços carregados: ${sucessos} de 4 tipos`);
+        console.log(`Serviços carregados: ${sucessos} de ${TOTAL_SERVICE_TYPES} tipos`);
     } catch (erro) {
         console.error('Erro ao buscar serviços:', erro);
         alert('Erro ao buscar serviços próximos. Por favor, tente novamente.');
@@ -271,7 +272,7 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
         out center;
     `;
 
-    // Create an AbortController for timeout control
+    // Criar AbortController para controle de timeout
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
 
