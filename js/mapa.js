@@ -6,6 +6,11 @@ const FARO_COORDENADAS = {
     lng: -7.9322
 };
 
+// Configurações de timeout para requisições
+const FETCH_TIMEOUT_MS = 20000; // 20 segundos
+const OVERPASS_TIMEOUT_S = 15; // 15 segundos
+const TOTAL_SERVICE_TYPES = 4; // Número total de tipos de serviços
+
 // Variável para armazenar a instância do mapa
 let mapa = null;
 let mapaInicializado = false;
@@ -214,17 +219,35 @@ async function buscarServicosProximos(lat, lng) {
     // Limpar marcadores existentes
     grupoMarcadoresServicos.clearLayers();
 
+    // Helper para buscar serviço com tratamento de erro
+    const buscarComTratamento = (chave, valor, tipo, nomeTipo) => {
+        return buscarServico(lat, lng, raio, chave, valor, tipo).catch(e => {
+            console.warn(`Falha ao buscar ${nomeTipo}:`, e.message);
+            return null;
+        });
+    };
+
     try {
         // Buscar todos os tipos de serviços em paralelo
         const promessas = [
-            buscarServico(lat, lng, raio, 'amenity', 'pharmacy', 'farmacias'),
-            buscarServico(lat, lng, raio, 'amenity', 'hospital', 'hospitais'),
-            buscarServico(lat, lng, raio, 'amenity', 'atm', 'multibancos'),
-            buscarServico(lat, lng, raio, 'shop', 'supermarket', 'supermercados')
+            buscarComTratamento('amenity', 'pharmacy', 'farmacias', 'farmácias'),
+            buscarComTratamento('amenity', 'hospital', 'hospitais', 'hospitais'),
+            buscarComTratamento('amenity', 'atm', 'multibancos', 'multibancos'),
+            buscarComTratamento('shop', 'supermarket', 'supermercados', 'supermercados')
         ];
 
-        await Promise.all(promessas);
-        console.log('Todos os serviços foram carregados');
+        const resultados = await Promise.all(promessas);
+        const sucessos = resultados.filter(r => r !== null).length;
+        
+        if (sucessos === 0) {
+            throw new Error('Não foi possível carregar nenhum serviço');
+        }
+        
+        if (sucessos < TOTAL_SERVICE_TYPES) {
+            alert(`Alguns serviços não puderam ser carregados. Mostrando ${sucessos} de ${TOTAL_SERVICE_TYPES} tipos de serviços.`);
+        }
+        
+        console.log(`Serviços carregados: ${sucessos} de ${TOTAL_SERVICE_TYPES} tipos`);
     } catch (erro) {
         console.error('Erro ao buscar serviços:', erro);
         alert('Erro ao buscar serviços próximos. Por favor, tente novamente.');
@@ -237,7 +260,7 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
     
     // Query Overpass QL
     const query = `
-        [out:json][timeout:25];
+        [out:json][timeout:${OVERPASS_TIMEOUT_S}];
         (
             node["${chave}"="${valor}"](around:${raio},${lat},${lng});
             way["${chave}"="${valor}"](around:${raio},${lat},${lng});
@@ -245,10 +268,15 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
         out center;
     `;
 
+    // Criar AbortController para controle de timeout
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
     try {
         const resposta = await fetch(overpassUrl, {
             method: 'POST',
-            body: 'data=' + encodeURIComponent(query)
+            body: 'data=' + encodeURIComponent(query),
+            signal: controller.signal
         });
 
         if (!resposta.ok) {
@@ -304,8 +332,15 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
             }
         });
     } catch (erro) {
+        if (erro.name === 'AbortError') {
+            console.error(`Timeout ao buscar ${tipo}`);
+            throw new Error(`Timeout ao buscar ${tipo}`);
+        }
+        
         console.error(`Erro ao buscar ${tipo}:`, erro);
         throw erro;
+    } finally {
+        clearTimeout(timeoutId);
     }
 }
 
