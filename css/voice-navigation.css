@@ -384,9 +384,10 @@
         width: 2.5rem;
         height: 2.5rem;
         font-size: 1rem;
-        right: 0.5rem;
-        top: auto;
-        bottom: 6rem;
+        right: 0.75rem;
+        /* Position below accessibility button instead of at bottom */
+        top: calc(0.75rem + 2.5rem + 0.4rem + 2.5rem + 0.5rem);
+        bottom: auto;
     }
     
     .voice-nav-modal {
