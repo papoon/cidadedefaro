@@ -34,6 +34,10 @@ async function loadLanguage(lang) {
         // Update language switcher UI
         updateLanguageSwitcher();
         
+        // Dispatch event for other components
+        document.dispatchEvent(new CustomEvent('i18nLoaded', { detail: { language: lang } }));
+        document.dispatchEvent(new CustomEvent('languageChanged', { detail: { language: lang } }));
+        
         console.log(`Language loaded: ${lang}`);
     } catch (error) {
         console.error('Error loading language:', error);

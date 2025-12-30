@@ -186,5 +186,28 @@
     "no_results": "😕 No results found",
     "try_again": "Please try again later.",
     "search_tip": "Try using other keywords"
+  },
+  "voice_nav": {
+    "toggle_label": "Toggle voice navigation",
+    "modal_title": "Voice Navigation",
+    "status_ready": "Ready to listen",
+    "status_listening": "Listening...",
+    "status_processing": "Processing...",
+    "start_listening": "Start Listening",
+    "stop_listening": "Stop Listening",
+    "close": "Close",
+    "show_commands": "Show available commands",
+    "hide_commands": "Hide commands",
+    "example_commands": "Example Commands",
+    "enabled": "Voice navigation enabled",
+    "disabled": "Voice navigation disabled",
+    "command_recognized": "Command recognized",
+    "command_not_recognized": "Command not recognized",
+    "navigating": "Navigating to",
+    "not_supported": "Voice navigation not supported in this browser",
+    "no_speech_detected": "No speech detected",
+    "mic_permission_denied": "Microphone permission denied",
+    "filter_applied": "Filter applied",
+    "description": "Use voice commands to navigate the site. Say phrases like 'Open restaurants' or 'Show map' to quickly access pages."
   }
 }
