@@ -240,6 +240,7 @@
 
   "activities": {
     "hero_title": "What to do today in Faro",
+    "simulator_description": "Use the simulator below to find activities in Faro that match your interests and schedule.",
     "no_results": "No results"
   },
 
