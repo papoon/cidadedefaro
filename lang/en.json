@@ -68,7 +68,8 @@
     "premium_title": "Premium Guide - Faro Guide",
     "favorites_title": "Favorites - Faro Guide",
     "about_title": "About the Project - Faro Guide",
-    "about_description": "Learn about the social objective, technologies and APIs used in the Faro Guide"
+    "about_description": "Learn about the social objective, technologies and APIs used in the Faro Guide",
+    "offline_title": "Offline Mode - Faro Guide"
   },
   "about": {
     "hero_title": "About the Project",

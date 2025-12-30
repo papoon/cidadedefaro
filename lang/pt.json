@@ -68,7 +68,8 @@
     "premium_title": "Guia Premium - Guia de Faro",
     "favorites_title": "Favoritos - Guia de Faro",
     "about_title": "Sobre o Projeto - Guia de Faro",
-    "about_description": "Conheça o objetivo social, tecnologias e APIs utilizadas no Guia de Faro"
+    "about_description": "Conheça o objetivo social, tecnologias e APIs utilizadas no Guia de Faro",
+    "offline_title": "Modo Offline - Guia de Faro"
   },
   "about": {
     "hero_title": "Sobre o Projeto",
