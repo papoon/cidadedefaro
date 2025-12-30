@@ -186,5 +186,27 @@
     "no_results": "😕 Nenhum resultado encontrado",
     "try_again": "Por favor, tente novamente mais tarde.",
     "search_tip": "Tente usar outras palavras-chave"
+  },
+  "voice_nav": {
+    "toggle_label": "Ativar/desativar navegação por voz",
+    "modal_title": "Navegação por Voz",
+    "status_ready": "Pronto para ouvir",
+    "status_listening": "A ouvir...",
+    "status_processing": "A processar...",
+    "start_listening": "Começar a Ouvir",
+    "stop_listening": "Parar de Ouvir",
+    "close": "Fechar",
+    "show_commands": "Ver comandos disponíveis",
+    "hide_commands": "Ocultar comandos",
+    "example_commands": "Exemplos de Comandos",
+    "enabled": "Navegação por voz ativada",
+    "disabled": "Navegação por voz desativada",
+    "command_recognized": "Comando reconhecido",
+    "command_not_recognized": "Comando não reconhecido",
+    "navigating": "A navegar para",
+    "not_supported": "Navegação por voz não suportada neste navegador",
+    "no_speech_detected": "Nenhuma fala detectada",
+    "mic_permission_denied": "Permissão de microfone negada",
+    "description": "Use comandos de voz para navegar pelo site. Diga frases como 'Abrir restaurantes' ou 'Ver mapa' para aceder rapidamente às páginas."
   }
 }
