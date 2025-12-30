@@ -232,13 +232,15 @@
     "where_to_process_docs": "Where to process official documents and services?",
     "where_to_complain": "Where to file complaints?",
     "where_to_ask_help": "Where to ask for help and support?",
-    "health_help": "🏥 Where to get healthcare?"
+    "health_help": "🏥 Where to get healthcare?",
+    "urban_problems_title": "Urban problems and incidents"
   },
 
   
 
   "activities": {
     "hero_title": "What to do today in Faro",
+    "simulator_description": "Use the simulator below to find activities in Faro that match your interests and schedule.",
     "no_results": "No results"
   },
 
