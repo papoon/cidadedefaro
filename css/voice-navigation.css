@@ -150,11 +150,6 @@
     font-style: italic;
 }
 
-.voice-transcript:empty::before {
-    content: "...";
-    color: #cbd5e0;
-}
-
 /* Voice Commands Help */
 .voice-commands-help {
     background: #edf2f7;

@@ -207,6 +207,7 @@
     "not_supported": "Navegação por voz não suportada neste navegador",
     "no_speech_detected": "Nenhuma fala detectada",
     "mic_permission_denied": "Permissão de microfone negada",
+    "filter_applied": "Filtro aplicado",
     "description": "Use comandos de voz para navegar pelo site. Diga frases como 'Abrir restaurantes' ou 'Ver mapa' para aceder rapidamente às páginas."
   }
 }

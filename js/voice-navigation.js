@@ -313,7 +313,10 @@
             'voice_nav.command_recognized': 'Comando reconhecido',
             'voice_nav.command_not_recognized': 'Comando não reconhecido',
             'voice_nav.navigating': 'A navegar para',
-            'voice_nav.not_supported': 'Navegação por voz não suportada neste navegador'
+            'voice_nav.not_supported': 'Navegação por voz não suportada neste navegador',
+            'voice_nav.no_speech_detected': 'Nenhuma fala detectada',
+            'voice_nav.mic_permission_denied': 'Permissão de microfone negada',
+            'voice_nav.filter_applied': 'Filtro aplicado'
         };
         
         return fallbacks[key] || key;
@@ -386,9 +389,9 @@
             
             let errorMessage = getTranslation('voice_nav.command_not_recognized');
             if (event.error === 'no-speech') {
-                errorMessage = 'Nenhuma fala detectada';
+                errorMessage = getTranslation('voice_nav.no_speech_detected');
             } else if (event.error === 'not-allowed') {
-                errorMessage = 'Permissão de microfone negada';
+                errorMessage = getTranslation('voice_nav.mic_permission_denied');
             }
             
             const statusEl = document.getElementById('voice-status');
@@ -544,8 +547,7 @@
      */
     function applyFilter(filterCommand) {
         // This would integrate with existing filter functionality
-        // For now, just show a message
-        showToast('Filtro aplicado', 'success');
+        showToast(getTranslation('voice_nav.filter_applied'), 'success');
         
         // Example: trigger filter button click if available
         if (filterCommand.category) {

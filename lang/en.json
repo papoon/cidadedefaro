@@ -207,6 +207,7 @@
     "not_supported": "Voice navigation not supported in this browser",
     "no_speech_detected": "No speech detected",
     "mic_permission_denied": "Microphone permission denied",
+    "filter_applied": "Filter applied",
     "description": "Use voice commands to navigate the site. Say phrases like 'Open restaurants' or 'Show map' to quickly access pages."
   }
 }
