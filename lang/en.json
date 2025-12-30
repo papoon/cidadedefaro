@@ -370,8 +370,10 @@
 
   "offline": {
     "title": "You are offline",
+    "description": "It looks like you're not connected to the internet. Some features may be limited, but you can still access the pages you've visited before.",
     "retry": "🔄 Try Again",
-    "cached_pages_title": "📚 Pages available offline:"
+    "cached_pages_title": "📚 Pages available offline:",
+    "footer_status": "Offline Mode Active"
   },
 
   "premium": {

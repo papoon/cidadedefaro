@@ -367,8 +367,10 @@
 
     "offline": {
       "title": "Você está offline",
+      "description": "Parece que você está sem conexão à internet. Algumas funcionalidades podem estar limitadas, mas você ainda pode acessar as páginas que já visitou anteriormente.",
       "retry": "🔄 Tentar Novamente",
-      "cached_pages_title": "📚 Páginas disponíveis offline:"
+      "cached_pages_title": "📚 Páginas disponíveis offline:",
+      "footer_status": "Modo Offline Ativo"
     },
 
     "premium": {
