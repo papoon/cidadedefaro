@@ -155,7 +155,62 @@
             if (voiceNavState.recognition) {
                 voiceNavState.recognition.lang = voiceNavState.currentLanguage;
             }
+            // Update UI text when language changes
+            updateUITranslations();
         });
+        
+        // Listen for i18n loaded event
+        document.addEventListener('i18nLoaded', function() {
+            updateUITranslations();
+        });
+    }
+    
+    /**
+     * Update UI translations
+     */
+    function updateUITranslations() {
+        // Update toggle button
+        const toggleBtn = document.getElementById('voice-nav-toggle');
+        if (toggleBtn) {
+            toggleBtn.setAttribute('aria-label', getTranslation('voice_nav.toggle_label'));
+        }
+        
+        // Update modal elements
+        const modal = document.querySelector('.voice-nav-modal');
+        if (modal) {
+            const title = modal.querySelector('h2');
+            if (title) title.textContent = getTranslation('voice_nav.modal_title');
+            
+            const status = document.getElementById('voice-status');
+            if (status && !voiceNavState.listening) {
+                status.textContent = getTranslation('voice_nav.status_ready');
+            }
+            
+            const startBtn = document.getElementById('voice-start-btn');
+            if (startBtn) {
+                startBtn.textContent = voiceNavState.listening 
+                    ? getTranslation('voice_nav.stop_listening')
+                    : getTranslation('voice_nav.start_listening');
+            }
+            
+            const closeBtn = document.getElementById('voice-close-btn');
+            if (closeBtn) closeBtn.textContent = getTranslation('voice_nav.close');
+            
+            const helpToggle = document.getElementById('voice-help-toggle');
+            if (helpToggle) {
+                const helpSection = document.getElementById('voice-commands-help');
+                const isVisible = helpSection && helpSection.style.display !== 'none';
+                helpToggle.textContent = isVisible 
+                    ? getTranslation('voice_nav.hide_commands')
+                    : getTranslation('voice_nav.show_commands');
+            }
+            
+            const helpTitle = modal.querySelector('.voice-commands-help h3');
+            if (helpTitle) helpTitle.textContent = getTranslation('voice_nav.example_commands');
+            
+            // Update commands list
+            populateCommandsHelp();
+        }
     }
 
     /**
@@ -232,11 +287,15 @@
      * Get translation with fallback
      */
     function getTranslation(key) {
+        // Try to get from i18n first
         if (window.i18n && window.i18n.t) {
-            return window.i18n.t(key);
+            const translation = window.i18n.t(key);
+            if (translation && translation !== key) {
+                return translation;
+            }
         }
         
-        // Fallback translations
+        // Fallback translations (Portuguese)
         const fallbacks = {
             'voice_nav.toggle_label': 'Ativar/desativar navegação por voz',
             'voice_nav.modal_title': 'Navegação por Voz',
