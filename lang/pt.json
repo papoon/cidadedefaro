@@ -473,6 +473,22 @@
     "filter_applied": "Filtro aplicado",
     "description": "Use comandos de voz para navegar pelo site. Diga frases como 'Abrir restaurantes' ou 'Ver mapa' para aceder rapidamente às páginas."
   },
+  "mobility": {
+    "hero_title": "Mobilidade & Cidade",
+    "hero_description": "Descubra quanto tempo demora entre pontos da cidade e encontre as melhores zonas de estacionamento em Faro.",
+    "travel_time_title": "🚶‍♂️ Quanto tempo demoro até...",
+    "parking_title": "🅿️ Zonas de Estacionamento",
+    "parking_schedule_weekday": "Segunda a Sexta:",
+    "parking_hours_weekday": "9h00 - 19h00",
+    "parking_schedule_saturday": "Sábado:",
+    "parking_hours_saturday": "9h00 - 13h00",
+    "parking_schedule_sunday": "Domingo e Feriados:",
+    "parking_hours_sunday": "Gratuito",
+    "parking_schedule_august": "Mês de Agosto:",
+    "parking_hours_august": "Horário alargado até às 21h00 (verificar sinalização local)",
+    "parking_note": "Nota: Preços podem variar. Consulte sempre a sinalização local.",
+    "footer_data_sources": "Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão"
+  },
   "history": {
     "hero_title": "Linha do Tempo da Cidade de Faro",
     "hero_description": "Descubra a rica história de Faro através dos séculos, desde a sua fundação até aos dias de hoje.",

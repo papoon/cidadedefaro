@@ -478,6 +478,22 @@
     "filter_applied": "Filter applied",
     "description": "Use voice commands to navigate the site. Say phrases like 'Open restaurants' or 'Show map' to quickly access pages."
   },
+  "mobility": {
+    "hero_title": "Mobility & City",
+    "hero_description": "Find out how long it takes between points in the city and find the best parking areas in Faro.",
+    "travel_time_title": "🚶‍♂️ How long does it take to...",
+    "parking_title": "🅿️ Parking Areas",
+    "parking_schedule_weekday": "Monday to Friday:",
+    "parking_hours_weekday": "9:00 AM - 7:00 PM",
+    "parking_schedule_saturday": "Saturday:",
+    "parking_hours_saturday": "9:00 AM - 1:00 PM",
+    "parking_schedule_sunday": "Sunday and Holidays:",
+    "parking_hours_sunday": "Free",
+    "parking_schedule_august": "August:",
+    "parking_hours_august": "Extended hours until 9:00 PM (check local signage)",
+    "parking_note": "Note: Prices may vary. Always check local signage.",
+    "footer_data_sources": "Data sources: Faro City Council, Citizen Portal"
+  },
   "history": {
     "hero_title": "Faro City Timeline",
     "hero_description": "Discover the rich history of Faro through the centuries, from its foundation to the present day.",
