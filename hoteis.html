@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Guia Faro">
-    <title>Onde Ficar em Faro - Guia de Faro</title>
+    <title data-i18n="hotels.page_title">Onde Ficar em Faro - Guia de Faro</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/accessibility.css">
     <link rel="stylesheet" href="css/voice-navigation.css">
@@ -505,14 +505,14 @@
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2>Onde Ficar em Faro</h2>
-            <p>Encontre o alojamento perfeito em Faro. Hotéis, hostels, apartamentos e alojamentos locais para todos os gostos e orçamentos.</p>
+            <h2 data-i18n="hotels.hero_title">Onde Ficar em Faro</h2>
+            <p data-i18n="hotels.hero_description">Encontre o alojamento perfeito em Faro. Hotéis, hostels, apartamentos e alojamentos locais para todos os gostos e orçamentos.</p>
         </section>
 
         <!-- Pesquisa e Filtros -->
         <section class="search-filter-section">
             <div class="search-box">
-                <h3>🔍 Pesquisar</h3>
+                <h3 data-i18n="hotels.search_label">🔍 Pesquisar</h3>
                 <div class="search-input-container">
                     <span class="search-icon" aria-hidden="true">🔍</span>
                     <input 
@@ -531,10 +531,10 @@
             </div>
 
             <div class="filters-section">
-                <h3>🎯 Filtros</h3>
+                <h3 data-i18n="hotels.filters_label">🎯 Filtros</h3>
                 
                 <div class="filter-group">
-                    <h4>🏨 Tipo de Alojamento</h4>
+                    <h4 data-i18n="hotels.filter_type">🏨 Tipo de Alojamento</h4>
                     <div class="filter-options">
                         <label class="filter-checkbox">
                             <input type="checkbox" data-filter-type="tipo" value="Hotel" />
@@ -556,7 +556,7 @@
                 </div>
 
                 <div class="filter-group">
-                    <h4>📍 Zona</h4>
+                    <h4 data-i18n="hotels.filter_zone">📍 Zona</h4>
                     <div class="filter-options">
                         <label class="filter-checkbox">
                             <input type="checkbox" data-filter-type="zona" value="Centro" />
@@ -578,7 +578,7 @@
                 </div>
 
                 <div class="filter-group">
-                    <h4>💶 Preço por Noite</h4>
+                    <h4 data-i18n="hotels.filter_price">💶 Preço por Noite</h4>
                     <div class="filter-options">
                         <label class="filter-checkbox">
                             <input type="checkbox" data-filter-type="preco" value="€" />
@@ -596,7 +596,7 @@
                 </div>
 
                 <div class="filter-group">
-                    <h4>⭐ Classificação</h4>
+                    <h4 data-i18n="hotels.filter_rating">⭐ Classificação</h4>
                     <div class="filter-options">
                         <label class="filter-checkbox">
                             <input type="checkbox" data-filter-type="classificacao" value="1-2" />
@@ -614,7 +614,7 @@
                 </div>
 
                 <div class="filter-group">
-                    <h4>🛏️ Serviços</h4>
+                    <h4 data-i18n="hotels.filter_services">🛏️ Serviços</h4>
                     <div class="filter-options">
                         <label class="filter-checkbox">
                             <input type="checkbox" data-filter-type="servicos" value="Pequeno-almoço" />
@@ -636,7 +636,7 @@
                 </div>
 
                 <div class="filter-actions">
-                    <button id="clear-filters">🔄 Limpar Filtros</button>
+                    <button id="clear-filters" data-i18n="hotels.clear_filters">🔄 Limpar Filtros</button>
                 </div>
             </div>
         </section>
@@ -644,25 +644,25 @@
         <!-- Resultados -->
         <section>
             <div class="results-header">
-                <h2>Alojamentos Disponíveis</h2>
-                <span id="results-count">Mostrando 0 de 0 alojamentos</span>
+                <h2 data-i18n="hotels.results_header">Alojamentos Disponíveis</h2>
+                <span id="results-count" data-i18n="hotels.results_count">Mostrando 0 de 0 alojamentos</span>
             </div>
             <div id="hoteis-container">
                 <div class="loading">
-                    <p>A carregar alojamentos...</p>
+                    <p data-i18n="hotels.loading">A carregar alojamentos...</p>
                 </div>
             </div>
         </section>
     </main>
 
     <footer role="contentinfo">
-        <p>&copy; 2024 Guia de Faro</p>
-        <p class="data-sources">Dados atualizados regularmente. Recomendamos confirmar disponibilidade e preços diretamente com os estabelecimentos.</p>
+        <p data-i18n="footer.copyright">&copy; 2025 Guia de Faro</p>
+        <p class="data-sources" data-i18n="footer.data_sources">Dados atualizados regularmente. Recomendamos confirmar disponibilidade e preços diretamente com os estabelecimentos.</p>
         <div class="donation-container">
-            <p class="donation-message">Apoie este projeto de forma voluntária</p>
+            <p class="donation-message" data-i18n="footer.donation_message">Apoie este projeto de forma voluntária</p>
             <a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" class="donation-button" data-i18n="ui.donation_aria_label" data-i18n-attr="aria-label" aria-label="Apoiar o projeto com uma doação voluntária">
                 <span class="donation-icon" role="img" data-i18n="ui.icon_coffee" data-i18n-attr="aria-label" aria-label="Ícone de café">☕</span>
-                <span>Apoiar o Projeto</span>
+                <span data-i18n="footer.donation_button">Apoiar o Projeto</span>
             </a>
         </div>
     </footer>
