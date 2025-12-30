@@ -385,7 +385,8 @@
         height: 2.5rem;
         font-size: 1rem;
         right: 0.75rem;
-        /* Position below accessibility button instead of at bottom */
+        /* Position below accessibility button instead of at bottom
+           Calculation: 0.75rem (initial margin) + 2.5rem (dark mode toggle) + 0.4rem (gap) + 2.5rem (accessibility button) + 0.5rem (gap) */
         top: calc(0.75rem + 2.5rem + 0.4rem + 2.5rem + 0.5rem);
         bottom: auto;
     }

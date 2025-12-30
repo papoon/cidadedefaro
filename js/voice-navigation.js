@@ -342,12 +342,19 @@
             if (voiceNavState.recognition) {
                 try {
                     voiceNavState.recognition.abort(); // Use abort() for better cleanup on iOS
+                    voiceNavState.listening = false;
                 } catch (e) {
-                    voiceNavState.recognition.stop();
+                    // Fallback to stop if abort fails
+                    try {
+                        voiceNavState.recognition.stop();
+                        voiceNavState.listening = false;
+                    } catch (stopError) {
+                        // If both abort and stop fail, still reset the listening state
+                        voiceNavState.listening = false;
+                    }
                 }
                 voiceNavState.recognition = null;
             }
-            voiceNavState.listening = false;
             showToast(getTranslation('voice_nav.disabled'), 'info');
         }
     }
