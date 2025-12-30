@@ -340,7 +340,19 @@
         } else {
             toggleBtn.classList.remove('active');
             if (voiceNavState.recognition) {
-                voiceNavState.recognition.stop();
+                try {
+                    voiceNavState.recognition.abort(); // Use abort() for better cleanup on iOS
+                    voiceNavState.listening = false;
+                } catch (e) {
+                    // Fallback to stop if abort fails
+                    try {
+                        voiceNavState.recognition.stop();
+                        voiceNavState.listening = false;
+                    } catch (stopError) {
+                        // If both abort and stop fail, still reset the listening state
+                        voiceNavState.listening = false;
+                    }
+                }
                 voiceNavState.recognition = null;
             }
             showToast(getTranslation('voice_nav.disabled'), 'info');
@@ -602,9 +614,14 @@
             overlay.classList.remove('show');
         }
         
-        // Stop listening if active
+        // Stop listening if active - use abort() for more aggressive cleanup on iOS
         if (voiceNavState.listening && voiceNavState.recognition) {
-            voiceNavState.recognition.stop();
+            try {
+                voiceNavState.recognition.abort(); // More aggressive than stop() for iOS
+            } catch (e) {
+                // Fallback to stop if abort fails
+                voiceNavState.recognition.stop();
+            }
         }
         
         // Reset status
@@ -703,6 +720,32 @@
     } else {
         initVoiceNavigation();
     }
+    
+    // Cleanup on page unload - important for iOS Safari to release microphone
+    window.addEventListener('beforeunload', function() {
+        if (voiceNavState.recognition) {
+            try {
+                voiceNavState.recognition.abort();
+            } catch (e) {
+                voiceNavState.recognition.stop();
+            }
+            voiceNavState.recognition = null;
+            voiceNavState.listening = false;
+        }
+    });
+    
+    // Also cleanup on visibility change (when tab becomes hidden)
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden && voiceNavState.listening && voiceNavState.recognition) {
+            try {
+                voiceNavState.recognition.abort();
+            } catch (e) {
+                voiceNavState.recognition.stop();
+            }
+            voiceNavState.listening = false;
+            updateListeningUI(false);
+        }
+    });
 
     // Expose API for external use
     window.voiceNavigation = {
