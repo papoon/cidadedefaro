@@ -178,7 +178,7 @@
 <body>
     <!-- Dark Mode Toggle -->
     <button id="dark-mode-toggle" data-i18n="ui.dark_mode_toggle" data-i18n-attr="aria-label" aria-label="Alternar modo escuro" aria-pressed="false">
-        <span class="dark-mode-icon">🌙</span>
+        <span class="dark-mode-icon" data-i18n="saude.key">🌙</span>
     </button>
 
     <header role="banner">
@@ -220,51 +220,51 @@
 
         <!-- Hospital de Faro -->
         <section class="service-card">
-            <h3><span class="icon">🏥</span><span data-i18n="health.hospital_title">Hospital de Faro</span></h3>
+            <h3><span class="icon" data-i18n="saude.key_1">🏥</span><span data-i18n="health.hospital_title">Hospital de Faro</span></h3>
             <div class="service-info">
-                <p><strong>Nome:</strong> Centro Hospitalar Universitário do Algarve - Hospital de Faro</p>
-                <p><strong>Morada:</strong> Leão Penedo, 8000-386 Faro</p>
-                <p><strong>Telefone:</strong> 289 891 100</p>
-                <p><strong>Urgências:</strong> Disponível 24 horas</p>
-                <p><strong>Serviços:</strong> Urgências gerais, cirurgia, medicina interna, pediatria, obstetrícia, e outras especialidades</p>
+                <p><strong data-i18n="saude.nome">Nome:</strong> Centro Hospitalar Universitário do Algarve - Hospital de Faro</p>
+                <p><strong data-i18n="saude.morada">Morada:</strong> Leão Penedo, 8000-386 Faro</p>
+                <p><strong data-i18n="saude.telefone">Telefone:</strong> 289 891 100</p>
+                <p><strong data-i18n="saude.urgncias">Urgências:</strong> Disponível 24 horas</p>
+                <p><strong data-i18n="saude.servios">Serviços:</strong> Urgências gerais, cirurgia, medicina interna, pediatria, obstetrícia, e outras especialidades</p>
             </div>
             <a href="https://www.google.com/maps/search/?api=1&query=Centro+Hospitalar+Universitário+do+Algarve+Hospital+de+Faro" 
                target="_blank" 
                rel="noopener noreferrer" 
-               class="btn-maps">📍 Ver no Google Maps</a>
+               class="btn-maps" data-i18n="saude.ver_no_google_maps">📍 Ver no Google Maps</a>
         </section>
 
         <!-- Centros de Saúde -->
         <section class="service-card">
-            <h3><span class="icon">🏢</span><span data-i18n="health.centers_title">Centros de Saúde</span></h3>
+            <h3><span class="icon" data-i18n="saude.key_2">🏢</span><span data-i18n="health.centers_title">Centros de Saúde</span></h3>
             <div class="service-info">
                 <ul class="location-list">
                     <li>
-                        <strong>Centro de Saúde de Faro</strong>
+                        <strong data-i18n="saude.centro_de_sade_de_faro">Centro de Saúde de Faro</strong>
                         Morada: Rua Leão Penedo, 8000-355 Faro<br>
                         Telefone: 289 891 000<br>
                         <a href="https://www.google.com/maps/search/?api=1&query=Centro+de+Saúde+de+Faro" 
                            target="_blank" 
                            rel="noopener noreferrer" 
-                           class="btn-maps">📍 Ver no Google Maps</a>
+                           class="btn-maps" data-i18n="saude.ver_no_google_maps_1">📍 Ver no Google Maps</a>
                     </li>
                     <li>
-                        <strong>USF Conde de Oeiras</strong>
+                        <strong data-i18n="saude.usf_conde_de_oeiras">USF Conde de Oeiras</strong>
                         Morada: Avenida Dr. João Lúcio, Montenegro, 8000-503 Faro<br>
                         Telefone: 289 803 200<br>
                         <a href="https://www.google.com/maps/search/?api=1&query=USF+Conde+de+Oeiras+Faro" 
                            target="_blank" 
                            rel="noopener noreferrer" 
-                           class="btn-maps">📍 Ver no Google Maps</a>
+                           class="btn-maps" data-i18n="saude.ver_no_google_maps_2">📍 Ver no Google Maps</a>
                     </li>
                     <li>
-                        <strong>USF Ria Formosa</strong>
+                        <strong data-i18n="saude.usf_ria_formosa">USF Ria Formosa</strong>
                         Morada: Rua Leão Penedo, 8000-355 Faro<br>
                         Telefone: 289 803 100<br>
                         <a href="https://www.google.com/maps/search/?api=1&query=USF+Ria+Formosa+Faro" 
                            target="_blank" 
                            rel="noopener noreferrer" 
-                           class="btn-maps">📍 Ver no Google Maps</a>
+                           class="btn-maps" data-i18n="saude.ver_no_google_maps_3">📍 Ver no Google Maps</a>
                     </li>
                 </ul>
             </div>
@@ -272,20 +272,20 @@
 
         <!-- Farmácias -->
         <section class="service-card" id="farmacias-section">
-            <h3><span class="icon">💊</span><span data-i18n="health.pharmacies_title">Farmácias</span></h3>
+            <h3><span class="icon" data-i18n="saude.key_3">💊</span><span data-i18n="health.pharmacies_title">Farmácias</span></h3>
             <div class="service-info">
                 <p><strong data-i18n="health.label_info">Informação:</strong> <span data-i18n="health.pharmacies_info">Existem várias farmácias em Faro, com serviço de rotatividade 24 horas.</span></p>
                 <ul class="location-list" id="farmacias-list">
                     <!-- Farmácias serão carregadas dinamicamente via JavaScript -->
                 </ul>
                 <button id="btn-ver-mais-farmacias" class="btn-ver-mais" onclick="toggleFarmacias()" data-i18n="health.show_more_pharmacies">Ver mais farmácias</button>
-                     <p><strong data-i18n="health.label_pharmacies_on_duty">Farmácias de Serviço:</strong> <span data-i18n="health.pharmacies_on_duty_info">Para consultar a farmácia de serviço mais próxima, ligue para <strong>Linha Saúde 24: 808 24 24 24</strong> ou consulte <a href="https://www.portaldasfarmacias.pt" target="_blank" rel="noopener noreferrer">www.portaldasfarmacias.pt</a></span></p>
+                     <p><strong data-i18n="health.label_pharmacies_on_duty">Farmácias de Serviço:</strong> <span data-i18n="health.pharmacies_on_duty_info">Para consultar a farmácia de serviço mais próxima, ligue para <strong data-i18n="saude.linha_sade_24_808_24_24_24">Linha Saúde 24: 808 24 24 24</strong> ou consulte <a href="https://www.portaldasfarmacias.pt" target="_blank" rel="noopener noreferrer" data-i18n="saude.wwwportaldasfarmaciaspt">www.portaldasfarmacias.pt</a></span></p>
             </div>
         </section>
 
         <!-- Contactos de Emergência -->
         <section class="service-card">
-            <h3><span class="icon">🚨</span>Contactos de Emergência</h3>
+            <h3><span class="icon" data-i18n="saude.key_4">🚨</span>Contactos de Emergência</h3>
             <div class="emergency-grid">
                 <div class="emergency-item">
                     <div class="label">Emergência Geral</div>
@@ -305,15 +305,15 @@
                 </div>
             </div>
             <div class="service-info" style="margin-top: 1.5rem;">
-                <p><strong>Nota importante:</strong> Em caso de emergência médica grave, ligue sempre para o <strong>112</strong>.</p>
-                <p>A <strong>Linha Saúde 24 (808 24 24 24)</strong> está disponível 24 horas para aconselhamento de saúde não urgente.</p>
+                <p><strong data-i18n="saude.nota_importante">Nota importante:</strong> Em caso de emergência médica grave, ligue sempre para o <strong data-i18n="saude.112">112</strong>.</p>
+                <p>A <strong data-i18n="saude.linha_sade_24_808_24_24_24_1">Linha Saúde 24 (808 24 24 24)</strong> está disponível 24 horas para aconselhamento de saúde não urgente.</p>
             </div>
         </section>
 
         <!-- Mapa com Localizações -->
         <section class="service-card">
-            <h3><span class="icon">🗺️</span>Mapa de Serviços de Saúde</h3>
-            <p>Localização dos principais serviços de saúde em Faro:</p>
+            <h3><span class="icon" data-i18n="saude.key_5">🗺️</span>Mapa de Serviços de Saúde</h3>
+            <p data-i18n="saude.localizao_dos_principais_servios_de_sade">Localização dos principais serviços de saúde em Faro:</p>
             <div id="mapa-saude"></div>
         </section>
     </main>
@@ -322,10 +322,10 @@
     <p data-i18n="footer.copyright">&copy; 2025 Guia de Faro</p>
     <p class="data-sources" data-i18n="footer.data_sources">Fontes de dados: Centro Hospitalar Universitário do Algarve, SNS, Ordem dos Farmacêuticos</p>
         <div class="donation-container">
-            <p class="donation-message">Apoie este projeto de forma voluntária</p>
+            <p class="donation-message" data-i18n="saude.apoie_este_projeto_de_forma_voluntria">Apoie este projeto de forma voluntária</p>
             <a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" class="donation-button" data-i18n="ui.donation_aria_label" data-i18n-attr="aria-label" aria-label="Apoiar o projeto com uma doação voluntária">
                 <span class="donation-icon" role="img" data-i18n="ui.icon_coffee" data-i18n-attr="aria-label" aria-label="Ícone de café">☕</span>
-                <span>Apoiar o Projeto</span>
+                <span data-i18n="saude.apoiar_o_projeto">Apoiar o Projeto</span>
             </a>
         </div>
     </footer>
@@ -390,7 +390,7 @@
 
                 // Adicionar camada de tiles
                 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" data-i18n="saude.openstreetmap">OpenStreetMap</a> contributors',
                     maxZoom: 19,
                     minZoom: 10
                 }).addTo(mapa);
@@ -443,7 +443,7 @@
                     
                     marcador.bindPopup(`
                         <div style="text-align: center;">
-                            <strong>${servico.nome}</strong><br>
+                            <strong data-i18n="saude.serviconome">${servico.nome}</strong><br>
                             ${servico.descricao}
                         </div>
                     `);

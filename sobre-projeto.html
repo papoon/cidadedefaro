@@ -203,7 +203,7 @@
 <body>
     <!-- Dark Mode Toggle -->
     <button id="dark-mode-toggle" data-i18n="ui.dark_mode_toggle" data-i18n-attr="aria-label" aria-label="Alternar modo escuro" aria-pressed="false">
-        <span class="dark-mode-icon">🌙</span>
+        <span class="dark-mode-icon" data-i18n="sobre_projeto.key">🌙</span>
     </button>
 
     <header role="banner">
@@ -246,8 +246,8 @@
 
         <!-- Objetivo Social -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Alvo">🎯</span> <span data-i18n="about.objective_title">Objetivo Social</span></h3>
-            <p data-i18n="about.objective_p1">O <strong>Guia de Faro</strong> é um projeto de utilidade pública desenvolvido com o objetivo de democratizar o acesso à informação sobre a cidade de Faro. Criado de forma independente, este guia digital oferece informações essenciais para residentes e visitantes de forma completamente gratuita.</p>
+            <h3><span role="img" aria-label="Alvo" data-i18n="sobre_projeto.key_1">🎯</span> <span data-i18n="about.objective_title">Objetivo Social</span></h3>
+            <p data-i18n="about.objective_p1">O <strong data-i18n="sobre_projeto.guia_de_faro">Guia de Faro</strong> é um projeto de utilidade pública desenvolvido com o objetivo de democratizar o acesso à informação sobre a cidade de Faro. Criado de forma independente, este guia digital oferece informações essenciais para residentes e visitantes de forma completamente gratuita.</p>
             <p data-i18n="about.objective_p2">A missão principal é facilitar o dia a dia de quem vive ou visita Faro, reunindo num único local informações sobre:</p>
             <ul>
                 <li data-i18n="about.objective_list_1">Transportes públicos e mobilidade urbana</li>
@@ -262,16 +262,16 @@
 
         <!-- Tecnologias Usadas -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Computador">💻</span> <span data-i18n="about.tech_title">Tecnologias Utilizadas</span></h3>
+            <h3><span role="img" aria-label="Computador" data-i18n="sobre_projeto.key_2">💻</span> <span data-i18n="about.tech_title">Tecnologias Utilizadas</span></h3>
             <p data-i18n="about.tech_description">O Guia de Faro é desenvolvido com tecnologias web modernas, priorizando performance, acessibilidade e facilidade de manutenção:</p>
             
             <div class="tech-stack">
-                <span class="tech-badge">HTML5</span>
-                <span class="tech-badge">CSS3</span>
-                <span class="tech-badge">JavaScript (ES6+)</span>
-                <span class="tech-badge">PWA (Progressive Web App)</span>
-                <span class="tech-badge">Responsive Design</span>
-                <span class="tech-badge">Acessibilidade WCAG</span>
+                <span class="tech-badge" data-i18n="sobre_projeto.html5">HTML5</span>
+                <span class="tech-badge" data-i18n="sobre_projeto.css3">CSS3</span>
+                <span class="tech-badge" data-i18n="sobre_projeto.javascript_es6">JavaScript (ES6+)</span>
+                <span class="tech-badge" data-i18n="sobre_projeto.pwa_progressive_web_app">PWA (Progressive Web App)</span>
+                <span class="tech-badge" data-i18n="sobre_projeto.responsive_design">Responsive Design</span>
+                <span class="tech-badge" data-i18n="sobre_projeto.acessibilidade_wcag">Acessibilidade WCAG</span>
             </div>
             
             <p style="margin-top: 1.5rem;" data-i18n="about.tech_features">O projeto é 100% frontend, sem necessidade de servidor backend, o que garante maior velocidade de carregamento e facilita a hospedagem e manutenção. Inclui funcionalidades como:</p>
@@ -287,51 +287,51 @@
 
         <!-- APIs Utilizadas -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Conexão">🔌</span> <span data-i18n="about.apis_title">APIs e Fontes de Dados</span></h3>
+            <h3><span role="img" aria-label="Conexão" data-i18n="sobre_projeto.key_3">🔌</span> <span data-i18n="about.apis_title">APIs e Fontes de Dados</span></h3>
             <p data-i18n="about.apis_description">O projeto integra dados de múltiplas fontes públicas e abertas para fornecer informações precisas e atualizadas:</p>
             
             <div class="api-grid">
                 <div class="api-card">
-                    <h4>🗺️ GEO API PT</h4>
+                    <h4 data-i18n="sobre_projeto.geo_api_pt">🗺️ GEO API PT</h4>
                     <p data-i18n="about.api_geo_desc">API portuguesa de dados geográficos e demográficos dos municípios de Portugal.</p>
-                    <p class="api-url">geoapi.pt</p>
+                    <p class="api-url" data-i18n="sobre_projeto.geoapipt">geoapi.pt</p>
                 </div>
                 
                 <div class="api-card">
-                    <h4>🏛️ Câmara Municipal de Faro</h4>
+                    <h4 data-i18n="sobre_projeto.cmara_municipal_de_faro">🏛️ Câmara Municipal de Faro</h4>
                     <p data-i18n="about.api_cmf_desc">Informações oficiais sobre serviços municipais, transportes e equipamentos públicos.</p>
-                    <p class="api-url">cm-faro.pt</p>
+                    <p class="api-url" data-i18n="sobre_projeto.cmfaropt">cm-faro.pt</p>
                 </div>
                 
                 <div class="api-card">
-                    <h4>🏥 Portal do Cidadão</h4>
+                    <h4 data-i18n="sobre_projeto.portal_do_cidado">🏥 Portal do Cidadão</h4>
                     <p data-i18n="about.api_portal_desc">Dados sobre serviços de saúde, farmácias e outros serviços públicos.</p>
-                    <p class="api-url">portaldocidadao.pt</p>
+                    <p class="api-url" data-i18n="sobre_projeto.portaldocidadaopt">portaldocidadao.pt</p>
                 </div>
                 
                 <div class="api-card">
-                    <h4>🏖️ Turismo de Portugal</h4>
+                    <h4 data-i18n="sobre_projeto.turismo_de_portugal">🏖️ Turismo de Portugal</h4>
                     <p data-i18n="about.api_turismo_desc">Informações turísticas oficiais, eventos e pontos de interesse.</p>
-                    <p class="api-url">visitportugal.com</p>
+                    <p class="api-url" data-i18n="sobre_projeto.visitportugalcom">visitportugal.com</p>
                 </div>
                 
                 <div class="api-card">
-                    <h4>🗺️ OpenStreetMap</h4>
+                    <h4 data-i18n="sobre_projeto.openstreetmap">🗺️ OpenStreetMap</h4>
                     <p data-i18n="about.api_osm_desc">Mapas colaborativos abertos utilizados para visualização geográfica.</p>
-                    <p class="api-url">openstreetmap.org</p>
+                    <p class="api-url" data-i18n="sobre_projeto.openstreetmaporg">openstreetmap.org</p>
                 </div>
                 
                 <div class="api-card">
-                    <h4>🚌 Proximo Autocarro</h4>
+                    <h4 data-i18n="sobre_projeto.proximo_autocarro">🚌 Proximo Autocarro</h4>
                     <p data-i18n="about.api_proximo_desc">Dados de transportes públicos e horários em tempo real.</p>
-                    <p class="api-url">proximoautocarro.pt</p>
+                    <p class="api-url" data-i18n="sobre_projeto.proximoautocarropt">proximoautocarro.pt</p>
                 </div>
             </div>
         </section>
 
         <!-- Licença -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Documento">📄</span> <span data-i18n="about.license_title">Licença</span></h3>
+            <h3><span role="img" aria-label="Documento" data-i18n="sobre_projeto.key_4">📄</span> <span data-i18n="about.license_title">Licença</span></h3>
             <p data-i18n="about.license_description">Este projeto é de código aberto e está disponível sob licença livre para uso público.</p>
             
             <div class="license-box">
@@ -345,21 +345,21 @@
 
         <!-- Autor -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Pessoa">👤</span> <span data-i18n="about.author_title">Autor</span></h3>
+            <h3><span role="img" aria-label="Pessoa" data-i18n="sobre_projeto.key_5">👤</span> <span data-i18n="about.author_title">Autor</span></h3>
             <p data-i18n="about.author_description">O Guia de Faro é desenvolvido e mantido de forma independente como um projeto pessoal de utilidade pública. O desenvolvimento é feito de forma voluntária, com o objetivo de contribuir para a comunidade local.</p>
             <p data-i18n="about.author_support">Se este projeto é útil para si, considere apoiá-lo de forma voluntária através do botão "Apoiar o Projeto" no rodapé da página. O site permanecerá sempre 100% gratuito.</p>
         </section>
 
         <!-- Contacto -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Envelope">✉️</span> <span data-i18n="about.contact_title">Contacto</span></h3>
+            <h3><span role="img" aria-label="Envelope" data-i18n="sobre_projeto.key_6">✉️</span> <span data-i18n="about.contact_title">Contacto</span></h3>
             <p data-i18n="about.contact_description">Para sugestões, correções ou questões sobre o projeto:</p>
             
             <div class="contact-grid">
                 <div class="contact-card">
                     <div class="icon" role="img" aria-label="GitHub">💻</div>
                     <h4 data-i18n="about.contact_github_title">Código Fonte</h4>
-                    <p><a href="https://github.com/papoon/cidadedefaro" target="_blank" rel="noopener noreferrer">github.com/papoon/cidadedefaro</a></p>
+                    <p><a href="https://github.com/papoon/cidadedefaro" target="_blank" rel="noopener noreferrer" data-i18n="sobre_projeto.githubcompapooncidadedefaro">github.com/papoon/cidadedefaro</a></p>
                 </div>
                 
                 <div class="contact-card">
