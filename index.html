@@ -3,15 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="site.title">Guia de Faro</title>
+    <title data-i18n="site.title">Guia de Faro - Guia Completo para Viver e Visitar Faro, Portugal</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Guia completo para viver e visitar Faro - informações sobre transportes, saúde, ambiente e lazer na cidade. PWA gratuita com mapas interativos e conteúdo bilíngue." data-i18n="site.description" data-i18n-attr="content">
+    <meta name="keywords" content="Faro, Portugal, Algarve, guia turístico, transportes, saúde, lazer, restaurantes, hotéis, viver em Faro, turismo, PWA, guia offline">
+    <meta name="author" content="Guia de Faro">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="Portuguese">
+    <link rel="canonical" href="https://papoon.github.io/cidadedefaro/">
+    
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/?lang=pt">
+    <link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://papoon.github.io/cidadedefaro/">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://papoon.github.io/cidadedefaro/">
+    <meta property="og:title" content="Guia de Faro - Guia Completo para Viver e Visitar Faro, Portugal">
+    <meta property="og:description" content="Guia completo para viver e visitar Faro - informações sobre transportes, saúde, ambiente e lazer na cidade. PWA gratuita com mapas interativos e conteúdo bilíngue.">
+    <meta property="og:image" content="https://papoon.github.io/cidadedefaro/data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%23667eea'/><text x='256' y='350' font-size='320' text-anchor='middle' fill='white'>F</text></svg>">
+    <meta property="og:image:width" content="512">
+    <meta property="og:image:height" content="512">
+    <meta property="og:image:alt" content="Logo Guia de Faro">
+    <meta property="og:site_name" content="Guia de Faro">
+    <meta property="og:locale" content="pt_PT">
+    <meta property="og:locale:alternate" content="en_GB">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://papoon.github.io/cidadedefaro/">
+    <meta name="twitter:title" content="Guia de Faro - Guia Completo para Viver e Visitar Faro, Portugal">
+    <meta name="twitter:description" content="Guia completo para viver e visitar Faro - informações sobre transportes, saúde, ambiente e lazer na cidade. PWA gratuita com mapas interativos e conteúdo bilíngue.">
+    <meta name="twitter:image" content="https://papoon.github.io/cidadedefaro/data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' fill='%23667eea'/><text x='256' y='350' font-size='320' text-anchor='middle' fill='white'>F</text></svg>">
+    <meta name="twitter:image:alt" content="Logo Guia de Faro">
+    
+    <!-- Security Headers via Meta Tags -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://geoapi.pt https://api.openstreetmap.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#667eea">
-    <meta name="description" content="Guia completo para viver e visitar Faro - informações sobre transportes, saúde, ambiente e lazer na cidade" data-i18n="site.description" data-i18n-attr="content">
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Guia Faro">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Guia de Faro">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Guia de Faro",
+      "alternateName": "Guia Faro",
+      "url": "https://papoon.github.io/cidadedefaro/",
+      "description": "Guia completo para viver e visitar Faro, Portugal. Informações sobre transportes, saúde, ambiente, lazer, restaurantes e hotéis.",
+      "inLanguage": ["pt-PT", "en-GB"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://papoon.github.io/cidadedefaro/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      },
+      "about": {
+        "@type": "Place",
+        "name": "Faro",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Faro",
+          "addressRegion": "Algarve",
+          "addressCountry": "PT"
+        }
+      }
+    }
+    </script>
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/accessibility.css">
