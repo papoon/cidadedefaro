@@ -1,0 +1,13 @@
+# Security Contact Information for Guia de Faro
+# RFC 9116 - https://www.rfc-editor.org/rfc/rfc9116.html
+
+Contact: https://github.com/papoon/cidadedefaro/security/advisories/new
+Preferred-Languages: pt, en
+Canonical: https://papoon.github.io/cidadedefaro/.well-known/security.txt
+Expires: 2026-12-31T23:59:59.000Z
+
+# Acknowledgments
+Acknowledgments: https://github.com/papoon/cidadedefaro#readme
+
+# Policy
+Policy: https://github.com/papoon/cidadedefaro/security/policy

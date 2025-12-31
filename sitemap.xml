@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/?lang=en"/>
+  </url>
+  
+  <!-- Main Pages -->
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/transportes.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/transportes.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/transportes.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/saude.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/saude.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/saude.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/ambiente.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/ambiente.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/ambiente.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/lazer.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/lazer.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/lazer.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/restaurantes.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/restaurantes.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/restaurantes.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/hoteis.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/hoteis.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/hoteis.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/oque-fazer-hoje.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/oque-fazer-hoje.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/oque-fazer-hoje.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/mapa.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/mapa.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/mapa.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/problemas-frequentes.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/problemas-frequentes.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/problemas-frequentes.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/viver-em-faro.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/viver-em-faro.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/viver-em-faro.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/mobilidade.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/mobilidade.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/mobilidade.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/historia-faro.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/historia-faro.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/historia-faro.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/guia-premium.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/guia-premium.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/guia-premium.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/sobre-projeto.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/sobre-projeto.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/sobre-projeto.html?lang=en"/>
+  </url>
+  
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/favoritos.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/favoritos.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/favoritos.html?lang=en"/>
+  </url>
+  
+</urlset>
