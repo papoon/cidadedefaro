@@ -2,7 +2,7 @@
 
 // Inicialização quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Guia de Faro carregado');
+    console.log('Faro Formoso carregado');
     
     // Adicionar classe active ao link da página atual
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
