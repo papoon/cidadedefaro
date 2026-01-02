@@ -1,4 +1,4 @@
-// i18n.js - Internationalization system for Guia de Faro
+// i18n.js - Internationalization system for Faro Formoso
 
 // Current language and translations cache
 let currentLang = 'pt';

@@ -1,7 +1,7 @@
 {
   "site": {
-    "title": "Faro Guide",
-    "description": "Complete guide to living and visiting Faro - information about transport, health, environment and leisure in the city"
+    "title": "Faro Formoso",
+    "description": "Faro Formoso — live, discover and participate in the city. Complete guide to living and visiting Faro - information about transport, health, environment and leisure in the city"
   },
   "nav": {
     "home": "Home",
@@ -22,8 +22,8 @@
     "favorites": "⭐ Favorites"
   },
   "home": {
-    "hero_title": "Welcome to Faro Practical Guide",
-    "hero_description": "Your complete guide to living and visiting Faro. Find essential information about transport, health, environment and leisure in the city.",
+    "hero_title": "Welcome to Faro Formoso",
+    "hero_description": "Faro Formoso — live, discover and participate in the city. Your complete guide to living and visiting Faro. Find essential information about transport, health, environment and leisure in the city.",
     "premium_notice_label": "📘 New:",
     "premium_notice_text": "Download the <a href=\"guia-premium.html\">Faro Premium Guide</a> with offline maps, transport tips and detailed events.",
     "sections_title": "Explore Sections",
@@ -47,7 +47,7 @@
     "card_premium_desc": "Detailed content with offline maps, transport and events (voluntary support)"
   },
   "footer": {
-    "copyright": "© 2025 Faro Guide",
+    "copyright": "© 2025 Faro Formoso",
     "data_sources": "Data sources: Faro City Council, Citizen Portal, Tourism of Portugal, GEO API PT",
     "donation_message": "Support this project voluntarily",
     "donation_button": "Support the Project"

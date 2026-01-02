@@ -1,7 +1,7 @@
-// Service Worker para Guia de Faro
+// Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
 const CACHE_VERSION = 'v1';
-const CACHE_NAME = `guia-faro-${CACHE_VERSION}`;
+const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = '/offline.html';
 
 // Recursos essenciais para cache inicial (precache)

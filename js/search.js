@@ -19,9 +19,9 @@ class SearchManager {
                 id: 'page-inicio',
                 type: 'page',
                 title: 'Início',
-                description: 'Página inicial do Guia de Faro',
+                description: 'Página inicial do Faro Formoso',
                 url: 'index.html',
-                keywords: ['início', 'home', 'principal', 'guia', 'faro']
+                keywords: ['início', 'home', 'principal', 'guia', 'faro', 'faro formoso']
             },
             {
                 id: 'page-transportes',

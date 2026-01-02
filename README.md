@@ -1,4 +1,4 @@
-# 🌟 Guia de Faro
+# 🌟 Faro Formoso
 
 <div align="center">
 
@@ -6,6 +6,8 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
+
+**Faro Formoso — viver, descobrir e participar na cidade**
 
 **Guia completo e gratuito para viver e visitar Faro, Portugal**
 
@@ -17,7 +19,7 @@
 
 ## 📋 Sobre o Projeto
 
-O **Guia de Faro** é uma Progressive Web App (PWA) de utilidade pública que oferece informações essenciais sobre a cidade de Faro, Portugal. Desenvolvido de forma independente e completamente gratuito, o guia reúne num único local tudo o que residentes e visitantes precisam saber sobre a cidade.
+O **Faro Formoso** é uma Progressive Web App (PWA) de utilidade pública que oferece informações essenciais sobre a cidade de Faro, Portugal. Desenvolvido de forma independente e completamente gratuito, o guia reúne num único local tudo o que residentes e visitantes precisam saber sobre a cidade.
 
 ### 🎯 Objetivo Social
 
@@ -299,7 +301,7 @@ Desenvolvido e mantido de forma independente como projeto pessoal de utilidade p
 
 Este projeto é **100% gratuito** e continuará sempre assim. Se é útil para você, considere fazer uma doação voluntária:
 
-☕ [Apoiar no Buy Me a Coffee](https://www.buymeacoffee.com/guiadefaro)
+☕ [Apoiar no Buy Me a Coffee](https://www.buymeacoffee.com/faroformoso)
 
 Sua contribuição ajuda a manter o projeto ativo e a adicionar novas funcionalidades!
 
