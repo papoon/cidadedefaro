@@ -1,7 +1,7 @@
 {
-  "name": "Guia de Faro",
-  "short_name": "Guia Faro",
-  "description": "Guia completo para viver e visitar Faro - informações sobre transportes, saúde, ambiente e lazer na cidade",
+  "name": "Faro Formoso",
+  "short_name": "Faro Formoso",
+  "description": "Faro Formoso — viver, descobrir e participar na cidade. Guia completo para viver e visitar Faro - informações sobre transportes, saúde, ambiente e lazer na cidade",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
