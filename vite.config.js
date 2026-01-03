@@ -20,173 +20,46 @@ const commonData = {
   scriptsCommon: scriptsCommon
 }
 
+// List of all HTML pages
+const htmlPages = [
+  'index.html',
+  'ambiente.html',
+  'demo-alertas.html',
+  'favoritos.html',
+  'guia-premium.html',
+  'historia-faro.html',
+  'hoteis.html',
+  'idosos.html',
+  'lazer.html',
+  'mapa.html',
+  'mobilidade.html',
+  'offline.html',
+  'oque-fazer-hoje.html',
+  'problemas-frequentes.html',
+  'restaurantes.html',
+  'saude.html',
+  'saude-onde-ir-agora.html',
+  'sobre-projeto.html',
+  'transportes.html',
+  'viver-em-faro.html'
+]
+
+// Generate pages configuration
+const pages = htmlPages.map(filename => ({
+  entry: 'src/core/main.js',
+  filename: filename,
+  template: filename,
+  injectOptions: {
+    data: commonData
+  }
+}))
+
 export default defineConfig({
   base: '/cidadedefaro/',
   plugins: [
     createHtmlPlugin({
       minify: true,
-      pages: [
-        {
-          entry: 'src/core/main.js',
-          filename: 'index.html',
-          template: 'index.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'ambiente.html',
-          template: 'ambiente.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'demo-alertas.html',
-          template: 'demo-alertas.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'favoritos.html',
-          template: 'favoritos.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'guia-premium.html',
-          template: 'guia-premium.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'historia-faro.html',
-          template: 'historia-faro.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'hoteis.html',
-          template: 'hoteis.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'idosos.html',
-          template: 'idosos.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'lazer.html',
-          template: 'lazer.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'mapa.html',
-          template: 'mapa.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'mobilidade.html',
-          template: 'mobilidade.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'offline.html',
-          template: 'offline.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'oque-fazer-hoje.html',
-          template: 'oque-fazer-hoje.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'problemas-frequentes.html',
-          template: 'problemas-frequentes.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'restaurantes.html',
-          template: 'restaurantes.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'saude.html',
-          template: 'saude.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'saude-onde-ir-agora.html',
-          template: 'saude-onde-ir-agora.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'sobre-projeto.html',
-          template: 'sobre-projeto.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'transportes.html',
-          template: 'transportes.html',
-          injectOptions: {
-            data: commonData
-          }
-        },
-        {
-          entry: 'src/core/main.js',
-          filename: 'viver-em-faro.html',
-          template: 'viver-em-faro.html',
-          injectOptions: {
-            data: commonData
-          }
-        }
-      ]
+      pages: pages
     }),
     viteStaticCopy({
       targets: [
