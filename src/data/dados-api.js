@@ -37,7 +37,7 @@ async function buscarDadosFaro() {
     };
 
     // We'll use the local data file only (no external API calls)
-    const localPath = '/data/municipio-faro.json';
+    const localPath = '/assets/data/municipio-faro.json';
 
     // Helper: tenta extrair propriedade ignorando acentos/maiúsculas
     const pick = (obj, candidates) => {
@@ -85,7 +85,7 @@ async function buscarDadosFaro() {
             const resp = await fetch(localPath, { cache: 'no-cache' });
             if (resp && resp.ok) {
                 const localData = await resp.json();
-                console.log('Usando dados locais de /data/municipio-faro.json');
+                console.log('Usando dados locais de /assets/data/municipio-faro.json');
                 const result = {
                     nome: localData.nome || localData.municipio || 'Faro',
                     distrito: localData.distrito || 'Faro',
@@ -99,10 +99,10 @@ async function buscarDadosFaro() {
                 console.warn(`Falha ao carregar ${localPath}: status ${resp && resp.status}`);
             }
         } catch (e) {
-            console.warn('Erro ao buscar /data/municipio-faro.json:', e);
+            console.warn('Erro ao buscar /assets/data/municipio-faro.json:', e);
         }
     } else {
-        console.warn('Protocolo file:// detectado — não é possível carregar /data/municipio-faro.json via fetch');
+        console.warn('Protocolo file:// detectado — não é possível carregar /assets/data/municipio-faro.json via fetch');
     }
 
     console.error('Não foi possível obter os dados de Faro a partir dos endpoints testados. Retornando fallback embutido.');

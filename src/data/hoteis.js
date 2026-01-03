@@ -22,7 +22,7 @@ class HoteisManager {
      */
     async loadHoteis() {
         try {
-            const response = await fetch('data/hoteis.json');
+            const response = await fetch('assets/data/hoteis.json');
             if (!response.ok) {
                 throw new Error('Erro ao carregar dados dos hotéis');
             }
