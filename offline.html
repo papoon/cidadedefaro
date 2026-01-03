@@ -13,10 +13,10 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; object-src 'none'; base-uri 'self';">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/accessibility.css">
-    <link rel="stylesheet" href="css/voice-navigation.css">
-    <link rel="stylesheet" href="css/ux.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/accessibility.css">
+    <link rel="stylesheet" href="assets/styles/voice-navigation.css">
+    <link rel="stylesheet" href="assets/styles/ux.css">
     <style>
         .offline-container {
             display: flex;
@@ -133,6 +133,7 @@
                 <li role="none"><a href="mapa.html" role="menuitem"><span data-i18n="nav.map">Mapa</span></a></li>
                 <li role="none"><a href="problemas-frequentes.html" role="menuitem"><span data-i18n="nav.faq">Problemas Frequentes</span></a></li>
                 <li role="none"><a href="viver-em-faro.html" role="menuitem"><span data-i18n="nav.living">Viver em Faro</span></a></li>
+                <li role="none"><a href="idosos.html" role="menuitem"><span data-i18n="nav.seniors">Faro para Idosos</span></a></li>
                 <li role="none"><a href="mobilidade.html" role="menuitem"><span data-i18n="nav.mobility">Mobilidade</span></a></li>
                 <li role="none"><a href="historia-faro.html" role="menuitem"><span data-i18n="nav.history">História</span></a></li>
                 <li role="none"><a href="guia-premium.html" role="menuitem"><span data-i18n="nav.premium">📘 Guia Premium</span></a></li>
@@ -179,12 +180,12 @@
         </div>
     </footer>
 
-    <script src="js/i18n.js"></script>
+    <script src="src/intl/i18n.js"></script>
 
 
-    <script src="js/accessibility.js"></script>
-    <script src="js/voice-navigation.js"></script>
-    <script src="js/ux.js"></script>
-    <script src="js/main.js"></script>
+    <script src="src/ui/accessibility.js"></script>
+    <script src="src/ui/voice-navigation.js"></script>
+    <script src="src/ui/ux.js"></script>
+    <script src="src/core/main.js"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@ class FarmaciasManager {
      */
     async loadFarmacias() {
         try {
-            const response = await fetch('data/farmacias.json');
+            const response = await fetch('assets/data/farmacias.json');
             if (!response.ok) {
                 throw new Error('Erro ao carregar dados das farmácias');
             }

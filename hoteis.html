@@ -40,10 +40,10 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <meta name="apple-mobile-web-app-title" content="Faro Formoso">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/accessibility.css">
-    <link rel="stylesheet" href="css/voice-navigation.css">
-    <link rel="stylesheet" href="css/ux.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/accessibility.css">
+    <link rel="stylesheet" href="assets/styles/voice-navigation.css">
+    <link rel="stylesheet" href="assets/styles/ux.css">
     <style>
         /* Estilos específicos para página de hotéis */
         
@@ -511,23 +511,34 @@
                 🇬🇧 EN
             </button>
         </div>
-        <nav role="navigation" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
+                <nav role="navigation" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
             <ul role="menubar">
+                <!-- Essencial (uso diário) -->
                 <li role="none"><a href="index.html" role="menuitem"><span data-i18n="nav.home">Início</span></a></li>
-                <li role="none"><a href="transportes.html" role="menuitem"><span data-i18n="nav.transport">Transportes</span></a></li>
                 <li role="none"><a href="saude.html" role="menuitem"><span data-i18n="nav.health">Saúde</span></a></li>
-                <li role="none"><a href="ambiente.html" role="menuitem"><span data-i18n="nav.environment">Ambiente</span></a></li>
-                <li role="none"><a href="lazer.html" role="menuitem"><span data-i18n="nav.leisure">Lazer</span></a></li>
+                <li role="none"><a href="transportes.html" role="menuitem"><span data-i18n="nav.transport">Transportes</span></a></li>
+                <li role="none"><a href="mapa.html" role="menuitem"><span data-i18n="nav.map">Mapa</span></a></li>
+                
+                <!-- Serviços (uso frequente) -->
                 <li role="none"><a href="restaurantes.html" role="menuitem"><span data-i18n="nav.restaurants">Onde Comer</span></a></li>
                 <li role="none"><a href="hoteis.html" role="menuitem"><span data-i18n="nav.hotels">Onde Ficar</span></a></li>
-                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem"><span data-i18n="nav.what_to_do">O que fazer hoje</span></a></li>
-                <li role="none"><a href="mapa.html" role="menuitem"><span data-i18n="nav.map">Mapa</span></a></li>
-                <li role="none"><a href="problemas-frequentes.html" role="menuitem"><span data-i18n="nav.faq">Problemas Frequentes</span></a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem"><span data-i18n="nav.faq">Problemas</span></a></li>
+                
+                <!-- Viver (residentes) -->
                 <li role="none"><a href="viver-em-faro.html" role="menuitem"><span data-i18n="nav.living">Viver em Faro</span></a></li>
+                <li role="none"><a href="idosos.html" role="menuitem"><span data-i18n="nav.seniors">Idosos</span></a></li>
+                
+                <!-- Lazer e Turismo -->
+                <li role="none"><a href="lazer.html" role="menuitem"><span data-i18n="nav.leisure">Lazer</span></a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem"><span data-i18n="nav.what_to_do">Hoje</span></a></li>
+                
+                <!-- Mais informações -->
+                <li role="none"><a href="ambiente.html" role="menuitem"><span data-i18n="nav.environment">Ambiente</span></a></li>
                 <li role="none"><a href="mobilidade.html" role="menuitem"><span data-i18n="nav.mobility">Mobilidade</span></a></li>
                 <li role="none"><a href="historia-faro.html" role="menuitem"><span data-i18n="nav.history">História</span></a></li>
-                <li role="none"><a href="guia-premium.html" role="menuitem"><span data-i18n="nav.premium">📘 Guia Premium</span></a></li>
-                <li role="none"><a href="favoritos.html" role="menuitem"><span data-i18n="nav.favorites">⭐ Favoritos</span> <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
+                <li role="none"><a href="guia-premium.html" role="menuitem"><span data-i18n="nav.premium">📘 Premium</span></a></li>
+                <li role="none"><a href="sobre-projeto.html" role="menuitem"><span data-i18n="nav.about">Sobre</span></a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem"><span data-i18n="nav.favorites">⭐</span> <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
             </ul>
         </nav>
     </header>
@@ -696,16 +707,16 @@
         </div>
     </footer>
 
-    <script src="js/i18n.js"></script>
+    <script src="src/intl/i18n.js"></script>
 
 
-    <script src="js/pwa.js"></script>
-    <script src="js/accessibility.js"></script>
-    <script src="js/voice-navigation.js"></script>
-    <script src="js/favorites.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/hoteis.js"></script>
-    <script src="js/ux.js"></script>
-    <script src="js/main.js"></script>
+    <script src="src/utils/pwa.js"></script>
+    <script src="src/ui/accessibility.js"></script>
+    <script src="src/ui/voice-navigation.js"></script>
+    <script src="src/utils/favorites.js"></script>
+    <script src="src/utils/search.js"></script>
+    <script src="src/data/hoteis.js"></script>
+    <script src="src/ui/ux.js"></script>
+    <script src="src/core/main.js"></script>
 </body>
 </html>

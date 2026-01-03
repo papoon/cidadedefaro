@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pages.health_now_title">Saúde: Onde Ir Agora - Faro Formoso</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Precisa de cuidados de saúde imediatos em Faro? Encontre rapidamente urgências, SNS 24, centros de saúde abertos e farmácias de serviço.">
+    <meta name="keywords" content="urgências Faro, SNS 24, saúde emergência Faro, farmácias serviço Faro, hospital urgente Faro">
+    <meta name="author" content="Faro Formoso">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://papoon.github.io/cidadedefaro/saude-onde-ir-agora.html">
+    
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/saude-onde-ir-agora.html?lang=pt">
+    <link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/saude-onde-ir-agora.html?lang=en">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://papoon.github.io/cidadedefaro/saude-onde-ir-agora.html">
+    <meta property="og:title" content="Saúde: Onde Ir Agora - Faro">
+    <meta property="og:description" content="Acesso rápido a informações de saúde essenciais: urgências, SNS 24, centros de saúde e farmácias de serviço em Faro.">
+    <meta property="og:site_name" content="Faro Formoso">
+    <meta property="og:locale" content="pt_PT">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Saúde: Onde Ir Agora - Faro">
+    <meta name="twitter:description" content="Acesso rápido a informações de saúde essenciais em Faro.">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Faro Formoso">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/accessibility.css">
+    <link rel="stylesheet" href="assets/styles/voice-navigation.css">
+    <link rel="stylesheet" href="assets/styles/ux.css">
+    <style>
+        .quick-access-hero {
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .quick-access-hero h2 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 2rem;
+        }
+        
+        .quick-access-hero p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+        
+        .emergency-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #e53e3e;
+        }
+        
+        .emergency-card.priority {
+            border-left-width: 8px;
+            background: #fff5f5;
+        }
+        
+        .emergency-card h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .emergency-card .icon {
+            font-size: 2.5rem;
+        }
+        
+        .btn-call-large {
+            display: block;
+            width: 100%;
+            padding: 1.25rem 2rem;
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+        }
+        
+        .btn-call-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+        }
+        
+        .btn-call-large:active {
+            transform: translateY(-1px);
+        }
+        
+        .btn-call-large .phone-icon {
+            font-size: 1.8rem;
+            margin-right: 0.5rem;
+        }
+        
+        .btn-secondary-large {
+            display: block;
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary-large:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .info-text {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .info-text strong {
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .service-hours {
+            background: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #48bb78;
+        }
+        
+        .service-hours strong {
+            color: #2d3748;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .disclaimer {
+            background: #fffaf0;
+            border: 2px solid #ed8936;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .disclaimer h4 {
+            color: #c05621;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+        
+        .disclaimer p {
+            color: #744210;
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .quick-link-card {
+            background: #f7fafc;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-link-card:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+        }
+        
+        .quick-link-card .icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quick-link-card h4 {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quick-link-card p {
+            color: #718096;
+            font-size: 0.95rem;
+        }
+        
+        @media (max-width: 768px) {
+            .quick-access-hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .quick-access-hero p {
+                font-size: 1rem;
+            }
+            
+            .emergency-card {
+                padding: 1.5rem;
+            }
+            
+            .emergency-card h3 {
+                font-size: 1.25rem;
+            }
+            
+            .btn-call-large {
+                font-size: 1.3rem;
+                padding: 1rem 1.5rem;
+            }
+            
+            .btn-secondary-large {
+                font-size: 1.1rem;
+                padding: 0.875rem 1.25rem;
+            }
+        }
+        
+        /* High contrast improvements for accessibility */
+        @media (prefers-contrast: high) {
+            .btn-call-large,
+            .btn-secondary-large {
+                border: 2px solid currentColor;
+            }
+            
+            .emergency-card {
+                border-width: 3px;
+            }
+        }
+        
+        /* Utility classes */
+        .info-text-spaced {
+            margin-top: 1rem;
+        }
+        
+        .section-title {
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+        
+        .phone-link {
+            color: #667eea;
+            text-decoration: underline;
+        }
+        
+        .phone-link:hover {
+            color: #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" data-i18n="ui.dark_mode_toggle" data-i18n-attr="aria-label" aria-label="Alternar modo escuro" aria-pressed="false">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <header role="banner">
+        <h1><span data-i18n="site.title">Faro Formoso</span></h1>
+        <div id="lang-switcher">
+            <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" data-i18n="ui.lang_switch_pt" data-i18n-attr="aria-label" aria-label="Mudar para Português">
+                🇵🇹 PT
+            </button>
+            <button data-lang="en" onclick="window.i18n.switchLanguage('en')" data-i18n="ui.lang_switch_en" data-i18n-attr="aria-label" aria-label="Switch to English">
+                🇬🇧 EN
+            </button>
+        </div>
+                <nav role="navigation" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
+            <ul role="menubar">
+                <!-- Essencial (uso diário) -->
+                <li role="none"><a href="index.html" role="menuitem"><span data-i18n="nav.home">Início</span></a></li>
+                <li role="none"><a href="saude.html" role="menuitem"><span data-i18n="nav.health">Saúde</span></a></li>
+                <li role="none"><a href="transportes.html" role="menuitem"><span data-i18n="nav.transport">Transportes</span></a></li>
+                <li role="none"><a href="mapa.html" role="menuitem"><span data-i18n="nav.map">Mapa</span></a></li>
+                
+                <!-- Serviços (uso frequente) -->
+                <li role="none"><a href="restaurantes.html" role="menuitem"><span data-i18n="nav.restaurants">Onde Comer</span></a></li>
+                <li role="none"><a href="hoteis.html" role="menuitem"><span data-i18n="nav.hotels">Onde Ficar</span></a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem"><span data-i18n="nav.faq">Problemas</span></a></li>
+                
+                <!-- Viver (residentes) -->
+                <li role="none"><a href="viver-em-faro.html" role="menuitem"><span data-i18n="nav.living">Viver em Faro</span></a></li>
+                <li role="none"><a href="idosos.html" role="menuitem"><span data-i18n="nav.seniors">Idosos</span></a></li>
+                
+                <!-- Lazer e Turismo -->
+                <li role="none"><a href="lazer.html" role="menuitem"><span data-i18n="nav.leisure">Lazer</span></a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem"><span data-i18n="nav.what_to_do">Hoje</span></a></li>
+                
+                <!-- Mais informações -->
+                <li role="none"><a href="ambiente.html" role="menuitem"><span data-i18n="nav.environment">Ambiente</span></a></li>
+                <li role="none"><a href="mobilidade.html" role="menuitem"><span data-i18n="nav.mobility">Mobilidade</span></a></li>
+                <li role="none"><a href="historia-faro.html" role="menuitem"><span data-i18n="nav.history">História</span></a></li>
+                <li role="none"><a href="guia-premium.html" role="menuitem"><span data-i18n="nav.premium">📘 Premium</span></a></li>
+                <li role="none"><a href="sobre-projeto.html" role="menuitem"><span data-i18n="nav.about">Sobre</span></a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem"><span data-i18n="nav.favorites">⭐</span> <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <div class="quick-access-hero">
+            <h2 data-i18n="health_now.hero_title">🚨 Saúde: Onde Ir Agora</h2>
+            <p data-i18n="health_now.hero_description">Acesso rápido a serviços de saúde essenciais em Faro</p>
+        </div>
+
+        <!-- SNS 24 - Priority Contact -->
+        <section class="emergency-card priority" aria-labelledby="sns24-title">
+            <h3 id="sns24-title">
+                <span class="icon" aria-hidden="true">📞</span>
+                <span data-i18n="health_now.sns24_title">SNS 24 - Linha de Saúde</span>
+            </h3>
+            <p class="info-text" data-i18n="health_now.sns24_description">
+                Ligue para obter aconselhamento de saúde gratuito 24 horas, orientação sobre sintomas e informação sobre farmácias de serviço.
+            </p>
+            <a href="tel:808242424" class="btn-call-large" data-i18n="health_now.call_sns24_aria" data-i18n-attr="aria-label" aria-label="Ligar para SNS 24">
+                <span class="phone-icon" aria-hidden="true">📞</span> <span data-i18n="health_now.call_sns24">808 24 24 24</span>
+            </a>
+            <div class="service-hours">
+                <strong data-i18n="health_now.available_247">✅ Disponível 24 horas, 7 dias por semana</strong>
+                <span data-i18n="health_now.sns24_services">Aconselhamento médico, triagem de sintomas, farmácias de serviço</span>
+            </div>
+        </section>
+
+        <!-- Emergency 112 -->
+        <section class="emergency-card priority" aria-labelledby="emergency-title">
+            <h3 id="emergency-title">
+                <span class="icon" aria-hidden="true">🚨</span>
+                <span data-i18n="health_now.emergency_title">Emergência Médica Grave</span>
+            </h3>
+            <p class="info-text" data-i18n="health_now.emergency_description">
+                Em caso de emergência médica grave (risco de vida, acidente grave, perda de consciência), ligue imediatamente.
+            </p>
+            <a href="tel:112" class="btn-call-large" data-i18n="health_now.call_112_aria" data-i18n-attr="aria-label" aria-label="Ligar para 112">
+                <span class="phone-icon" aria-hidden="true">🚨</span> <span data-i18n="health_now.call_112">112</span>
+            </a>
+            <div class="service-hours">
+                <strong data-i18n="health_now.emergency_only">⚠️ Apenas para emergências graves</strong>
+            </div>
+        </section>
+
+        <!-- Hospital Emergency -->
+        <section class="emergency-card" aria-labelledby="hospital-title">
+            <h3 id="hospital-title">
+                <span class="icon" aria-hidden="true">🏥</span>
+                <span data-i18n="health_now.hospital_title">Urgências do Hospital de Faro</span>
+            </h3>
+            <p class="info-text">
+                <strong data-i18n="health_now.hospital_name">Centro Hospitalar Universitário do Algarve</strong><br>
+                <span data-i18n="health_now.hospital_address">Leão Penedo, 8000-386 Faro</span>
+            </p>
+            <div class="service-hours">
+                <strong data-i18n="health_now.hospital_hours">🕐 Urgências abertas 24 horas</strong>
+            </div>
+            <a href="tel:289891100" class="btn-secondary-large" data-i18n="health_now.call_hospital">
+                📞 Ligar: 289 891 100
+            </a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Centro+Hospitalar+Universitário+do+Algarve+Hospital+de+Faro" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-secondary-large" 
+               data-i18n="health_now.directions_hospital">
+                🗺️ Ver Direções no Mapa
+            </a>
+        </section>
+
+        <!-- Health Centers -->
+        <section class="emergency-card" aria-labelledby="health-centers-title">
+            <h3 id="health-centers-title">
+                <span class="icon" aria-hidden="true">🏢</span>
+                <span data-i18n="health_now.health_centers_title">Centros de Saúde</span>
+            </h3>
+            <p class="info-text" data-i18n="health_now.health_centers_description">
+                Para problemas de saúde não urgentes, consulte o seu centro de saúde.
+            </p>
+            
+            <div class="service-hours">
+                <strong data-i18n="health_now.center_faro">Centro de Saúde de Faro</strong>
+                <span data-i18n="health_now.center_faro_address">Rua Leão Penedo, 8000-355 Faro</span><br>
+                <span data-i18n="health_now.center_hours">🕐 Horário: Segunda a Sexta, 8h-20h</span>
+            </div>
+            
+            <a href="tel:289891000" class="btn-secondary-large" data-i18n="health_now.call_center">
+                📞 Ligar: 289 891 000
+            </a>
+            
+            <p class="info-text info-text-spaced">
+                <strong data-i18n="health_now.other_centers_label">Outras Unidades:</strong>
+                USF Conde de Oeiras (<a href="tel:289803200" class="phone-link">289 803 200</a>) •
+                USF Ria Formosa (<a href="tel:289803100" class="phone-link">289 803 100</a>)
+            </p>
+        </section>
+
+        <!-- Pharmacies on Duty -->
+        <section class="emergency-card" aria-labelledby="pharmacies-title">
+            <h3 id="pharmacies-title">
+                <span class="icon" aria-hidden="true">💊</span>
+                <span data-i18n="health_now.pharmacies_title">Farmácias de Serviço (Hoje)</span>
+            </h3>
+            <p class="info-text" data-i18n="health_now.pharmacies_description">
+                As farmácias têm um sistema rotativo de serviço 24 horas. Para saber qual está de serviço hoje:
+            </p>
+            
+            <a href="tel:808242424" class="btn-secondary-large" data-i18n="health_now.call_sns24_pharmacy">
+                📞 Ligar SNS 24: 808 24 24 24
+            </a>
+            
+            <a href="https://www.portaldasfarmacias.pt" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-secondary-large" 
+               data-i18n="health_now.check_online_pharmacies">
+                🌐 Consultar Online
+            </a>
+            
+            <a href="saude.html#farmacias-section" class="btn-secondary-large" data-i18n="health_now.all_pharmacies">
+                💊 Ver Todas as Farmácias em Faro
+            </a>
+        </section>
+
+        <!-- Poison Center -->
+        <section class="emergency-card" aria-labelledby="poison-title">
+            <h3 id="poison-title">
+                <span class="icon" aria-hidden="true">☠️</span>
+                <span data-i18n="health_now.poison_title">Centro de Informação Antivenenos</span>
+            </h3>
+            <p class="info-text" data-i18n="health_now.poison_description">
+                Em caso de intoxicação ou envenenamento, contacte o Centro de Informação Antivenenos.
+            </p>
+            <a href="tel:800250250" class="btn-secondary-large" data-i18n="health_now.call_poison">
+                📞 Ligar: 800 250 250
+            </a>
+            <div class="service-hours">
+                <strong data-i18n="health_now.poison_hours">✅ Disponível 24 horas</strong>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section aria-labelledby="quick-links-title">
+            <h3 id="quick-links-title" class="section-title" data-i18n="health_now.quick_links_title">
+                Links Úteis
+            </h3>
+            <div class="quick-links">
+                <a href="saude.html" class="quick-link-card">
+                    <div class="icon" aria-hidden="true">🏥</div>
+                    <h4 data-i18n="health_now.link_all_services">Todos os Serviços de Saúde</h4>
+                    <p data-i18n="health_now.link_all_services_desc">Informação completa sobre saúde em Faro</p>
+                </a>
+                
+                <a href="problemas-frequentes.html" class="quick-link-card">
+                    <div class="icon" aria-hidden="true">🛠️</div>
+                    <h4 data-i18n="health_now.link_common_issues">Problemas Frequentes</h4>
+                    <p data-i18n="health_now.link_common_issues_desc">Resolver problemas urbanos comuns</p>
+                </a>
+                
+                <a href="index.html" class="quick-link-card">
+                    <div class="icon" aria-hidden="true">🏠</div>
+                    <h4 data-i18n="health_now.link_home">Página Inicial</h4>
+                    <p data-i18n="health_now.link_home_desc">Voltar ao guia de Faro</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Medical Disclaimer -->
+        <section class="disclaimer" role="complementary" aria-labelledby="disclaimer-title">
+            <h4 id="disclaimer-title" data-i18n="health_now.disclaimer_title">⚠️ Aviso Importante</h4>
+            <p data-i18n="health_now.disclaimer_text">
+                Esta página fornece informação de caráter geral e não substitui o aconselhamento, diagnóstico ou tratamento médico profissional. 
+                Em caso de dúvida ou emergência médica, contacte sempre um profissional de saúde qualificado ou ligue para o 112. 
+                As informações aqui apresentadas são de domínio público e estão sujeitas a alterações sem aviso prévio.
+            </p>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p data-i18n="footer.copyright">&copy; 2025 Faro Formoso</p>
+        <p class="data-sources" data-i18n="footer.data_sources">Fontes de dados: Centro Hospitalar Universitário do Algarve, SNS, Ordem dos Farmacêuticos</p>
+        <div class="donation-container">
+            <p class="donation-message" data-i18n="footer.donation_message">Apoie este projeto de forma voluntária</p>
+            <a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" class="donation-button" data-i18n="ui.donation_aria_label" data-i18n-attr="aria-label" aria-label="Apoiar o projeto com uma doação voluntária">
+                <span class="donation-icon" role="img" aria-label="Ícone de café">☕</span>
+                <span data-i18n="footer.donation_button">Apoiar o Projeto</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="src/intl/i18n.js"></script>
+    <script src="src/utils/pwa.js"></script>
+    <script src="src/ui/accessibility.js"></script>
+    <script src="src/ui/voice-navigation.js"></script>
+    <script src="src/utils/favorites.js"></script>
+    <script src="src/utils/search.js"></script>
+    <script src="src/ui/ux.js"></script>
+    <script src="src/core/main.js"></script>
+</body>
+</html>

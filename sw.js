@@ -1,6 +1,6 @@
 // Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = '/offline.html';
 
@@ -9,13 +9,13 @@ const PRECACHE_URLS = [
     '/',
     '/index.html',
     '/offline.html',
-    '/css/style.css',
-    '/css/accessibility.css',
-    '/js/main.js',
-    '/js/accessibility.js',
-    '/js/favorites.js',
-    '/js/search.js',
-    '/js/dados-api.js'
+    '/assets/styles/style.css',
+    '/assets/styles/accessibility.css',
+    '/src/core/main.js',
+    '/src/ui/accessibility.js',
+    '/src/utils/favorites.js',
+    '/src/utils/search.js',
+    '/src/data/dados-api.js'
 ];
 
 // Páginas HTML para cache
@@ -37,17 +37,17 @@ const HTML_PAGES = [
 
 // Scripts específicos de páginas
 const PAGE_SCRIPTS = [
-    '/js/mapa.js',
-    '/js/hoteis.js',
-    '/js/restaurantes.js',
-    '/js/mobilidade.js'
+    '/src/data/mapa.js',
+    '/src/data/hoteis.js',
+    '/src/data/restaurantes.js',
+    '/src/data/mobilidade.js'
 ];
 
 // Dados JSON
 const DATA_FILES = [
-    '/data/hoteis.json',
-    '/data/restaurantes.json',
-    '/data/municipio-faro.json'
+    '/assets/data/hoteis.json',
+    '/assets/data/restaurantes.json',
+    '/assets/data/municipio-faro.json'
 ];
 
 // Instalação do Service Worker

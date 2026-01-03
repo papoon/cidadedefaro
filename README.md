@@ -5,6 +5,8 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
 
 **Faro Formoso — viver, descobrir e participar na cidade**
@@ -31,6 +33,7 @@ Este projeto tem como missão democratizar o acesso à informação sobre Faro, 
 - 🎭 **Cultura e turismo** com pontos de interesse
 - 🍽️ **Restaurantes e hotéis** com informações úteis
 - 🏠 **Guia prático** para novos residentes
+- 👴👵 **Apoio à terceira idade** com informação acessível para seniores
 - ❓ **Problemas frequentes** e suas soluções
 
 ---
@@ -91,7 +94,7 @@ O projeto integra dados de múltiplas fontes públicas e abertas:
 
 ## 🚀 Como Executar
 
-### Opção 1: Servidor Local Simples
+### Opção 1: Servidor Local Simples (Desenvolvimento Rápido)
 
 1. **Clone o repositório**
 ```bash
@@ -126,14 +129,82 @@ php -S localhost:8000
 http://localhost:8000
 ```
 
-### Opção 2: Abrir Diretamente
+### Opção 2: Com Vite (Recomendado para Desenvolvimento)
+
+O projeto usa Vite para otimização e build. Para desenvolvimento com hot-reload:
+
+1. **Clone o repositório**
+```bash
+git clone https://github.com/papoon/cidadedefaro.git
+cd cidadedefaro
+```
+
+2. **Instale as dependências**
+```bash
+npm install
+```
+
+3. **Inicie o servidor de desenvolvimento**
+```bash
+npm run dev
+```
+
+4. **Ou faça o build para produção**
+```bash
+npm run build
+npm run preview
+```
+
+O site estará disponível em `http://localhost:5173` (dev) ou `http://localhost:4173/cidadedefaro/` (preview).
+
+### Opção 3: Com Docker (Desenvolvimento Isolado)
+
+Para desenvolvimento com Docker, sem precisar instalar Node.js localmente:
+
+1. **Clone o repositório**
+```bash
+git clone https://github.com/papoon/cidadedefaro.git
+cd cidadedefaro
+```
+
+2. **Inicie o container com Docker Compose**
+```bash
+docker compose up
+# ou para versões antigas do Docker Compose
+docker-compose up
+```
+
+Ou construa e execute manualmente com Docker:
+```bash
+docker build -t cidadedefaro .
+docker run -p 5173:5173 -v $(pwd):/app -v /app/node_modules cidadedefaro
+```
+
+3. **Acesse no navegador**
+```
+http://localhost:5173
+```
+
+O Docker Compose automaticamente:
+- Instala as dependências do Node.js
+- Inicia o servidor de desenvolvimento Vite
+- Habilita hot-reload (mudanças no código atualizam automaticamente)
+- Expõe a porta 5173 para acesso local
+
+Para parar o container: `Ctrl+C` ou `docker compose down` (ou `docker-compose down`)
+
+### Opção 4: Abrir Diretamente
 
 Para desenvolvimento simples, você pode abrir o arquivo `index.html` diretamente no navegador. No entanto, algumas funcionalidades (como Service Worker e APIs) podem não funcionar corretamente devido a restrições CORS.
 
-### Opção 3: Deploy
+### Opção 5: Deploy Automático
 
-O projeto pode ser hospedado gratuitamente em:
-- **GitHub Pages** (recomendado)
+O projeto está configurado com deploy automático para GitHub Pages:
+- **Deploy automático**: Todo push para a branch `main` gera um novo deploy
+- **Build com Vite**: O workflow do GitHub Actions compila o projeto automaticamente
+- **URL de produção**: https://papoon.github.io/cidadedefaro/
+
+Outros serviços de hospedagem gratuita compatíveis:
 - **Netlify**
 - **Vercel**
 - **Cloudflare Pages**
@@ -210,19 +281,40 @@ cidadedefaro/
 
 ## 🎨 Páginas Disponíveis
 
+As páginas estão organizadas por ordem de prioridade para os utilizadores:
+
+### 🔴 Essencial (Uso Diário)
 | Página | Descrição | Link |
 |--------|-----------|------|
 | 🏠 **Início** | Página principal com visão geral | `index.html` |
+| 🏥 **Saúde** | Centros de saúde, hospitais e farmácias | `saude.html` |
+| 🚨 **Saúde: Onde Ir Agora** | Contactos de emergência e urgências | `saude-onde-ir-agora.html` |
 | 🚌 **Transportes** | Informações sobre transportes públicos | `transportes.html` |
-| 🏥 **Saúde** | Centros de saúde e farmácias | `saude.html` |
-| 🌿 **Ambiente** | Sustentabilidade e reciclagem | `ambiente.html` |
-| 🎭 **Lazer** | Cultura e turismo | `lazer.html` |
+| 🗺️ **Mapa** | Mapa interativo da cidade | `mapa.html` |
+
+### 🟠 Serviços (Uso Frequente)
+| Página | Descrição | Link |
+|--------|-----------|------|
 | 🍽️ **Onde Comer** | Restaurantes e cafés | `restaurantes.html` |
 | 🏨 **Onde Ficar** | Hotéis e alojamentos | `hoteis.html` |
-| 📅 **O que fazer hoje** | Eventos e atividades | `oque-fazer-hoje.html` |
-| 🗺️ **Mapa** | Mapa interativo da cidade | `mapa.html` |
 | 🛠️ **Problemas Frequentes** | FAQ de problemas urbanos | `problemas-frequentes.html` |
+
+### 🟢 Viver (Residentes)
+| Página | Descrição | Link |
+|--------|-----------|------|
 | 🏠 **Viver em Faro** | Guia para novos residentes | `viver-em-faro.html` |
+| 👴👵 **Faro para Idosos** | Apoios, serviços e atividades para seniores | `idosos.html` |
+
+### 🔵 Lazer e Turismo
+| Página | Descrição | Link |
+|--------|-----------|------|
+| 🎭 **Lazer** | Cultura e turismo | `lazer.html` |
+| 📅 **O que fazer hoje** | Eventos e atividades | `oque-fazer-hoje.html` |
+
+### ⚪ Mais Informações
+| Página | Descrição | Link |
+|--------|-----------|------|
+| 🌿 **Ambiente** | Sustentabilidade e reciclagem | `ambiente.html` |
 | 🚴 **Mobilidade** | Mobilidade sustentável | `mobilidade.html` |
 | 📖 **História** | História de Faro | `historia-faro.html` |
 | 📘 **Guia Premium** | Download do guia offline | `guia-premium.html` |
