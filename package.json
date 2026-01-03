@@ -1,0 +1,24 @@
+{
+  "name": "cidadedefaro",
+  "version": "1.0.0",
+  "description": "Faro Formoso - Guia completo para viver e visitar Faro, Portugal",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "faro",
+    "portugal",
+    "guia",
+    "turismo",
+    "pwa"
+  ],
+  "author": "Faro Formoso",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^7.3.0",
+    "vite-plugin-static-copy": "^3.1.4"
+  }
+}
