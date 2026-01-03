@@ -244,24 +244,34 @@
                 🇬🇧 EN
             </button>
         </div>
-        <nav role="navigation" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
+                <nav role="navigation" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
             <ul role="menubar">
+                <!-- Essencial (uso diário) -->
                 <li role="none"><a href="index.html" role="menuitem"><span data-i18n="nav.home">Início</span></a></li>
-                <li role="none"><a href="transportes.html" role="menuitem"><span data-i18n="nav.transport">Transportes</span></a></li>
                 <li role="none"><a href="saude.html" role="menuitem"><span data-i18n="nav.health">Saúde</span></a></li>
-                <li role="none"><a href="ambiente.html" role="menuitem"><span data-i18n="nav.environment">Ambiente</span></a></li>
-                <li role="none"><a href="lazer.html" role="menuitem"><span data-i18n="nav.leisure">Lazer</span></a></li>
+                <li role="none"><a href="transportes.html" role="menuitem"><span data-i18n="nav.transport">Transportes</span></a></li>
+                <li role="none"><a href="mapa.html" role="menuitem"><span data-i18n="nav.map">Mapa</span></a></li>
+                
+                <!-- Serviços (uso frequente) -->
                 <li role="none"><a href="restaurantes.html" role="menuitem"><span data-i18n="nav.restaurants">Onde Comer</span></a></li>
                 <li role="none"><a href="hoteis.html" role="menuitem"><span data-i18n="nav.hotels">Onde Ficar</span></a></li>
-                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem"><span data-i18n="nav.what_to_do">O que fazer hoje</span></a></li>
-                <li role="none"><a href="mapa.html" role="menuitem"><span data-i18n="nav.map">Mapa</span></a></li>
-                <li role="none"><a href="problemas-frequentes.html" role="menuitem"><span data-i18n="nav.faq">Problemas Frequentes</span></a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem"><span data-i18n="nav.faq">Problemas</span></a></li>
+                
+                <!-- Viver (residentes) -->
                 <li role="none"><a href="viver-em-faro.html" role="menuitem"><span data-i18n="nav.living">Viver em Faro</span></a></li>
-                <li role="none"><a href="idosos.html" role="menuitem"><span data-i18n="nav.seniors">Faro para Idosos</span></a></li>
+                <li role="none"><a href="idosos.html" role="menuitem"><span data-i18n="nav.seniors">Idosos</span></a></li>
+                
+                <!-- Lazer e Turismo -->
+                <li role="none"><a href="lazer.html" role="menuitem"><span data-i18n="nav.leisure">Lazer</span></a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem"><span data-i18n="nav.what_to_do">Hoje</span></a></li>
+                
+                <!-- Mais informações -->
+                <li role="none"><a href="ambiente.html" role="menuitem"><span data-i18n="nav.environment">Ambiente</span></a></li>
                 <li role="none"><a href="mobilidade.html" role="menuitem"><span data-i18n="nav.mobility">Mobilidade</span></a></li>
                 <li role="none"><a href="historia-faro.html" role="menuitem"><span data-i18n="nav.history">História</span></a></li>
-                <li role="none"><a href="guia-premium.html" role="menuitem"><span data-i18n="nav.premium">📘 Guia Premium</span></a></li>
-                <li role="none"><a href="favoritos.html" role="menuitem"><span data-i18n="nav.favorites">⭐ Favoritos</span> <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
+                <li role="none"><a href="guia-premium.html" role="menuitem"><span data-i18n="nav.premium">📘 Premium</span></a></li>
+                <li role="none"><a href="sobre-projeto.html" role="menuitem"><span data-i18n="nav.about">Sobre</span></a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem"><span data-i18n="nav.favorites">⭐</span> <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
             </ul>
         </nav>
     </header>
@@ -349,6 +359,10 @@
         <!-- Contactos de Emergência -->
         <section class="service-card">
             <h3><span class="icon" data-i18n="saude.key_4">🚨</span>Contactos de Emergência</h3>
+            <div class="service-info">
+                <p><strong data-i18n="saude.nota_importante">Nota importante:</strong> Em caso de emergência médica grave, ligue sempre para o <strong data-i18n="saude.112">112</strong>.</p>
+                <p>A <strong data-i18n="saude.linha_sade_24_808_24_24_24_1">Linha Saúde 24 (808 24 24 24)</strong> está disponível 24 horas para aconselhamento de saúde não urgente.</p>
+            </div>
             <div class="emergency-grid">
                 <div class="emergency-item">
                     <div class="label">Emergência Geral</div>
@@ -358,18 +372,14 @@
                     <div class="label">Saúde 24</div>
                     <div class="number">808 24 24 24</div>
                 </div>
-                <div class="emergency-item">
-                    <div class="label">Bombeiros de Faro</div>
-                    <div class="number">289 895 100</div>
-                </div>
-                <div class="emergency-item">
-                    <div class="label">Centro de Informação Antivenenos</div>
-                    <div class="number">800 250 250</div>
-                </div>
             </div>
-            <div class="service-info" style="margin-top: 1.5rem;">
-                <p><strong data-i18n="saude.nota_importante">Nota importante:</strong> Em caso de emergência médica grave, ligue sempre para o <strong data-i18n="saude.112">112</strong>.</p>
-                <p>A <strong data-i18n="saude.linha_sade_24_808_24_24_24_1">Linha Saúde 24 (808 24 24 24)</strong> está disponível 24 horas para aconselhamento de saúde não urgente.</p>
+            <div style="margin-top: 1.5rem;">
+                <a href="saude-onde-ir-agora.html" class="btn-maps" style="display: inline-block;">
+                    🚨 Ver Todos os Contactos de Emergência
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #718096;">
+                    Acesso rápido a urgências, centros de saúde, farmácias de serviço e mais informações detalhadas.
+                </p>
             </div>
         </section>
 

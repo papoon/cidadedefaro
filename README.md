@@ -281,20 +281,40 @@ cidadedefaro/
 
 ## 🎨 Páginas Disponíveis
 
+As páginas estão organizadas por ordem de prioridade para os utilizadores:
+
+### 🔴 Essencial (Uso Diário)
 | Página | Descrição | Link |
 |--------|-----------|------|
 | 🏠 **Início** | Página principal com visão geral | `index.html` |
+| 🏥 **Saúde** | Centros de saúde, hospitais e farmácias | `saude.html` |
+| 🚨 **Saúde: Onde Ir Agora** | Contactos de emergência e urgências | `saude-onde-ir-agora.html` |
 | 🚌 **Transportes** | Informações sobre transportes públicos | `transportes.html` |
-| 🏥 **Saúde** | Centros de saúde e farmácias | `saude.html` |
-| 🌿 **Ambiente** | Sustentabilidade e reciclagem | `ambiente.html` |
-| 🎭 **Lazer** | Cultura e turismo | `lazer.html` |
+| 🗺️ **Mapa** | Mapa interativo da cidade | `mapa.html` |
+
+### 🟠 Serviços (Uso Frequente)
+| Página | Descrição | Link |
+|--------|-----------|------|
 | 🍽️ **Onde Comer** | Restaurantes e cafés | `restaurantes.html` |
 | 🏨 **Onde Ficar** | Hotéis e alojamentos | `hoteis.html` |
-| 📅 **O que fazer hoje** | Eventos e atividades | `oque-fazer-hoje.html` |
-| 🗺️ **Mapa** | Mapa interativo da cidade | `mapa.html` |
 | 🛠️ **Problemas Frequentes** | FAQ de problemas urbanos | `problemas-frequentes.html` |
+
+### 🟢 Viver (Residentes)
+| Página | Descrição | Link |
+|--------|-----------|------|
 | 🏠 **Viver em Faro** | Guia para novos residentes | `viver-em-faro.html` |
 | 👴👵 **Faro para Idosos** | Apoios, serviços e atividades para seniores | `idosos.html` |
+
+### 🔵 Lazer e Turismo
+| Página | Descrição | Link |
+|--------|-----------|------|
+| 🎭 **Lazer** | Cultura e turismo | `lazer.html` |
+| 📅 **O que fazer hoje** | Eventos e atividades | `oque-fazer-hoje.html` |
+
+### ⚪ Mais Informações
+| Página | Descrição | Link |
+|--------|-----------|------|
+| 🌿 **Ambiente** | Sustentabilidade e reciclagem | `ambiente.html` |
 | 🚴 **Mobilidade** | Mobilidade sustentável | `mobilidade.html` |
 | 📖 **História** | História de Faro | `historia-faro.html` |
 | 📘 **Guia Premium** | Download do guia offline | `guia-premium.html` |

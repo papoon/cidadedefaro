@@ -105,23 +105,32 @@
         </div>
         <nav role="navigation" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
             <ul role="menubar">
+                <!-- Essencial (uso diário) -->
                 <li role="none"><a href="index.html" role="menuitem" data-i18n="nav.home">Início</a></li>
-                <li role="none"><a href="transportes.html" role="menuitem" data-i18n="nav.transport">Transportes</a></li>
                 <li role="none"><a href="saude.html" role="menuitem" data-i18n="nav.health">Saúde</a></li>
-                <li role="none"><a href="ambiente.html" role="menuitem" data-i18n="nav.environment">Ambiente</a></li>
-                <li role="none"><a href="lazer.html" role="menuitem" data-i18n="nav.leisure">Lazer</a></li>
+                <li role="none"><a href="transportes.html" role="menuitem" data-i18n="nav.transport">Transportes</a></li>
+                <li role="none"><a href="mapa.html" role="menuitem" data-i18n="nav.map">Mapa</a></li>
+                
+                <!-- Serviços (uso frequente) -->
                 <li role="none"><a href="restaurantes.html" role="menuitem" data-i18n="nav.restaurants">Onde Comer</a></li>
                 <li role="none"><a href="hoteis.html" role="menuitem" data-i18n="nav.hotels">Onde Ficar</a></li>
-                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem" data-i18n="nav.what_to_do">O que fazer hoje</a></li>
-                <li role="none"><a href="mapa.html" role="menuitem" data-i18n="nav.map">Mapa</a></li>
-                <li role="none"><a href="problemas-frequentes.html" role="menuitem" data-i18n="nav.faq">Problemas Frequentes</a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem" data-i18n="nav.faq">Problemas</a></li>
+                
+                <!-- Viver (residentes) -->
                 <li role="none"><a href="viver-em-faro.html" role="menuitem" data-i18n="nav.living">Viver em Faro</a></li>
-                <li role="none"><a href="idosos.html" role="menuitem" data-i18n="nav.seniors">Faro para Idosos</a></li>
+                <li role="none"><a href="idosos.html" role="menuitem" data-i18n="nav.seniors">Idosos</a></li>
+                
+                <!-- Lazer e Turismo -->
+                <li role="none"><a href="lazer.html" role="menuitem" data-i18n="nav.leisure">Lazer</a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem" data-i18n="nav.what_to_do">Hoje</a></li>
+                
+                <!-- Mais informações -->
+                <li role="none"><a href="ambiente.html" role="menuitem" data-i18n="nav.environment">Ambiente</a></li>
                 <li role="none"><a href="mobilidade.html" role="menuitem" data-i18n="nav.mobility">Mobilidade</a></li>
                 <li role="none"><a href="historia-faro.html" role="menuitem" data-i18n="nav.history">História</a></li>
-                <li role="none"><a href="guia-premium.html" role="menuitem" data-i18n="nav.premium">📘 Guia Premium</a></li>
-                <li role="none"><a href="sobre-projeto.html" role="menuitem" data-i18n="nav.about">ℹ️ Sobre o Projeto</a></li>
-                <li role="none"><a href="favoritos.html" role="menuitem" data-i18n="nav.favorites">⭐ Favoritos <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
+                <li role="none"><a href="guia-premium.html" role="menuitem" data-i18n="nav.premium">📘 Premium</a></li>
+                <li role="none"><a href="sobre-projeto.html" role="menuitem" data-i18n="nav.about">Sobre</a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem" data-i18n="nav.favorites">⭐ <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
             </ul>
         </nav>
     </header>
@@ -158,30 +167,20 @@
             </div>
             
             <div class="cards-grid">
-                <a href="transportes.html" class="card" data-filter-category="info,services">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_bus" data-i18n-attr="aria-label" aria-label="Ícone de autocarro">🚌</div>
-                    <h3 data-i18n="home.card_transport_title">Transportes</h3>
-                    <p data-i18n="home.card_transport_desc">Informações sobre autocarros, comboios e mobilidade na cidade</p>
-                </a>
-
+                <!-- Priority: Essential Daily Use -->
                 <a href="saude.html" class="card" data-filter-category="info,services">
                     <div class="card-icon" role="img" data-i18n="ui.icon_hospital" data-i18n-attr="aria-label" aria-label="Ícone de hospital">🏥</div>
                     <h3 data-i18n="home.card_health_title">Saúde</h3>
                     <p data-i18n="home.card_health_desc">Centros de saúde, hospitais e serviços médicos</p>
                 </a>
 
-                <a href="ambiente.html" class="card" data-filter-category="info,services">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_plant" data-i18n-attr="aria-label" aria-label="Ícone de planta">🌿</div>
-                    <h3 data-i18n="home.card_environment_title">Ambiente</h3>
-                    <p data-i18n="home.card_environment_desc">Sustentabilidade, reciclagem e espaços verdes</p>
+                <a href="transportes.html" class="card" data-filter-category="info,services">
+                    <div class="card-icon" role="img" data-i18n="ui.icon_bus" data-i18n-attr="aria-label" aria-label="Ícone de autocarro">🚌</div>
+                    <h3 data-i18n="home.card_transport_title">Transportes</h3>
+                    <p data-i18n="home.card_transport_desc">Informações sobre autocarros, comboios e mobilidade na cidade</p>
                 </a>
 
-                <a href="lazer.html" class="card" data-filter-category="tourism">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_theater" data-i18n-attr="aria-label" aria-label="Ícone de máscara teatral">🎭</div>
-                    <h3 data-i18n="home.card_leisure_title">Lazer</h3>
-                    <p data-i18n="home.card_leisure_desc">Cultura, turismo e atividades de lazer</p>
-                </a>
-
+                <!-- Services: Frequent Use -->
                 <a href="restaurantes.html" class="card" data-filter-category="tourism,services">
                     <div class="card-icon" role="img" data-i18n="ui.icon_food" data-i18n-attr="aria-label" aria-label="Ícone de garfo e faca">🍽️</div>
                     <h3 data-i18n="home.card_restaurants_title">Onde Comer</h3>
@@ -194,6 +193,13 @@
                     <p data-i18n="home.card_hotels_desc">Hotéis, hostels e alojamentos em Faro</p>
                 </a>
 
+                <a href="problemas-frequentes.html" class="card" data-filter-category="info,services">
+                    <div class="card-icon" role="img" data-i18n="ui.icon_tools" data-i18n-attr="aria-label" aria-label="Ícone de ferramentas">🛠️</div>
+                    <h3 data-i18n="home.card_faq_title">Problemas Frequentes</h3>
+                    <p data-i18n="home.card_faq_desc">Saiba como resolver problemas urbanos comuns na cidade</p>
+                </a>
+
+                <!-- Living: Residents -->
                 <a href="viver-em-faro.html" class="card" data-filter-category="info">
                     <div class="card-icon" role="img" data-i18n="ui.icon_home" data-i18n-attr="aria-label" aria-label="Ícone de casa">🏠</div>
                     <h3 data-i18n="home.card_living_title">Viver em Faro</h3>
@@ -206,10 +212,18 @@
                     <p data-i18n="home.card_seniors_desc">Apoios sociais, centros de dia, transporte e atividades para seniores</p>
                 </a>
 
-                <a href="problemas-frequentes.html" class="card" data-filter-category="info,services">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_tools" data-i18n-attr="aria-label" aria-label="Ícone de ferramentas">🛠️</div>
-                    <h3 data-i18n="home.card_faq_title">Problemas Frequentes</h3>
-                    <p data-i18n="home.card_faq_desc">Saiba como resolver problemas urbanos comuns na cidade</p>
+                <!-- Leisure & Tourism -->
+                <a href="lazer.html" class="card" data-filter-category="tourism">
+                    <div class="card-icon" role="img" data-i18n="ui.icon_theater" data-i18n-attr="aria-label" aria-label="Ícone de máscara teatral">🎭</div>
+                    <h3 data-i18n="home.card_leisure_title">Lazer</h3>
+                    <p data-i18n="home.card_leisure_desc">Cultura, turismo e atividades de lazer</p>
+                </a>
+
+                <!-- Additional Information -->
+                <a href="ambiente.html" class="card" data-filter-category="info,services">
+                    <div class="card-icon" role="img" data-i18n="ui.icon_plant" data-i18n-attr="aria-label" aria-label="Ícone de planta">🌿</div>
+                    <h3 data-i18n="home.card_environment_title">Ambiente</h3>
+                    <p data-i18n="home.card_environment_desc">Sustentabilidade, reciclagem e espaços verdes</p>
                 </a>
 
                 <a href="guia-premium.html" class="card card-premium" data-filter-category="tourism,info">
