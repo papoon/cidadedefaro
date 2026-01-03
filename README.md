@@ -33,6 +33,7 @@ Este projeto tem como missão democratizar o acesso à informação sobre Faro, 
 - 🎭 **Cultura e turismo** com pontos de interesse
 - 🍽️ **Restaurantes e hotéis** com informações úteis
 - 🏠 **Guia prático** para novos residentes
+- 👴👵 **Apoio à terceira idade** com informação acessível para seniores
 - ❓ **Problemas frequentes** e suas soluções
 
 ---
@@ -293,6 +294,7 @@ cidadedefaro/
 | 🗺️ **Mapa** | Mapa interativo da cidade | `mapa.html` |
 | 🛠️ **Problemas Frequentes** | FAQ de problemas urbanos | `problemas-frequentes.html` |
 | 🏠 **Viver em Faro** | Guia para novos residentes | `viver-em-faro.html` |
+| 👴👵 **Faro para Idosos** | Apoios, serviços e atividades para seniores | `idosos.html` |
 | 🚴 **Mobilidade** | Mobilidade sustentável | `mobilidade.html` |
 | 📖 **História** | História de Faro | `historia-faro.html` |
 | 📘 **Guia Premium** | Download do guia offline | `guia-premium.html` |
