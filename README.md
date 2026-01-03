@@ -216,65 +216,101 @@ Outros serviços de hospedagem gratuita compatíveis:
 ```
 cidadedefaro/
 │
-├── index.html                    # Página inicial
-├── manifest.json                 # Configuração PWA
-├── sw.js                         # Service Worker para offline
+├── 📄 Páginas HTML (root)             # Páginas finais HTML
+├── index.html                         # Página inicial
+├── transportes.html                   # Transportes e mobilidade
+├── saude.html                         # Saúde e farmácias
+├── ambiente.html                      # Ambiente e sustentabilidade
+├── lazer.html                         # Cultura e turismo
+├── restaurantes.html                  # Onde comer
+├── hoteis.html                        # Onde ficar
+├── mapa.html                          # Mapa interativo
+├── ... (outras páginas HTML)
 │
-├── 📄 Páginas HTML
-├── transportes.html              # Transportes e mobilidade
-├── saude.html                    # Saúde e farmácias
-├── ambiente.html                 # Ambiente e sustentabilidade
-├── lazer.html                    # Cultura e turismo
-├── restaurantes.html             # Onde comer
-├── hoteis.html                   # Onde ficar
-├── oque-fazer-hoje.html          # Eventos e atividades
-├── mapa.html                     # Mapa interativo
-├── problemas-frequentes.html     # FAQ de problemas urbanos
-├── viver-em-faro.html           # Guia para residentes
-├── mobilidade.html               # Mobilidade sustentável
-├── historia-faro.html           # História da cidade
-├── guia-premium.html            # Guia premium para download
-├── sobre-projeto.html           # Sobre o projeto
-├── favoritos.html               # Favoritos salvos
-├── offline.html                 # Página offline
+├── src/
+│   ├── partials/                      # Componentes HTML reutilizáveis
+│   │   ├── meta-common.html           # Meta tags comuns e stylesheets
+│   │   ├── header.html                # Cabeçalho com dark mode toggle
+│   │   ├── navigation.html            # Menu de navegação principal
+│   │   ├── footer.html                # Rodapé
+│   │   └── scripts-common.html        # Scripts comuns
+│   │
+│   ├── core/                          # Scripts principais
+│   │   └── main.js                    # Script principal
+│   │
+│   ├── intl/                          # Internacionalização
+│   │   └── i18n.js                    # Sistema de tradução
+│   │
+│   ├── ui/                            # Interface e UX
+│   │   ├── accessibility.js           # Features de acessibilidade
+│   │   ├── voice-navigation.js        # Navegação por voz
+│   │   ├── alerts.js                  # Sistema de alertas
+│   │   └── ux.js                      # Melhorias de UX
+│   │
+│   ├── utils/                         # Utilitários
+│   │   ├── pwa.js                     # Funcionalidades PWA
+│   │   ├── favorites.js               # Sistema de favoritos
+│   │   └── search.js                  # Sistema de busca
+│   │
+│   └── data/                          # Scripts de dados
+│       ├── dados-api.js               # Integração com APIs
+│       ├── restaurantes.js            # Dados de restaurantes
+│       ├── hoteis.js                  # Dados de hotéis
+│       ├── farmacias.js               # Dados de farmácias
+│       └── mobilidade.js              # Dados de mobilidade
 │
-├── 🎨 CSS
-├── css/
-│   ├── style.css                # Estilos principais
-│   ├── accessibility.css        # Estilos de acessibilidade
-│   └── ux.css                   # Melhorias de UX
+├── assets/
+│   ├── styles/                        # Estilos CSS
+│   │   ├── style.css                  # Estilos principais
+│   │   ├── accessibility.css          # Estilos de acessibilidade
+│   │   ├── ux.css                     # Melhorias de UX
+│   │   ├── voice-navigation.css       # Estilos de navegação por voz
+│   │   └── alerts.css                 # Estilos de alertas
+│   │
+│   ├── data/                          # Dados JSON
+│   │   ├── municipio-faro.json        # Dados do município
+│   │   ├── restaurantes.json          # Lista de restaurantes
+│   │   ├── hoteis.json                # Lista de hotéis
+│   │   └── farmacias.json             # Lista de farmácias
+│   │
+│   └── lang/                          # Traduções
+│       ├── pt.json                    # Traduções em Português
+│       └── en.json                    # Traduções em Inglês
 │
-├── 📜 JavaScript
-├── js/
-│   ├── main.js                  # Script principal
-│   ├── dados-api.js             # Integração com APIs
-│   ├── mapa.js                  # Funcionalidades do mapa
-│   ├── search.js                # Sistema de busca
-│   ├── i18n.js                  # Internacionalização
-│   ├── pwa.js                   # Funcionalidades PWA
-│   ├── accessibility.js         # Features de acessibilidade
-│   ├── favorites.js             # Sistema de favoritos
-│   ├── ux.js                    # Melhorias de UX
-│   ├── restaurantes.js          # Dados de restaurantes
-│   ├── hoteis.js                # Dados de hotéis
-│   ├── farmacias.js             # Dados de farmácias
-│   └── mobilidade.js            # Dados de mobilidade
-│
-├── 📊 Dados
-├── data/
-│   ├── municipio-faro.json      # Dados do município
-│   ├── restaurantes.json        # Lista de restaurantes
-│   ├── hoteis.json              # Lista de hotéis
-│   └── farmacias.json           # Lista de farmácias
-│
-├── 🌐 Traduções
-├── lang/
-│   ├── pt.json                  # Traduções em Português
-│   └── en.json                  # Traduções em Inglês
-│
-├── 📘 Documentação
-├── guia-premium-faro.pdf        # Guia premium em PDF
-└── README.md                    # Este arquivo
+├── manifest.json                      # Configuração PWA
+├── sw.js                              # Service Worker para offline
+├── vite.config.js                     # Configuração do Vite com partials
+├── guia-premium-faro.pdf              # Guia premium em PDF
+└── README.md                          # Este arquivo
+```
+
+### 🔧 Sistema de Partials
+
+O projeto utiliza **vite-plugin-html** para reutilização de componentes HTML através de partials:
+
+- **Partials** são fragmentos HTML reutilizáveis em `src/partials/`
+- Durante o build, os partials são injetados nas páginas usando sintaxe EJS (`<%- nomePartial %>`)
+- Elimina duplicação de código (header, footer, navigation, scripts)
+- Facilita manutenção e garante consistência visual
+
+**Exemplo de uso em uma página:**
+```html
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>Minha Página</title>
+    <%- metaCommon %>
+</head>
+<body>
+    <%- header %>
+    <%- navigation %>
+    <main>
+        <!-- Conteúdo específico da página -->
+    </main>
+    <%- footer %>
+    <%- scriptsCommon %>
+</body>
+</html>
 ```
 
 ---
