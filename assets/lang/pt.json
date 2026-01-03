@@ -1585,7 +1585,7 @@
     "center_faro_address": "Rua Leão Penedo, 8000-355 Faro",
     "center_hours": "🕐 Horário: Segunda a Sexta, 8h-20h",
     "call_center": "📞 Ligar: 289 891 000",
-    "other_centers": "Outras Unidades: USF Conde de Oeiras (289 803 200) • USF Ria Formosa (289 803 100)",
+    "other_centers_label": "Outras Unidades:",
     "pharmacies_title": "Farmácias de Serviço (Hoje)",
     "pharmacies_description": "As farmácias têm um sistema rotativo de serviço 24 horas. Para saber qual está de serviço hoje:",
     "call_sns24_pharmacy": "📞 Ligar SNS 24: 808 24 24 24",
