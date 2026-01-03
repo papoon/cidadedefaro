@@ -202,6 +202,30 @@
                 height: 300px;
             }
         }
+        
+        /* Quick Access Link Styles */
+        .quick-access-container {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        
+        .btn-quick-access {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-quick-access:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(229, 62, 62, 0.4);
+        }
     </style>
 </head>
 <body>
@@ -247,9 +271,9 @@
             <p data-i18n="health.hero_description">Informações sobre hospitais, centros de saúde, farmácias e contactos de emergência em Faro.</p>
             
             <!-- Quick Access Link -->
-            <div style="margin-top: 1.5rem; text-align: center;">
+            <div class="quick-access-container">
                 <a href="saude-onde-ir-agora.html" 
-                   style="display: inline-block; padding: 1rem 2rem; background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%); color: white; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 1.2rem; box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3); transition: all 0.3s ease;"
+                   class="btn-quick-access"
                    data-i18n="health.quick_access_link">
                     🚨 Precisa de Ajuda Agora? Acesso Rápido
                 </a>
