@@ -6,6 +6,7 @@
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![PWA](https://img.shields.io/badge/PWA-5A0FC8?style=for-the-badge&logo=pwa&logoColor=white)
 
 **Faro Formoso — viver, descobrir e participar na cidade**
@@ -155,11 +156,47 @@ npm run preview
 
 O site estará disponível em `http://localhost:5173` (dev) ou `http://localhost:4173/cidadedefaro/` (preview).
 
-### Opção 3: Abrir Diretamente
+### Opção 3: Com Docker (Desenvolvimento Isolado)
+
+Para desenvolvimento com Docker, sem precisar instalar Node.js localmente:
+
+1. **Clone o repositório**
+```bash
+git clone https://github.com/papoon/cidadedefaro.git
+cd cidadedefaro
+```
+
+2. **Inicie o container com Docker Compose**
+```bash
+docker compose up
+# ou para versões antigas do Docker Compose
+docker-compose up
+```
+
+Ou construa e execute manualmente com Docker:
+```bash
+docker build -t cidadedefaro .
+docker run -p 5173:5173 -v $(pwd):/app -v /app/node_modules cidadedefaro
+```
+
+3. **Acesse no navegador**
+```
+http://localhost:5173
+```
+
+O Docker Compose automaticamente:
+- Instala as dependências do Node.js
+- Inicia o servidor de desenvolvimento Vite
+- Habilita hot-reload (mudanças no código atualizam automaticamente)
+- Expõe a porta 5173 para acesso local
+
+Para parar o container: `Ctrl+C` ou `docker compose down` (ou `docker-compose down`)
+
+### Opção 4: Abrir Diretamente
 
 Para desenvolvimento simples, você pode abrir o arquivo `index.html` diretamente no navegador. No entanto, algumas funcionalidades (como Service Worker e APIs) podem não funcionar corretamente devido a restrições CORS.
 
-### Opção 4: Deploy Automático
+### Opção 5: Deploy Automático
 
 O projeto está configurado com deploy automático para GitHub Pages:
 - **Deploy automático**: Todo push para a branch `main` gera um novo deploy
