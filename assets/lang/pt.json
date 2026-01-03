@@ -1609,6 +1609,10 @@
     "disclaimer_title": "⚠️ Aviso Importante",
     "disclaimer_text": "Esta página fornece informação de caráter geral e não substitui o aconselhamento, diagnóstico ou tratamento médico profissional. Em caso de dúvida ou emergência médica, contacte sempre um profissional de saúde qualificado ou ligue para o 112. As informações aqui apresentadas são de domínio público e estão sujeitas a alterações sem aviso prévio."
   },
+  "alerts": {
+    "close_button": "Fechar alerta",
+    "region_label": "Alertas informativos"
+  },
   "seniors": {
     "hero_title": "👴👵 Faro para Idosos",
     "hero_description": "Informação útil e acessível para a população sénior de Faro. Encontre apoios sociais, serviços, transportes e atividades pensadas para si.",

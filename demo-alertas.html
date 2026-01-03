@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Sistema de Alertas - Faro Formoso</title>
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/alerts.css">
+    <style>
+        .demo-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        .demo-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .demo-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .demo-btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: white;
+        }
+        .demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .demo-btn.info { background-color: #4299e1; }
+        .demo-btn.warning { background-color: #ed8936; }
+        .demo-btn.event { background-color: #9f7aea; }
+        .demo-btn.success { background-color: #48bb78; }
+        .demo-btn.important { background-color: #f56565; }
+        .demo-btn.dismiss-all { background-color: #718096; }
+        .demo-btn.clear-dismissed { background-color: #2d3748; }
+        .code-block {
+            background: #2d3748;
+            color: #f7fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <h1>Demo Sistema de Alertas</h1>
+        <nav role="navigation">
+            <ul role="menubar">
+                <li role="none"><a href="index.html" role="menuitem">← Voltar ao Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="demo-container">
+        <div class="demo-section">
+            <h2>🎨 Sistema de Alertas Locais Não Intrusivos</h2>
+            <p>Este é um sistema de alertas discreto e não intrusivo para informar utilizadores sobre eventos importantes, alterações relevantes ou situações excecionais.</p>
+            
+            <h3>Características:</h3>
+            <ul>
+                <li>✅ Banner discreto que não bloqueia a navegação</li>
+                <li>✅ Alertas categorizados por tipo (info, aviso, evento, sucesso, importante)</li>
+                <li>✅ Possibilidade de fechar/dispensar alertas</li>
+                <li>✅ Persistência opcional - alertas dispensados não aparecem novamente</li>
+                <li>✅ Sem tracking ou notificações invasivas</li>
+                <li>✅ Compatível com modo escuro</li>
+                <li>✅ Totalmente acessível com teclado e leitores de ecrã</li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎯 Demonstração</h2>
+            <p>Clique nos botões abaixo para ver exemplos de diferentes tipos de alertas:</p>
+            
+            <div class="demo-buttons">
+                <button class="demo-btn info" onclick="showInfoAlert()">
+                    ℹ️ Alerta Informativo
+                </button>
+                <button class="demo-btn warning" onclick="showWarningAlert()">
+                    ⚠️ Aviso
+                </button>
+                <button class="demo-btn event" onclick="showEventAlert()">
+                    📅 Evento
+                </button>
+                <button class="demo-btn success" onclick="showSuccessAlert()">
+                    ✅ Sucesso
+                </button>
+                <button class="demo-btn important" onclick="showImportantAlert()">
+                    ❗ Importante
+                </button>
+            </div>
+
+            <div class="demo-buttons" style="margin-top: 2rem;">
+                <button class="demo-btn dismiss-all" onclick="dismissAll()">
+                    ✕ Fechar Todos os Alertas
+                </button>
+                <button class="demo-btn clear-dismissed" onclick="clearDismissed()">
+                    🔄 Limpar Histórico de Dispensados
+                </button>
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>💻 Como Usar</h2>
+            <p>Para mostrar um alerta na sua página, use a API JavaScript:</p>
+            
+            <div class="code-block">
+// Alerta simples
+window.localAlerts.show({
+    id: 'my-alert',
+    type: 'info',
+    title: 'Título do Alerta',
+    message: 'Mensagem do alerta aqui.',
+    dismissible: true,
+    persistent: false
+});
+
+// Alerta com auto-dismiss após 5 segundos
+window.localAlerts.show({
+    id: 'auto-dismiss-alert',
+    type: 'success',
+    message: 'Este alerta fecha automaticamente!',
+    autoDismiss: 5000
+});
+
+// Tipos de alertas disponíveis:
+// - info: Informação geral
+// - warning: Avisos importantes
+// - event: Eventos e novidades
+// - success: Confirmações
+// - important: Alertas críticos
+            </div>
+        </div>
+
+        <div class="demo-section">
+            <h2>🎨 Casos de Uso</h2>
+            <p>Exemplos de quando usar o sistema de alertas:</p>
+            <ul>
+                <li><strong>Eventos Grandes:</strong> "Festival de Verão em Faro de 15 a 20 de Julho"</li>
+                <li><strong>Alterações de Serviço:</strong> "Horários de autocarros alterados durante o mês de Agosto"</li>
+                <li><strong>Situações Excecionais:</strong> "Estrada para a Praia de Faro temporariamente fechada"</li>
+                <li><strong>Atualizações Importantes:</strong> "Nova funcionalidade: Mapa interativo agora disponível"</li>
+                <li><strong>Avisos Temporários:</strong> "Farmácia de serviço hoje: Farmácia Central"</li>
+            </ul>
+        </div>
+
+        <div class="demo-section">
+            <h2>✅ Critérios de Aceitação</h2>
+            <ul>
+                <li>✅ Alertas não bloqueiam a navegação - aparecem no topo sem overlay</li>
+                <li>✅ Fácil de desativar - botão de fechar claramente visível</li>
+                <li>✅ Conteúdo claro - títulos e mensagens diretas</li>
+                <li>✅ Sem tracking - nenhum dado é enviado para servidores externos</li>
+                <li>✅ Sem notificações invasivas - tudo é controlado localmente</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2025 Faro Formoso - Sistema de Alertas Demo</p>
+    </footer>
+
+    <script src="src/intl/i18n.js"></script>
+    <script src="src/ui/alerts.js"></script>
+    <script>
+        // Exemplos de alertas
+        function showInfoAlert() {
+            window.localAlerts.show({
+                id: 'demo-info-' + Date.now(),
+                type: 'info',
+                title: 'Alerta Informativo',
+                message: 'Este é um alerta informativo para comunicar informações gerais aos utilizadores.',
+                persistent: false
+            });
+        }
+
+        function showWarningAlert() {
+            window.localAlerts.show({
+                id: 'demo-warning-' + Date.now(),
+                type: 'warning',
+                title: 'Aviso Importante',
+                message: 'Atenção: Os horários de autocarros foram alterados durante o mês de Agosto. <a href="transportes.html">Ver mais detalhes</a>',
+                persistent: false
+            });
+        }
+
+        function showEventAlert() {
+            window.localAlerts.show({
+                id: 'demo-event',
+                type: 'event',
+                title: 'Festival de Verão em Faro',
+                message: 'Não perca o Festival de Verão de 15 a 20 de Julho! Música, gastronomia e muita animação. <a href="lazer.html">Mais informações</a>',
+                persistent: true
+            });
+        }
+
+        function showSuccessAlert() {
+            window.localAlerts.show({
+                id: 'demo-success-' + Date.now(),
+                type: 'success',
+                message: 'Operação concluída com sucesso! Os seus dados foram guardados.',
+                autoDismiss: 5000
+            });
+        }
+
+        function showImportantAlert() {
+            window.localAlerts.show({
+                id: 'demo-important',
+                type: 'important',
+                title: 'Alerta Crítico',
+                message: 'Estrada para a Praia de Faro temporariamente fechada devido a obras. Utilize rotas alternativas.',
+                persistent: true
+            });
+        }
+
+        function dismissAll() {
+            window.localAlerts.dismissAll();
+        }
+
+        function clearDismissed() {
+            window.localAlerts.clearDismissed();
+            alert('Histórico de alertas dispensados foi limpo. Alertas podem aparecer novamente.');
+        }
+
+        // Mostrar um alerta de boas-vindas ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                window.localAlerts.show({
+                    id: 'welcome-demo',
+                    type: 'info',
+                    title: 'Bem-vindo à Demo!',
+                    message: 'Experimente os diferentes tipos de alertas clicando nos botões abaixo. Este alerta fecha automaticamente em 8 segundos.',
+                    autoDismiss: 8000
+                });
+            }, 500);
+        });
+    </script>
+</body>
+</html>

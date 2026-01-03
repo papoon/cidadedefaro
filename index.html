@@ -85,6 +85,7 @@
     <link rel="stylesheet" href="assets/styles/accessibility.css">
     <link rel="stylesheet" href="assets/styles/ux.css">
     <link rel="stylesheet" href="assets/styles/voice-navigation.css">
+    <link rel="stylesheet" href="assets/styles/alerts.css">
 </head>
 <body>
     <!-- Dark Mode Toggle -->
@@ -236,6 +237,7 @@
     <script src="src/utils/pwa.js"></script>
     <script src="src/ui/accessibility.js"></script>
     <script src="src/ui/voice-navigation.js"></script>
+    <script src="src/ui/alerts.js"></script>
     <script src="src/utils/favorites.js"></script>
     <script src="src/utils/search.js"></script>
     <script src="src/data/dados-api.js"></script>
@@ -261,6 +263,21 @@
                     card.appendChild(favoriteBtn);
                 }
             });
+
+            // Demonstração do sistema de alertas (exemplo)
+            // Descomentar ou personalizar para mostrar alertas reais
+            /* 
+            // Exemplo de alerta informativo
+            setTimeout(function() {
+                window.localAlerts.show({
+                    id: 'welcome-alert',
+                    type: 'info',
+                    title: 'Bem-vindo ao Faro Formoso!',
+                    message: 'Explore o guia completo de Faro com informações úteis sobre a cidade.',
+                    persistent: false
+                });
+            }, 1000);
+            */
         });
     </script>
 </body>
