@@ -1611,6 +1611,10 @@
     "disclaimer_title": "⚠️ Important Notice",
     "disclaimer_text": "This page provides general information and does not replace professional medical advice, diagnosis or treatment. In case of doubt or medical emergency, always contact a qualified healthcare professional or call 112. The information presented here is in the public domain and is subject to change without notice."
   },
+  "alerts": {
+    "close_button": "Close alert",
+    "region_label": "Informative alerts"
+  },
   "seniors": {
     "hero_title": "👴👵 Faro for Seniors",
     "hero_description": "Useful and accessible information for Faro's senior population. Find social support, services, transport and activities designed for you.",
