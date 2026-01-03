@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pages.seniors_title">Faro para Idosos - Apoio, Serviços e Atividades | Faro Formoso</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Informação para a população sénior de Faro: apoios sociais, centros de dia, transporte, contactos úteis e atividades. Guia acessível e claro.">
+    <meta name="keywords" content="idosos Faro, seniores Faro, terceira idade Faro, centros de dia, apoio social Algarve, atividades seniores">
+    <meta name="author" content="Faro Formoso">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://papoon.github.io/cidadedefaro/idosos.html">
+    
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/idosos.html?lang=pt">
+    <link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/idosos.html?lang=en">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://papoon.github.io/cidadedefaro/idosos.html">
+    <meta property="og:title" content="Faro para Idosos - Apoio, Serviços e Atividades">
+    <meta property="og:description" content="Informação para a população sénior de Faro: apoios sociais, centros de dia, transporte, contactos úteis e atividades.">
+    <meta property="og:site_name" content="Faro Formoso">
+    <meta property="og:locale" content="pt_PT">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Faro para Idosos - Apoio, Serviços e Atividades">
+    <meta name="twitter:description" content="Informação para a população sénior de Faro: apoios sociais, centros de dia, transporte e atividades.">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#667eea">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Faro Formoso">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/accessibility.css">
+    <link rel="stylesheet" href="assets/styles/voice-navigation.css">
+    <link rel="stylesheet" href="assets/styles/ux.css">
+    <style>
+        /* Enhanced accessibility for seniors - larger fonts and high contrast */
+        body {
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+        
+        main h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        main h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        main p, main li {
+            font-size: 1.125rem;
+            line-height: 1.8;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            border: 2px solid #e2e8f0;
+        }
+        
+        .service-card h3 {
+            color: #2d3748;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .service-card .icon {
+            font-size: 2.5rem;
+        }
+        
+        .service-info {
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #2d3748;
+        }
+        
+        .service-info strong {
+            color: #1a202c;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .contact-box {
+            background: #f7fafc;
+            border: 3px solid #667eea;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+        
+        .contact-box .phone {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin: 1rem 0;
+            display: block;
+        }
+        
+        .contact-box .label {
+            font-size: 1.25rem;
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .info-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-list li {
+            background: #f7fafc;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border-left: 5px solid #667eea;
+            font-size: 1.125rem;
+        }
+        
+        .info-list li strong {
+            display: block;
+            color: #2d3748;
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+        
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .emergency-item {
+            background: #fff5f5;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 3px solid #fc8181;
+            text-align: center;
+        }
+        
+        .emergency-item .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #c53030;
+            margin: 1rem 0;
+        }
+        
+        .emergency-item .label {
+            font-size: 1.125rem;
+            color: #2d3748;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: #ebf8ff;
+            border: 3px solid #4299e1;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+        }
+        
+        .highlight-box h4 {
+            color: #2c5282;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-box p {
+            color: #2d3748;
+            font-size: 1.125rem;
+        }
+        
+        /* Dark mode adjustments */
+        body.dark-mode .service-card {
+            background: #2d3748;
+            border-color: #4a5568;
+        }
+        
+        body.dark-mode .service-card h3,
+        body.dark-mode .service-info p,
+        body.dark-mode .service-info strong {
+            color: #e2e8f0;
+        }
+        
+        body.dark-mode .contact-box {
+            background: #2d3748;
+            border-color: #667eea;
+        }
+        
+        body.dark-mode .contact-box .label,
+        body.dark-mode .info-list li,
+        body.dark-mode .info-list li strong {
+            color: #e2e8f0;
+        }
+        
+        body.dark-mode .info-list li {
+            background: #2d3748;
+        }
+        
+        body.dark-mode .emergency-item {
+            background: #742a2a;
+            border-color: #fc8181;
+        }
+        
+        body.dark-mode .emergency-item .label {
+            color: #fed7d7;
+        }
+        
+        body.dark-mode .highlight-box {
+            background: #2c5282;
+            border-color: #4299e1;
+        }
+        
+        body.dark-mode .highlight-box h4,
+        body.dark-mode .highlight-box p {
+            color: #e2e8f0;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                font-size: 1rem;
+            }
+            
+            main h2 {
+                font-size: 1.75rem;
+            }
+            
+            main h3 {
+                font-size: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .service-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .emergency-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-box .phone {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" data-i18n="ui.dark_mode_toggle" data-i18n-attr="aria-label" aria-label="Alternar modo escuro" aria-pressed="false">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <header role="banner">
+        <h1><span data-i18n="site.title">Faro Formoso</span></h1>
+        <div id="lang-switcher">
+            <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" aria-label="Mudar para Português">
+                🇵🇹 PT
+            </button>
+            <button data-lang="en" onclick="window.i18n.switchLanguage('en')" aria-label="Switch to English">
+                🇬🇧 EN
+            </button>
+        </div>
+        <nav role="navigation" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
+            <ul role="menubar">
+                <li role="none"><a href="index.html" role="menuitem"><span data-i18n="nav.home">Início</span></a></li>
+                <li role="none"><a href="transportes.html" role="menuitem"><span data-i18n="nav.transport">Transportes</span></a></li>
+                <li role="none"><a href="saude.html" role="menuitem"><span data-i18n="nav.health">Saúde</span></a></li>
+                <li role="none"><a href="ambiente.html" role="menuitem"><span data-i18n="nav.environment">Ambiente</span></a></li>
+                <li role="none"><a href="lazer.html" role="menuitem"><span data-i18n="nav.leisure">Lazer</span></a></li>
+                <li role="none"><a href="restaurantes.html" role="menuitem"><span data-i18n="nav.restaurants">Onde Comer</span></a></li>
+                <li role="none"><a href="hoteis.html" role="menuitem"><span data-i18n="nav.hotels">Onde Ficar</span></a></li>
+                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem"><span data-i18n="nav.what_to_do">O que fazer hoje</span></a></li>
+                <li role="none"><a href="mapa.html" role="menuitem"><span data-i18n="nav.map">Mapa</span></a></li>
+                <li role="none"><a href="problemas-frequentes.html" role="menuitem"><span data-i18n="nav.faq">Problemas Frequentes</span></a></li>
+                <li role="none"><a href="viver-em-faro.html" role="menuitem"><span data-i18n="nav.living">Viver em Faro</span></a></li>
+                <li role="none"><a href="idosos.html" role="menuitem"><span data-i18n="nav.seniors">Faro para Idosos</span></a></li>
+                <li role="none"><a href="mobilidade.html" role="menuitem"><span data-i18n="nav.mobility">Mobilidade</span></a></li>
+                <li role="none"><a href="historia-faro.html" role="menuitem"><span data-i18n="nav.history">História</span></a></li>
+                <li role="none"><a href="guia-premium.html" role="menuitem"><span data-i18n="nav.premium">📘 Guia Premium</span></a></li>
+                <li role="none"><a href="sobre-projeto.html" role="menuitem"><span data-i18n="nav.about">ℹ️ Sobre o Projeto</span></a></li>
+                <li role="none"><a href="favoritos.html" role="menuitem"><span data-i18n="nav.favorites">⭐ Favoritos <span id="favorites-count" class="favorites-count" style="display:none;">0</span></span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content" role="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <h2 id="hero-title" data-i18n="seniors.hero_title">👴👵 Faro para Idosos</h2>
+            <p data-i18n="seniors.hero_description">Informação útil e acessível para a população sénior de Faro. Encontre apoios sociais, serviços, transportes e atividades pensadas para si.</p>
+        </section>
+
+        <!-- Emergency Contacts -->
+        <section class="service-card" aria-labelledby="emergency-title">
+            <h3 id="emergency-title">
+                <span class="icon" aria-hidden="true">🚨</span>
+                <span data-i18n="seniors.emergency_title">Contactos de Emergência</span>
+            </h3>
+            <div class="service-info">
+                <p data-i18n="seniors.emergency_intro">Números importantes que deve ter sempre à mão:</p>
+            </div>
+            <div class="emergency-grid">
+                <div class="emergency-item">
+                    <div class="label" data-i18n="seniors.emergency_label">Emergência Médica</div>
+                    <div class="number">112</div>
+                </div>
+                <div class="emergency-item">
+                    <div class="label" data-i18n="seniors.sns_label">SNS 24</div>
+                    <div class="number">808 24 24 24</div>
+                </div>
+                <div class="emergency-item">
+                    <div class="label" data-i18n="seniors.inem_label">INEM - Urgências</div>
+                    <div class="number">112</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Support -->
+        <section class="service-card" aria-labelledby="social-support-title">
+            <h3 id="social-support-title">
+                <span class="icon" aria-hidden="true">🤝</span>
+                <span data-i18n="seniors.social_support_title">Apoio Social</span>
+            </h3>
+            <div class="service-info">
+                <p data-i18n="seniors.social_support_intro">Serviços de apoio social disponíveis em Faro para a população sénior:</p>
+            </div>
+            
+            <div class="contact-box">
+                <div class="label" data-i18n="seniors.seg_social_label">Segurança Social de Faro</div>
+                <span class="phone">289 891 700</span>
+                <p data-i18n="seniors.seg_social_desc">Apoio em pensões, complementos, prestações sociais e outros apoios.</p>
+                <p><strong data-i18n="seniors.address_label">Morada:</strong> <span data-i18n="seniors.seg_social_address">Rua Conselheiro Bivar, 42, 8000-254 Faro</span></p>
+            </div>
+
+            <div class="contact-box">
+                <div class="label" data-i18n="seniors.santa_casa_label">Santa Casa da Misericórdia de Faro</div>
+                <span class="phone">289 894 100</span>
+                <p data-i18n="seniors.santa_casa_desc">Apoio domiciliário, lar de idosos, centro de dia e outros serviços sociais.</p>
+                <p><strong data-i18n="seniors.address_label">Morada:</strong> <span data-i18n="seniors.santa_casa_address">Largo da Sé, 8000-138 Faro</span></p>
+            </div>
+
+            <div class="contact-box">
+                <div class="label" data-i18n="seniors.camara_label">Câmara Municipal de Faro - Ação Social</div>
+                <span class="phone">289 870 870</span>
+                <p data-i18n="seniors.camara_desc">Programas e iniciativas municipais de apoio à terceira idade.</p>
+            </div>
+        </section>
+
+        <!-- Day Centers -->
+        <section class="service-card" aria-labelledby="day-centers-title">
+            <h3 id="day-centers-title">
+                <span class="icon" aria-hidden="true">🏛️</span>
+                <span data-i18n="seniors.day_centers_title">Centros de Dia</span>
+            </h3>
+            <div class="service-info">
+                <p data-i18n="seniors.day_centers_intro">Os centros de dia oferecem atividades, refeições e convívio durante o dia:</p>
+            </div>
+            
+            <ul class="info-list">
+                <li>
+                    <strong data-i18n="seniors.centro_dia_1_name">Centro de Dia da Santa Casa da Misericórdia</strong>
+                    <p><strong data-i18n="seniors.phone_label">Telefone:</strong> 289 894 100</p>
+                    <p><strong data-i18n="seniors.services_label">Serviços:</strong> <span data-i18n="seniors.centro_dia_1_services">Atividades ocupacionais, alimentação, cuidados de higiene e convívio</span></p>
+                </li>
+                <li>
+                    <strong data-i18n="seniors.centro_dia_2_name">Centro Social Paroquial de Montenegro</strong>
+                    <p><strong data-i18n="seniors.phone_label">Telefone:</strong> 289 991 369</p>
+                    <p><strong data-i18n="seniors.services_label">Serviços:</strong> <span data-i18n="seniors.centro_dia_2_services">Centro de dia, apoio domiciliário e atividades recreativas</span></p>
+                </li>
+                <li>
+                    <strong data-i18n="seniors.centro_dia_3_name">Centro Social da Sé</strong>
+                    <p><strong data-i18n="seniors.phone_label">Telefone:</strong> 289 826 792</p>
+                    <p><strong data-i18n="seniors.services_label">Serviços:</strong> <span data-i18n="seniors.centro_dia_3_services">Centro de convívio para seniores com atividades diárias</span></p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Senior Transport -->
+        <section class="service-card" aria-labelledby="transport-title">
+            <h3 id="transport-title">
+                <span class="icon" aria-hidden="true">🚌</span>
+                <span data-i18n="seniors.transport_title">Transporte Sénior</span>
+            </h3>
+            <div class="service-info">
+                <p data-i18n="seniors.transport_intro">Opções de transporte adaptadas e tarifas especiais para idosos:</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h4 data-i18n="seniors.transport_pass_title">🎫 Passe Social+</h4>
+                <p data-i18n="seniors.transport_pass_desc">Maiores de 65 anos têm direito a tarifário reduzido nos transportes públicos. O Passe Social+ permite viagens ilimitadas nos transportes da Proximo por um valor reduzido.</p>
+                <p><strong data-i18n="seniors.info_label">Informações:</strong> <span data-i18n="seniors.transport_pass_contact">Proximo - 289 899 760</span></p>
+            </div>
+
+            <div class="highlight-box">
+                <h4 data-i18n="seniors.transport_taxi_title">🚕 Táxi Adaptado</h4>
+                <p data-i18n="seniors.transport_taxi_desc">Serviço de táxis com veículos adaptados para pessoas com mobilidade reduzida.</p>
+                <p><strong data-i18n="seniors.phone_label">Telefone:</strong> 289 895 795</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4 data-i18n="seniors.transport_social_title">🚐 Transporte Social</h4>
+                <p data-i18n="seniors.transport_social_desc">A Câmara Municipal e algumas instituições oferecem transporte gratuito ou a preço reduzido para consultas médicas e atividades. Contacte a Ação Social da Câmara para mais informações.</p>
+                <p><strong data-i18n="seniors.phone_label">Telefone:</strong> 289 870 870</p>
+            </div>
+        </section>
+
+        <!-- Activities -->
+        <section class="service-card" aria-labelledby="activities-title">
+            <h3 id="activities-title">
+                <span class="icon" aria-hidden="true">🎨</span>
+                <span data-i18n="seniors.activities_title">Atividades e Convívio</span>
+            </h3>
+            <div class="service-info">
+                <p data-i18n="seniors.activities_intro">Participe em atividades pensadas para seniores em Faro:</p>
+            </div>
+            
+            <ul class="info-list">
+                <li>
+                    <strong data-i18n="seniors.activity_1_name">🏋️ Ginástica para Seniores</strong>
+                    <p data-i18n="seniors.activity_1_desc">Aulas de ginástica adaptada nos pavilhões municipais e centros de dia. Contacte a Câmara Municipal para horários.</p>
+                </li>
+                <li>
+                    <strong data-i18n="seniors.activity_2_name">📚 Universidade Sénior de Faro</strong>
+                    <p data-i18n="seniors.activity_2_desc">Cursos, workshops e atividades culturais para maiores de 50 anos.</p>
+                    <p><strong data-i18n="seniors.phone_label">Telefone:</strong> 289 870 870</p>
+                </li>
+                <li>
+                    <strong data-i18n="seniors.activity_3_name">🎭 Atividades Culturais</strong>
+                    <p data-i18n="seniors.activity_3_desc">Teatro Municipal de Faro e Biblioteca Municipal oferecem programação regular com tarifas reduzidas para seniores.</p>
+                </li>
+                <li>
+                    <strong data-i18n="seniors.activity_4_name">🌳 Passeios e Excursões</strong>
+                    <p data-i18n="seniors.activity_4_desc">Grupos de caminhada e excursões organizadas pela Câmara Municipal e associações locais.</p>
+                </li>
+                <li>
+                    <strong data-i18n="seniors.activity_5_name">🎮 Informática para Seniores</strong>
+                    <p data-i18n="seniors.activity_5_desc">Cursos gratuitos de informática básica e internet na Biblioteca Municipal e centros comunitários.</p>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Health Services -->
+        <section class="service-card" aria-labelledby="health-title">
+            <h3 id="health-title">
+                <span class="icon" aria-hidden="true">🏥</span>
+                <span data-i18n="seniors.health_title">Serviços de Saúde</span>
+            </h3>
+            <div class="service-info">
+                <p data-i18n="seniors.health_intro">Serviços de saúde importantes para seniores:</p>
+            </div>
+            
+            <div class="contact-box">
+                <div class="label" data-i18n="seniors.health_center_label">Centro de Saúde de Faro</div>
+                <span class="phone">289 891 100</span>
+                <p data-i18n="seniors.health_center_desc">Consultas de medicina geral e familiar, enfermagem e especialidades.</p>
+            </div>
+
+            <div class="contact-box">
+                <div class="label" data-i18n="seniors.hospital_label">Hospital de Faro</div>
+                <span class="phone">289 891 100</span>
+                <p data-i18n="seniors.hospital_desc">Urgências, consultas externas e internamento.</p>
+            </div>
+
+            <div class="highlight-box">
+                <h4 data-i18n="seniors.health_home_title">🏠 Cuidados Domiciliários</h4>
+                <p data-i18n="seniors.health_home_desc">Várias instituições oferecem serviços de enfermagem e apoio ao domicílio. Contacte o seu centro de saúde ou a Santa Casa da Misericórdia para mais informações.</p>
+            </div>
+
+            <p style="margin-top: 1.5rem;">
+                <strong data-i18n="seniors.health_more_label">Mais informações:</strong> 
+                <a href="saude.html" data-i18n="seniors.health_more_link" style="color: #667eea; text-decoration: underline; font-size: 1.125rem;">Consulte a página de Saúde</a>
+            </p>
+        </section>
+
+        <!-- Useful Tips -->
+        <section class="service-card" aria-labelledby="tips-title">
+            <h3 id="tips-title">
+                <span class="icon" aria-hidden="true">💡</span>
+                <span data-i18n="seniors.tips_title">Dicas Úteis</span>
+            </h3>
+            <div class="service-info">
+                <ul class="info-list">
+                    <li>
+                        <strong data-i18n="seniors.tip_1_title">📱 Linha de Apoio ao Idoso</strong>
+                        <p data-i18n="seniors.tip_1_desc">Em caso de solidão ou necessidade de conversar: <strong>800 207 256</strong> (linha gratuita)</p>
+                    </li>
+                    <li>
+                        <strong data-i18n="seniors.tip_2_title">💊 Medicamentos Gratuitos</strong>
+                        <p data-i18n="seniors.tip_2_desc">Pensionistas com rendimentos baixos podem ter direito a comparticipação a 100% nos medicamentos. Informe-se no seu centro de saúde.</p>
+                    </li>
+                    <li>
+                        <strong data-i18n="seniors.tip_3_title">🏡 Adaptação da Habitação</strong>
+                        <p data-i18n="seniors.tip_3_desc">A Câmara Municipal tem programas de apoio para adaptação de casas (barras de apoio, rampas, etc.). Contacte os Serviços Sociais.</p>
+                    </li>
+                    <li>
+                        <strong data-i18n="seniors.tip_4_title">📋 Documentos Importantes</strong>
+                        <p data-i18n="seniors.tip_4_desc">Tenha sempre consigo: Cartão de Cidadão, Cartão de Utente do SNS e contactos de familiares para emergências.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p data-i18n="footer.copyright">&copy; 2025 Faro Formoso</p>
+        <p class="data-sources" data-i18n="footer.data_sources">Fontes de dados: Câmara Municipal de Faro, Portal do Cidadão, Turismo de Portugal, GEO API PT</p>
+        <div class="donation-container">
+            <p class="donation-message" data-i18n="footer.donation_message">Apoie este projeto de forma voluntária</p>
+            <a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" class="donation-button" data-i18n="ui.donation_aria_label" data-i18n-attr="aria-label" aria-label="Apoiar o projeto com uma doação voluntária">
+                <span class="donation-icon" aria-hidden="true">☕</span>
+                <span data-i18n="footer.donation_button">Apoiar o Projeto</span>
+            </a>
+        </div>
+    </footer>
+
+    <script src="src/intl/i18n.js"></script>
+    <script src="src/utils/pwa.js"></script>
+    <script src="src/ui/accessibility.js"></script>
+    <script src="src/ui/voice-navigation.js"></script>
+    <script src="src/utils/favorites.js"></script>
+    <script src="src/utils/search.js"></script>
+    <script src="src/ui/ux.js"></script>
+    <script src="src/core/main.js"></script>
+</body>
+</html>

@@ -104,6 +104,15 @@
   </url>
   
   <url>
+    <loc>https://papoon.github.io/cidadedefaro/idosos.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/idosos.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/idosos.html?lang=en"/>
+  </url>
+  
+  <url>
     <loc>https://papoon.github.io/cidadedefaro/mobilidade.html</loc>
     <lastmod>2025-12-31</lastmod>
     <changefreq>monthly</changefreq>
