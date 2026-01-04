@@ -10,12 +10,12 @@
   <!-- Background circle -->
   <circle cx="30" cy="30" r="28" class="icon-bg"/>
   
-  <!-- Letter F -->
-  <path d="M 20 18 L 20 42 L 22 42 L 22 32 L 35 32 L 35 30 L 22 30 L 22 20 L 38 20 L 38 18 Z" fill="white" stroke="none"/>
+  <!-- Letter F - Bold, clear F shape -->
+  <path d="M 18 16 L 18 44 L 23 44 L 23 32 L 35 32 L 35 28 L 23 28 L 23 21 L 38 21 L 38 16 Z" fill="white" stroke="none"/>
   
-  <!-- Wave accent (representing sea) -->
-  <path d="M 20 44 Q 25 42 30 44 T 40 44" class="icon-wave" fill="none" stroke="#f5d076" stroke-width="2" stroke-linecap="round"/>
+  <!-- Wave accent below (representing sea/Ria Formosa) -->
+  <path d="M 18 46 Q 24 44 30 46 T 42 46" class="icon-wave" fill="none" stroke="#f5d076" stroke-width="2.5" stroke-linecap="round"/>
   
-  <!-- Sun dot -->
-  <circle cx="36" cy="22" r="3" class="icon-dot"/>
+  <!-- Sun dot (representing Algarve sun) -->
+  <circle cx="40" cy="18.5" r="3.5" class="icon-dot"/>
 </svg>
