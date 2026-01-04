@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
-import { createHtmlPlugin } from 'vite-plugin-html'
 import { readFileSync } from 'fs'
+import ejs from 'ejs'
 
 // Read partials
 const metaCommon = readFileSync(resolve(__dirname, 'src/partials/meta-common.html'), 'utf-8')
@@ -45,23 +45,40 @@ const htmlPages = [
   'viver-em-faro.html'
 ]
 
-// Generate pages configuration
-const pages = htmlPages.map(filename => ({
-  entry: 'src/core/main.js',
-  filename: filename,
-  template: filename,
-  injectOptions: {
-    data: commonData
+// Generate input configuration for multi-page app
+const input = htmlPages.reduce((acc, filename) => {
+  const name = filename.replace('.html', '')
+  acc[name] = resolve(__dirname, filename)
+  return acc
+}, {})
+
+// Custom plugin to handle EJS transformation for all HTML files
+function customHtmlTransform() {
+  return {
+    name: 'custom-html-transform',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html) {
+        try {
+          return ejs.render(html, commonData)
+        } catch (error) {
+          console.error('EJS rendering error:', error)
+          return html
+        }
+      }
+    }
   }
-}))
+}
 
 export default defineConfig({
   base: '/cidadedefaro/',
+  build: {
+    rollupOptions: {
+      input: input
+    }
+  },
   plugins: [
-    createHtmlPlugin({
-      minify: true,
-      pages: pages
-    }),
+    customHtmlTransform(),
     viteStaticCopy({
       targets: [
         { src: 'src', dest: '' },
