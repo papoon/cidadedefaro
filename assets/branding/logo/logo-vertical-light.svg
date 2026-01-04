@@ -4,25 +4,52 @@
       .logo-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; text-anchor: middle; }
       .logo-title { font-weight: 700; font-size: 24px; fill: #2c3e50; }
       .logo-subtitle { font-weight: 400; font-size: 11px; fill: #667eea; }
-      .logo-icon-bg { fill: #667eea; }
-      .logo-icon-wave { fill: #f5d076; }
-      .logo-icon-dot { fill: #ffffff; }
+      .bg { fill: #667eea; }
+      .sky { fill: #89a4f5; }
+      .lighthouse-body { fill: #ffffff; }
+      .lighthouse-top { fill: #2c3e50; }
+      .light-beam { fill: #f5d076; opacity: 0.8; }
+      .wave1 { fill: #5a8db8; }
+      .wave2 { fill: #4a7da8; }
+      .wave3 { fill: #3a6d98; }
+      .sun { fill: #f5d076; }
+      .building { fill: #e8e8e8; }
+      .roof { fill: #f5d076; }
     </style>
   </defs>
   
-  <!-- Icon: Stylized F with wave representing sea -->
+  <!-- Icon -->
   <g transform="translate(50, 10)">
     <!-- Background circle -->
-    <circle cx="30" cy="30" r="28" class="logo-icon-bg"/>
+    <circle cx="30" cy="30" r="28" class="bg"/>
     
-    <!-- Letter F - Bold, clear F shape -->
-    <path d="M 18 16 L 18 44 L 23 44 L 23 32 L 35 32 L 35 28 L 23 28 L 23 21 L 38 21 L 38 16 Z" fill="white" stroke="none"/>
+    <!-- Sky/horizon background -->
+    <circle cx="30" cy="30" r="24" class="sky"/>
     
-    <!-- Wave accent below (representing sea/Ria Formosa) -->
-    <path d="M 18 46 Q 24 44 30 46 T 42 46" class="logo-icon-wave" fill="none" stroke="#f5d076" stroke-width="2.5" stroke-linecap="round"/>
+    <!-- Sun -->
+    <circle cx="18" cy="20" r="4" class="sun"/>
+    <path d="M 16 17 L 15 14 M 20 17 L 21 14 M 16 23 L 15 26 M 20 23 L 21 26" stroke="#f5d076" stroke-width="0.8" stroke-linecap="round"/>
     
-    <!-- Sun dot (representing Algarve sun) -->
-    <circle cx="40" cy="18.5" r="3.5" class="logo-icon-dot"/>
+    <!-- Light beams from lighthouse -->
+    <path d="M 38 18 L 48 12 L 48 24 Z" class="light-beam"/>
+    <path d="M 38 18 L 52 15 L 50 21 Z" class="light-beam"/>
+    
+    <!-- Lighthouse structure -->
+    <rect x="36" y="24" width="4" height="16" class="lighthouse-body" stroke="#2c3e50" stroke-width="0.3"/>
+    <path d="M 35 24 L 41 24 L 41 22 L 40 20 L 36 20 L 35 22 Z" class="lighthouse-top"/>
+    <rect x="36.5" y="21" width="3" height="1" fill="#f5d076"/>
+    <rect x="37" y="28" width="2" height="2" fill="#4a7da8" opacity="0.6"/>
+    <rect x="37" y="33" width="2" height="2" fill="#4a7da8" opacity="0.6"/>
+    
+    <!-- Small building/church -->
+    <rect x="26" y="32" width="6" height="8" class="building" stroke="#2c3e50" stroke-width="0.3"/>
+    <path d="M 25 32 L 29 28 L 33 32 Z" class="roof"/>
+    <rect x="28" y="35" width="2" height="3" fill="#4a7da8" opacity="0.6"/>
+    
+    <!-- Waves (3 layers for depth) -->
+    <ellipse cx="30" cy="44" rx="24" ry="3" class="wave1"/>
+    <path d="M 8 46 Q 18 44 30 46 T 52 46 L 52 54 L 8 54 Z" class="wave2"/>
+    <path d="M 8 49 Q 15 48 22 49 T 38 49 T 52 49 L 52 54 L 8 54 Z" class="wave3"/>
   </g>
   
   <!-- Text -->
