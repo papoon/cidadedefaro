@@ -339,7 +339,7 @@ function renderFavoritesList(container, filterType = null) {
     });
 }
 
-// Expor funções globalmente para uso em scripts inline
+// Exportar funções globalmente para uso em scripts inline
 window.createFavoriteButton = createFavoriteButton;
 
 // Inicializar quando o DOM estiver pronto
