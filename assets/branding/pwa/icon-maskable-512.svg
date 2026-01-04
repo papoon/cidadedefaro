@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Faro Formoso Maskable Icon">
+  <defs>
+    <style>
+      .icon-bg { fill: #667eea; }
+      .icon-wave { fill: #f5d076; }
+      .icon-dot { fill: #ffffff; }
+    </style>
+  </defs>
+  
+  <!-- Full background for maskable icon (safe zone aware) -->
+  <rect width="512" height="512" class="icon-bg"/>
+  
+  <!-- Icon content centered with safe zone (content should fit within 80% center) -->
+  <g transform="translate(256, 256)">
+    <!-- Scale down to fit safe zone (0.7 of 512 = ~358px content area) -->
+    <g transform="scale(5.8)">
+      <g transform="translate(-30, -30)">
+        <!-- Background circle -->
+        <circle cx="30" cy="30" r="28" class="icon-bg" stroke="white" stroke-width="1"/>
+        
+        <!-- Letter F -->
+        <path d="M 20 18 L 20 42 L 22 42 L 22 32 L 35 32 L 35 30 L 22 30 L 22 20 L 38 20 L 38 18 Z" fill="white" stroke="none"/>
+        
+        <!-- Wave accent (representing sea) -->
+        <path d="M 20 44 Q 25 42 30 44 T 40 44" class="icon-wave" fill="none" stroke="#f5d076" stroke-width="2" stroke-linecap="round"/>
+        
+        <!-- Sun dot -->
+        <circle cx="36" cy="22" r="3" class="icon-dot"/>
+      </g>
+    </g>
+  </g>
+</svg>
