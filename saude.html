@@ -33,6 +33,8 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
+     <!-- Leaflet CSS (CDN) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     
     <%- metaCommon %>
     <style>
@@ -338,6 +340,10 @@
     <%- footer %>
 
     <%- scriptsCommon %>
+     <!-- Leaflet CSS (CDN) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <script src="src/data/farmacias.js"></script>
     <script>
         // Coordenadas dos serviços de saúde em Faro (excluindo farmácias, que serão carregadas do JSON)
         const servicosSaudeFixos = [

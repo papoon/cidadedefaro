@@ -21,7 +21,7 @@ class RestaurantesManager {
      */
     async loadRestaurantes() {
         try {
-            const response = await fetch('assets/data/restaurantes.json');
+            const response = await fetch(new URL('assets/data/restaurantes.json', location.href).href);
             if (!response.ok) {
                 throw new Error('Erro ao carregar dados dos restaurantes');
             }
