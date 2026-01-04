@@ -4,7 +4,12 @@
     </button>
 
     <header role="banner">
-        <h1 data-i18n="site.title">Faro Formoso</h1>
+        <div class="site-branding">
+            <a href="./index.html" class="logo-link" aria-label="Faro Formoso">
+                <img src="assets/branding/logo/logo-vertical-light.svg" data-light-src="assets/branding/logo/logo-vertical-light.svg" data-dark-src="assets/branding/logo/logo-vertical-dark.svg" alt="Faro Formoso logo" class="site-logo" id="site-logo-img">
+            </a>
+            <h1 data-i18n="site.title">Faro Formoso</h1>
+        </div>
         <div id="lang-switcher">
             <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" data-i18n="ui.lang_switch_pt" data-i18n-attr="aria-label" aria-label="Mudar para Português">
                 🇵🇹 PT
@@ -13,4 +18,5 @@
                 🇬🇧 EN
             </button>
         </div>
+        <%- navigation %>
     </header>

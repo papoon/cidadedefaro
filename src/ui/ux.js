@@ -62,6 +62,7 @@
             document.body.classList.add('dark-mode');
             darkModeToggle.setAttribute('aria-pressed', 'true');
             updateDarkModeIcon(darkModeToggle, true);
+            updateLogoForTheme(true);
         }
 
         // Toggle dark mode
@@ -70,6 +71,7 @@
             localStorage.setItem('theme', isDark ? 'dark' : 'light');
             this.setAttribute('aria-pressed', isDark);
             updateDarkModeIcon(this, isDark);
+            updateLogoForTheme(isDark);
         });
     }
 
@@ -77,6 +79,20 @@
         const icon = button.querySelector('.dark-mode-icon');
         if (icon) {
             icon.textContent = isDark ? '☀️' : '🌙';
+        }
+    }
+
+    // Update site logo src according to theme, using data attributes on the <img>
+    function updateLogoForTheme(isDark) {
+        try {
+            const img = document.getElementById('site-logo-img');
+            if (!img) return;
+            const lightSrc = img.getAttribute('data-light-src');
+            const darkSrc = img.getAttribute('data-dark-src');
+            if (isDark && darkSrc) img.src = darkSrc;
+            else if (!isDark && lightSrc) img.src = lightSrc;
+        } catch (e) {
+            // silent
         }
     }
 

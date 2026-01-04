@@ -14,7 +14,8 @@ const scriptsCommon = readFileSync(resolve(__dirname, 'src/partials/scripts-comm
 // Common data for all pages
 const commonData = {
   metaCommon: metaCommon,
-  header: header,
+  // Inline navigation into header so nested `<%- navigation %>` is rendered
+  header: header.replace(/<%-\s*navigation\s*%>/g, navigation),
   navigation: navigation,
   footer: footer,
   scriptsCommon: scriptsCommon

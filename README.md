@@ -303,7 +303,6 @@ O projeto utiliza **vite-plugin-html** para reutilização de componentes HTML a
 </head>
 <body>
     <%- header %>
-    <%- navigation %>
     <main>
         <!-- Conteúdo específico da página -->
     </main>

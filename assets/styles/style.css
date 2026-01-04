@@ -36,6 +36,29 @@ header {
     color: white;
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* for overlay pseudo-element */
+}
+
+/* subtle left-side overlay to improve logo contrast in light mode */
+header::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 38%;
+    background: linear-gradient(90deg, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.03) 60%, rgba(0,0,0,0) 100%);
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+/* ensure header children render above the overlay */
+header > *{position:relative;z-index:1}
+
+/* dark mode: reduce overlay strength so branding blends */
+.dark-mode header::before{
+    background: linear-gradient(90deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 60%, rgba(0,0,0,0) 100%);
 }
 
 header h1 {
@@ -436,6 +459,25 @@ footer p {
     text-align: center;
 }
 
+
+/* Site branding (logo + title) */
+.site-branding{
+    display:flex;
+    align-items:center;
+    gap:0.75rem;
+    /* vertical logo: align items so logo sits above title on small screens */
+}
+.site-logo{
+    height:56px;
+    width:auto;
+    display:block;
+}
+.logo-link{display:inline-flex;align-items:center}
+
+@media (max-width:600px){
+    .site-branding{flex-direction:column;align-items:flex-start}
+    .site-logo{height:48px}
+}
 #servicos-controls h3 {
     font-size: 1rem;
     color: #4a5568;
