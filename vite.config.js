@@ -71,7 +71,7 @@ function customHtmlTransform() {
 }
 
 export default defineConfig({
-  base: '/cidadedefaro/',
+  base: './',
   build: {
     rollupOptions: {
       input: input
