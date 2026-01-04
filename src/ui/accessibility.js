@@ -14,7 +14,7 @@
         createAccessibilityToolbar();
         applyAccessibilitySettings();
         setupKeyboardNavigation();
-        addSkipLink();
+        //addSkipLink();
     }
 
     // Criar barra de ferramentas de acessibilidade

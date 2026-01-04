@@ -1,0 +1,22 @@
+    <!-- Dark Mode Toggle -->
+    <button id="dark-mode-toggle" data-i18n="ui.dark_mode_toggle" data-i18n-attr="aria-label" aria-label="Alternar modo escuro" aria-pressed="false">
+        <span class="dark-mode-icon">🌙</span>
+    </button>
+
+    <header role="banner">
+        <div class="site-branding">
+            <a href="./index.html" class="logo-link" aria-label="Faro Formoso">
+                <img src="assets/branding/logo/logo-vertical-light.svg" data-light-src="assets/branding/logo/logo-vertical-light.svg" data-dark-src="assets/branding/logo/logo-vertical-dark.svg" alt="Faro Formoso logo" class="site-logo" id="site-logo-img">
+            </a>
+            <h1 data-i18n="site.title">Faro Formoso</h1>
+        </div>
+        <div id="lang-switcher">
+            <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" data-i18n="ui.lang_switch_pt" data-i18n-attr="aria-label" aria-label="Mudar para Português">
+                🇵🇹 PT
+            </button>
+            <button data-lang="en" onclick="window.i18n.switchLanguage('en')" data-i18n="ui.lang_switch_en" data-i18n-attr="aria-label" aria-label="Switch to English">
+                🇬🇧 EN
+            </button>
+        </div>
+        <%- navigation %>
+    </header>

@@ -58,15 +58,8 @@
     </style>
 </head>
 <body>
-    <header role="banner">
-        <h1>Demo Sistema de Alertas</h1>
-        <nav role="navigation">
-            <ul role="menubar">
-                <li role="none"><a href="index.html" role="menuitem">← Voltar ao Início</a></li>
-            </ul>
-        </nav>
-    </header>
-
+    <%- header %>
+    
     <main class="demo-container">
         <div class="demo-section">
             <h2>🎨 Sistema de Alertas Locais Não Intrusivos</h2>
@@ -172,9 +165,7 @@ window.localAlerts.show({
         </div>
     </main>
 
-    <footer role="contentinfo">
-        <p>&copy; 2025 Faro Formoso - Sistema de Alertas Demo</p>
-    </footer>
+    <%- footer %>
 
     <script src="src/intl/i18n.js"></script>
     <script src="src/ui/alerts.js"></script>

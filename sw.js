@@ -2,52 +2,51 @@
 // Versão do cache - incrementar quando atualizar recursos
 const CACHE_VERSION = 'v2';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
-const OFFLINE_URL = '/offline.html';
+const OFFLINE_URL = './offline.html';
 
 // Recursos essenciais para cache inicial (precache)
 const PRECACHE_URLS = [
-    '/',
-    '/index.html',
-    '/offline.html',
-    '/assets/styles/style.css',
-    '/assets/styles/accessibility.css',
-    '/src/core/main.js',
-    '/src/ui/accessibility.js',
-    '/src/utils/favorites.js',
-    '/src/utils/search.js',
-    '/src/data/dados-api.js'
+    './index.html',
+    './offline.html',
+    './assets/styles/style.css',
+    './assets/styles/accessibility.css',
+    './src/core/main.js',
+    './src/ui/accessibility.js',
+    './src/utils/favorites.js',
+    './src/utils/search.js',
+    './src/data/dados-api.js'
 ];
 
 // Páginas HTML para cache
 const HTML_PAGES = [
-    '/transportes.html',
-    '/saude.html',
-    '/ambiente.html',
-    '/lazer.html',
-    '/restaurantes.html',
-    '/hoteis.html',
-    '/oque-fazer-hoje.html',
-    '/mapa.html',
-    '/problemas-frequentes.html',
-    '/viver-em-faro.html',
-    '/mobilidade.html',
-    '/historia-faro.html',
-    '/favoritos.html'
+    './transportes.html',
+    './saude.html',
+    './ambiente.html',
+    './lazer.html',
+    './restaurantes.html',
+    './hoteis.html',
+    './oque-fazer-hoje.html',
+    './mapa.html',
+    './problemas-frequentes.html',
+    './viver-em-faro.html',
+    './mobilidade.html',
+    './historia-faro.html',
+    './favoritos.html'
 ];
 
 // Scripts específicos de páginas
 const PAGE_SCRIPTS = [
-    '/src/data/mapa.js',
-    '/src/data/hoteis.js',
-    '/src/data/restaurantes.js',
-    '/src/data/mobilidade.js'
+    './src/data/mapa.js',
+    './src/data/hoteis.js',
+    './src/data/restaurantes.js',
+    './src/data/mobilidade.js'
 ];
 
 // Dados JSON
 const DATA_FILES = [
-    '/assets/data/hoteis.json',
-    '/assets/data/restaurantes.json',
-    '/assets/data/municipio-faro.json'
+    './assets/data/hoteis.json',
+    './assets/data/restaurantes.json',
+    './assets/data/municipio-faro.json'
 ];
 
 // Instalação do Service Worker

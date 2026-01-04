@@ -34,16 +34,7 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
-    <!-- PWA Meta Tags -->
-    <meta name="theme-color" content="#667eea">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="default">
-    <meta name="apple-mobile-web-app-title" content="Faro Formoso">
-    <link rel="stylesheet" href="assets/styles/style.css">
-    <link rel="stylesheet" href="assets/styles/accessibility.css">
-    <link rel="stylesheet" href="assets/styles/voice-navigation.css">
-    <link rel="stylesheet" href="assets/styles/ux.css">
+    <%- metaCommon %>
     <style>
         /* Estilos específicos para página de restaurantes */
         
@@ -449,52 +440,8 @@
     </style>
 </head>
 <body>
-    <!-- Dark Mode Toggle -->
-    <button id="dark-mode-toggle" data-i18n="ui.dark_mode_toggle" data-i18n-attr="aria-label" aria-label="Alternar modo escuro" aria-pressed="false">
-        <span class="dark-mode-icon" data-i18n="restaurantes.key">🌙</span>
-    </button>
-
-    <header role="banner">
-        <h1><span data-i18n="site.title">Faro Formoso</span></h1>
-        <div id="lang-switcher">
-            <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" aria-label="Mudar para Português">
-                🇵🇹 PT
-            </button>
-            <button data-lang="en" onclick="window.i18n.switchLanguage('en')" data-i18n="ui.lang_switch_en" data-i18n-attr="aria-label" aria-label="Switch to English">
-                🇬🇧 EN
-            </button>
-        </div>
-                <nav role="navigation" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
-            <ul role="menubar">
-                <!-- Essencial (uso diário) -->
-                <li role="none"><a href="index.html" role="menuitem"><span data-i18n="nav.home">Início</span></a></li>
-                <li role="none"><a href="saude.html" role="menuitem"><span data-i18n="nav.health">Saúde</span></a></li>
-                <li role="none"><a href="transportes.html" role="menuitem"><span data-i18n="nav.transport">Transportes</span></a></li>
-                <li role="none"><a href="mapa.html" role="menuitem"><span data-i18n="nav.map">Mapa</span></a></li>
-                
-                <!-- Serviços (uso frequente) -->
-                <li role="none"><a href="restaurantes.html" role="menuitem"><span data-i18n="nav.restaurants">Onde Comer</span></a></li>
-                <li role="none"><a href="hoteis.html" role="menuitem"><span data-i18n="nav.hotels">Onde Ficar</span></a></li>
-                <li role="none"><a href="problemas-frequentes.html" role="menuitem"><span data-i18n="nav.faq">Problemas</span></a></li>
-                
-                <!-- Viver (residentes) -->
-                <li role="none"><a href="viver-em-faro.html" role="menuitem"><span data-i18n="nav.living">Viver em Faro</span></a></li>
-                <li role="none"><a href="idosos.html" role="menuitem"><span data-i18n="nav.seniors">Idosos</span></a></li>
-                
-                <!-- Lazer e Turismo -->
-                <li role="none"><a href="lazer.html" role="menuitem"><span data-i18n="nav.leisure">Lazer</span></a></li>
-                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem"><span data-i18n="nav.what_to_do">Hoje</span></a></li>
-                
-                <!-- Mais informações -->
-                <li role="none"><a href="ambiente.html" role="menuitem"><span data-i18n="nav.environment">Ambiente</span></a></li>
-                <li role="none"><a href="mobilidade.html" role="menuitem"><span data-i18n="nav.mobility">Mobilidade</span></a></li>
-                <li role="none"><a href="historia-faro.html" role="menuitem"><span data-i18n="nav.history">História</span></a></li>
-                <li role="none"><a href="guia-premium.html" role="menuitem"><span data-i18n="nav.premium">📘 Premium</span></a></li>
-                <li role="none"><a href="sobre-projeto.html" role="menuitem"><span data-i18n="nav.about">Sobre</span></a></li>
-                <li role="none"><a href="favoritos.html" role="menuitem"><span data-i18n="nav.favorites">⭐</span> <span id="favorites-count" class="favorites-count" style="display:none;">0</span></a></li>
-            </ul>
-        </nav>
-    </header>
+    <%- header %>
+    
 
     <main id="main-content" role="main">
         <section class="hero">
@@ -630,28 +577,9 @@
         </section>
     </main>
 
-    <footer role="contentinfo">
-        <p data-i18n="footer.copyright">&copy; 2025 Faro Formoso</p>
-        <p class="data-sources" data-i18n="footer.data_sources">Dados atualizados regularmente. Recomendamos confirmar horários e disponibilidade diretamente com os estabelecimentos.</p>
-        <div class="donation-container">
-            <p class="donation-message" data-i18n="footer.donation_message">Apoie este projeto de forma voluntária</p>
-            <a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" class="donation-button" data-i18n="ui.donation_aria_label" data-i18n-attr="aria-label" aria-label="Apoiar o projeto com uma doação voluntária">
-                <span class="donation-icon" role="img" data-i18n="ui.icon_coffee" data-i18n-attr="aria-label" aria-label="Ícone de café">☕</span>
-                <span data-i18n="footer.donation_button">Apoiar o Projeto</span>
-            </a>
-        </div>
-    </footer>
+    <%- footer %>
 
-    <script src="src/intl/i18n.js"></script>
-
-
-    <script src="src/utils/pwa.js"></script>
-    <script src="src/ui/accessibility.js"></script>
-    <script src="src/ui/voice-navigation.js"></script>
-    <script src="src/utils/favorites.js"></script>
-    <script src="src/utils/search.js"></script>
+    <%- scriptsCommon %>
     <script src="src/data/restaurantes.js"></script>
-    <script src="src/ui/ux.js"></script>
-    <script src="src/core/main.js"></script>
 </body>
 </html>

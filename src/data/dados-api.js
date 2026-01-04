@@ -37,7 +37,7 @@ async function buscarDadosFaro() {
     };
 
     // We'll use the local data file only (no external API calls)
-    const localPath = '/assets/data/municipio-faro.json';
+    const localPath = new URL('assets/data/municipio-faro.json', location.href).href;
 
     // Helper: tenta extrair propriedade ignorando acentos/maiúsculas
     const pick = (obj, candidates) => {

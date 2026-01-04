@@ -4,8 +4,11 @@
 // Registrar Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
+        // Resolve SW path against the current location so scope is correct
+        try {
+            const swUrl = new URL('./sw.js', location.href);
         navigator.serviceWorker
-            .register('/sw.js')
+                .register(swUrl.href)
             .then((registration) => {
                 console.log('✓ Service Worker registrado com sucesso:', registration.scope);
                 
@@ -27,6 +30,9 @@ if ('serviceWorker' in navigator) {
             .catch((error) => {
                 console.error('✗ Falha ao registrar Service Worker:', error);
             });
+        } catch (err) {
+            console.error('✗ SW registration setup failed:', err);
+        }
     });
 }
 

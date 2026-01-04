@@ -1,10 +1,84 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'path'
 import { viteStaticCopy } from 'vite-plugin-static-copy'
+import { readFileSync } from 'fs'
+import ejs from 'ejs'
+
+// Read partials
+const metaCommon = readFileSync(resolve(__dirname, 'src/partials/meta-common.html'), 'utf-8')
+const header = readFileSync(resolve(__dirname, 'src/partials/header.html'), 'utf-8')
+const navigation = readFileSync(resolve(__dirname, 'src/partials/navigation.html'), 'utf-8')
+const footer = readFileSync(resolve(__dirname, 'src/partials/footer.html'), 'utf-8')
+const scriptsCommon = readFileSync(resolve(__dirname, 'src/partials/scripts-common.html'), 'utf-8')
+
+// Common data for all pages
+const commonData = {
+  metaCommon: metaCommon,
+  // Inline navigation into header so nested `<%- navigation %>` is rendered
+  header: header.replace(/<%-\s*navigation\s*%>/g, navigation),
+  navigation: navigation,
+  footer: footer,
+  scriptsCommon: scriptsCommon
+}
+
+// List of all HTML pages
+const htmlPages = [
+  'index.html',
+  'ambiente.html',
+  'demo-alertas.html',
+  'favoritos.html',
+  'guia-premium.html',
+  'historia-faro.html',
+  'hoteis.html',
+  'idosos.html',
+  'lazer.html',
+  'mapa.html',
+  'mobilidade.html',
+  'offline.html',
+  'oque-fazer-hoje.html',
+  'problemas-frequentes.html',
+  'restaurantes.html',
+  'saude.html',
+  'saude-onde-ir-agora.html',
+  'sobre-projeto.html',
+  'transportes.html',
+  'viver-em-faro.html'
+]
+
+// Generate input configuration for multi-page app
+const input = htmlPages.reduce((acc, filename) => {
+  const name = filename.replace('.html', '')
+  acc[name] = resolve(__dirname, filename)
+  return acc
+}, {})
+
+// Custom plugin to handle EJS transformation for all HTML files
+function customHtmlTransform() {
+  return {
+    name: 'custom-html-transform',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html) {
+        try {
+          return ejs.render(html, commonData)
+        } catch (error) {
+          console.error('EJS rendering error:', error)
+          return html
+        }
+      }
+    }
+  }
+}
 
 export default defineConfig({
   base: '/cidadedefaro/',
+  build: {
+    rollupOptions: {
+      input: input
+    }
+  },
   plugins: [
+    customHtmlTransform(),
     viteStaticCopy({
       targets: [
         { src: 'src', dest: '' },
@@ -18,28 +92,5 @@ export default defineConfig({
         { src: 'CNAME', dest: '' }
       ]
     })
-  ],
-  build: {
-    rollupOptions: {
-      input: {
-        main: resolve(__dirname, 'index.html'),
-        ambiente: resolve(__dirname, 'ambiente.html'),
-        favoritos: resolve(__dirname, 'favoritos.html'),
-        'guia-premium': resolve(__dirname, 'guia-premium.html'),
-        'historia-faro': resolve(__dirname, 'historia-faro.html'),
-        hoteis: resolve(__dirname, 'hoteis.html'),
-        lazer: resolve(__dirname, 'lazer.html'),
-        mapa: resolve(__dirname, 'mapa.html'),
-        mobilidade: resolve(__dirname, 'mobilidade.html'),
-        offline: resolve(__dirname, 'offline.html'),
-        'oque-fazer-hoje': resolve(__dirname, 'oque-fazer-hoje.html'),
-        'problemas-frequentes': resolve(__dirname, 'problemas-frequentes.html'),
-        restaurantes: resolve(__dirname, 'restaurantes.html'),
-        saude: resolve(__dirname, 'saude.html'),
-        'sobre-projeto': resolve(__dirname, 'sobre-projeto.html'),
-        transportes: resolve(__dirname, 'transportes.html'),
-        'viver-em-faro': resolve(__dirname, 'viver-em-faro.html'),
-      }
-    }
-  }
+  ]
 })
