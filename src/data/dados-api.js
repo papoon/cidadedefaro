@@ -194,3 +194,6 @@ async function exibirDadosFaro(elementoId) {
         `;
     }
 }
+
+// Expor função globalmente para uso em scripts inline
+window.exibirDadosFaro = exibirDadosFaro;

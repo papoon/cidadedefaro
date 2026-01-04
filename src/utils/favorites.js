@@ -339,6 +339,9 @@ function renderFavoritesList(container, filterType = null) {
     });
 }
 
+// Expor funções globalmente para uso em scripts inline
+window.createFavoriteButton = createFavoriteButton;
+
 // Inicializar quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', function() {
     // Atualizar contador inicial
