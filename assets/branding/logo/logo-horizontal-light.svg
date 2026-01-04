@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 80" role="img" aria-label="Faro Formoso Logo">
+  <defs>
+    <style>
+      .logo-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+      .logo-title { font-weight: 700; font-size: 28px; fill: #2c3e50; }
+      .logo-subtitle { font-weight: 400; font-size: 14px; fill: #667eea; }
+      .logo-icon-bg { fill: #667eea; }
+      .logo-icon-wave { fill: #f5d076; }
+      .logo-icon-dot { fill: #ffffff; }
+    </style>
+  </defs>
+  
+  <!-- Icon: Stylized F with wave representing sea -->
+  <g transform="translate(10, 10)">
+    <!-- Background circle -->
+    <circle cx="30" cy="30" r="28" class="logo-icon-bg"/>
+    
+    <!-- Letter F with wave -->
+    <path d="M 20 18 L 20 42 L 22 42 L 22 32 L 35 32 L 35 30 L 22 30 L 22 20 L 38 20 L 38 18 Z" fill="white" stroke="none"/>
+    
+    <!-- Wave accent (representing sea) -->
+    <path d="M 20 44 Q 25 42 30 44 T 40 44" class="logo-icon-wave" fill="none" stroke="#f5d076" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Sun dot -->
+    <circle cx="36" cy="22" r="3" class="logo-icon-dot"/>
+  </g>
+  
+  <!-- Text -->
+  <g class="logo-text">
+    <text x="80" y="38" class="logo-title">Faro Formoso</text>
+    <text x="80" y="55" class="logo-subtitle">Viver, Descobrir e Participar</text>
+  </g>
+</svg>
