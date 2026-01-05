@@ -15,7 +15,7 @@
   },
   {
     "id": "rest-2",
-    "nome": "Pastelaria Veneza",
+    "nome": "Pastelaria Venezuela",
     "tipo": "Pastelaria",
     "categoria": "Tradicional",
     "morada": "Praça Ferreira de Almeida, 21, Faro",
@@ -24,7 +24,7 @@
     "preco": "€",
     "descricao": "Pastelaria tradicional com uma grande variedade de bolos e doces regionais.",
     "telefone": "289 823 456",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Pastelaria%20Veneza%2C%20Pra%C3%A7a%20Ferreira%20de%20Almeida%2C%2021%2C%20Faro",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Pastelaria+Venezuela+Faro",
     "destaque": "Bom para famílias"
   },
   {

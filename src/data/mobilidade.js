@@ -1,10 +1,11 @@
 // mobilidade.js - Funcionalidades de mobilidade e cálculo de tempo
 
 // Coordenadas dos pontos de interesse em Faro
+
 const localizacoes = {
     centro: { lat: 37.0168, lng: -7.9351, nome: "Centro Histórico (Arco da Vila)" },
     estacao: { lat: 37.0191, lng: -7.9404, nome: "Estação de Comboios" },
-    forum: { lat: 37.0291, lng: -7.9592, nome: "Forum Algarve" },
+    forum: { lat: 37.0288072, lng: -7.947712, nome: "Forum Algarve" },
     aeroporto: { lat: 37.0144, lng: -7.9659, nome: "Aeroporto de Faro" },
     hospital: { lat: 37.0247, lng: -7.9280, nome: "Hospital de Faro" },
     universidade: { lat: 37.0194, lng: -7.9322, nome: "Universidade do Algarve (Penha)" },
@@ -63,6 +64,7 @@ function formatarDistancia(km) {
 // Função para mostrar mensagem de erro
 function mostrarErro(mensagem) {
     const resultsContainer = document.getElementById('results');
+    if (!resultsContainer) return;
     resultsContainer.innerHTML = `
         <div style="background: #fed7d7; border: 2px solid #e53e3e; border-radius: 8px; padding: 1.5rem; text-align: center; color: #742a2a;">
             <strong>⚠️ ${mensagem}</strong>

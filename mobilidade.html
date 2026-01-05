@@ -34,6 +34,9 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
+    <!-- Leaflet CSS (CDN) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    
     <%- metaCommon %>
     <style>
         .simulator-container {
@@ -520,6 +523,8 @@
     <%- footer %>
 
     <%- scriptsCommon %>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script type="module" src="src/data/mobilidade.js"></script>
+    
 </body>
 </html>
