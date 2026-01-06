@@ -36,11 +36,13 @@ const htmlPages = [
   'mobilidade.html',
   'offline.html',
   'oque-fazer-hoje.html',
+  'politica-privacidade.html',
   'problemas-frequentes.html',
   'restaurantes.html',
   'saude.html',
   'saude-onde-ir-agora.html',
   'sobre-projeto.html',
+  'termos-condicoes.html',
   'transportes.html',
   'viver-em-faro.html'
 ]

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pages.privacy_title">Política de Privacidade - Faro Formoso</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Política de privacidade do Faro Formoso. Como tratamos seus dados e protegemos sua privacidade." data-i18n="pages.privacy_description" data-i18n-attr="content">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://papoon.github.io/cidadedefaro/politica-privacidade.html">
+    
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/politica-privacidade.html?lang=pt">
+    <link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/politica-privacidade.html?lang=en">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://papoon.github.io/cidadedefaro/politica-privacidade.html">
+    <meta property="og:title" content="Política de Privacidade - Faro Formoso">
+    <meta property="og:description" content="Política de privacidade do Faro Formoso. Como tratamos seus dados e protegemos sua privacidade.">
+    <meta property="og:site_name" content="Faro Formoso">
+    <meta property="og:locale" content="pt_PT">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
+    
+    <%- metaCommon %>
+    
+    <style>
+        .privacy-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .privacy-section h3 {
+            color: #2d3748;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .privacy-section h4 {
+            color: #2d3748;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .privacy-section p {
+            color: #4a5568;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        
+        .privacy-section ul, .privacy-section ol {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            color: #4a5568;
+        }
+        
+        .privacy-section li {
+            line-height: 1.8;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .highlight-box {
+            background: #f7fafc;
+            border-left: 4px solid #667eea;
+            padding: 1rem 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .last-updated {
+            color: #718096;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .privacy-section {
+                padding: 1.5rem;
+            }
+            
+            .privacy-section h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <%- header %>
+    
+
+    <main id="main-content" role="main">
+        <section class="hero">
+            <h2 data-i18n="privacy.hero_title">Política de Privacidade</h2>
+            <p data-i18n="privacy.hero_description">Como protegemos e tratamos os seus dados no Faro Formoso</p>
+        </section>
+
+        <!-- Introdução -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.intro_title">📋 Introdução</h3>
+            <p data-i18n="privacy.intro_p1">O Faro Formoso respeita a sua privacidade e está comprometido em proteger os seus dados pessoais. Esta política de privacidade explica como tratamos as informações quando utiliza o nosso site.</p>
+            <p data-i18n="privacy.intro_p2">Este site não recolhe, armazena ou processa dados pessoais identificáveis em servidores externos. Todas as funcionalidades que requerem armazenamento de dados são realizadas localmente no seu dispositivo.</p>
+        </section>
+
+        <!-- Dados Recolhidos -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.data_collected_title">🔍 Dados Recolhidos</h3>
+            
+            <h4 data-i18n="privacy.local_data_title">Dados Armazenados Localmente</h4>
+            <p data-i18n="privacy.local_data_desc">O Faro Formoso utiliza o armazenamento local do navegador (LocalStorage) para guardar preferências e melhorar a sua experiência. Estes dados nunca são enviados para servidores externos e incluem:</p>
+            <ul>
+                <li data-i18n="privacy.local_data_item1"><strong>Preferências de idioma:</strong> Para lembrar se prefere ver o site em Português ou Inglês</li>
+                <li data-i18n="privacy.local_data_item2"><strong>Tema escolhido:</strong> Para lembrar se prefere o modo claro ou escuro</li>
+                <li data-i18n="privacy.local_data_item3"><strong>Favoritos:</strong> Lista de páginas e locais que marcou como favoritos</li>
+                <li data-i18n="privacy.local_data_item4"><strong>Cache de PWA:</strong> Páginas e recursos guardados para acesso offline</li>
+            </ul>
+            
+            <h4 data-i18n="privacy.no_personal_title">Dados Pessoais Não Recolhidos</h4>
+            <p data-i18n="privacy.no_personal_desc">O Faro Formoso NÃO recolhe ou armazena:</p>
+            <ul>
+                <li data-i18n="privacy.no_personal_item1">Nome, email ou informações de contacto</li>
+                <li data-i18n="privacy.no_personal_item2">Endereço IP ou localização geográfica precisa</li>
+                <li data-i18n="privacy.no_personal_item3">Informações de cartão de crédito ou pagamento</li>
+                <li data-i18n="privacy.no_personal_item4">Histórico de navegação fora deste site</li>
+                <li data-i18n="privacy.no_personal_item5">Cookies de rastreamento ou publicidade</li>
+            </ul>
+        </section>
+
+        <!-- Utilização de Dados -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.data_usage_title">💡 Como Utilizamos os Dados</h3>
+            <p data-i18n="privacy.data_usage_desc">Os dados armazenados localmente no seu dispositivo são utilizados exclusivamente para:</p>
+            <ol>
+                <li data-i18n="privacy.data_usage_item1"><strong>Personalizar a experiência:</strong> Mostrar conteúdo no idioma preferido e tema escolhido</li>
+                <li data-i18n="privacy.data_usage_item2"><strong>Funcionalidade offline:</strong> Permitir acesso ao conteúdo sem ligação à internet</li>
+                <li data-i18n="privacy.data_usage_item3"><strong>Guardar favoritos:</strong> Manter uma lista dos seus locais e páginas preferidas</li>
+            </ol>
+            
+            <div class="highlight-box">
+                <p data-i18n="privacy.data_usage_highlight"><strong>Importante:</strong> Como todos os dados são armazenados localmente no seu dispositivo, você tem controlo total sobre eles. Pode limpar estes dados a qualquer momento através das configurações do seu navegador.</p>
+            </div>
+        </section>
+
+        <!-- APIs Externas -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.external_apis_title">🔌 Serviços Externos e APIs</h3>
+            <p data-i18n="privacy.external_apis_desc">O Faro Formoso integra informações de fontes públicas externas. Quando acede a estas informações, pode estar sujeito às políticas de privacidade dessas entidades:</p>
+            <ul>
+                <li data-i18n="privacy.external_apis_item1"><strong>GEO API PT:</strong> Dados geográficos e demográficos de Portugal</li>
+                <li data-i18n="privacy.external_apis_item2"><strong>OpenStreetMap:</strong> Mapas interativos e dados geográficos</li>
+                <li data-i18n="privacy.external_apis_item3"><strong>Fontes oficiais:</strong> Câmara Municipal de Faro, Portal do Cidadão</li>
+            </ul>
+            <p data-i18n="privacy.external_apis_note">Estas integrações não partilham os seus dados pessoais. As consultas a APIs são feitas diretamente do seu dispositivo.</p>
+        </section>
+
+        <!-- Cookies -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.cookies_title">🍪 Cookies</h3>
+            <p data-i18n="privacy.cookies_desc">Este site não utiliza cookies de rastreamento, cookies de publicidade ou cookies de terceiros. Utilizamos apenas o armazenamento local do navegador (LocalStorage e SessionStorage) para funcionalidades essenciais descritas acima.</p>
+        </section>
+
+        <!-- Segurança -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.security_title">🔒 Segurança</h3>
+            <p data-i18n="privacy.security_p1">Implementamos medidas de segurança técnicas para proteger o site e os seus utilizadores:</p>
+            <ul>
+                <li data-i18n="privacy.security_item1"><strong>HTTPS:</strong> Todas as comunicações são encriptadas</li>
+                <li data-i18n="privacy.security_item2"><strong>Content Security Policy (CSP):</strong> Proteção contra ataques de injeção de código</li>
+                <li data-i18n="privacy.security_item3"><strong>Sem backend:</strong> Não há servidor para armazenar ou comprometer dados</li>
+                <li data-i18n="privacy.security_item4"><strong>Código aberto:</strong> O código pode ser auditado publicamente no GitHub</li>
+            </ul>
+        </section>
+
+        <!-- Direitos -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.rights_title">⚖️ Os Seus Direitos</h3>
+            <p data-i18n="privacy.rights_desc">Como não recolhemos dados pessoais em servidores, você tem controlo total sobre todos os dados armazenados localmente:</p>
+            <ul>
+                <li data-i18n="privacy.rights_item1"><strong>Acesso:</strong> Todos os dados estão no seu dispositivo e podem ser inspecionados nas ferramentas de programador do navegador</li>
+                <li data-i18n="privacy.rights_item2"><strong>Eliminação:</strong> Pode limpar todos os dados a qualquer momento nas configurações do navegador (limpar dados de navegação)</li>
+                <li data-i18n="privacy.rights_item3"><strong>Portabilidade:</strong> Os favoritos podem ser exportados manualmente se desejar</li>
+                <li data-i18n="privacy.rights_item4"><strong>Oposição:</strong> Pode optar por não usar as funcionalidades que armazenam dados localmente</li>
+            </ul>
+        </section>
+
+        <!-- Links Externos -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.external_links_title">🔗 Links para Sites Externos</h3>
+            <p data-i18n="privacy.external_links_desc">O Faro Formoso contém links para sites externos (câmaras municipais, serviços públicos, etc.). Não somos responsáveis pelas políticas de privacidade desses sites. Recomendamos que leia as políticas de privacidade de qualquer site que visite.</p>
+        </section>
+
+        <!-- Menores -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.children_title">👶 Privacidade de Menores</h3>
+            <p data-i18n="privacy.children_desc">O Faro Formoso é um site de informação pública adequado para todas as idades. Não recolhemos intencionalmente dados de menores de 16 anos. Como não recolhemos dados pessoais, este site é seguro para uso por crianças sob supervisão de pais ou responsáveis.</p>
+        </section>
+
+        <!-- Alterações -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.changes_title">📝 Alterações a Esta Política</h3>
+            <p data-i18n="privacy.changes_desc">Podemos atualizar esta política de privacidade ocasionalmente. Quaisquer alterações serão publicadas nesta página com a data de atualização. Recomendamos que reveja esta política periodicamente.</p>
+            <p class="last-updated" data-i18n="privacy.last_updated">Última atualização: Janeiro de 2025</p>
+        </section>
+
+        <!-- Contacto -->
+        <section class="privacy-section">
+            <h3 data-i18n="privacy.contact_title">📧 Contacto</h3>
+            <p data-i18n="privacy.contact_desc">Se tiver questões sobre esta política de privacidade ou sobre como tratamos os dados, pode contactar-nos através de:</p>
+            <ul>
+                <li><a href="https://github.com/papoon/cidadedefaro/issues" target="_blank" rel="noopener noreferrer" data-i18n="privacy.contact_github">GitHub Issues</a></li>
+                <li><a href="sobre-projeto.html" data-i18n="privacy.contact_about">Página Sobre o Projeto</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <%- footer %>
+
+    <%- scriptsCommon %>
+</body>
+</html>
