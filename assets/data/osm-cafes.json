@@ -1,0 +1,22 @@
+[
+  {
+    "id": "osm-node-123456789",
+    "name": "Café Aliança",
+    "address": "Rua Dr. Francisco Gomes, 7-11, Faro",
+    "lat": 37.0161,
+    "lng": -7.9303,
+    "category": "cafes",
+    "osm_id": 123456789,
+    "osm_type": "node"
+  },
+  {
+    "id": "osm-node-987654321",
+    "name": "Café Central",
+    "address": "Rua de Portugal, 28, Faro",
+    "lat": 37.0188,
+    "lng": -7.9315,
+    "category": "cafes",
+    "osm_id": 987654321,
+    "osm_type": "node"
+  }
+]
