@@ -128,7 +128,9 @@ async function updateCategory(categoryName, tag, outputFile) {
 
     console.log(`✓ Recebidos ${data.elements.length} elementos de ${categoryName}`);
 
-    const processedData = processElements(data.elements, categoryName);
+    // Usar o nome do ficheiro sem extensão como categoria para consistência
+    const categoryId = outputFile.replace('osm-', '').replace('.json', '');
+    const processedData = processElements(data.elements, categoryId);
     console.log(`✓ Processados ${processedData.length} ${categoryName} válidos`);
 
     // Ordenar por nome

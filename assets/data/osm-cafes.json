@@ -5,7 +5,7 @@
     "address": "Rua Dr. Francisco Gomes, 7-11, Faro",
     "lat": 37.0161,
     "lng": -7.9303,
-    "category": "cafés",
+    "category": "cafes",
     "osm_id": 123456789,
     "osm_type": "node"
   },
@@ -15,7 +15,7 @@
     "address": "Rua de Portugal, 28, Faro",
     "lat": 37.0188,
     "lng": -7.9315,
-    "category": "cafés",
+    "category": "cafes",
     "osm_id": 987654321,
     "osm_type": "node"
   }

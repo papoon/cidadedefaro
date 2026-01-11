@@ -5,7 +5,7 @@
     "address": "Praça D. Francisco Gomes, 2, Faro",
     "lat": 37.0164,
     "lng": -7.9299,
-    "category": "hotéis",
+    "category": "hoteis",
     "osm_id": 555666777,
     "osm_type": "node"
   },
@@ -15,7 +15,7 @@
     "address": "Avenida da República, 1, Faro",
     "lat": 37.0156,
     "lng": -7.9334,
-    "category": "hotéis",
+    "category": "hoteis",
     "osm_id": 888999111,
     "osm_type": "node"
   }

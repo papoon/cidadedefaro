@@ -24,6 +24,17 @@ export async function loadOSMData(category) {
 }
 
 /**
+ * Escape HTML to prevent XSS attacks
+ * @param {string} text - Text to escape
+ * @returns {string} Escaped text
+ */
+function escapeHTML(text) {
+  const div = document.createElement('div');
+  div.textContent = text;
+  return div.innerHTML;
+}
+
+/**
  * Renderizar lista de POIs numa página
  * @param {Array} items - Array de itens a renderizar
  * @param {HTMLElement} container - Elemento container onde renderizar
@@ -34,11 +45,16 @@ export function renderPOIList(items, container) {
     return;
   }
 
-  const listHTML = items.map(item => `
-    <div class="poi-card" data-id="${item.id}">
-      <h3 class="poi-name">${item.name}</h3>
-      <p class="poi-category">${item.category}</p>
-      ${item.address ? `<p class="poi-address">📍 ${item.address}</p>` : ''}
+  const listHTML = items.map(item => {
+    const name = escapeHTML(item.name);
+    const category = escapeHTML(item.category);
+    const address = item.address ? escapeHTML(item.address) : null;
+    
+    return `
+    <div class="poi-card" data-id="${escapeHTML(item.id)}">
+      <h3 class="poi-name">${name}</h3>
+      <p class="poi-category">${category}</p>
+      ${address ? `<p class="poi-address">📍 ${address}</p>` : ''}
       <div class="poi-actions">
         <a href="https://www.google.com/maps/search/?api=1&query=${item.lat},${item.lng}" 
            target="_blank" 
@@ -46,12 +62,13 @@ export function renderPOIList(items, container) {
            class="btn-map">
           Ver no mapa
         </a>
-        <button class="btn-favorite" data-id="${item.id}" aria-label="Adicionar aos favoritos">
+        <button class="btn-favorite" data-id="${escapeHTML(item.id)}" aria-label="Adicionar aos favoritos">
           ⭐
         </button>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 
   container.innerHTML = listHTML;
 }
@@ -75,109 +92,59 @@ export function filterPOIs(items, searchText) {
 }
 
 /**
- * Exemplo de uso: Carregar e exibir restaurantes
+ * Inicializar página de POIs (genérico)
+ * @param {string} category - Categoria a carregar (cafes, restaurantes, pastelarias, hoteis)
+ * @param {string} containerId - ID do container onde renderizar
+ * @param {string} searchInputId - ID do input de pesquisa (opcional)
  */
-export async function initRestaurantPage() {
-  const container = document.getElementById('restaurants-list');
-  const searchInput = document.getElementById('search-input');
+export async function initPOIPage(category, containerId, searchInputId = 'search-input') {
+  const container = document.getElementById(containerId);
+  const searchInput = document.getElementById(searchInputId);
   
   if (!container) {
-    console.error('Container #restaurants-list não encontrado');
+    console.error(`Container #${containerId} não encontrado`);
     return;
   }
 
   // Carregar dados
-  const restaurants = await loadOSMData('restaurantes');
+  const items = await loadOSMData(category);
   
-  // Renderizar todos os restaurantes
-  renderPOIList(restaurants, container);
+  // Renderizar todos os itens
+  renderPOIList(items, container);
 
   // Adicionar filtro de pesquisa
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
-      const filtered = filterPOIs(restaurants, e.target.value);
+      const filtered = filterPOIs(items, e.target.value);
       renderPOIList(filtered, container);
     });
   }
+}
+
+/**
+ * Exemplo de uso: Carregar e exibir restaurantes
+ */
+export async function initRestaurantPage() {
+  return initPOIPage('restaurantes', 'restaurants-list');
 }
 
 /**
  * Exemplo de uso: Carregar e exibir cafés
  */
 export async function initCafePage() {
-  const container = document.getElementById('cafes-list');
-  const searchInput = document.getElementById('search-input');
-  
-  if (!container) {
-    console.error('Container #cafes-list não encontrado');
-    return;
-  }
-
-  // Carregar dados
-  const cafes = await loadOSMData('cafes');
-  
-  // Renderizar todos os cafés
-  renderPOIList(cafes, container);
-
-  // Adicionar filtro de pesquisa
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const filtered = filterPOIs(cafes, e.target.value);
-      renderPOIList(filtered, container);
-    });
-  }
+  return initPOIPage('cafes', 'cafes-list');
 }
 
 /**
  * Exemplo de uso: Carregar e exibir pastelarias
  */
 export async function initBakeryPage() {
-  const container = document.getElementById('bakeries-list');
-  const searchInput = document.getElementById('search-input');
-  
-  if (!container) {
-    console.error('Container #bakeries-list não encontrado');
-    return;
-  }
-
-  // Carregar dados
-  const bakeries = await loadOSMData('pastelarias');
-  
-  // Renderizar todas as pastelarias
-  renderPOIList(bakeries, container);
-
-  // Adicionar filtro de pesquisa
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const filtered = filterPOIs(bakeries, e.target.value);
-      renderPOIList(filtered, container);
-    });
-  }
+  return initPOIPage('pastelarias', 'bakeries-list');
 }
 
 /**
  * Exemplo de uso: Carregar e exibir hotéis
  */
 export async function initHotelPage() {
-  const container = document.getElementById('hotels-list');
-  const searchInput = document.getElementById('search-input');
-  
-  if (!container) {
-    console.error('Container #hotels-list não encontrado');
-    return;
-  }
-
-  // Carregar dados
-  const hotels = await loadOSMData('hoteis');
-  
-  // Renderizar todos os hotéis
-  renderPOIList(hotels, container);
-
-  // Adicionar filtro de pesquisa
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const filtered = filterPOIs(hotels, e.target.value);
-      renderPOIList(filtered, container);
-    });
-  }
+  return initPOIPage('hoteis', 'hotels-list');
 }
