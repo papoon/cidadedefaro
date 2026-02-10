@@ -1814,5 +1814,19 @@
     "tip_3_desc": "A Câmara Municipal tem programas de apoio para adaptação de casas (barras de apoio, rampas, etc.). Contacte os Serviços Sociais.",
     "tip_4_title": "📋 Documentos Importantes",
     "tip_4_desc": "Tenha sempre consigo: Cartão de Cidadão, Cartão de Utente do SNS e contactos de familiares para emergências."
+  },
+  "pwa_install": {
+    "modal_title": "Instalar Faro Formoso",
+    "modal_description": "Instale o Faro Formoso no seu dispositivo para acesso rápido e funcionalidades offline!",
+    "modal_benefits_title": "Benefícios:",
+    "benefit_1": "✓ Acesso rápido a partir do ecrã inicial",
+    "benefit_2": "✓ Funciona offline",
+    "benefit_3": "✓ Notificações de atualizações",
+    "benefit_4": "✓ Experiência otimizada para dispositivos móveis",
+    "install_button": "Instalar Agora",
+    "later_button": "Agora Não",
+    "dont_show_button": "Não mostrar novamente",
+    "installed_success": "✓ App instalado com sucesso!",
+    "install_failed": "Falha ao instalar. Tente novamente."
   }
 }

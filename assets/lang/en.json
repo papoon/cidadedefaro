@@ -1816,5 +1816,19 @@
     "tip_3_desc": "The City Council has support programs for adapting homes (grab bars, ramps, etc.). Contact Social Services.",
     "tip_4_title": "📋 Important Documents",
     "tip_4_desc": "Always carry: Citizen Card, SNS User Card and family contacts for emergencies."
+  },
+  "pwa_install": {
+    "modal_title": "Install Faro Formoso",
+    "modal_description": "Install Faro Formoso on your device for quick access and offline features!",
+    "modal_benefits_title": "Benefits:",
+    "benefit_1": "✓ Quick access from home screen",
+    "benefit_2": "✓ Works offline",
+    "benefit_3": "✓ Update notifications",
+    "benefit_4": "✓ Optimized mobile experience",
+    "install_button": "Install Now",
+    "later_button": "Not Now",
+    "dont_show_button": "Don't show again",
+    "installed_success": "✓ App installed successfully!",
+    "install_failed": "Failed to install. Please try again."
   }
 }
