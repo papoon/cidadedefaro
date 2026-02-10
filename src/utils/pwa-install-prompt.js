@@ -55,9 +55,9 @@ function createInstallModal() {
                 
                 <div class="pwa-install-ios-steps">
                     <ol>
-                        <li data-i18n="pwa_install.ios_step_1">1. Toque no botão <strong>Partilhar</strong> <span style="font-size: 1.2em;">⎙</span> na barra inferior do Safari</li>
-                        <li data-i18n="pwa_install.ios_step_2">2. Deslize para baixo e toque em <strong>"Adicionar ao Ecrã Principal"</strong> <span style="font-size: 1.2em;">➕</span></li>
-                        <li data-i18n="pwa_install.ios_step_3">3. Toque em <strong>"Adicionar"</strong> no canto superior direito</li>
+                        <li data-i18n="pwa_install.ios_step_1">Toque no botão <strong>Partilhar</strong> <span class="pwa-install-emoji">⎙</span> na barra inferior do Safari</li>
+                        <li data-i18n="pwa_install.ios_step_2">Deslize para baixo e toque em <strong>"Adicionar ao Ecrã Principal"</strong> <span class="pwa-install-emoji">➕</span></li>
+                        <li data-i18n="pwa_install.ios_step_3">Toque em <strong>"Adicionar"</strong> no canto superior direito</li>
                     </ol>
                 </div>
                 

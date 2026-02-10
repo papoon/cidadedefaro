@@ -144,6 +144,10 @@
     font-weight: 600;
 }
 
+.pwa-install-emoji {
+    font-size: 1.2em;
+}
+
 /* Modal Buttons */
 .pwa-install-buttons {
     display: flex;
