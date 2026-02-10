@@ -2,8 +2,6 @@
 // Handles the display of PWA installation prompt on mobile devices
 
 let deferredPrompt = null;
-let currentLang = 'pt';
-let translations = {};
 
 // Detect if device is mobile
 function isMobileDevice() {
@@ -21,22 +19,6 @@ function isAppInstalled() {
     return window.matchMedia('(display-mode: standalone)').matches ||
            window.navigator.standalone === true ||
            document.referrer.includes('android-app://');
-}
-
-// Get translations for the modal
-function getTranslation(key) {
-    const keys = key.split('.');
-    let value = translations;
-    
-    for (const k of keys) {
-        if (value && typeof value === 'object' && k in value) {
-            value = value[k];
-        } else {
-            return key; // Return key if translation not found
-        }
-    }
-    
-    return value;
 }
 
 // Create the PWA install modal HTML
@@ -100,8 +82,9 @@ function createInstallModal() {
     });
     
     // Apply current translations if i18n is already loaded
-    if (typeof applyTranslations === 'function') {
-        applyTranslations();
+    // The i18n system will automatically apply translations to elements with data-i18n attributes
+    if (typeof window.applyTranslations === 'function') {
+        window.applyTranslations();
     }
 }
 
@@ -146,8 +129,7 @@ async function handleInstallClick() {
         console.log(`User response to install prompt: ${outcome}`);
         
         if (outcome === 'accepted') {
-            // Show success message
-            showNotification(getTranslation('pwa_install.installed_success'), 'success');
+            console.log('PWA installation accepted by user');
         }
         
         // Clear the deferred prompt
@@ -157,7 +139,6 @@ async function handleInstallClick() {
         hideInstallModal();
     } catch (error) {
         console.error('Error during PWA installation:', error);
-        showNotification(getTranslation('pwa_install.install_failed'), 'error');
         hideInstallModal();
     }
 }
@@ -173,22 +154,7 @@ function handleDismissClick() {
     hideInstallModal();
 }
 
-// Show a notification toast
-function showNotification(message, type = 'info') {
-    const toast = document.createElement('div');
-    toast.className = `notification-toast ${type}`;
-    toast.textContent = message;
-    document.body.appendChild(toast);
-    
-    setTimeout(() => {
-        toast.style.animation = 'fadeOut 0.3s ease-out';
-        setTimeout(() => {
-            if (toast && toast.parentNode) {
-                toast.remove();
-            }
-        }, 300);
-    }, 3000);
-}
+
 
 // Initialize PWA install prompt
 function initPWAInstallPrompt() {
@@ -234,11 +200,6 @@ function initPWAInstallPrompt() {
         console.log('PWA was installed successfully');
         deferredPrompt = null;
         hideInstallModal();
-    });
-    
-    // Listen for language changes to update translations
-    document.addEventListener('i18nLoaded', (event) => {
-        currentLang = event.detail.language;
     });
 }
 
