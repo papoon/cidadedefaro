@@ -91,6 +91,7 @@ export default defineConfig({
         { src: 'sitemap.xml', dest: '' },
         { src: 'sw.js', dest: '' },
         { src: 'guia-premium-faro.pdf', dest: '' },
+        { src: 'apple-touch-icon.png', dest: '' },
         { src: 'CNAME', dest: '' }
       ]
     })
