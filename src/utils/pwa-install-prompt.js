@@ -8,6 +8,11 @@ function isMobileDevice() {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 
+// Detect if device is iOS
+function isIOSDevice() {
+    return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
 // Check if user has already dismissed the prompt permanently
 function hasUserDismissedPermanently() {
     return localStorage.getItem('guiafaro-pwa-install-dismissed') === 'true';
@@ -27,52 +32,109 @@ function createInstallModal() {
     overlay.className = 'pwa-install-overlay';
     overlay.id = 'pwa-install-overlay';
     
-    overlay.innerHTML = `
-        <div class="pwa-install-modal" role="dialog" aria-labelledby="pwa-modal-title" aria-describedby="pwa-modal-desc">
-            <div class="pwa-install-header">
-                <div class="pwa-install-icon">
-                    <img src="./assets/branding/pwa/icon-192x192.png" alt="Faro Formoso">
+    // Check if iOS for different instructions
+    const isIOS = isIOSDevice();
+    
+    if (isIOS) {
+        // iOS-specific modal with manual installation instructions
+        overlay.innerHTML = `
+            <div class="pwa-install-modal" role="dialog" aria-labelledby="pwa-modal-title" aria-describedby="pwa-modal-desc">
+                <div class="pwa-install-header">
+                    <div class="pwa-install-icon">
+                        <img src="./assets/branding/pwa/icon-192x192.png" alt="Faro Formoso">
+                    </div>
+                    <div class="pwa-install-title-group">
+                        <h2 id="pwa-modal-title" data-i18n="pwa_install.modal_title">Instalar Faro Formoso</h2>
+                        <p>Faro Formoso</p>
+                    </div>
                 </div>
-                <div class="pwa-install-title-group">
-                    <h2 id="pwa-modal-title" data-i18n="pwa_install.modal_title">Instalar Faro Formoso</h2>
-                    <p>Faro Formoso</p>
+                
+                <p class="pwa-install-description" id="pwa-modal-desc" data-i18n="pwa_install.modal_description_ios">
+                    Para instalar esta app no seu iPhone ou iPad:
+                </p>
+                
+                <div class="pwa-install-ios-steps">
+                    <ol>
+                        <li data-i18n="pwa_install.ios_step_1">1. Toque no botão <strong>Partilhar</strong> <span style="font-size: 1.2em;">⎙</span> na barra inferior do Safari</li>
+                        <li data-i18n="pwa_install.ios_step_2">2. Deslize para baixo e toque em <strong>"Adicionar ao Ecrã Principal"</strong> <span style="font-size: 1.2em;">➕</span></li>
+                        <li data-i18n="pwa_install.ios_step_3">3. Toque em <strong>"Adicionar"</strong> no canto superior direito</li>
+                    </ol>
+                </div>
+                
+                <div class="pwa-install-benefits">
+                    <h3 data-i18n="pwa_install.modal_benefits_title">Benefícios:</h3>
+                    <ul>
+                        <li data-i18n="pwa_install.benefit_1">✓ Acesso rápido a partir do ecrã inicial</li>
+                        <li data-i18n="pwa_install.benefit_2">✓ Funciona offline</li>
+                        <li data-i18n="pwa_install.benefit_3">✓ Notificações de atualizações</li>
+                        <li data-i18n="pwa_install.benefit_4">✓ Experiência otimizada para dispositivos móveis</li>
+                    </ul>
+                </div>
+                
+                <div class="pwa-install-buttons">
+                    <button class="pwa-install-btn pwa-install-btn-primary" id="pwa-ok-btn" data-i18n="pwa_install.ok_button">
+                        Entendi
+                    </button>
+                    <button class="pwa-install-btn pwa-install-btn-text" id="pwa-dismiss-btn" data-i18n="pwa_install.dont_show_button">
+                        Não mostrar novamente
+                    </button>
                 </div>
             </div>
-            
-            <p class="pwa-install-description" id="pwa-modal-desc" data-i18n="pwa_install.modal_description">
-                Instale o Faro Formoso no seu dispositivo para acesso rápido e funcionalidades offline!
-            </p>
-            
-            <div class="pwa-install-benefits">
-                <h3 data-i18n="pwa_install.modal_benefits_title">Benefícios:</h3>
-                <ul>
-                    <li data-i18n="pwa_install.benefit_1">✓ Acesso rápido a partir do ecrã inicial</li>
-                    <li data-i18n="pwa_install.benefit_2">✓ Funciona offline</li>
-                    <li data-i18n="pwa_install.benefit_3">✓ Notificações de atualizações</li>
-                    <li data-i18n="pwa_install.benefit_4">✓ Experiência otimizada para dispositivos móveis</li>
-                </ul>
+        `;
+    } else {
+        // Android/Other browsers modal with automatic installation
+        overlay.innerHTML = `
+            <div class="pwa-install-modal" role="dialog" aria-labelledby="pwa-modal-title" aria-describedby="pwa-modal-desc">
+                <div class="pwa-install-header">
+                    <div class="pwa-install-icon">
+                        <img src="./assets/branding/pwa/icon-192x192.png" alt="Faro Formoso">
+                    </div>
+                    <div class="pwa-install-title-group">
+                        <h2 id="pwa-modal-title" data-i18n="pwa_install.modal_title">Instalar Faro Formoso</h2>
+                        <p>Faro Formoso</p>
+                    </div>
+                </div>
+                
+                <p class="pwa-install-description" id="pwa-modal-desc" data-i18n="pwa_install.modal_description">
+                    Instale o Faro Formoso no seu dispositivo para acesso rápido e funcionalidades offline!
+                </p>
+                
+                <div class="pwa-install-benefits">
+                    <h3 data-i18n="pwa_install.modal_benefits_title">Benefícios:</h3>
+                    <ul>
+                        <li data-i18n="pwa_install.benefit_1">✓ Acesso rápido a partir do ecrã inicial</li>
+                        <li data-i18n="pwa_install.benefit_2">✓ Funciona offline</li>
+                        <li data-i18n="pwa_install.benefit_3">✓ Notificações de atualizações</li>
+                        <li data-i18n="pwa_install.benefit_4">✓ Experiência otimizada para dispositivos móveis</li>
+                    </ul>
+                </div>
+                
+                <div class="pwa-install-buttons">
+                    <button class="pwa-install-btn pwa-install-btn-primary" id="pwa-install-btn" data-i18n="pwa_install.install_button">
+                        Instalar Agora
+                    </button>
+                    <button class="pwa-install-btn pwa-install-btn-secondary" id="pwa-later-btn" data-i18n="pwa_install.later_button">
+                        Agora Não
+                    </button>
+                    <button class="pwa-install-btn pwa-install-btn-text" id="pwa-dismiss-btn" data-i18n="pwa_install.dont_show_button">
+                        Não mostrar novamente
+                    </button>
+                </div>
             </div>
-            
-            <div class="pwa-install-buttons">
-                <button class="pwa-install-btn pwa-install-btn-primary" id="pwa-install-btn" data-i18n="pwa_install.install_button">
-                    Instalar Agora
-                </button>
-                <button class="pwa-install-btn pwa-install-btn-secondary" id="pwa-later-btn" data-i18n="pwa_install.later_button">
-                    Agora Não
-                </button>
-                <button class="pwa-install-btn pwa-install-btn-text" id="pwa-dismiss-btn" data-i18n="pwa_install.dont_show_button">
-                    Não mostrar novamente
-                </button>
-            </div>
-        </div>
-    `;
+        `;
+    }
     
     document.body.appendChild(overlay);
     
-    // Add event listeners
-    document.getElementById('pwa-install-btn').addEventListener('click', handleInstallClick);
-    document.getElementById('pwa-later-btn').addEventListener('click', handleLaterClick);
-    document.getElementById('pwa-dismiss-btn').addEventListener('click', handleDismissClick);
+    // Add event listeners based on device type
+    if (isIOS) {
+        document.getElementById('pwa-ok-btn').addEventListener('click', handleLaterClick);
+        document.getElementById('pwa-dismiss-btn').addEventListener('click', handleDismissClick);
+    } else {
+        document.getElementById('pwa-install-btn').addEventListener('click', handleInstallClick);
+        document.getElementById('pwa-later-btn').addEventListener('click', handleLaterClick);
+        document.getElementById('pwa-dismiss-btn').addEventListener('click', handleDismissClick);
+    }
     
     // Close on overlay click
     overlay.addEventListener('click', (e) => {
@@ -176,7 +238,20 @@ function initPWAInstallPrompt() {
         return;
     }
     
-    // Listen for the beforeinstallprompt event
+    // iOS devices don't support beforeinstallprompt, so show manual instructions
+    if (isIOSDevice()) {
+        console.log('iOS device detected, showing manual installation instructions');
+        
+        // Show iOS install instructions after page load
+        setTimeout(() => {
+            createInstallModal();
+            showInstallModal();
+        }, 3000); // Wait 3 seconds after page load
+        
+        return;
+    }
+    
+    // Listen for the beforeinstallprompt event (Android and other browsers)
     window.addEventListener('beforeinstallprompt', (e) => {
         console.log('beforeinstallprompt event fired');
         
