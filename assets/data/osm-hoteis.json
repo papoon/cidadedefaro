@@ -1,0 +1,22 @@
+[
+  {
+    "id": "osm-node-555666777",
+    "name": "Hotel Faro & Beach Club",
+    "address": "Praça D. Francisco Gomes, 2, Faro",
+    "lat": 37.0164,
+    "lng": -7.9299,
+    "category": "hoteis",
+    "osm_id": 555666777,
+    "osm_type": "node"
+  },
+  {
+    "id": "osm-node-888999111",
+    "name": "AP Eva Senses Hotel",
+    "address": "Avenida da República, 1, Faro",
+    "lat": 37.0156,
+    "lng": -7.9334,
+    "category": "hoteis",
+    "osm_id": 888999111,
+    "osm_type": "node"
+  }
+]

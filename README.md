@@ -87,8 +87,17 @@ O projeto integra dados de múltiplas fontes públicas e abertas:
 | 🏛️ **Câmara Municipal de Faro** | Informações oficiais sobre serviços municipais | [cm-faro.pt](https://www.cm-faro.pt) |
 | 🏥 **Portal do Cidadão** | Serviços de saúde e farmácias | [portaldocidadao.pt](https://www.portaldocidadao.pt) |
 | 🏖️ **Turismo de Portugal** | Informações turísticas oficiais e eventos | [visitportugal.com](https://www.visitportugal.com) |
-| 🗺️ **OpenStreetMap** | Mapas colaborativos abertos | [openstreetmap.org](https://www.openstreetmap.org) |
+| 🗺️ **OpenStreetMap** | Mapas colaborativos abertos e dados de POIs (cafés, restaurantes, pastelarias, hotéis) | [openstreetmap.org](https://www.openstreetmap.org) |
 | 🚌 **Proximo Autocarro** | Transportes públicos e horários | [proximoautocarro.pt](https://www.proximoautocarro.pt) |
+
+### 🤖 Atualização Automática de Dados OSM
+
+Os dados do OpenStreetMap (cafés, restaurantes, pastelarias e hotéis) são atualizados automaticamente uma vez por mês através de uma GitHub Action. O script consulta a [Overpass API](https://overpass-api.de/) e guarda os dados em ficheiros JSON estáticos.
+
+- **Script**: `scripts/update-osm-data.js`
+- **Dados**: `assets/data/osm-*.json`
+- **Exemplo de uso**: [exemplo-osm.html](exemplo-osm.html)
+- **Documentação**: [scripts/README.md](scripts/README.md)
 
 ---
 
