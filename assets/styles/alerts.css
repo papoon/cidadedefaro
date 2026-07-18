@@ -32,7 +32,7 @@
     gap: 1rem;
     margin: 0 auto;
     animation: slideDown 0.3s ease-out;
-    border-left: 4px solid #667eea;
+    border-left: 4px solid #146a8c;
 }
 
 /* Animation for alert entrance */
@@ -79,32 +79,32 @@
 .alert-title {
     font-weight: 600;
     font-size: 1rem;
-    color: #2d3748;
+    color: #2c3338;
     margin: 0 0 0.25rem 0;
 }
 
 .alert-message {
     font-size: 0.875rem;
-    color: #4a5568;
+    color: #4a4a45;
     margin: 0;
     line-height: 1.5;
 }
 
 .alert-message a {
-    color: #667eea;
+    color: #146a8c;
     text-decoration: underline;
     font-weight: 600;
 }
 
 .alert-message a:hover {
-    color: #764ba2;
+    color: #0d3b4f;
 }
 
 /* Close button */
 .alert-close {
     background: none;
     border: none;
-    color: #718096;
+    color: #6b6a63;
     cursor: pointer;
     font-size: 1.25rem;
     padding: 0;
@@ -120,84 +120,84 @@
 
 .alert-close:hover {
     background-color: rgba(0, 0, 0, 0.05);
-    color: #2d3748;
+    color: #2c3338;
 }
 
 .alert-close:focus {
-    outline: 2px solid #667eea;
+    outline: 2px solid #146a8c;
     outline-offset: 2px;
 }
 
 /* Alert categories - different colors for different types */
 .local-alert.alert-info {
-    border-left-color: #4299e1;
+    border-left-color: #48b1db;
 }
 
 .local-alert.alert-info .alert-icon {
-    color: #4299e1;
+    color: #48b1db;
 }
 
 .local-alert.alert-warning {
-    border-left-color: #ed8936;
+    border-left-color: #e8863b;
 }
 
 .local-alert.alert-warning .alert-icon {
-    color: #ed8936;
+    color: #e8863b;
 }
 
 .local-alert.alert-event {
-    border-left-color: #9f7aea;
+    border-left-color: #1f7fa3;
 }
 
 .local-alert.alert-event .alert-icon {
-    color: #9f7aea;
+    color: #1f7fa3;
 }
 
 .local-alert.alert-success {
-    border-left-color: #48bb78;
+    border-left-color: #4c8c5b;
 }
 
 .local-alert.alert-success .alert-icon {
-    color: #48bb78;
+    color: #4c8c5b;
 }
 
 .local-alert.alert-important {
-    border-left-color: #f56565;
+    border-left-color: #d9584a;
 }
 
 .local-alert.alert-important .alert-icon {
-    color: #f56565;
+    color: #d9584a;
 }
 
 /* Dark mode support */
 body.dark-mode .local-alert {
-    background: #2d3748;
+    background: #2c3338;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 body.dark-mode .alert-title {
-    color: #f7fafc;
+    color: #faf7f2;
 }
 
 body.dark-mode .alert-message {
-    color: #e2e8f0;
+    color: #e6ddce;
 }
 
 body.dark-mode .alert-close {
-    color: #a0aec0;
+    color: #9c968a;
 }
 
 body.dark-mode .alert-close:hover {
     background-color: rgba(255, 255, 255, 0.1);
-    color: #f7fafc;
+    color: #faf7f2;
 }
 
 body.dark-mode .alert-message a {
-    color: #9f7aea;
+    color: #1f7fa3;
 }
 
 body.dark-mode .alert-message a:hover {
-    color: #b794f4;
+    color: #5fb8d6;
 }
 
 /* Responsive adjustments */

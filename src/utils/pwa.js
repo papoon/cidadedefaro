@@ -85,7 +85,7 @@ function mostrarNotificacaoOffline() {
                 top: 0;
                 left: 0;
                 right: 0;
-                background-color: #f59e0b;
+                background-color: #d98324;
                 color: white;
                 padding: 0.75rem;
                 text-align: center;
@@ -131,7 +131,7 @@ function mostrarNotificacaoOffline() {
                 position: fixed;
                 bottom: 2rem;
                 right: 2rem;
-                background-color: #10b981;
+                background-color: #1dac48;
                 color: white;
                 padding: 1rem 1.5rem;
                 border-radius: 8px;
@@ -142,15 +142,15 @@ function mostrarNotificacaoOffline() {
             }
             
             .notification-toast.error {
-                background-color: #ef4444;
+                background-color: #c0392b;
             }
             
             .notification-toast.warning {
-                background-color: #f59e0b;
+                background-color: #d98324;
             }
             
             .notification-toast.info {
-                background-color: #3b82f6;
+                background-color: #42beef;
             }
             
             @keyframes fadeInUp {
@@ -178,7 +178,7 @@ function mostrarNotificacaoOffline() {
                 bottom: 2rem;
                 left: 50%;
                 transform: translateX(-50%);
-                background-color: #667eea;
+                background-color: #146a8c;
                 color: white;
                 padding: 1rem 1.5rem;
                 border-radius: 8px;
@@ -192,7 +192,7 @@ function mostrarNotificacaoOffline() {
             
             .update-notification button {
                 background-color: white;
-                color: #667eea;
+                color: #146a8c;
                 border: none;
                 padding: 0.5rem 1rem;
                 border-radius: 6px;

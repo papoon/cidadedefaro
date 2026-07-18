@@ -65,20 +65,20 @@
 
 .pwa-install-title-group h2 {
     margin: 0;
-    color: #2d3748;
+    color: #2c3338;
     font-size: 1.25rem;
     font-weight: 600;
 }
 
 .pwa-install-title-group p {
     margin: 0.25rem 0 0 0;
-    color: #4a5568;
+    color: #4a4a45;
     font-size: 0.875rem;
 }
 
 /* Modal Description */
 .pwa-install-description {
-    color: #4a5568;
+    color: #4a4a45;
     font-size: 0.95rem;
     line-height: 1.5;
     margin: 1rem 0 1.5rem 0;
@@ -86,7 +86,7 @@
 
 /* Benefits List */
 .pwa-install-benefits {
-    background: #f7fafc;
+    background: #faf7f2;
     border-radius: 12px;
     padding: 1rem;
     margin: 1rem 0;
@@ -94,7 +94,7 @@
 
 .pwa-install-benefits h3 {
     margin: 0 0 0.75rem 0;
-    color: #2d3748;
+    color: #2c3338;
     font-size: 1rem;
     font-weight: 600;
 }
@@ -106,7 +106,7 @@
 }
 
 .pwa-install-benefits li {
-    color: #4a5568;
+    color: #4a4a45;
     font-size: 0.875rem;
     padding: 0.375rem 0;
     line-height: 1.5;
@@ -114,7 +114,7 @@
 
 /* iOS Installation Steps */
 .pwa-install-ios-steps {
-    background: #f7fafc;
+    background: #faf7f2;
     border-radius: 12px;
     padding: 1rem;
     margin: 1rem 0;
@@ -128,11 +128,11 @@
 }
 
 .pwa-install-ios-steps li {
-    color: #2d3748;
+    color: #2c3338;
     font-size: 0.9rem;
     padding: 0.75rem 0;
     line-height: 1.6;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e6ddce;
 }
 
 .pwa-install-ios-steps li:last-child {
@@ -140,7 +140,7 @@
 }
 
 .pwa-install-ios-steps strong {
-    color: #667eea;
+    color: #146a8c;
     font-weight: 600;
 }
 
@@ -169,15 +169,15 @@
 }
 
 .pwa-install-btn-primary {
-    background: #667eea;
+    background: #146a8c;
     color: white;
-    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 2px 8px rgba(20, 106, 140, 0.3);
 }
 
 .pwa-install-btn-primary:hover {
-    background: #5a67d8;
+    background: #125a78;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 4px 12px rgba(20, 106, 140, 0.4);
 }
 
 .pwa-install-btn-primary:active {
@@ -185,86 +185,86 @@
 }
 
 .pwa-install-btn-secondary {
-    background: #e2e8f0;
-    color: #4a5568;
+    background: #e6ddce;
+    color: #4a4a45;
 }
 
 .pwa-install-btn-secondary:hover {
-    background: #cbd5e0;
+    background: #ded3bd;
 }
 
 .pwa-install-btn-text {
     background: transparent;
-    color: #718096;
+    color: #6b6a63;
     padding: 0.5rem;
     font-size: 0.875rem;
 }
 
 .pwa-install-btn-text:hover {
-    color: #4a5568;
+    color: #4a4a45;
     text-decoration: underline;
 }
 
 .pwa-install-btn:focus {
-    outline: 3px solid #667eea;
+    outline: 3px solid #146a8c;
     outline-offset: 2px;
 }
 
 /* Dark Mode Support */
 .dark-mode .pwa-install-modal {
-    background: #2d3748;
-    color: #e2e8f0;
+    background: #2c3338;
+    color: #e6ddce;
 }
 
 .dark-mode .pwa-install-title-group h2 {
-    color: #e2e8f0;
+    color: #e6ddce;
 }
 
 .dark-mode .pwa-install-title-group p,
 .dark-mode .pwa-install-description {
-    color: #a0aec0;
+    color: #9c968a;
 }
 
 .dark-mode .pwa-install-benefits {
-    background: #1a202c;
+    background: #1b272b;
 }
 
 .dark-mode .pwa-install-benefits h3 {
-    color: #e2e8f0;
+    color: #e6ddce;
 }
 
 .dark-mode .pwa-install-benefits li {
-    color: #a0aec0;
+    color: #9c968a;
 }
 
 .dark-mode .pwa-install-ios-steps {
-    background: #1a202c;
+    background: #1b272b;
 }
 
 .dark-mode .pwa-install-ios-steps li {
-    color: #e2e8f0;
-    border-bottom-color: #4a5568;
+    color: #e6ddce;
+    border-bottom-color: #4a4a45;
 }
 
 .dark-mode .pwa-install-ios-steps strong {
-    color: #9f7aea;
+    color: #1f7fa3;
 }
 
 .dark-mode .pwa-install-btn-secondary {
-    background: #4a5568;
-    color: #e2e8f0;
+    background: #4a4a45;
+    color: #e6ddce;
 }
 
 .dark-mode .pwa-install-btn-secondary:hover {
-    background: #718096;
+    background: #6b6a63;
 }
 
 .dark-mode .pwa-install-btn-text {
-    color: #a0aec0;
+    color: #9c968a;
 }
 
 .dark-mode .pwa-install-btn-text:hover {
-    color: #e2e8f0;
+    color: #e6ddce;
 }
 
 /* High Contrast Mode Support */

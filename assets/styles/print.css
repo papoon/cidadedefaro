@@ -1,0 +1,112 @@
+/* ===================================
+   FOLHA DE ESTILO DE IMPRESSÃO
+   Aplicada globalmente via media="print" (ver src/partials/meta-common.html).
+   Especialmente relevante em guia-premium.html, que remete para um guia
+   descarregável em PDF — o próprio site deve também imprimir de forma limpa.
+   =================================== */
+
+@media print {
+    /* Chrome de navegação/PWA não faz sentido em papel */
+    header,
+    footer,
+    nav,
+    #lang-switcher,
+    #dark-mode-toggle,
+    .search-container,
+    .btn-favorite,
+    .favorites-count,
+    #alerts-container,
+    .donation-container,
+    .pwa-install-modal,
+    #accessibility-panel,
+    #voice-nav-toggle,
+    .filters-section,
+    .filter-actions,
+    .btn,
+    .card .card-icon ~ .btn,
+    [data-i18n-attr*="aria-label"][role="button"] {
+        display: none !important;
+    }
+
+    * {
+        background: transparent !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    html,
+    body {
+        background: #ffffff !important;
+        color: #000000;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+
+    main {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    a,
+    a:visited {
+        color: #000000;
+        text-decoration: underline;
+    }
+
+    /* Show the destination URL for external links so printed pages stay useful */
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        color: #4a4a45;
+    }
+
+    h1, h2, h3, h4 {
+        color: #000000;
+        page-break-after: avoid;
+    }
+
+    .card,
+    .hero,
+    .info-box,
+    .highlight-box,
+    .tips-box,
+    .contact-box,
+    .warning-box,
+    table,
+    .dados-faro-section {
+        border: 1px solid #999999;
+        page-break-inside: avoid;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    thead th {
+        background: #eeeeee !important;
+        color: #000000 !important;
+    }
+
+    tbody td,
+    tbody th {
+        border-bottom: 1px solid #cccccc;
+    }
+
+    img,
+    #mapa,
+    .leaflet-container {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    /* Interactive-only sections that provide nothing useful on paper */
+    #mapa-section .filtro-checkbox,
+    #servicos-controls {
+        display: none !important;
+    }
+}

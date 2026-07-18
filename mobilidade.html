@@ -48,7 +48,7 @@
         }
 
         .simulator-container h3 {
-            color: #2d3748;
+            color: #2c3338;
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
@@ -58,7 +58,7 @@
         }
 
         .location-selector {
-            background: #f7fafc;
+            background: #faf7f2;
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
@@ -75,7 +75,7 @@
         .location-group label {
             display: block;
             font-weight: 600;
-            color: #2d3748;
+            color: #2c3338;
             margin-bottom: 0.5rem;
             font-size: 1rem;
         }
@@ -84,17 +84,17 @@
             width: 100%;
             padding: 0.75rem;
             font-size: 1rem;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #e6ddce;
             border-radius: 8px;
             background: white;
-            color: #4a5568;
+            color: #4a4a45;
             cursor: pointer;
             transition: border-color 0.2s ease;
         }
 
         .location-group select:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #146a8c;
         }
 
         .calculate-btn {
@@ -102,7 +102,7 @@
             padding: 1rem;
             font-size: 1.125rem;
             font-weight: 600;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #146a8c 0%, #0d3b4f 100%);
             color: white;
             border: none;
             border-radius: 8px;
@@ -113,7 +113,7 @@
 
         .calculate-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 4px 12px rgba(20, 106, 140, 0.4);
         }
 
         .results-container {
@@ -126,15 +126,15 @@
         }
 
         .result-card {
-            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
-            border: 2px solid #e2e8f0;
+            background: linear-gradient(135deg, #faf7f2 0%, #f3ede1 100%);
+            border: 2px solid #e6ddce;
             border-radius: 12px;
             padding: 1.5rem;
             margin-bottom: 1rem;
         }
 
         .result-card h4 {
-            color: #2d3748;
+            color: #2c3338;
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 1rem;
@@ -153,19 +153,19 @@
             background: white;
             padding: 1rem;
             border-radius: 8px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #146a8c;
         }
 
         .result-label {
             font-size: 0.875rem;
-            color: #718096;
+            color: #6b6a63;
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
         .result-value {
             font-size: 1.5rem;
-            color: #2d3748;
+            color: #2c3338;
             font-weight: 700;
         }
 
@@ -186,7 +186,7 @@
         }
 
         .parking-section h3 {
-            color: #2d3748;
+            color: #2c3338;
             font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
@@ -203,22 +203,22 @@
         }
 
         .parking-zone {
-            background: #f7fafc;
+            background: #faf7f2;
             border-radius: 8px;
             padding: 1.5rem;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #146a8c;
         }
 
         .parking-zone.paid {
-            border-left-color: #f59e0b;
+            border-left-color: #d98324;
         }
 
         .parking-zone.free {
-            border-left-color: #10b981;
+            border-left-color: #1dac48;
         }
 
         .parking-zone h4 {
-            color: #2d3748;
+            color: #2c3338;
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 1rem;
@@ -236,7 +236,7 @@
             padding: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
-            color: #4a5568;
+            color: #4a4a45;
             line-height: 1.6;
         }
 
@@ -246,79 +246,40 @@
             left: 0;
         }
 
-        .info-box {
-            background: #fef3c7;
-            border-left: 4px solid #f59e0b;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-
-        .info-box h4 {
-            color: #2d3748;
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .info-box p {
-            color: #78350f;
-            margin: 0.5rem 0;
-            line-height: 1.6;
-        }
-
-        .info-box ul {
-            list-style: disc;
-            padding-left: 2rem;
-            margin-top: 0.5rem;
-        }
-
-        .info-box ul li {
-            color: #78350f;
-            margin: 0.5rem 0;
+        /* Base .info-box structure comes from the shared page patterns in
+           assets/styles/style.css (the .info-box--warning modifier there
+           already matches this page's amber coloring); only the darker
+           warning text tone is page-specific. */
+        .info-box--warning p,
+        .info-box--warning ul li {
+            color: #753d12;
         }
 
         .schedule-box {
-            background: #e0e7ff;
-            border-left: 4px solid #667eea;
+            background: #e1f6fe;
+            border-left: 4px solid #146a8c;
             padding: 1.5rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
         }
 
         .schedule-box h4 {
-            color: #2d3748;
+            color: #2c3338;
             font-size: 1.125rem;
             font-weight: 600;
             margin-bottom: 1rem;
         }
 
         .schedule-box p {
-            color: #312e81;
+            color: #31687e;
             margin: 0.5rem 0;
             line-height: 1.6;
         }
 
-        .tips-box {
-            background: #d1fae5;
-            border-left: 4px solid #10b981;
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-
-        .tips-box h4 {
-            color: #2d3748;
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
+        /* Base .tips-box structure comes from the shared page patterns in
+           assets/styles/style.css (the .tips-box--success modifier there
+           already matches this page's green coloring); only the darker
+           success text tone and bullet markers are page-specific. */
         .tips-box ul {
             list-style: none;
             padding: 0;
@@ -328,7 +289,10 @@
             padding: 0.5rem 0;
             padding-left: 1.5rem;
             position: relative;
-            color: #064e3b;
+        }
+
+        .tips-box--success ul li {
+            color: #0b491e;
         }
 
         .tips-box ul li:before {
@@ -491,7 +455,7 @@
             </div>
 
             <!-- Preços -->
-            <div class="info-box">
+            <div class="info-box info-box--warning">
                 <h4 data-i18n="mobilidade.preos_indicativos">💰 Preços Indicativos</h4>
                 <ul>
                     <li><strong data-i18n="mobilidade.zona_1_centro">Zona 1 (Centro):</strong> €0,60/hora</li>
@@ -504,7 +468,7 @@
             </div>
 
             <!-- Dicas de Estacionamento -->
-            <div class="tips-box">
+            <div class="tips-box tips-box--success">
                 <h4 data-i18n="mobilidade.dicas_de_estacionamento">💡 Dicas de Estacionamento</h4>
                 <ul>
                     <li data-i18n="mobilidade.utilize_a_aplicao_mvel_para_pagamento">Utilize a aplicação móvel para pagamento - é mais conveniente</li>

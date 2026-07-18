@@ -66,7 +66,7 @@ function mostrarErro(mensagem) {
     const resultsContainer = document.getElementById('results');
     if (!resultsContainer) return;
     resultsContainer.innerHTML = `
-        <div style="background: #fed7d7; border: 2px solid #e53e3e; border-radius: 8px; padding: 1.5rem; text-align: center; color: #742a2a;">
+        <div style="background: #fdddd8; border: 2px solid #c0392b; border-radius: 8px; padding: 1.5rem; text-align: center; color: #72352c;">
             <strong>⚠️ ${mensagem}</strong>
         </div>
     `;
@@ -200,7 +200,7 @@ function inicializarMapaRota(origem, destino) {
 
         // Criar ícone personalizado para origem (verde)
         const iconeOrigem = L.divIcon({
-            html: '<div style="background-color: #10b981; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 3px solid white;">🏁</div>',
+            html: '<div style="background-color: #1dac48; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 3px solid white;">🏁</div>',
             className: 'custom-icon',
             iconSize: [32, 32],
             iconAnchor: [16, 32],
@@ -209,7 +209,7 @@ function inicializarMapaRota(origem, destino) {
 
         // Criar ícone personalizado para destino (vermelho)
         const iconeDestino = L.divIcon({
-            html: '<div style="background-color: #ef4444; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 3px solid white;">🎯</div>',
+            html: '<div style="background-color: #c0392b; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 3px solid white;">🎯</div>',
             className: 'custom-icon',
             iconSize: [32, 32],
             iconAnchor: [16, 32],
@@ -228,7 +228,7 @@ function inicializarMapaRota(origem, destino) {
             [origem.lat, origem.lng],
             [destino.lat, destino.lng]
         ], {
-            color: '#667eea',
+            color: '#146a8c',
             weight: 4,
             opacity: 0.7,
             dashArray: '10, 10'
