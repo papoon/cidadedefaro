@@ -6,7 +6,6 @@
 
     // Configuration
     const STORAGE_KEY = 'guiafaro-dismissed-alerts';
-    const AUTO_DISMISS_DURATION = 10000; // 10 seconds (optional auto-dismiss)
 
     // Alert types and their icons
     const ALERT_TYPES = {
@@ -63,9 +62,15 @@
         alertsContainer.id = 'alerts-container';
         alertsContainer.setAttribute('role', 'region');
         alertsContainer.setAttribute('aria-label', 'Alertas informativos');
+        alertsContainer.setAttribute('data-i18n', 'alerts.region_label');
+        alertsContainer.setAttribute('data-i18n-attr', 'aria-label');
         alertsContainer.setAttribute('aria-live', 'polite');
-        
+
         document.body.insertBefore(alertsContainer, document.body.firstChild);
+
+        if (window.i18n && window.i18n.applyTranslations) {
+            window.i18n.applyTranslations();
+        }
     }
 
     /**
@@ -74,7 +79,7 @@
      * @param {string} options.id - Unique alert ID
      * @param {string} options.type - Alert type (info, warning, event, success, important)
      * @param {string} options.title - Alert title
-     * @param {string} options.message - Alert message (can include HTML)
+     * @param {string} options.message - Alert message (rendered as plain text, HTML is not parsed)
      * @param {boolean} options.dismissible - Whether alert can be dismissed (default: true)
      * @param {boolean} options.persistent - If false, remembers dismissal across sessions (default: false)
      * @param {number} options.autoDismiss - Auto-dismiss after milliseconds (optional)
@@ -109,35 +114,44 @@
         alertElement.setAttribute('role', 'alert');
         alertElement.setAttribute('data-alert-id', options.id);
         
-        // Build alert HTML
-        let alertHTML = `
-            <span class="alert-icon" aria-hidden="true">${icon}</span>
-            <div class="alert-content">
-                ${title ? `<div class="alert-title">${title}</div>` : ''}
-                <div class="alert-message">${message}</div>
-            </div>
-        `;
+        // Build alert content via DOM APIs so title/message are always
+        // treated as plain text, never parsed as HTML (avoids XSS from
+        // alert content that may originate outside this codebase).
+        const iconSpan = document.createElement('span');
+        iconSpan.className = 'alert-icon';
+        iconSpan.setAttribute('aria-hidden', 'true');
+        iconSpan.textContent = icon;
+        alertElement.appendChild(iconSpan);
 
-        if (dismissible) {
-            alertHTML += `
-                <button class="alert-close" 
-                        aria-label="Fechar alerta" 
-                        title="Fechar alerta"
-                        data-i18n="alerts.close_button" 
-                        data-i18n-attr="aria-label,title">
-                    ✕
-                </button>
-            `;
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'alert-content';
+
+        if (title) {
+            const titleDiv = document.createElement('div');
+            titleDiv.className = 'alert-title';
+            titleDiv.textContent = title;
+            contentDiv.appendChild(titleDiv);
         }
 
-        alertElement.innerHTML = alertHTML;
+        const messageDiv = document.createElement('div');
+        messageDiv.className = 'alert-message';
+        messageDiv.textContent = message;
+        contentDiv.appendChild(messageDiv);
 
-        // Add close button handler
+        alertElement.appendChild(contentDiv);
+
         if (dismissible) {
-            const closeBtn = alertElement.querySelector('.alert-close');
+            const closeBtn = document.createElement('button');
+            closeBtn.className = 'alert-close';
+            closeBtn.setAttribute('aria-label', 'Fechar alerta');
+            closeBtn.setAttribute('title', 'Fechar alerta');
+            closeBtn.setAttribute('data-i18n', 'alerts.close_button');
+            closeBtn.setAttribute('data-i18n-attr', 'aria-label,title');
+            closeBtn.textContent = '✕';
             closeBtn.addEventListener('click', function() {
                 dismissAlert(options.id, !options.persistent);
             });
+            alertElement.appendChild(closeBtn);
         }
 
         // Add to container

@@ -19,9 +19,16 @@ Sistema de alertas discreto e não intrusivo para informar utilizadores sobre ev
 
 ### Incluir ficheiros no HTML
 
+O sistema já está incluído em todas as páginas via `assets/styles/alerts.css`
+(em `src/partials/meta-common.html`) e `src/ui/alerts.js` (em
+`src/partials/scripts-common.html`). Não é necessário adicionar manualmente
+em novas páginas, desde que estas usem os partials comuns.
+
+Para incluir manualmente numa página que não usa os partials:
+
 ```html
 <link rel="stylesheet" href="assets/styles/alerts.css">
-<script src="src/ui/alerts.js"></script>
+<script type="module" src="src/ui/alerts.js"></script>
 ```
 
 ### Mostrar um alerta
@@ -49,6 +56,9 @@ window.localAlerts.show({
 
 Visite `/demo-alertas.html` para ver exemplos interativos.
 
-## Documentação Completa
+## Notas de Segurança
 
-Ver ficheiro completo com API, exemplos e manutenção na documentação do projeto.
+`title` e `message` são sempre inseridos como texto simples (não são
+interpretados como HTML), para evitar XSS a partir de conteúdo de alertas.
+Se precisar de um link dentro de um alerta, adicione-o via JavaScript
+manipulando o DOM diretamente em vez de passar HTML na `message`.
