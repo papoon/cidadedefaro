@@ -1,0 +1,22 @@
+[
+  {
+    "id": "osm-node-111222333",
+    "name": "Faz Gostos",
+    "address": "Rua do Castelo, 13, Faro",
+    "lat": 37.0165,
+    "lng": -7.9298,
+    "category": "restaurantes",
+    "osm_id": 111222333,
+    "osm_type": "node"
+  },
+  {
+    "id": "osm-node-444555666",
+    "name": "Tertúlia Algarvia",
+    "address": "Praça Dom Afonso III, 13, Faro",
+    "lat": 37.0163,
+    "lng": -7.9301,
+    "category": "restaurantes",
+    "osm_id": 444555666,
+    "osm_type": "node"
+  }
+]

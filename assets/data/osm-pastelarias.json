@@ -1,0 +1,22 @@
+[
+  {
+    "id": "osm-node-777888999",
+    "name": "Pastelaria Venezuela",
+    "address": "Praça Ferreira de Almeida, 21, Faro",
+    "lat": 37.0168,
+    "lng": -7.9307,
+    "category": "pastelarias",
+    "osm_id": 777888999,
+    "osm_type": "node"
+  },
+  {
+    "id": "osm-node-222333444",
+    "name": "Pastelaria Gardy",
+    "address": "Rua Vasco da Gama, 15, Faro",
+    "lat": 37.0175,
+    "lng": -7.9320,
+    "category": "pastelarias",
+    "osm_id": 222333444,
+    "osm_type": "node"
+  }
+]

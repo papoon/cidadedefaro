@@ -26,6 +26,7 @@ const htmlPages = [
   'index.html',
   'ambiente.html',
   'demo-alertas.html',
+  'exemplo-osm.html',
   'favoritos.html',
   'guia-premium.html',
   'historia-faro.html',

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "update-osm-data": "node scripts/update-osm-data.js"
   },
   "keywords": [
     "faro",
