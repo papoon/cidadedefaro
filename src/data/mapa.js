@@ -23,22 +23,22 @@ let grupoMarcadoresServicos = null;
 const iconesServicos = {
     farmacias: {
         icon: '💊',
-        color: '#10b981',
+        color: '#1dac48',
         nome: 'Farmácia'
     },
     hospitais: {
         icon: '🏥',
-        color: '#ef4444',
+        color: '#c0392b',
         nome: 'Hospital'
     },
     multibancos: {
         icon: '🏧',
-        color: '#3b82f6',
+        color: '#42beef',
         nome: 'Multibanco'
     },
     supermercados: {
         icon: '🛒',
-        color: '#f59e0b',
+        color: '#d98324',
         nome: 'Supermercado'
     }
 };
@@ -158,7 +158,7 @@ function obterLocalizacaoUsuario() {
 
             // Criar ícone para localização do usuário
             const iconeUsuario = L.divIcon({
-                html: '<div style="background-color: #667eea; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></div>',
+                html: '<div style="background-color: #146a8c; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></div>',
                 className: 'user-location-icon',
                 iconSize: [16, 16],
                 iconAnchor: [8, 8]
@@ -326,7 +326,7 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
                         <small style="color: #666;">
                             <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}" 
                                target="_blank" 
-                               style="color: #667eea; text-decoration: none;">
+                               style="color: #146a8c; text-decoration: none;">
                                 📍 Como chegar
                             </a>
                         </small>

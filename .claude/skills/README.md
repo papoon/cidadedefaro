@@ -1,5 +1,7 @@
 # skills/
 
-Project-scoped skills for this repo, invoked with `/<skill-name>`. Each skill lives in its own subfolder with a `SKILL.md`.
+Project-scoped skills for this repo, invoked with `/<skill-name>`.
 
-No custom skills defined yet.
+- `ui-modernization.md` — the project's single source of truth for frontend design decisions
+  (Faro-inspired color palette, typography, spacing, component library, accessibility checklist).
+  Reference it whenever creating or updating any page or UI component.
