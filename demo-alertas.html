@@ -167,8 +167,7 @@ window.localAlerts.show({
 
     <%- footer %>
 
-    <script type="module" src="src/intl/i18n.js"></script>
-    <script type="module" src="src/ui/alerts.js"></script>
+    <%- scriptsCommon %>
     <script>
         // Exemplos de alertas
         function showInfoAlert() {
@@ -186,7 +185,7 @@ window.localAlerts.show({
                 id: 'demo-warning-' + Date.now(),
                 type: 'warning',
                 title: 'Aviso Importante',
-                message: 'Atenção: Os horários de autocarros foram alterados durante o mês de Agosto. <a href="transportes.html">Ver mais detalhes</a>',
+                message: 'Atenção: Os horários de autocarros foram alterados durante o mês de Agosto. Ver mais detalhes na página de transportes.',
                 persistent: false
             });
         }
@@ -196,7 +195,7 @@ window.localAlerts.show({
                 id: 'demo-event',
                 type: 'event',
                 title: 'Festival de Verão em Faro',
-                message: 'Não perca o Festival de Verão de 15 a 20 de Julho! Música, gastronomia e muita animação. <a href="lazer.html">Mais informações</a>',
+                message: 'Não perca o Festival de Verão de 15 a 20 de Julho! Música, gastronomia e muita animação. Mais informações na página de lazer.',
                 persistent: true
             });
         }

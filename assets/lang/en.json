@@ -7,6 +7,7 @@
     "home": "Home",
     "transport": "Transport",
     "health": "Health",
+    "health_now": "🚑 Where to Go Now",
     "environment": "Environment",
     "leisure": "Leisure",
     "restaurants": "Where to Eat",
@@ -384,6 +385,7 @@
   },
   "premium": {
     "hero_title": "Premium Guide",
+    "hero_description": "Detailed Complementary Content with Offline Maps, Transport Tips, Events and Much More",
     "download_label": "Download the Premium Guide"
   },
   "ui": {
@@ -643,10 +645,10 @@
   },
   "guia_premium": {
     "key": "🌙",
-    "100_gratuito_e_acessvel": "100% gratuito e acessível",
-    "contedo_complementar_opcional": "conteúdo complementar opcional",
-    "voluntrio": "voluntário",
-    "no_h_contedo_bloqueado_o_site_permanece": "Não há conteúdo bloqueado - o site permanece gratuito para todos",
+    "100_gratuito_e_acessvel": "100% free and accessible",
+    "contedo_complementar_opcional": "optional complementary content",
+    "voluntrio": "voluntary",
+    "no_h_contedo_bloqueado_o_site_permanece": "There is no locked content - the site remains free for everyone",
     "key_1": "🗺️",
     "mapas_offline": "Offline Maps",
     "coordenadas_gps_de_pontos_importantes_zo": "GPS coordinates of important points, detailed city zones and guidance for offline use",
@@ -665,7 +667,7 @@
     "key_6": "📞",
     "contactos_essenciais": "Essential Contacts",
     "lista_completa_de_emergncias_servios_pbl": "Complete list of emergencies, public services, embassies and useful contacts",
-    "contedo_do_pdf_todas_as_11_seces": "Conteúdo do PDF (Todas as 11 Secções)",
+    "contedo_do_pdf_todas_as_11_seces": "PDF Content (All 11 Sections)",
     "key_7": "📖",
     "key_8": "🗺️",
     "key_9": "🚌",

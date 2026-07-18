@@ -8,7 +8,9 @@ const FARO_COORDENADAS = {
 
 // Configurações de timeout para requisições
 const FETCH_TIMEOUT_MS = 20000; // 20 segundos
-const OVERPASS_TIMEOUT_S = 15; // 15 segundos
+// Deriva o timeout do Overpass a partir do timeout de fetch (em segundos), com uma margem
+// de 5s para que o servidor possa responder com o seu próprio timeout antes do cliente abortar
+const OVERPASS_TIMEOUT_S = Math.max(5, Math.floor(FETCH_TIMEOUT_MS / 1000) - 5);
 const TOTAL_SERVICE_TYPES = 4; // Número total de tipos de serviços
 
 // Variável para armazenar a instância do mapa
@@ -275,6 +277,9 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
     try {
         const resposta = await fetch(overpassUrl, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
             body: 'data=' + encodeURIComponent(query),
             signal: controller.signal
         });
@@ -303,8 +308,8 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
                     icon: icone
                 }).addTo(grupoMarcadoresServicos);
                 
-                // Store service type as a custom property on the marker instance
-                marcador._serviceTipo = tipo;
+                // Store service type safely on marker options for filtering
+                marcador.options.serviceTipo = tipo;
 
                 // Criar conteúdo do popup
                 let popupContent = `
@@ -356,8 +361,8 @@ function atualizarServicosVisiveis() {
     };
 
     grupoMarcadoresServicos.eachLayer(function(marcador) {
-        // Use custom property attached to the marker instance
-        const tipo = marcador._serviceTipo;
+        // Prefer metadata stored on marker options; fall back to legacy property if present
+        const tipo = marcador.options?.serviceTipo;
         if (filtros[tipo]) {
             // Check if marker is not already on the map before adding
             if (!mapa.hasLayer(marcador)) {

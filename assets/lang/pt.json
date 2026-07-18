@@ -7,6 +7,7 @@
     "home": "Início",
     "transport": "Transportes",
     "health": "Saúde",
+    "health_now": "🚑 Onde Ir Agora",
     "environment": "Ambiente",
     "leisure": "Lazer",
     "restaurants": "Onde Comer",
@@ -382,6 +383,7 @@
   },
   "premium": {
     "hero_title": "Guia Premium",
+    "hero_description": "Conteúdo Complementar Detalhado com Mapas Offline, Dicas de Transporte, Eventos e Muito Mais",
     "download_label": "Descarregar o Guia Premium"
   },
   "ui": {

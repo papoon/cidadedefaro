@@ -30,7 +30,16 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/saude.html?lang=pt"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/saude.html?lang=en"/>
   </url>
-  
+
+  <url>
+    <loc>https://papoon.github.io/cidadedefaro/saude-onde-ir-agora.html</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/saude-onde-ir-agora.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/saude-onde-ir-agora.html?lang=en"/>
+  </url>
+
   <url>
     <loc>https://papoon.github.io/cidadedefaro/ambiente.html</loc>
     <lastmod>2025-12-31</lastmod>

@@ -1,26 +1,29 @@
 // Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
 
 // Recursos essenciais para cache inicial (precache)
+// Nota: o build de produção (Vite) faz bundling e hashing de todo o CSS/JS
+// referenciado a partir das páginas HTML (ex.: `assets/main-<hash>.css`,
+// `assets/mapa-<hash>.js`); os ficheiros não processados em `src/` e
+// `assets/styles/` são copiados para `dist/` por segurança mas não são
+// pedidos por nenhuma página em produção. Por isso não faz sentido
+// precachear esses caminhos estáticos - os nomes com hash não são
+// previsíveis aqui. Em vez disso, a estratégia "Cache First" no fetch
+// handler abaixo (para .css/.js/.json) cacheia os bundles reais assim que
+// cada página é visitada.
 const PRECACHE_URLS = [
     './index.html',
-    './offline.html',
-    './assets/styles/style.css',
-    './assets/styles/accessibility.css',
-    './src/core/main.js',
-    './src/ui/accessibility.js',
-    './src/utils/favorites.js',
-    './src/utils/search.js',
-    './src/data/dados-api.js'
+    './offline.html'
 ];
 
 // Páginas HTML para cache
 const HTML_PAGES = [
     './transportes.html',
     './saude.html',
+    './saude-onde-ir-agora.html',
     './ambiente.html',
     './lazer.html',
     './restaurantes.html',
@@ -31,22 +34,19 @@ const HTML_PAGES = [
     './viver-em-faro.html',
     './mobilidade.html',
     './historia-faro.html',
-    './favoritos.html'
-];
-
-// Scripts específicos de páginas
-const PAGE_SCRIPTS = [
-    './src/data/mapa.js',
-    './src/data/hoteis.js',
-    './src/data/restaurantes.js',
-    './src/data/mobilidade.js'
+    './favoritos.html',
+    './idosos.html',
+    './guia-premium.html',
+    './sobre-projeto.html',
+    './demo-alertas.html'
 ];
 
 // Dados JSON
 const DATA_FILES = [
     './assets/data/hoteis.json',
     './assets/data/restaurantes.json',
-    './assets/data/municipio-faro.json'
+    './assets/data/municipio-faro.json',
+    './assets/data/farmacias.json'
 ];
 
 // Instalação do Service Worker
@@ -59,7 +59,6 @@ self.addEventListener('install', (event) => {
             return cache.addAll([
                 ...PRECACHE_URLS,
                 ...HTML_PAGES,
-                ...PAGE_SCRIPTS,
                 ...DATA_FILES
             ]);
         }).then(() => {
@@ -68,6 +67,7 @@ self.addEventListener('install', (event) => {
             return self.skipWaiting();
         }).catch((error) => {
             console.error('[Service Worker] Erro no precache:', error);
+            throw error;
         })
     );
 });
@@ -225,7 +225,7 @@ self.addEventListener('fetch', (event) => {
     }
     
     // Estratégia para APIs externas - Network Only (não cachear)
-    if (url.hostname === 'overpass-api.de' || url.hostname.endsWith('.api.')) {
+    if (url.hostname === 'overpass-api.de') {
         event.respondWith(fetch(request));
         return;
     }
