@@ -206,6 +206,14 @@
             <p data-i18n="leisure.hero_description">Descubra o melhor de Faro: praias deslumbrantes, museus fascinantes, espaços verdes relaxantes e eventos culturais únicos. Explore a rica herança cultural e as maravilhas naturais da capital algarvia.</p>
         </section>
 
+        <!-- Previsão do tempo (Open-Meteo, sem chave de API) -->
+        <section id="tempo-secao" class="tempo-section" aria-labelledby="tempo-title">
+            <h2 id="tempo-title" data-i18n="weather.section_title">🌤️ Tempo em Faro</h2>
+            <div class="tempo-widget tempo-loading" role="status" aria-live="polite">
+                <p class="tempo-loading-text" data-i18n="weather.loading">A carregar previsão...</p>
+            </div>
+        </section>
+
         <!-- Praias -->
         <section class="culture-card">
             <h3><span class="icon" data-i18n="lazer.key_1">🏖️</span><span data-i18n="leisure.beaches_title">Praias</span></h3>
@@ -574,5 +582,6 @@
     <%- footer %>
 
     <%- scriptsCommon %>
+    <script type="module" src="src/data/tempo.js"></script>
 </body>
 </html>

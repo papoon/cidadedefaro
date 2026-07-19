@@ -23,6 +23,10 @@
     "about": "ℹ️ About the Project",
     "favorites": "⭐ Favorites"
   },
+  "weather": {
+    "section_title": "🌤️ Weather in Faro",
+    "loading": "Loading forecast..."
+  },
   "home": {
     "hero_title": "Welcome to Faro Formoso",
     "hero_description": "Faro Formoso — live, discover and participate in the city. Your complete guide to living and visiting Faro. Find essential information about transport, health, environment and leisure in the city.",
