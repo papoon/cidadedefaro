@@ -310,7 +310,7 @@ function renderFavoritesList(container, filterType = null) {
                             <span class="favorite-date">${addedOnText} ${date}</span>
                         </div>
                     </div>
-                    <button class="btn-remove-favorite" data-id="${item.id}" title="${removeText}">
+                    <button class="btn-remove-favorite" data-id="${item.id}" title="${removeText}" aria-label="${removeText}">
                         🗑️
                     </button>
                 </li>

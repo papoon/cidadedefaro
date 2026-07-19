@@ -38,7 +38,7 @@ function createInstallModal() {
     if (isIOS) {
         // iOS-specific modal with manual installation instructions
         overlay.innerHTML = `
-            <div class="pwa-install-modal" role="dialog" aria-labelledby="pwa-modal-title" aria-describedby="pwa-modal-desc">
+            <div class="pwa-install-modal" role="dialog" aria-modal="true" aria-labelledby="pwa-modal-title" aria-describedby="pwa-modal-desc">
                 <div class="pwa-install-header">
                     <div class="pwa-install-icon">
                         <img src="./assets/branding/pwa/icon-192x192.png" alt="Faro Formoso">
@@ -84,7 +84,7 @@ function createInstallModal() {
     } else {
         // Android/Other browsers modal with automatic installation
         overlay.innerHTML = `
-            <div class="pwa-install-modal" role="dialog" aria-labelledby="pwa-modal-title" aria-describedby="pwa-modal-desc">
+            <div class="pwa-install-modal" role="dialog" aria-modal="true" aria-labelledby="pwa-modal-title" aria-describedby="pwa-modal-desc">
                 <div class="pwa-install-header">
                     <div class="pwa-install-icon">
                         <img src="./assets/branding/pwa/icon-192x192.png" alt="Faro Formoso">
@@ -142,7 +142,30 @@ function createInstallModal() {
             handleLaterClick();
         }
     });
-    
+
+    // Escape closes the modal; Tab is trapped inside it while open
+    overlay.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            handleLaterClick();
+            return;
+        }
+        if (e.key === 'Tab') {
+            const focusable = overlay.querySelectorAll(
+                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            );
+            if (focusable.length === 0) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+                e.preventDefault();
+                last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+                e.preventDefault();
+                first.focus();
+            }
+        }
+    });
+
     // Apply current translations if i18n is already loaded
     // The i18n system will automatically apply translations to elements with data-i18n attributes
     if (typeof window.applyTranslations === 'function') {
@@ -150,13 +173,19 @@ function createInstallModal() {
     }
 }
 
+// Element that had focus before the modal opened, so it can be restored on close
+let elementFocusedBeforeModal = null;
+
 // Show the install modal
 function showInstallModal() {
     const overlay = document.getElementById('pwa-install-overlay');
     if (overlay) {
+        elementFocusedBeforeModal = document.activeElement;
         // Use setTimeout to ensure smooth animation
         setTimeout(() => {
             overlay.classList.add('show');
+            const firstButton = overlay.querySelector('.pwa-install-modal button');
+            if (firstButton) firstButton.focus();
         }, 100);
     }
 }
@@ -171,6 +200,10 @@ function hideInstallModal() {
             overlay.remove();
         }, 300);
     }
+    if (elementFocusedBeforeModal && typeof elementFocusedBeforeModal.focus === 'function') {
+        elementFocusedBeforeModal.focus();
+    }
+    elementFocusedBeforeModal = null;
 }
 
 // Handle install button click

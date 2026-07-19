@@ -196,16 +196,15 @@
             });
         });
 
-        // Trap focus in modal/dialog if any
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                // Close any open modals or overlays
-                const openModals = document.querySelectorAll('.modal.show, .overlay.show');
-                openModals.forEach(modal => {
-                    modal.classList.remove('show');
-                });
-            }
-        });
+        // Note: Escape-to-close and focus trapping for the PWA install modal
+        // and voice-navigation modal are handled directly in
+        // src/utils/pwa-install-prompt.js and src/ui/voice-navigation.js
+        // respectively, since each needs its own cleanup (stopping speech
+        // recognition, restoring focus, saving dismissal state) beyond just
+        // toggling a "show" class. A previous generic handler here matched
+        // `.modal.show, .overlay.show`, which never matched either modal's
+        // actual compound class names (`pwa-install-overlay`,
+        // `voice-nav-overlay`) and was therefore dead code.
     }
 
     // ===================================

@@ -303,8 +303,8 @@
         <!-- Simulador: Seleção de dia e atividade -->
         <section class="simulator-container">
             <div class="simulator-box">
-                <h3 data-i18n="oque_fazer_hoje.escolha_o_dia_da_semana">📅 Escolha o Dia da Semana</h3>
-                <select id="day-selector" class="day-selector">
+                <h3 id="day-selector-label" data-i18n="oque_fazer_hoje.escolha_o_dia_da_semana">📅 Escolha o Dia da Semana</h3>
+                <select id="day-selector" class="day-selector" aria-labelledby="day-selector-label">
                     <option value="todos">Qualquer dia</option>
                     <option value="segunda">Segunda-feira</option>
                     <option value="terca">Terça-feira</option>

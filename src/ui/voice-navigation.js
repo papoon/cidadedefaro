@@ -237,12 +237,12 @@
         overlay.id = 'voice-nav-overlay';
         overlay.className = 'voice-nav-overlay';
         overlay.innerHTML = `
-            <div class="voice-nav-modal">
-                <h2>${getTranslation('voice_nav.modal_title')}</h2>
-                <div class="voice-mic-icon" id="voice-mic-icon">🎤</div>
-                <div class="voice-status" id="voice-status">${getTranslation('voice_nav.status_ready')}</div>
-                <div class="voice-transcript" id="voice-transcript"></div>
-                
+            <div class="voice-nav-modal" role="dialog" aria-modal="true" aria-labelledby="voice-nav-modal-title">
+                <h2 id="voice-nav-modal-title">${getTranslation('voice_nav.modal_title')}</h2>
+                <div class="voice-mic-icon" id="voice-mic-icon" aria-hidden="true">🎤</div>
+                <div class="voice-status" id="voice-status" aria-live="polite" aria-atomic="true">${getTranslation('voice_nav.status_ready')}</div>
+                <div class="voice-transcript" id="voice-transcript" aria-live="polite"></div>
+
                 <div class="voice-controls">
                     <button class="voice-btn voice-btn-primary" id="voice-start-btn">
                         ${getTranslation('voice_nav.start_listening')}
@@ -278,7 +278,30 @@
                 closeVoiceModal();
             }
         });
-        
+
+        // Escape closes the modal; Tab is trapped inside it while open
+        overlay.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeVoiceModal();
+                return;
+            }
+            if (e.key === 'Tab') {
+                const focusable = overlay.querySelectorAll(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                );
+                if (focusable.length === 0) return;
+                const first = focusable[0];
+                const last = focusable[focusable.length - 1];
+                if (e.shiftKey && document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                } else if (!e.shiftKey && document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        });
+
         // Populate commands help
         populateCommandsHelp();
     }
@@ -613,7 +636,11 @@
         if (overlay) {
             overlay.classList.remove('show');
         }
-        
+
+        // Return focus to the toggle button that opened the modal
+        const toggleBtn = document.getElementById('voice-nav-toggle');
+        if (toggleBtn) toggleBtn.focus();
+
         // Stop listening if active - use abort() for more aggressive cleanup on iOS
         if (voiceNavState.listening && voiceNavState.recognition) {
             try {
