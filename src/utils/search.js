@@ -281,19 +281,24 @@ function createSearchInterface() {
     searchContainer.innerHTML = `
         <div class="search-input-wrapper">
             <span class="search-icon" aria-hidden="true">🔍</span>
-            <input 
-                type="search" 
-                id="global-search-input" 
-                class="search-input" 
+            <input
+                type="search"
+                id="global-search-input"
+                class="search-input"
                 placeholder="Pesquisar páginas, serviços, locais..."
                 aria-label="Campo de pesquisa global"
                 autocomplete="off"
+                role="combobox"
+                aria-expanded="false"
+                aria-controls="search-results"
+                aria-autocomplete="list"
             />
             <button id="search-clear-btn" class="search-clear-btn" title="Limpar pesquisa" aria-label="Limpar pesquisa">
                 ✕
             </button>
         </div>
         <div id="search-results" class="search-results" role="listbox" aria-label="Resultados da pesquisa"></div>
+        <div id="search-results-status" class="sr-only" aria-live="polite" aria-atomic="true"></div>
     `;
 
     return searchContainer;
@@ -304,7 +309,7 @@ function createSearchInterface() {
  * @param {Array} results - Resultados da pesquisa
  * @param {HTMLElement} container - Container dos resultados
  */
-function renderSearchResults(results, container) {
+function renderSearchResults(results, container, statusEl) {
     if (!container) return;
 
     if (results.length === 0) {
@@ -317,6 +322,7 @@ function renderSearchResults(results, container) {
             </div>
         `;
         container.classList.add('show');
+        if (statusEl) statusEl.textContent = noResults;
         return;
     }
 
@@ -337,9 +343,9 @@ function renderSearchResults(results, container) {
     results.forEach((result, index) => {
         const icon = typeIcons[result.type] || '📌';
         const label = typeLabels[result.type] || 'Item';
-        
+
         html += `
-            <li class="search-result-item" role="option" data-url="${result.url}">
+            <li id="search-result-${index}" class="search-result-item" role="option" tabindex="-1" data-url="${result.url}">
                 <div class="result-icon">${icon}</div>
                 <div class="result-content">
                     <div class="result-title">${result.highlight}</div>
@@ -356,6 +362,12 @@ function renderSearchResults(results, container) {
     container.innerHTML = html;
     container.classList.add('show');
 
+    if (statusEl) {
+        statusEl.textContent = results.length === 1
+            ? '1 resultado encontrado'
+            : `${results.length} resultados encontrados`;
+    }
+
     // Adicionar event listeners
     container.querySelectorAll('.search-result-item').forEach(item => {
         item.addEventListener('click', function() {
@@ -363,7 +375,7 @@ function renderSearchResults(results, container) {
             window.location.href = url;
         });
 
-        // Navegação por teclado
+        // Navegação por teclado dentro de um resultado focado diretamente
         item.addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
                 const url = this.getAttribute('data-url');
@@ -393,9 +405,31 @@ function initializeGlobalSearch() {
 
     const searchInput = document.getElementById('global-search-input');
     const searchResults = document.getElementById('search-results');
+    const searchStatus = document.getElementById('search-results-status');
     const clearBtn = document.getElementById('search-clear-btn');
 
     let searchTimeout;
+
+    function setExpanded(expanded) {
+        searchInput.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    }
+
+    function closeResults() {
+        searchResults.classList.remove('show');
+        searchInput.removeAttribute('aria-activedescendant');
+        setExpanded(false);
+    }
+
+    function getOptions() {
+        return Array.from(searchResults.querySelectorAll('.search-result-item'));
+    }
+
+    // Foco/seleção por teclado dentro da lista (padrão combobox + listbox)
+    function focusOption(option) {
+        if (!option) return;
+        option.focus();
+        searchInput.setAttribute('aria-activedescendant', option.id);
+    }
 
     // Event listener para input
     searchInput.addEventListener('input', function() {
@@ -403,8 +437,9 @@ function initializeGlobalSearch() {
         const query = this.value.trim();
 
         if (query.length < 2) {
-            searchResults.classList.remove('show');
+            closeResults();
             clearBtn.style.display = 'none';
+            if (searchStatus) searchStatus.textContent = '';
             return;
         }
 
@@ -413,38 +448,75 @@ function initializeGlobalSearch() {
         // Debounce
         searchTimeout = setTimeout(() => {
             const results = searchManager.search(query);
-            renderSearchResults(results, searchResults);
+            renderSearchResults(results, searchResults, searchStatus);
+            setExpanded(true);
         }, 300);
     });
 
     // Event listener para limpar
     clearBtn.addEventListener('click', function() {
         searchInput.value = '';
-        searchResults.classList.remove('show');
+        closeResults();
         clearBtn.style.display = 'none';
         searchInput.focus();
     });
 
-    // Event listener para tecla ESC
+    // Navegação por teclado: Escape fecha, setas movem entre resultados
     searchInput.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             searchInput.value = '';
-            searchResults.classList.remove('show');
+            closeResults();
             clearBtn.style.display = 'none';
+            return;
+        }
+
+        if (!searchResults.classList.contains('show')) return;
+
+        const options = getOptions();
+        if (options.length === 0) return;
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusOption(options[0]);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            focusOption(options[options.length - 1]);
+        }
+    });
+
+    // Dentro dos resultados: setas movem foco, Escape volta ao campo de pesquisa
+    searchResults.addEventListener('keydown', function(e) {
+        const options = getOptions();
+        const currentIndex = options.indexOf(document.activeElement);
+
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            focusOption(options[Math.min(currentIndex + 1, options.length - 1)]);
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (currentIndex <= 0) {
+                searchInput.focus();
+            } else {
+                focusOption(options[currentIndex - 1]);
+            }
+        } else if (e.key === 'Escape') {
+            closeResults();
+            searchInput.focus();
         }
     });
 
     // Fechar resultados ao clicar fora
     document.addEventListener('click', function(e) {
         if (!searchInterface.contains(e.target)) {
-            searchResults.classList.remove('show');
+            closeResults();
         }
     });
 
     // Mostrar resultados ao focar no input
     searchInput.addEventListener('focus', function() {
-        if (this.value.trim().length >= 2) {
+        if (this.value.trim().length >= 2 && searchResults.children.length > 0) {
             searchResults.classList.add('show');
+            setExpanded(true);
         }
     });
 }

@@ -360,6 +360,8 @@ function atualizarServicosVisiveis() {
         supermercados: document.getElementById('filtro-supermercados')?.checked
     };
 
+    let visiveis = 0;
+
     grupoMarcadoresServicos.eachLayer(function(marcador) {
         // Prefer metadata stored on marker options; fall back to legacy property if present
         const tipo = marcador.options?.serviceTipo;
@@ -368,12 +370,22 @@ function atualizarServicosVisiveis() {
             if (!mapa.hasLayer(marcador)) {
                 mapa.addLayer(marcador);
             }
+            visiveis++;
         } else {
             if (mapa.hasLayer(marcador)) {
                 mapa.removeLayer(marcador);
             }
         }
     });
+
+    // Anuncia a contagem atualizada para utilizadores de leitores de ecrã,
+    // já que os marcadores no mapa não são acessíveis por si só.
+    const statusEl = document.getElementById('servicos-count-status');
+    if (statusEl) {
+        statusEl.textContent = visiveis === 1
+            ? '1 serviço visível no mapa'
+            : `${visiveis} serviços visíveis no mapa`;
+    }
 }
 
 // Função para adicionar marcador (mantida para compatibilidade)

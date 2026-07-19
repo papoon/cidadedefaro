@@ -1,6 +1,6 @@
 // Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v4';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
 
@@ -46,7 +46,8 @@ const DATA_FILES = [
     './assets/data/hoteis.json',
     './assets/data/restaurantes.json',
     './assets/data/municipio-faro.json',
-    './assets/data/farmacias.json'
+    './assets/data/farmacias.json',
+    './assets/data/alertas.json'
 ];
 
 // Instalação do Service Worker

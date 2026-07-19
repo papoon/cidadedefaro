@@ -1,0 +1,35 @@
+[
+    {
+        "id": "guia-premium-disponivel",
+        "type": "event",
+        "active": true,
+        "expires": null,
+        "persistent": false,
+        "dismissible": true,
+        "title": {
+            "pt": "📘 Novo: Guia Premium",
+            "en": "📘 New: Premium Guide"
+        },
+        "message": {
+            "pt": "Descarregue o nosso guia em PDF com mapas offline, dicas de transporte e muito mais. Disponível na página Premium.",
+            "en": "Download our PDF guide with offline maps, transport tips and much more. Available on the Premium page."
+        }
+    },
+    {
+        "id": "site-gratuito-comunidade",
+        "type": "info",
+        "active": true,
+        "expires": null,
+        "persistent": false,
+        "dismissible": true,
+        "autoDismiss": 12000,
+        "title": {
+            "pt": "ℹ️ Sobre este site",
+            "en": "ℹ️ About this site"
+        },
+        "message": {
+            "pt": "O Faro Formoso é gratuito e mantido de forma independente. Encontrou um erro ou tem uma sugestão? Veja a página Problemas Frequentes.",
+            "en": "Faro Formoso is free and independently maintained. Found an error or have a suggestion? Check the Common Issues page."
+        }
+    }
+]
