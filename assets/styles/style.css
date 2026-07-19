@@ -2016,6 +2016,151 @@ tbody tr:hover {
 }
 
 /* ===================================
+   WIDGET DE PREVISÃO DO TEMPO (Open-Meteo)
+   =================================== */
+
+.tempo-section {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-6);
+}
+
+.tempo-section h2 {
+    text-align: center;
+    color: var(--color-text-strong);
+    margin-bottom: var(--space-5);
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+}
+
+.tempo-widget {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-5);
+}
+
+.tempo-widget.tempo-loading {
+    justify-content: center;
+}
+
+.tempo-loading-text,
+.tempo-error {
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0;
+}
+
+.tempo-current {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.tempo-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.tempo-current-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.tempo-temp {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    color: var(--color-text-strong);
+    line-height: 1.1;
+}
+
+.tempo-description {
+    color: var(--color-text);
+    font-size: var(--font-size-base);
+}
+
+.tempo-feels-like {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+}
+
+.tempo-forecast {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    flex: 1;
+    min-width: 220px;
+}
+
+.tempo-forecast-label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tempo-forecast-days {
+    display: flex;
+    gap: var(--space-3);
+    justify-content: space-between;
+}
+
+.tempo-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-sand-100);
+    border-radius: var(--radius-md);
+    flex: 1;
+}
+
+.tempo-day-name {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: capitalize;
+}
+
+.tempo-day-icon {
+    font-size: 1.5rem;
+}
+
+.tempo-day-temps {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+}
+
+.tempo-day-temps strong {
+    color: var(--color-text-strong);
+}
+
+@media (max-width: 768px) {
+    .tempo-section {
+        padding: var(--space-5);
+    }
+
+    .tempo-widget {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tempo-forecast-days {
+        gap: var(--space-2);
+    }
+
+    .tempo-day {
+        padding: var(--space-2);
+    }
+}
+
+/* ===================================
    LANGUAGE SWITCHER
    =================================== */
 

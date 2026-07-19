@@ -37,7 +37,7 @@
     <meta name="twitter:image" content="https://papoon.github.io/cidadedefaro/assets/branding/pwa/icon-512x512.png">
     <meta name="twitter:image:alt" content="Logo Faro Formoso">
     
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://geoapi.pt https://api.openstreetmap.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https: http:; font-src 'self' data:; connect-src 'self' https://geoapi.pt https://api.openstreetmap.org https://api.open-meteo.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -84,6 +84,14 @@
                     <span class="notice-label" data-i18n="home.premium_notice_label">📘 Novo:</span> 
                     <span data-i18n="home.premium_notice_text" data-i18n-html="true">Descarregue o <a href="guia-premium.html">Guia Premium de Faro</a> com mapas offline, dicas de transporte e eventos detalhados.</span>
                 </p>
+            </div>
+        </section>
+
+        <!-- Previsão do tempo (Open-Meteo, sem chave de API) -->
+        <section id="tempo-secao" class="tempo-section" aria-labelledby="tempo-title">
+            <h2 id="tempo-title" data-i18n="weather.section_title">🌤️ Tempo em Faro</h2>
+            <div class="tempo-widget tempo-loading" role="status" aria-live="polite">
+                <p class="tempo-loading-text" data-i18n="weather.loading">A carregar previsão...</p>
             </div>
         </section>
 
@@ -177,6 +185,7 @@
 
     <%- scriptsCommon %>
     <script type="module" src="src/data/dados-api.js"></script>
+    <script type="module" src="src/data/tempo.js"></script>
     <script>
         // Carregar dados de Faro quando a página carregar
         document.addEventListener('DOMContentLoaded', function() {
