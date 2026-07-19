@@ -6,6 +6,7 @@
         "expires": null,
         "persistent": false,
         "dismissible": true,
+        "notify": false,
         "title": {
             "pt": "📘 Novo: Guia Premium",
             "en": "📘 New: Premium Guide"
@@ -23,6 +24,7 @@
         "persistent": false,
         "dismissible": true,
         "autoDismiss": 12000,
+        "notify": false,
         "title": {
             "pt": "ℹ️ Sobre este site",
             "en": "ℹ️ About this site"

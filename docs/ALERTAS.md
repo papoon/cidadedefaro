@@ -73,6 +73,7 @@ Editar `assets/data/alertas.json` diretamente — é um array de objetos:
     "persistent": false,
     "dismissible": true,
     "autoDismiss": 12000,
+    "notify": false,
     "title": { "pt": "Título em PT", "en": "Title in EN" },
     "message": { "pt": "Mensagem em PT", "en": "Message in EN" }
 }
@@ -83,12 +84,59 @@ Editar `assets/data/alertas.json` diretamente — é um array de objetos:
   expirados são automaticamente ignorados, mesmo que `active` continue `true`.
 - `autoDismiss` é opcional (milissegundos); omitir para o alerta ficar visível
   até o utilizador o fechar.
+- `notify`: `true` para também disparar uma notificação do sistema (ver secção
+  seguinte) — usar apenas para alertas genuinamente importantes/urgentes, não
+  para anúncios rotineiros. Omitir ou `false` significa "só o banner no site".
 - `title`/`message` têm de incluir sempre `pt` e `en` — `src/data/alertas.js`
   usa o idioma atual guardado em `localStorage` (`guiafaro-lang`), com
   fallback para `pt`.
 
 Como o site não tem backend, publicar um novo alerta é sempre: editar o JSON,
 fazer commit e `git push` — sem necessidade de nenhum painel de administração.
+
+## Notificações do sistema (opt-in)
+
+Alertas com `"notify": true` podem também mostrar uma notificação do sistema
+operativo, não apenas o banner no site. Isto é **opt-in**: o utilizador tem de
+clicar no botão de sino (🔕/🔔, no canto superior direito, por baixo dos
+outros botões fixos) e conceder permissão de notificações ao navegador.
+
+### O que isto NÃO é
+
+Este site não tem backend, pelo que **não implementa Web Push "real"** (que
+exigiria um servidor a despachar mensagens via VAPID/push service para
+garantir entrega mesmo com o browser completamente fechado). O que existe é:
+
+1. **Notificação enquanto o site está aberto** (`src/utils/push-notifications.js`,
+   chamado por `src/data/alertas.js` sempre que carrega `alertas.json`) — o
+   caminho principal, funciona em qualquer navegador com suporte à
+   [Notifications API](https://developer.mozilla.org/docs/Web/API/Notifications_API).
+2. **Verificação periódica em segundo plano** (`periodicsync` em `sw.js`),
+   *apenas* quando o navegador suporta
+   [Periodic Background Sync](https://developer.mozilla.org/docs/Web/API/Web_Periodic_Background_Synchronization_API)
+   — na prática, apenas em navegadores Chromium com a PWA instalada e uso
+   frequente do site (o navegador decide se/quando agendar, o intervalo
+   pedido de 12h é apenas um mínimo, não uma garantia). Falha silenciosamente
+   em todos os outros navegadores (Safari, Firefox, iOS em geral).
+
+Não há garantia de entrega com a app totalmente fechada em todos os
+dispositivos. Se no futuro for necessária entrega garantida, a alternativa
+mais simples continua a ser um serviço externo como
+[ntfy.sh](https://ntfy.sh) (ainda assim exige publicar manualmente a mensagem
+para o tópico sempre que `alertas.json` mudar) ou Web Push real com um
+pequeno servidor a despachar as mensagens.
+
+### Estado local (localStorage)
+
+- `guiafaro-notifications-enabled`: `"true"`/`"false"` — preferência do
+  utilizador, independente da permissão do navegador.
+- `guiafaro-notified-alerts`: lista de IDs de alertas já notificados neste
+  dispositivo/navegador, para não repetir a mesma notificação.
+
+O `periodicsync` em `sw.js` mantém o seu próprio registo equivalente (não
+tem acesso a `localStorage`), numa cache chamada `faro-formoso-notified-alerts`
+que é propositadamente excluída da limpeza de caches antigas no evento
+`activate`, para não perder o histórico a cada atualização do site.
 
 ## Demonstração
 

@@ -521,6 +521,9 @@
   },
   "ui": {
     "dark_mode_toggle": "Toggle dark mode",
+    "notifications_toggle_off": "Enable alert notifications",
+    "notifications_toggle_on": "Disable alert notifications",
+    "notifications_blocked_message": "Notifications are blocked in your browser settings for this site.",
     "lang_switch_pt": "Switch to Portuguese",
     "lang_switch_en": "Switch to English",
     "main_menu": "Main menu",
