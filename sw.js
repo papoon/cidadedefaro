@@ -1,8 +1,14 @@
 // Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
-const CACHE_VERSION = 'v4';
+const CACHE_VERSION = 'v5';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
+
+// Cache não-versionado (não apagado no 'activate') que guarda que alertas já
+// geraram uma notificação via periodicsync, para não notificar duplicado
+// entre deploys - ver checkAlertsAndNotify() mais abaixo.
+const NOTIFIED_CACHE = 'faro-formoso-notified-alerts';
+const ALERTS_URL = './assets/data/alertas.json';
 
 // Recursos essenciais para cache inicial (precache)
 // Nota: o build de produção (Vite) faz bundling e hashing de todo o CSS/JS
@@ -81,7 +87,7 @@ self.addEventListener('activate', (event) => {
         caches.keys().then((cacheNames) => {
             return Promise.all(
                 cacheNames.map((cacheName) => {
-                    if (cacheName !== CACHE_NAME) {
+                    if (cacheName !== CACHE_NAME && cacheName !== NOTIFIED_CACHE) {
                         console.log('[Service Worker] Removendo cache antigo:', cacheName);
                         return caches.delete(cacheName);
                     }
@@ -254,7 +260,7 @@ self.addEventListener('message', (event) => {
     if (event.data && event.data.type === 'SKIP_WAITING') {
         self.skipWaiting();
     }
-    
+
     if (event.data && event.data.type === 'CACHE_URLS') {
         const urls = event.data.urls;
         event.waitUntil(
@@ -263,4 +269,82 @@ self.addEventListener('message', (event) => {
             })
         );
     }
+});
+
+// Verificação periódica de alertas em segundo plano (Periodic Background
+// Sync). Só é registada pelo cliente (src/utils/push-notifications.js)
+// quando o navegador suporta a API e o utilizador ativou notificações -
+// nunca corre em navegadores sem suporte (a maioria). Não substitui Web
+// Push real: só funciona enquanto a PWA estiver instalada e o navegador
+// decidir agendar a sincronização (o intervalo mínimo pedido é 12h, mas
+// o navegador pode espaçar mais consoante o padrão de uso).
+self.addEventListener('periodicsync', (event) => {
+    if (event.tag === 'check-alerts') {
+        event.waitUntil(checkAlertsAndNotify());
+    }
+});
+
+async function checkAlertsAndNotify() {
+    try {
+        const response = await fetch(ALERTS_URL, { cache: 'no-store' });
+        if (!response.ok) return;
+
+        const alertas = await response.json();
+        if (!Array.isArray(alertas)) return;
+
+        const notifiedCache = await caches.open(NOTIFIED_CACHE);
+        const now = Date.now();
+
+        for (const alerta of alertas) {
+            if (!alerta || !alerta.active || !alerta.notify) continue;
+
+            if (alerta.expires) {
+                const expiry = new Date(alerta.expires).getTime();
+                if (!Number.isNaN(expiry) && expiry < now) continue;
+            }
+
+            // Chave de marcação, não um recurso real - apenas usada como
+            // entrada de cache para saber se este alerta já foi notificado.
+            const marker = new Request(`./__notified__/${alerta.id}`);
+            const alreadyNotified = await notifiedCache.match(marker);
+            if (alreadyNotified) continue;
+
+            // O service worker não tem acesso a localStorage, pelo que não
+            // sabe a preferência de idioma do utilizador - assume Português.
+            const title = (alerta.title && alerta.title.pt) || 'Faro Formoso';
+            const body = (alerta.message && alerta.message.pt) || '';
+            if (!body) continue;
+
+            await self.registration.showNotification(title, {
+                body,
+                icon: './assets/branding/pwa/icon-192x192.png',
+                badge: './assets/branding/pwa/icon-192x192.png',
+                tag: alerta.id,
+                data: { url: './index.html' }
+            });
+
+            await notifiedCache.put(marker, new Response('1'));
+        }
+    } catch (error) {
+        console.error('[Service Worker] Erro ao verificar alertas periodicamente:', error);
+    }
+}
+
+// Clique numa notificação: focar uma janela existente ou abrir uma nova
+self.addEventListener('notificationclick', (event) => {
+    event.notification.close();
+    const targetUrl = (event.notification.data && event.notification.data.url) || './index.html';
+
+    event.waitUntil(
+        clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clientList) => {
+            for (const client of clientList) {
+                if ('focus' in client) {
+                    return client.focus();
+                }
+            }
+            if (clients.openWindow) {
+                return clients.openWindow(targetUrl);
+            }
+        })
+    );
 });

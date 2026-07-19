@@ -37,6 +37,56 @@
     outline-offset: 2px;
 }
 
+/* ===================================
+   NOTIFICATIONS TOGGLE
+   Stacked below dark-mode toggle, accessibility toolbar and voice-nav
+   toggle in the fixed top-right control column (see .accessibility-toolbar
+   and .voice-nav-toggle for the rest of the stack).
+   =================================== */
+
+#notifications-toggle {
+    position: fixed;
+    top: calc(1rem + 3rem + 0.5rem + 3rem + 0.5rem + 3rem + 0.5rem);
+    right: 1rem;
+    z-index: 9998;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #e6ddce;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#notifications-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#notifications-toggle:focus {
+    outline: 3px solid #146a8c;
+    outline-offset: 2px;
+}
+
+#notifications-toggle.active {
+    border-color: #146a8c;
+    color: #146a8c;
+}
+
+#notifications-toggle.unsupported {
+    display: none;
+}
+
+body.dark-mode #notifications-toggle {
+    background: rgba(44, 51, 56, 0.95);
+    border-color: #4a4a45;
+}
+
 /* Dark mode styles */
 body.dark-mode {
     background-color: #1b272b;
@@ -327,6 +377,14 @@ body.dark-mode .filter-btn.active {
 @media (max-width: 768px) {
     #dark-mode-toggle {
         top: 0.75rem;
+        right: 0.75rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.25rem;
+    }
+
+    #notifications-toggle {
+        top: calc(0.75rem + 2.5rem + 0.4rem + 2.5rem + 0.5rem + 2.5rem + 0.5rem);
         right: 0.75rem;
         width: 2.5rem;
         height: 2.5rem;

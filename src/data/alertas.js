@@ -33,24 +33,29 @@
             if (!Array.isArray(alertas)) return;
 
             const lang = pickLang();
+            const alertasAtivos = alertas.filter((alerta) => alerta && alerta.active && !isExpired(alerta));
 
-            alertas
-                .filter((alerta) => alerta && alerta.active && !isExpired(alerta))
-                .forEach((alerta) => {
-                    const title = alerta.title ? (alerta.title[lang] || alerta.title.pt) : '';
-                    const message = alerta.message ? (alerta.message[lang] || alerta.message.pt) : '';
-                    if (!message) return;
+            alertasAtivos.forEach((alerta) => {
+                const title = alerta.title ? (alerta.title[lang] || alerta.title.pt) : '';
+                const message = alerta.message ? (alerta.message[lang] || alerta.message.pt) : '';
+                if (!message) return;
 
-                    window.localAlerts.show({
-                        id: alerta.id,
-                        type: alerta.type || 'info',
-                        title,
-                        message,
-                        dismissible: alerta.dismissible !== false,
-                        persistent: alerta.persistent === true,
-                        autoDismiss: alerta.autoDismiss
-                    });
+                window.localAlerts.show({
+                    id: alerta.id,
+                    type: alerta.type || 'info',
+                    title,
+                    message,
+                    dismissible: alerta.dismissible !== false,
+                    persistent: alerta.persistent === true,
+                    autoDismiss: alerta.autoDismiss
                 });
+            });
+
+            // Notificações do sistema (opt-in) para alertas marcados como
+            // "notify": true - ver src/utils/push-notifications.js
+            if (window.pushNotifications) {
+                window.pushNotifications.checkNewAlerts(alertasAtivos, lang);
+            }
         } catch (error) {
             console.error('Erro ao carregar alertas:', error);
         }
