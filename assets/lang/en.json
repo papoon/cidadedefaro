@@ -27,7 +27,8 @@
     "group_living": "Living",
     "group_leisure": "Leisure & culture",
     "group_project": "The project",
-    "beaches": "Beaches & Islands"
+    "beaches": "Beaches & Islands",
+    "arrival": "Arriving in Faro"
   },
   "weather": {
     "section_title": "Weather in Faro",
@@ -120,7 +121,8 @@
     "terms_title": "Terms and Conditions - Faro Guide",
     "terms_description": "Terms of use for the Faro Guide",
     "home_title": "Faro Formoso - Live, Discover and Take Part in the City of Faro, Portugal",
-    "beaches_title": "Beaches and Islands: Ferries and Timetables - Faro Formoso"
+    "beaches_title": "Beaches and Islands: Ferries and Timetables - Faro Formoso",
+    "arrival_title": "Arriving in Faro: Airport to City Centre - Faro Formoso"
   },
   "about": {
     "hero_title": "About the Project",
@@ -1828,5 +1830,47 @@
     "related_transport": "Buses, trains and taxis",
     "related_map": "Interactive map of Faro",
     "more_link": "Ferries, timetables and how to get to the beaches"
+  },
+  "arrival": {
+    "hero_title": "Arriving in Faro",
+    "hero_description": "From the airport to the city centre, and on to the rest of the Algarve: bus, taxi, ride-hailing, train and long-distance coaches.",
+    "airport_title": "Airport to City Centre",
+    "airport_intro": "The airport is a few kilometres from the centre, about 15–20 minutes by car or bus.",
+    "late_title": "Landing late?",
+    "late_desc": "At night and outside the high season there are few buses, and buses have been known to leave shortly after flights land. Before you travel, check the time of the last bus in the Próximo app or website. If you miss it, take a taxi or a ride-hailing car.",
+    "bus16_title": "Bus 16 (Próximo)",
+    "bus16_route": "Airport → city centre (Bus Station, Av. da República). In the other direction it continues to Praia de Faro.",
+    "bus16_stop": "The stop is outside the arrivals hall.",
+    "bus16_time": "About 20 minutes. Departures throughout the day, less frequent at night and outside the high season.",
+    "bus16_price": "Ticket around €2–3, bought from the driver. Sources disagree on the exact fare, so check with Próximo.",
+    "bus14_title": "Bus 14 (Próximo)",
+    "bus14_desc": "Links Atalaia, Montenegro, the Airport and Praia de Faro, with few departures per day. Mainly useful if you are staying in Montenegro.",
+    "bus_link": "Real-time timetables (Próximo)",
+    "taxi_title": "Taxi",
+    "taxi_desc": "There is a taxi rank outside the arrivals hall. Taxis are metered, with regulated fares and supplements for night-time, weekends and luggage.",
+    "taxi_price": "To the centre: around €10–15 (indicative).",
+    "taxi_phone_label": "Rádio Táxis de Faro:",
+    "tvde_title": "Ride-hailing (Uber, Bolt)",
+    "tvde_desc": "The airport pickup point is shown in the app when you request a ride. Prices vary with time and demand; check the estimate in the app before confirming.",
+    "onward_title": "Travelling Onwards",
+    "onward_intro": "From central Faro there are connections to the rest of the Algarve and the country. From the airport, take bus 16 to the centre first.",
+    "train_title": "Train (CP)",
+    "train_desc": "Faro station is close to the Bus Station. It has regional trains on the Algarve Line (Lagos to Vila Real de Santo António) and connections to Lisbon.",
+    "train_link": "Timetables and tickets (CP)",
+    "regional_title": "Regional buses (Vamus Algarve)",
+    "regional_desc": "They link Faro to the other Algarve towns, from the Bus Station.",
+    "regional_link": "Timetables (Vamus Algarve)",
+    "coach_title": "Long-distance coaches (Rede Expressos, FlixBus)",
+    "coach_desc": "Connections to Lisbon, the rest of Portugal and Spain. The boarding point may vary by operator: check it on your ticket.",
+    "first_title": "Your First Hours",
+    "first_emergency": "Emergency: 112. Health advice: SNS 24, 808 24 24 24.",
+    "first_health": "Duty pharmacies and emergency care: see the Where to Go Now page.",
+    "first_install": "Install this guide on your phone: it works offline, which helps before you have mobile data.",
+    "first_beaches": "Heading to the islands? Check the ferry times and the last boat back.",
+    "disclaimer": "Prices and times are indicative (checked November 2026). They may change without notice; always check with the operators.",
+    "related_title": "See also",
+    "related_transport": "Night transport, taxis and ride-hailing",
+    "related_health": "Emergency care, SNS 24 and pharmacies",
+    "related_beaches": "Ferries to the islands and Praia de Faro"
   }
 }

@@ -524,3 +524,9 @@ body.page-large-text .btn-maps { font-size: 1.0625rem; }
 .ferry-source { color: var(--ink-3); font-size: var(--font-size-sm); }
 .ferry-warning { background: var(--warn-tint); padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); }
 @media (max-width: 480px) { .ferry-prices { grid-template-columns: 1fr max-content; } }
+
+/* ---------- Chegar a Faro (chegar-a-faro.html) ---------- */
+.arrival-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--space-4); margin: var(--space-5) 0; }
+.arrival-option { border-top: 2px solid var(--rule-strong); padding-top: var(--space-3); }
+.arrival-option h4 { margin-bottom: var(--space-2); }
+.arrival-option p { margin: 0 0 var(--space-2); color: var(--ink-2); }

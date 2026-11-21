@@ -48,3 +48,12 @@ Removidos por não verificáveis: Farmácia Leonardo, Farmácia do Montepio, 12 
 
 **Renovar todos os anos:** o PDF da Câmara muda de nome por ano (`horário farol_<ano>.pdf`). Quando `year` em
 `barcos.json` for anterior ao ano corrente, a página avisa que o horário pode estar desatualizado.
+
+## Chegar a Faro (chegar-a-faro.html) — verificado 2026-11-21
+| Dado | Valor publicado | Fonte / nota |
+|------|-----------------|--------------|
+| Linhas 16 e 14 (Próximo) servem o aeroporto; 16 vai ao Terminal Rodoviário (~20 min) | percursos | site do Aeroporto de Faro (não oficial), algarve-tourist, PDF PXM14 |
+| Bilhete de autocarro | "cerca de 2–3 €, ao motorista" | fontes divergem: 2,25 € / 2,80 € / 2,85 € — publicado como intervalo |
+| Táxi aeroporto → centro | "cerca de 10–15 € (indicativo)" | Welcome Pickups ~11/13 €, Transfeero ~10 € + 20% noite/fim de semana |
+| TVDE | ponto de recolha indicado na app | Uber e Bolt (páginas FAO) |
+| Site oficial da ANA (aeroportofaro.pt) | — | não legível por pedido automático (Incapsula / conteúdo por JS); rever manualmente |

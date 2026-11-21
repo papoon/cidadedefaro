@@ -27,7 +27,8 @@
     "group_living": "Viver",
     "group_leisure": "Lazer e cultura",
     "group_project": "O projeto",
-    "beaches": "Praias e Ilhas"
+    "beaches": "Praias e Ilhas",
+    "arrival": "Chegar a Faro"
   },
   "weather": {
     "section_title": "Tempo em Faro",
@@ -120,7 +121,8 @@
     "terms_title": "Termos e Condições - Faro Formoso",
     "terms_description": "Condições de utilização do Faro Formoso",
     "home_title": "Faro Formoso - Viver, Descobrir e Participar na Cidade de Faro, Portugal",
-    "beaches_title": "Praias e Ilhas: Barcos e Horários - Faro Formoso"
+    "beaches_title": "Praias e Ilhas: Barcos e Horários - Faro Formoso",
+    "arrival_title": "Chegar a Faro: do Aeroporto ao Centro - Faro Formoso"
   },
   "about": {
     "hero_title": "Sobre o Projeto",
@@ -1828,5 +1830,47 @@
     "related_transport": "Autocarros, comboios e táxis",
     "related_map": "Mapa interativo de Faro",
     "more_link": "Barcos, horários e como chegar às praias"
+  },
+  "arrival": {
+    "hero_title": "Chegar a Faro",
+    "hero_description": "Do aeroporto ao centro, e daí para o resto do Algarve: autocarro, táxi, TVDE, comboio e autocarros de longo curso.",
+    "airport_title": "Do Aeroporto ao Centro",
+    "airport_intro": "O aeroporto fica a poucos quilómetros do centro, a cerca de 15–20 minutos de carro ou autocarro.",
+    "late_title": "Aterra à noite?",
+    "late_desc": "À noite e fora da época alta há poucos autocarros, e houve casos de autocarros que partem pouco depois de os voos aterrarem. Antes de viajar, veja a hora do último autocarro na app ou no site da Próximo. Se o perder, a alternativa é táxi ou TVDE.",
+    "bus16_title": "Autocarro 16 (Próximo)",
+    "bus16_route": "Aeroporto → centro (Terminal Rodoviário, Av. da República). Na outra direção segue para a Praia de Faro.",
+    "bus16_stop": "A paragem fica à saída das chegadas.",
+    "bus16_time": "Cerca de 20 minutos. Partidas ao longo do dia, mais espaçadas à noite e fora da época alta.",
+    "bus16_price": "Bilhete de cerca de 2–3 €, comprado ao motorista. As fontes divergem no valor exato, por isso confirme na Próximo.",
+    "bus14_title": "Autocarro 14 (Próximo)",
+    "bus14_desc": "Liga Atalaia, Montenegro, o Aeroporto e a Praia de Faro, com poucas partidas por dia. É útil sobretudo para quem fica em Montenegro.",
+    "bus_link": "Horários em tempo real (Próximo)",
+    "taxi_title": "Táxi",
+    "taxi_desc": "Há uma praça de táxis à saída das chegadas. Os táxis usam taxímetro, com tarifas reguladas e suplementos para a noite, os fins de semana e a bagagem.",
+    "taxi_price": "Até ao centro: cerca de 10–15 € (indicativo).",
+    "taxi_phone_label": "Rádio Táxis de Faro:",
+    "tvde_title": "TVDE (Uber, Bolt)",
+    "tvde_desc": "O ponto de recolha no aeroporto aparece na app quando pede a viagem. O preço varia com a hora e a procura; veja a estimativa na app antes de confirmar.",
+    "onward_title": "Seguir Viagem",
+    "onward_intro": "Do centro de Faro há ligações para o resto do Algarve e para o país. Do aeroporto, apanhe primeiro o autocarro 16 até ao centro.",
+    "train_title": "Comboio (CP)",
+    "train_desc": "A estação de Faro fica perto do Terminal Rodoviário. Tem comboios regionais da Linha do Algarve (de Lagos a Vila Real de Santo António) e ligações a Lisboa.",
+    "train_link": "Horários e bilhetes (CP)",
+    "regional_title": "Autocarros regionais (Vamus Algarve)",
+    "regional_desc": "Ligam Faro às outras cidades do Algarve, a partir do Terminal Rodoviário.",
+    "regional_link": "Horários (Vamus Algarve)",
+    "coach_title": "Longo curso (Rede Expressos, FlixBus)",
+    "coach_desc": "Ligações a Lisboa, ao resto do país e a Espanha. O local de embarque pode variar consoante o operador: confirme-o no bilhete.",
+    "first_title": "Nas Primeiras Horas",
+    "first_emergency": "Emergência: 112. Aconselhamento de saúde: SNS 24, 808 24 24 24.",
+    "first_health": "Farmácias de serviço e urgências: veja a página Onde Ir Agora.",
+    "first_install": "Instale este guia no telemóvel: funciona sem internet, útil enquanto não tem dados móveis.",
+    "first_beaches": "Vai às ilhas? Veja os horários dos barcos e o último regresso.",
+    "disclaimer": "Preços e horários indicativos (verificados em novembro de 2026). Podem mudar sem aviso; confirme sempre junto dos operadores.",
+    "related_title": "Ver também",
+    "related_transport": "Transportes à noite, táxis e TVDE",
+    "related_health": "Urgências, SNS 24 e farmácias",
+    "related_beaches": "Barcos para as ilhas e Praia de Faro"
   }
 }

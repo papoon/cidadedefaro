@@ -29,6 +29,7 @@ const commonData = {
 const htmlPages = [
   'index.html',
   'ambiente.html',
+  'chegar-a-faro.html',
   'demo-alertas.html',
   'favoritos.html',
   'historia-faro.html',

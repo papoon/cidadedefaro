@@ -7,6 +7,11 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Não Lançado]
 
+### ✈️ Chegar a Faro
+
+#### Adicionado
+- **Nova página `chegar-a-faro.html`**: do aeroporto ao centro (autocarros 16 e 14, táxi, TVDE), aviso para quem aterra à noite, e como seguir viagem (comboio CP, Vamus Algarve, Rede Expressos/FlixBus). Preços apresentados como indicativos. Ligada na navegação (Essencial), sitemap, pesquisa e `transportes.html`; disponível offline (SW `v12`).
+
 ### 🏖️ Praias e Ilhas
 
 #### Adicionado

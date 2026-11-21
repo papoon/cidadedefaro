@@ -23,6 +23,15 @@
   </url>
   
   <url>
+    <loc>https://faroformoso.pt/chegar-a-faro.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://faroformoso.pt/chegar-a-faro.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://faroformoso.pt/chegar-a-faro.html?lang=en"/>
+  </url>
+  
+  <url>
     <loc>https://faroformoso.pt/saude.html</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>weekly</changefreq>

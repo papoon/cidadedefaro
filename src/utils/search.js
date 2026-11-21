@@ -102,6 +102,14 @@ class SearchManager {
                 description: 'Barcos para as ilhas, último regresso e como chegar à Praia de Faro',
                 url: 'praias.html',
                 keywords: ['praias', 'praia', 'ilhas', 'barco', 'ferry', 'culatra', 'farol', 'deserta', 'beach', 'autocarro 16']
+            },
+            {
+                id: 'page-chegar',
+                type: 'page',
+                title: 'Chegar a Faro',
+                description: 'Do aeroporto ao centro: autocarro 16, táxi, TVDE, comboio e autocarros regionais',
+                url: 'chegar-a-faro.html',
+                keywords: ['aeroporto', 'airport', 'chegar', 'chegada', 'arrival', 'autocarro 16', 'táxi', 'uber', 'bolt', 'comboio', 'cp', 'vamus', 'flixbus']
             }
         ];
 
