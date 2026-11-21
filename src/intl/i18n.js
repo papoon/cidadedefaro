@@ -6,9 +6,12 @@ let translations = {};
 
 // Initialize i18n system
 function initI18n() {
-    // Get saved language from localStorage or default to Portuguese
-    const savedLang = localStorage.getItem('guiafaro-lang') || 'pt';
-    loadLanguage(savedLang);
+    // ?lang=pt|en (used by hreflang alternate URLs) takes precedence, then localStorage, then Portuguese
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    let savedLang = null;
+    try { savedLang = localStorage.getItem('guiafaro-lang'); } catch (e) { /* storage unavailable */ }
+    const lang = ['pt', 'en'].includes(urlLang) ? urlLang : (savedLang || 'pt');
+    loadLanguage(lang);
 }
 
 // Load language file and apply translations
@@ -23,7 +26,7 @@ async function loadLanguage(lang) {
         currentLang = lang;
         
         // Save to localStorage
-        localStorage.setItem('guiafaro-lang', lang);
+        try { localStorage.setItem('guiafaro-lang', lang); } catch (e) { /* storage unavailable */ }
         
         // Update HTML lang attribute
         document.documentElement.setAttribute('lang', lang);

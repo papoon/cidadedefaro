@@ -59,8 +59,6 @@
             'eventos': 'oque-fazer-hoje.html',
             'favoritos': 'favoritos.html',
             'meus favoritos': 'favoritos.html',
-            'guia premium': 'guia-premium.html',
-            'premium': 'guia-premium.html',
             'sobre': 'sobre-projeto.html',
             'sobre o projeto': 'sobre-projeto.html',
             
@@ -116,8 +114,6 @@
             'events': 'oque-fazer-hoje.html',
             'favorites': 'favoritos.html',
             'my favorites': 'favoritos.html',
-            'premium guide': 'guia-premium.html',
-            'premium': 'guia-premium.html',
             'about': 'sobre-projeto.html',
             'about project': 'sobre-projeto.html',
             

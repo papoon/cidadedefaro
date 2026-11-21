@@ -1,30 +1,16 @@
 // dados-api.js - Funções para obter dados de APIs
 
-// Função para buscar dados (a ser implementada)
-async function buscarDados(endpoint) {
-    console.log(`Buscando dados de: ${endpoint}`);
-    // Implementação futura para integração com APIs
-    return null;
-}
-
-// Função para processar dados (a ser implementada)
-function processarDados(dados) {
-    console.log('Processando dados');
-    // Implementação futura
-    return dados;
-}
-
 // ===================================
-// INTEGRAÇÃO COM GEO API PT
+// DADOS DO MUNICÍPIO (ficheiro local assets/data/municipio-faro.json)
 // ===================================
 
 /**
- * Busca dados do município de Faro através da GEO API PT
+ * Lê os dados do município de Faro do ficheiro local (sem chamadas a APIs externas)
  * @returns {Promise<Object>} Objeto com dados do município ou null em caso de erro
  */
 async function buscarDadosFaro() {
     // Config
-    const CACHE_KEY = 'municipioFaroCache';
+    const CACHE_KEY = 'municipioFaroCache_v2'; // v2: dados Censos 2021 + campo fonte
     const CACHE_TTL = 24 * 60 * 60 * 1000; // 24 horas
 
     // retorno embutido como último recurso (quando nada mais funciona)
@@ -36,7 +22,6 @@ async function buscarDadosFaro() {
         source: 'embedded'
     };
 
-    // We'll use the local data file only (no external API calls)
     const localPath = new URL('assets/data/municipio-faro.json', location.href).href;
 
     // Helper: tenta extrair propriedade ignorando acentos/maiúsculas
@@ -62,7 +47,7 @@ async function buscarDadosFaro() {
         return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(id));
     };
 
-    console.log('Buscando dados de Faro (tentando múltiplos endpoints)...');
+    
 
     // 1) verificar cache local
     try {
@@ -91,6 +76,7 @@ async function buscarDadosFaro() {
                     distrito: localData.distrito || 'Faro',
                     populacao: localData.populacao || localData.population || 'N/A',
                     area: localData.area || 'N/A',
+                    fonte: localData.fonte || null,
                     source: 'local'
                 };
                 try { localStorage.setItem(CACHE_KEY, JSON.stringify({ timestamp: Date.now(), data: result })); } catch (e) {}
@@ -140,25 +126,7 @@ async function exibirDadosFaro(elementoId) {
             return div.innerHTML;
         };
         // determinar fonte legível
-        let fonteText = 'GEO API PT';
-        try {
-            const src = dados.source || 'geoapi';
-            if (src === 'local') fonteText = 'Arquivo local';
-            else if (src === 'cache') {
-                fonteText = 'Cache local';
-                // tentar obter timestamp do cache
-                try {
-                    const raw = localStorage.getItem('municipioFaroCache');
-                    if (raw) {
-                        const parsed = JSON.parse(raw);
-                        if (parsed && parsed.timestamp) {
-                            const dt = new Date(parsed.timestamp);
-                            fonteText += ` (atualizado em ${dt.toLocaleString()})`;
-                        }
-                    }
-                } catch (e) { /* ignore */ }
-            } else if (src === 'embedded') fonteText = 'Dados embutidos (fallback)';
-        } catch (e) { /* ignore */ }
+        const fonteText = dados.fonte || (dados.source === 'embedded' ? 'Dados embutidos (fallback)' : 'Arquivo local');
         
         // Exibir dados com sucesso (com sanitização)
         elemento.innerHTML = `

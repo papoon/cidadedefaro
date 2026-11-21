@@ -80,7 +80,7 @@ function inicializarMapa() {
         mapa = L.map('mapa').setView([FARO_COORDENADAS.lat, FARO_COORDENADAS.lng], 13);
 
         // Adiciona camada de tiles do OpenStreetMap
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
             maxZoom: 19,
             minZoom: 10
@@ -312,24 +312,41 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
                 // Store service type safely on marker options for filtering
                 marcador.options.serviceTipo = tipo;
 
-                // Criar conteúdo do popup
-                let popupContent = `
-                    <div style="text-align: center; min-width: 150px;">
-                        <div style="font-size: 24px; margin-bottom: 8px;">${config.icon}</div>
-                        <strong>${nome}</strong><br>
-                `;
+                // Criar conteúdo do popup com DOM (nomes/moradas vêm do OSM: nunca usar innerHTML)
+                const popupContent = document.createElement('div');
+                popupContent.style.textAlign = 'center';
+                popupContent.style.minWidth = '150px';
+
+                const svgNS = 'http://www.w3.org/2000/svg';
+                const svg = document.createElementNS(svgNS, 'svg');
+                svg.setAttribute('class', 'icon');
+                svg.setAttribute('aria-hidden', 'true');
+                const use = document.createElementNS(svgNS, 'use');
+                use.setAttribute('href', `#${config.icon}`);
+                svg.appendChild(use);
+                const iconWrap = document.createElement('div');
+                iconWrap.style.fontSize = '24px';
+                iconWrap.style.marginBottom = '8px';
+                iconWrap.appendChild(svg);
+
+                const titulo = document.createElement('strong');
+                titulo.textContent = nome;
+                popupContent.append(iconWrap, titulo, document.createElement('br'));
 
                 if (endereco) {
-                    popupContent += `<small>${endereco}${numero ? ', ' + numero : ''}</small><br>`;
+                    const morada = document.createElement('small');
+                    morada.textContent = `${endereco}${numero ? ', ' + numero : ''}`;
+                    popupContent.append(morada, document.createElement('br'));
                 }
 
-                popupContent += `
-                        <small>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}" 
-                               target="_blank" rel="noopener noreferrer">Como chegar</a>
-                        </small>
-                    </div>
-                `;
+                const linkWrap = document.createElement('small');
+                const link = document.createElement('a');
+                link.href = `https://www.google.com/maps/dir/?api=1&destination=${Number(lat)},${Number(lng)}`;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = (window.i18n && window.i18n.t('map.directions')) || 'Como chegar';
+                linkWrap.appendChild(link);
+                popupContent.appendChild(linkWrap);
 
                 marcador.bindPopup(popupContent);
             }
@@ -396,12 +413,14 @@ function adicionarMarcador(latitude, longitude, titulo, descricao = '') {
     const marcador = L.marker([latitude, longitude]).addTo(mapa);
     
     if (titulo || descricao) {
-        const popupContent = `
-            <div style="text-align: center;">
-                ${titulo ? `<strong>${titulo}</strong><br>` : ''}
-                ${descricao ? `${descricao}` : ''}
-            </div>
-        `;
+        const popupContent = document.createElement('div');
+        popupContent.style.textAlign = 'center';
+        if (titulo) {
+            const strong = document.createElement('strong');
+            strong.textContent = titulo;
+            popupContent.append(strong, document.createElement('br'));
+        }
+        if (descricao) popupContent.append(document.createTextNode(descricao));
         marcador.bindPopup(popupContent);
     }
 

@@ -1,8 +1,8 @@
 /* ===================================
    FOLHA DE ESTILO DE IMPRESSÃO
    Aplicada globalmente via media="print" (ver src/partials/meta-common.html).
-   Especialmente relevante em guia-premium.html, que remete para um guia
-   descarregável em PDF — o próprio site deve também imprimir de forma limpa.
+   Útil para imprimir páginas com contactos e mapas para consulta offline;
+   o site deve imprimir de forma limpa.
    =================================== */
 
 @media print {

@@ -1,33 +1,40 @@
 [
   {
     "id": "hotel-1",
-    "nome": "Hotel Faro & Beach Club",
+    "nome": "Occidental Faro",
     "tipo": "Hotel",
     "zona": "Centro",
     "preco": "€€€",
     "classificacao": "4",
     "morada": "Praça D. Francisco Gomes, 2, 8000-168 Faro",
-    "descricao": "Hotel de 4 estrelas no centro histórico com rooftop e vista para a Ria Formosa.",
-    "servicos": ["Pequeno-almoço", "Wi-Fi", "Piscina", "Spa"],
+    "descricao": "Hotel de 4 estrelas (antigo Hotel Faro) em frente à marina e ao Jardim Manuel Bivar.",
+    "servicos": [
+      "Pequeno-almoço",
+      "Wi-Fi"
+    ],
     "telefone": "289 830 830",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Hotel+Faro+%26+Beach+Club",
-    "website": "https://www.hotelfaro.pt",
-    "destaque": "Mais Popular"
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Occidental%20Faro%2C%20Faro",
+    "website": "https://www.barcelo.com/pt-pt/occidental-faro/",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
   },
   {
     "id": "hotel-2",
-    "nome": "AP Eva Senses Hotel",
+    "nome": "EVA Senses Hotel",
     "tipo": "Hotel",
     "zona": "Centro",
     "preco": "€€€",
     "classificacao": "4",
     "morada": "Avenida da República, 1, 8000-078 Faro",
-    "descricao": "Hotel moderno com vista para a marina e piscina no rooftop.",
-    "servicos": ["Pequeno-almoço", "Wi-Fi", "Piscina", "Spa"],
-    "telefone": "289 001 000",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=AP+Eva+Senses+Faro",
-    "website": "https://www.evasenses.com",
-    "destaque": "Vista Marina"
+    "descricao": "Hotel junto à marina e ao terminal rodoviário, com piscina no terraço.",
+    "servicos": [
+      "Pequeno-almoço",
+      "Wi-Fi",
+      "Piscina"
+    ],
+    "telefone": "289 540 100",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=EVA%20Senses%20Hotel%2C%20Faro",
+    "website": "https://ap-hotelsresorts.com/eva",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
   },
   {
     "id": "hotel-3",
@@ -37,11 +44,14 @@
     "preco": "€€€",
     "classificacao": "5",
     "morada": "Rua Vasco da Gama, 33, 8000-442 Faro",
-    "descricao": "Hotel moderno de luxo com rooftop e spa.",
-    "servicos": ["Pequeno-almoço", "Wi-Fi", "Piscina", "Spa"],
-    "telefone": "289 899 100",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=3HB+Faro",
-    "website": "https://www.3hbhotels.com"
+    "descricao": "Hotel de 5 estrelas na Baixa, com terraço panorâmico.",
+    "servicos": [
+      "Pequeno-almoço",
+      "Wi-Fi",
+      "Piscina"
+    ],
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=3HB%20Faro%2C%20Faro",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
   },
   {
     "id": "hotel-4",
@@ -50,24 +60,32 @@
     "zona": "Centro",
     "preco": "€€",
     "classificacao": "3",
-    "morada": "Rua de Portugal, 17, 8000-281 Faro",
-    "descricao": "Hotel moderno e funcional no centro da cidade.",
-    "servicos": ["Pequeno-almoço", "Wi-Fi"],
-    "telefone": "289 001 500",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Stay+Hotel+Faro"
+    "morada": "Rua de Portugal, 17-19, 8000-281 Faro",
+    "descricao": "Hotel funcional no centro da cidade.",
+    "servicos": [
+      "Pequeno-almoço",
+      "Wi-Fi"
+    ],
+    "telefone": "289 898 080",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Stay%20Hotel%20Faro%20Centro%2C%20Faro",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
   },
   {
     "id": "hotel-5",
-    "nome": "Hotel Monaco",
+    "nome": "Hotel Mónaco",
     "tipo": "Hotel",
     "zona": "Montenegro",
     "preco": "€€",
-    "classificacao": "4",
+    "classificacao": "3",
     "morada": "Rua Baptista Severino, 8005-237 Faro",
-    "descricao": "Hotel com piscina próximo do aeroporto e da Praia de Faro.",
-    "servicos": ["Piscina", "Wi-Fi", "Estacionamento"],
-    "telefone": "289 891 100",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Hotel+Monaco+Faro"
+    "descricao": "Hotel em Montenegro, a caminho do aeroporto e da Universidade (Gambelas).",
+    "servicos": [
+      "Wi-Fi",
+      "Estacionamento"
+    ],
+    "telefone": "289 895 060",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Hotel%20M%C3%B3naco%2C%20Faro",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
   },
   {
     "id": "hotel-6",
@@ -76,37 +94,66 @@
     "zona": "Centro",
     "preco": "€€",
     "classificacao": "3",
-    "morada": "Rua General Teófilo da Trindade, 20, Faro",
-    "descricao": "Hotel confortável e central, ideal para turismo e negócios.",
-    "servicos": ["Pequeno-almoço", "Wi-Fi"],
-    "telefone": "289 889 700",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Hotel+Dom+Bernardo+Faro"
+    "morada": "Rua General Teófilo da Trindade, 20, 8000-356 Faro",
+    "descricao": "Hotel central, perto do Jardim da Alameda.",
+    "servicos": [
+      "Pequeno-almoço",
+      "Wi-Fi"
+    ],
+    "telefone": "289 806 806",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Best%20Western%20Hotel%20Dom%20Bernardo%2C%20Faro",
+    "website": "https://www.bestwestern.pt/hotels/best-western-hotel-dom-bernardo-faro-72064",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
   },
   {
     "id": "hotel-7",
     "nome": "Faro Boutique Hotel",
     "tipo": "Hotel",
-    "zona": "Cidade Velha",
-    "preco": "€€",
-    "classificacao": "3",
-    "morada": "Rua do Bocage, 66, 8000-297 Faro",
-    "descricao": "Hotel boutique acolhedor no centro histórico.",
-    "servicos": ["Wi-Fi", "Pequeno-almoço"],
-    "telefone": "289 887 002",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Faro+Boutique+Hotel"
-  },
-  {
-    "id": "hotel-8",
-    "nome": "Hospedaria Frangaria",
-    "tipo": "Alojamento Local",
     "zona": "Centro",
     "preco": "€€",
-    "classificacao": "2",
-    "morada": "Estrada do Aeroporto, EN125, Faro",
-    "descricao": "Hospedaria conhecida pelo restaurante e quartos confortáveis.",
-    "servicos": ["Wi-Fi", "Restaurante", "Estacionamento"],
-    "telefone": "289 826 162",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Hospedaria+Frangaria+Faro"
+    "morada": "Rua do Bocage, 66, 8000-297 Faro",
+    "descricao": "Hotel boutique perto do Largo da Sé e da Cidade Velha.",
+    "servicos": [
+      "Wi-Fi",
+      "Pequeno-almoço"
+    ],
+    "telefone": "289 037 300",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Faro%20Boutique%20Hotel%2C%20Faro",
+    "website": "https://www.faroboutiquehotel.pt/",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
+  },
+  {
+    "id": "hotel-11",
+    "nome": "Hotel Sol Algarve",
+    "tipo": "Hotel",
+    "zona": "Centro",
+    "preco": "€€",
+    "morada": "Rua Infante Dom Henrique, 52, 8000-363 Faro",
+    "descricao": "Hotel junto à estação de comboios.",
+    "servicos": [
+      "Wi-Fi"
+    ],
+    "telefone": "289 895 700",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Hotel%20Sol%20Algarve%2C%20Faro",
+    "website": "https://www.hotelsolalgarve.com/",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
+  },
+  {
+    "id": "hotel-12",
+    "nome": "Ibis Faro",
+    "tipo": "Hotel",
+    "zona": "Montenegro",
+    "preco": "€€",
+    "morada": "Rua Poeta António Aleixo, 204, 8005-174 Faro",
+    "descricao": "Hotel económico junto ao Fórum Algarve.",
+    "servicos": [
+      "Wi-Fi",
+      "Estacionamento"
+    ],
+    "telefone": "289 893 800",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Ibis%20Faro%2C%20Faro",
+    "website": "https://all.accor.com/hotel/1593/index.pt.shtml",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
   },
   {
     "id": "hotel-9",
@@ -114,24 +161,47 @@
     "tipo": "Alojamento Local",
     "zona": "Centro",
     "preco": "€",
-    "classificacao": "2",
-    "morada": "Rua Francisco Barreto, 32, Faro",
-    "descricao": "Alojamento simples junto à marina.",
-    "servicos": ["Wi-Fi"],
-    "telefone": "289 822 919",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Residencial+A+Doca+Faro"
+    "morada": "Travessa Ivens, 21, 1.º, Faro",
+    "descricao": "Alojamento simples a poucos passos da marina.",
+    "servicos": [
+      "Wi-Fi"
+    ],
+    "telefone": "289 820 716",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Residencial%20A%20Doca%2C%20Faro",
+    "website": "http://residencialadoca.com",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
   },
   {
-    "id": "hotel-10",
-    "nome": "Algarve Race Hostel – Faro",
+    "id": "hotel-13",
+    "nome": "Tilia Hostel",
     "tipo": "Hostel",
     "zona": "Centro",
     "preco": "€",
-    "classificacao": "2",
-    "morada": "Rua Serpa Pinto, 29, Faro",
-    "descricao": "Hostel económico para viajantes e mochileiros.",
-    "servicos": ["Wi-Fi", "Cozinha Partilhada"],
-    "telefone": "289 826 153",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Hostel+Faro+Centro"
+    "morada": "Rua Serpa Pinto, 29, 8000-431 Faro",
+    "descricao": "Hostel no centro da cidade.",
+    "servicos": [
+      "Wi-Fi",
+      "Cozinha Partilhada"
+    ],
+    "telefone": "963 395 903",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Tilia%20Hostel%2C%20Faro",
+    "website": "https://www.tiliahostel.com",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
+  },
+  {
+    "id": "hotel-14",
+    "nome": "Pousada de Juventude de Faro",
+    "tipo": "Hostel",
+    "zona": "Centro",
+    "preco": "€",
+    "morada": "Rua da Polícia de Segurança Pública, 8000-408 Faro",
+    "descricao": "Pousada da rede Movijovem, junto ao Jardim da Alameda.",
+    "servicos": [
+      "Wi-Fi"
+    ],
+    "telefone": "289 878 090",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Pousada%20de%20Juventude%20de%20Faro%2C%20Faro",
+    "website": "https://www.pousadasjuventude.pt/pt/pousadas/pousada-de-faro/",
+    "fonte": "OpenStreetMap / VisitPortugal (verificado em 2026-11)"
   }
 ]
