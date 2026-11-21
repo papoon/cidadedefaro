@@ -35,253 +35,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    <style>
-        .premium-hero {
-            background: linear-gradient(135deg, #146a8c 0%, #0d3b4f 100%);
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-            margin-bottom: 2rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .premium-hero h2 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .premium-hero .icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-        
-        .premium-hero p {
-            font-size: 1.125rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-        
-        .premium-content {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .premium-content h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-        
-        .feature-card {
-            background: #faf7f2;
-            padding: 1.5rem;
-            border-radius: 8px;
-            border-left: 4px solid #146a8c;
-            transition: all 0.3s ease;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .feature-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        .feature-card h4 {
-            color: #2c3338;
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .feature-card p {
-            color: #4a4a45;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-        
-        .download-section {
-            background: linear-gradient(135deg, #146a8c 0%, #0d3b4f 100%);
-            color: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        .download-section h3 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: white;
-        }
-        
-        .download-section p {
-            font-size: 1.125rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .download-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
-            background-color: white;
-            color: #146a8c;
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 1.125rem;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .download-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .download-button:focus {
-            outline: 3px solid #ffca4f;
-            outline-offset: 3px;
-        }
-        
-        .download-button .icon {
-            font-size: 1.5rem;
-        }
-        
-        .transparency-notice {
-            background: #f3ede1;
-            border-left: 4px solid #4c8c5b;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .transparency-notice h4 {
-            color: #2c3338;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .transparency-notice h4 .icon {
-            font-size: 1.5rem;
-        }
-        
-        .transparency-notice ul {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-        }
-        
-        .transparency-notice li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: #4a4a45;
-            line-height: 1.6;
-        }
-        
-        .transparency-notice li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4c8c5b;
-            font-weight: bold;
-        }
-        
-        .content-preview {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .content-preview h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-        
-        .content-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        
-        .content-list li {
-            padding: 0.75rem;
-            margin-bottom: 0.5rem;
-            background: #faf7f2;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .content-list li .icon {
-            color: #146a8c;
-            font-size: 1.25rem;
-        }
-        
-        .voluntary-support {
-            background: #fef1e7;
-            border-left: 4px solid #f29b59;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .voluntary-support h4 {
-            color: #2c3338;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .voluntary-support h4 .icon {
-            font-size: 1.5rem;
-        }
-        
-        .voluntary-support p {
-            color: #4a4a45;
-            line-height: 1.6;
-            margin: 0.5rem 0;
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -289,13 +42,12 @@
 
     <main id="main-content" role="main">
         <div class="premium-hero">
-            <div class="icon" role="img" aria-label="Ícone de livro">📘</div>
-            <h2 data-i18n="premium.hero_title">Guia Premium de Faro</h2>
+            <h1 data-i18n="premium.hero_title">Guia Premium de Faro</h1>
             <p data-i18n="premium.hero_description">Conteúdo Complementar Detalhado com Mapas Offline, Dicas de Transporte, Eventos e Muito Mais</p>
         </div>
 
         <div class="transparency-notice">
-            <h3><span class="icon" role="img" aria-label="Ícone de verificação">✅</span>Transparência Total</h3>
+            <h3>Transparência Total</h3>
             <ul>
                 <li>Todo o conteúdo do site continua <strong data-i18n="guia_premium.free_accessible_label">100% gratuito e acessível</strong></li>
                 <li>O Guia Premium é um <strong data-i18n="guia_premium.optional_content_label">conteúdo complementar opcional</strong></li>
@@ -305,41 +57,35 @@
         </div>
 
         <div class="premium-content">
-            <h3><span class="icon" role="img" aria-label="Ícone de estrela">⭐</span>O que está incluído no Guia Premium?</h3>
+            <h3>O que está incluído no Guia Premium?</h3>
             
             <div class="features-grid">
                 <div class="feature-card">
-                    <span class="icon" role="img" aria-label="Ícone de mapa" data-i18n="guia_premium.key_1">🗺️</span>
                     <h4 data-i18n="guia_premium.mapas_offline">Mapas Offline</h4>
                     <p data-i18n="guia_premium.feature_maps_description">Coordenadas GPS de pontos importantes, zonas da cidade detalhadas e orientação para usar sem internet</p>
                 </div>
                 
                 <div class="feature-card">
-                    <span class="icon" role="img" aria-label="Ícone de autocarro" data-i18n="guia_premium.key_2">🚌</span>
                     <h4 data-i18n="guia_premium.transportes_detalhados">Transportes Detalhados</h4>
                     <p data-i18n="guia_premium.feature_transport_description">Linhas de autocarros completas, horários, tarifários atualizados, dicas de comboios e táxis</p>
                 </div>
                 
                 <div class="feature-card">
-                    <span class="icon" role="img" aria-label="Ícone de calendário" data-i18n="guia_premium.key_3">📅</span>
                     <h4 data-i18n="guia_premium.eventos_e_festividades">Eventos e Festividades</h4>
                     <p data-i18n="guia_premium.feature_events_description">Calendário completo de eventos anuais, festividades locais, vida cultural e entretenimento</p>
                 </div>
                 
                 <div class="feature-card">
-                    <span class="icon" role="img" aria-label="Ícone de garfo e faca" data-i18n="guia_premium.key_4">🍽️</span>
                     <h4 data-i18n="guia_premium.gastronomia_local">Gastronomia Local</h4>
                     <p data-i18n="guia_premium.feature_food_description">Pratos típicos detalhados, restaurantes recomendados, mercados locais e frases úteis em português</p>
                 </div>
                 
                 <div class="feature-card">
-                    <span class="icon" role="img" aria-label="Ícone de hotel" data-i18n="guia_premium.key_5">🏨</span>
                     <h4 data-i18n="guia_premium.guia_de_alojamento">Guia de Alojamento</h4>
                     <p data-i18n="guia_premium.feature_lodging_description">Comparação de opções por categoria, preços médios e dicas práticas para reservas</p>
                 </div>
                 
                 <div class="feature-card">
-                    <span class="icon" role="img" aria-label="Ícone de telefone" data-i18n="guia_premium.key_6">📞</span>
                     <h4 data-i18n="guia_premium.contactos_essenciais">Contactos Essenciais</h4>
                     <p data-i18n="guia_premium.feature_contacts_description">Lista completa de emergências, serviços públicos, embaixadas e contactos úteis</p>
                 </div>
@@ -349,22 +95,22 @@
         <div class="content-preview">
             <h3 data-i18n="guia_premium.pdf_sections_title">Conteúdo do PDF (Todas as 11 Secções)</h3>
             <ul class="content-list">
-                <li><span class="icon" data-i18n="guia_premium.key_7">📖</span> 1. Introdução ao Faro Formoso</li>
-                <li><span class="icon" data-i18n="guia_premium.key_8">🗺️</span> 2. Mapas Offline e Orientação (coordenadas GPS, zonas)</li>
-                <li><span class="icon" data-i18n="guia_premium.key_9">🚌</span> 3. Transportes Detalhados (autocarros, comboios, táxis)</li>
-                <li><span class="icon" data-i18n="guia_premium.key_10">🎉</span> 4. Eventos e Festividades (calendário anual completo)</li>
-                <li><span class="icon" data-i18n="guia_premium.key_11">🍽️</span> 5. Gastronomia Local (pratos típicos, restaurantes)</li>
-                <li><span class="icon" data-i18n="guia_premium.key_12">🏨</span> 6. Alojamento (por categoria e preços)</li>
-                <li><span class="icon" data-i18n="guia_premium.key_13">🏥</span> 7. Saúde e Emergências (contactos, farmácias)</li>
-                <li><span class="icon" data-i18n="guia_premium.key_14">🌙</span> 8. Vida Noturna e Entretenimento</li>
-                <li><span class="icon" data-i18n="guia_premium.key_15">🛍️</span> 9. Compras e Mercados (centros comerciais, supermercados)</li>
-                <li><span class="icon" data-i18n="guia_premium.key_16">💡</span> 10. Dicas Práticas Essenciais (idioma, moeda, clima)</li>
-                <li><span class="icon" data-i18n="guia_premium.key_17">📞</span> 11. Contactos Úteis (serviços, embaixadas)</li>
+                <li>1. Introdução ao Faro Formoso</li>
+                <li>2. Mapas Offline e Orientação (coordenadas GPS, zonas)</li>
+                <li>3. Transportes Detalhados (autocarros, comboios, táxis)</li>
+                <li>4. Eventos e Festividades (calendário anual completo)</li>
+                <li>5. Gastronomia Local (pratos típicos, restaurantes)</li>
+                <li>6. Alojamento (por categoria e preços)</li>
+                <li>7. Saúde e Emergências (contactos, farmácias)</li>
+                <li>8. Vida Noturna e Entretenimento</li>
+                <li>9. Compras e Mercados (centros comerciais, supermercados)</li>
+                <li>10. Dicas Práticas Essenciais (idioma, moeda, clima)</li>
+                <li>11. Contactos Úteis (serviços, embaixadas)</li>
             </ul>
         </div>
 
         <div class="voluntary-support">
-            <h4><span class="icon" role="img" aria-label="Ícone de coração" data-i18n="guia_premium.key_18">❤️</span>Apoio Voluntário</h4>
+            <h4>Apoio Voluntário</h4>
             <p data-i18n="guia_premium.voluntary_support_intro">Este guia premium foi criado como forma de oferecer conteúdo adicional para quem desejar apoiar o projeto Faro Formoso.</p>
             <p>O pagamento é <strong data-i18n="guia_premium.completamente_voluntrio">completamente voluntário</strong> e simbólico. Todo o apoio ajuda a manter o site gratuito ativo e a criar mais conteúdo útil para a comunidade.</p>
             <p data-i18n="guia_premium.voluntary_support_alt">Se preferir, pode apoiar o projeto através de uma doação direta no link "Apoiar o Projeto" no rodapé do site.</p>
@@ -374,35 +120,34 @@
             <h3 data-i18n="guia_premium.descarregue_o_guia_premium">Descarregue o Guia Premium</h3>
             <p data-i18n="guia_premium.pdf_download_description">PDF de 20KB com 11 secções detalhadas sobre Faro. Apoio voluntário para ajudar a manter o projeto.</p>
             <a href="guia-premium-faro.pdf" download class="download-button" aria-label="Descarregar Guia Premium de Faro em PDF">
-                <span class="icon" role="img" aria-label="Ícone de download" data-i18n="guia_premium.key_19">📥</span>
                 <span data-i18n="guia_premium.descarregar_pdf_gratuito">Descarregar PDF Gratuito</span>
             </a>
-            <p style="margin-top: 1.5rem; font-size: 0.95rem; opacity: 0.9;">
+            <p>
                 Caso deseje contribuir voluntariamente, pode fazê-lo através do botão "Apoiar o Projeto" no rodapé.
             </p>
         </div>
 
         <div class="premium-content">
-            <h3><span class="icon" role="img" aria-label="Ícone de pergunta">❓</span>Perguntas Frequentes</h3>
+            <h3>Perguntas Frequentes</h3>
             
-            <div class="transparency-notice" style="background: #faf7f2; border-left-color: #146a8c;">
-                <h4 style="margin-top: 0;" data-i18n="guia_premium.faq_still_free_question">O site gratuito continua disponível?</h4>
-                <p style="margin-bottom: 0;"><strong data-i18n="guia_premium.faq_still_free_answer_yes">Sim!</strong> Todo o conteúdo do site GuiadeFaro.pt continua 100% gratuito e acessível. O Guia Premium é apenas um complemento opcional.</p>
+            <div class="transparency-notice">
+                <h4 data-i18n="guia_premium.faq_still_free_question">O site gratuito continua disponível?</h4>
+                <p><strong data-i18n="guia_premium.faq_still_free_answer_yes">Sim!</strong> Todo o conteúdo do site GuiadeFaro.pt continua 100% gratuito e acessível. O Guia Premium é apenas um complemento opcional.</p>
             </div>
             
-            <div class="transparency-notice" style="background: #faf7f2; border-left-color: #146a8c;">
-                <h4 style="margin-top: 0;" data-i18n="guia_premium.faq_payment_question">Tenho de pagar para aceder ao site?</h4>
-                <p style="margin-bottom: 0;"><strong data-i18n="guia_premium.faq_payment_answer_no">Não!</strong> O site é totalmente gratuito. O Guia Premium é opcional e o apoio é voluntário.</p>
+            <div class="transparency-notice">
+                <h4 data-i18n="guia_premium.faq_payment_question">Tenho de pagar para aceder ao site?</h4>
+                <p><strong data-i18n="guia_premium.faq_payment_answer_no">Não!</strong> O site é totalmente gratuito. O Guia Premium é opcional e o apoio é voluntário.</p>
             </div>
             
-            <div class="transparency-notice" style="background: #faf7f2; border-left-color: #146a8c;">
-                <h4 style="margin-top: 0;" data-i18n="guia_premium.faq_offline_question">Como posso usar o guia offline?</h4>
-                <p style="margin-bottom: 0;" data-i18n="guia_premium.faq_offline_answer">Descarregue o PDF para o seu dispositivo e terá acesso a todas as informações sem necessidade de internet.</p>
+            <div class="transparency-notice">
+                <h4 data-i18n="guia_premium.faq_offline_question">Como posso usar o guia offline?</h4>
+                <p data-i18n="guia_premium.faq_offline_answer">Descarregue o PDF para o seu dispositivo e terá acesso a todas as informações sem necessidade de internet.</p>
             </div>
             
-            <div class="transparency-notice" style="background: #faf7f2; border-left-color: #146a8c;">
-                <h4 style="margin-top: 0;" data-i18n="guia_premium.faq_updated_question">O conteúdo é atualizado?</h4>
-                <p style="margin-bottom: 0;" data-i18n="guia_premium.faq_updated_answer">Sim, o guia é atualizado regularmente com informações precisas sobre Faro. Esta edição é de 2024.</p>
+            <div class="transparency-notice">
+                <h4 data-i18n="guia_premium.faq_updated_question">O conteúdo é atualizado?</h4>
+                <p data-i18n="guia_premium.faq_updated_answer">Sim, o guia é atualizado regularmente com informações precisas sobre Faro. Esta edição é de 2024.</p>
             </div>
         </div>
     </main>

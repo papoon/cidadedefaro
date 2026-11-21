@@ -47,7 +47,7 @@
                     aria-label="${openMenu}"
                     aria-expanded="false"
                     aria-controls="accessibility-menu">
-                <span aria-hidden="true">♿</span>
+                <svg class="icon" aria-hidden="true"><use href="#i-accessibility"></use></svg>
                 <span class="sr-only">${toolbarLabel}</span>
             </button>
             <div class="accessibility-menu" id="accessibility-menu" role="menu" aria-hidden="true">
@@ -104,7 +104,15 @@
             </div>
         `;
         
-        document.body.appendChild(toolbar);
+        // Live in the masthead tool row when present (src/partials/header.html);
+        // fall back to a floating toolbar on pages without the shared header.
+        const tools = document.getElementById('masthead-tools');
+        if (tools) {
+            toolbar.classList.add('in-masthead');
+            tools.appendChild(toolbar);
+        } else {
+            document.body.appendChild(toolbar);
+        }
         
         // Event listeners
         const toggleBtn = toolbar.querySelector('.accessibility-toggle');

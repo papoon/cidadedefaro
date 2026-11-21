@@ -1,0 +1,492 @@
+/* ==========================================================================
+   FARO FORMOSO — Page-family components
+   Replaces the per-page <style> blocks. Everything is built from the tokens
+   in style.css; pages keep their semantic class names, this file gives each
+   family the shared editorial treatment (rules + type, not boxes + shadows).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Sub-headings inside article sections
+   -------------------------------------------------------------------------- */
+main section :is(.service-info, .info-content, .problem-description, .premium-content) > :is(h3, h4),
+main section > h4 {
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-2);
+}
+.service-info > p,
+.info-content > p,
+.problem-description > p { max-width: var(--measure); }
+.service-info > p + p { margin-top: var(--space-2); }
+.service-info strong { color: var(--ink); }
+
+/* --------------------------------------------------------------------------
+   2. Entry grids — repeated items laid out as ruled columns
+   -------------------------------------------------------------------------- */
+.recycling-grid,
+.beach-grid,
+.events-list,
+.cost-grid,
+.parking-grid,
+.features-grid,
+.evolution-grid,
+.api-grid,
+.contact-grid,
+.quick-links,
+.result-info,
+.activities-container,
+.hoteis-grid,
+.restaurantes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
+    gap: var(--space-6) var(--space-6);
+    margin-top: var(--space-5);
+    padding: 0;
+    list-style: none;
+}
+.activities-container,
+.hoteis-grid,
+.restaurantes-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr)); }
+.cost-grid, .result-info { grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr)); gap: var(--space-4) var(--space-5); }
+
+.recycling-item,
+.beach-item,
+.event-item,
+.cost-item,
+.zone-card,
+.parking-zone,
+.feature-card,
+.evolution-card,
+.api-card,
+.contact-card,
+.quick-link-card,
+.result-item,
+.activity-card,
+.hotel-card,
+.restaurante-card,
+.emergency-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--rule-strong);
+    color: var(--ink-2);
+    text-decoration: none;
+    min-width: 0;
+}
+.activity-card.hidden { display: none; }
+
+/* Entry titles */
+.beach-name,
+.event-name,
+.bin-name,
+.zone-card h4,
+.parking-zone h4,
+.feature-card h4,
+.evolution-card h4,
+.api-card h4,
+.contact-card h4,
+.quick-link-card h4,
+.activity-title,
+.hotel-nome,
+.restaurante-nome,
+.result-card h4 {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.22;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+}
+a.quick-link-card:hover h4,
+a.contact-card:hover h4 { color: var(--ria); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.15em; }
+
+/* Entry body */
+.beach-description,
+.event-description,
+.activity-description,
+.feature-card p,
+.evolution-card p,
+.api-card p,
+.contact-card p,
+.zone-card p,
+.quick-link-card p,
+.hotel-descricao p,
+.restaurante-descricao p {
+    font-size: var(--font-size-sm);
+    color: var(--ink-3);
+    margin-top: var(--space-1);
+}
+.event-time,
+.activity-location h4,
+.activity-transport h4 {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--terra);
+}
+.event-time { order: -1; }
+
+.beach-features,
+.activity-tags,
+.hotel-servicos,
+.tech-stack,
+.app-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-2);
+    margin-top: var(--space-3);
+}
+
+.recycling-item ul,
+.parking-zone ul,
+.zone-card ul {
+    list-style: none;
+    padding: 0 !important;
+    margin-top: var(--space-2);
+    font-size: var(--font-size-sm);
+}
+.recycling-item li,
+.parking-zone li,
+.zone-card li {
+    padding: var(--space-1) 0;
+    border-bottom: 1px dotted var(--rule);
+    margin: 0 !important;
+}
+
+/* Key–value figures (cost of living, simulator results) */
+.cost-item .label,
+.result-label {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+.cost-item .value,
+.result-value {
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Activity cards (oque-fazer-hoje) */
+.activity-location,
+.activity-transport {
+    margin-top: var(--space-3);
+    font-size: var(--font-size-sm);
+}
+.activity-location p,
+.activity-transport p { margin-top: var(--space-1) !important; }
+.activity-tag.sol { border-color: var(--warn); color: var(--warn); }
+.activity-tag.chuva { border-color: var(--ria); color: var(--ria); }
+.activity-tag.familia { border-color: var(--ok); color: var(--ok); }
+.activity-tag.estudantes { border-color: var(--terra); color: var(--terra); }
+
+/* --------------------------------------------------------------------------
+   3. Recycling bins — the one place colour is literal information
+   -------------------------------------------------------------------------- */
+.bin-color {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--ink);
+}
+.bin-color::before {
+    content: "";
+    width: 0.875rem;
+    height: 0.875rem;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    background: var(--bin, var(--ink-4));
+}
+.bin-color.amarelo { --bin: #f2c230; }
+.bin-color.azul { --bin: #2a6fb0; }
+.bin-color.verde { --bin: #3c8a46; }
+.bin-color.vermelho { --bin: #c0392b; }
+
+/* --------------------------------------------------------------------------
+   4. Contacts & phone numbers
+   -------------------------------------------------------------------------- */
+.contact-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--rule);
+}
+.contact-item:first-of-type { border-top: 1px solid var(--rule); }
+.phone-number,
+.contact-info .phone,
+.contact-box .phone,
+.phone-link {
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+a.phone-link { text-decoration: none; color: var(--ria); }
+a.phone-link:hover { text-decoration: underline; }
+.contact-info { margin-top: var(--space-3); font-size: var(--font-size-sm); }
+.contact-box .label { display: block; font-size: var(--font-size-sm); color: var(--ink-2); }
+
+.info-list { list-style: none; padding: 0 !important; margin-top: var(--space-3); }
+.info-list li { padding: var(--space-2) 0; border-bottom: 1px solid var(--rule); margin: 0 !important; }
+
+.tips-list { list-style: none; padding: 0 !important; margin-top: var(--space-4); counter-reset: tip; }
+.tips-list li {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: var(--space-3);
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--rule);
+    margin: 0 !important;
+    counter-increment: tip;
+}
+.tips-list li::before {
+    content: counter(tip, decimal-leading-zero);
+    content: counter(tip, decimal-leading-zero) / "";
+    font-family: var(--font-display);
+    font-size: var(--font-size-lg);
+    color: var(--terra);
+    line-height: 1.2;
+}
+.tips-list .tip-text strong { display: block; font-family: var(--font-display); font-size: 1.1875rem; font-weight: 600; }
+.tips-list .tip-text span { color: var(--ink-3); font-size: var(--font-size-sm); }
+
+/* Schedules (transportes) */
+.schedule-box ul { list-style: none; padding: 0 !important; }
+.schedule-box ul li {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+    margin: 0 !important;
+}
+.schedule-box ul li:last-child { border-bottom: 0; }
+.route-name { font-weight: 700; color: var(--ink); }
+.route-time { font-variant-numeric: tabular-nums; color: var(--ink-2); white-space: nowrap; }
+
+/* --------------------------------------------------------------------------
+   5. Emergency (saude, saude-onde-ir-agora, idosos)
+   -------------------------------------------------------------------------- */
+.emergency-item .label {
+    font-size: var(--font-size-xs);
+    font-weight: 700;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+}
+.emergency-item .number {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 1.5rem + 2vw, 2.75rem);
+    font-weight: 600;
+    line-height: 1;
+    color: var(--danger);
+    letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums;
+}
+
+.quick-access-hero { padding: var(--space-7) 0 var(--space-6); border-bottom: 2px solid var(--rule-strong); }
+.quick-access-hero > :is(h1, h2) { font-size: var(--font-size-3xl); letter-spacing: -0.03em; line-height: 1.02; max-width: 18ch; }
+.quick-access-hero > p { margin-top: var(--space-4); max-width: 58ch; font-family: var(--font-display); font-size: clamp(1.1875rem, 1rem + 0.6vw, 1.4375rem); line-height: 1.45; }
+
+main > section.emergency-card { padding: var(--space-6) 0; }
+.emergency-card > h3 { font-size: var(--font-size-2xl); margin-bottom: var(--space-3); }
+.emergency-card.priority > h3 { color: var(--danger); }
+.emergency-card .info-text { max-width: var(--measure); margin-bottom: var(--space-4); }
+.emergency-card .btn-call-large + .btn-secondary-large,
+.emergency-card .btn-secondary-large + .btn-secondary-large { margin-left: var(--space-2); }
+.service-hours { margin-top: var(--space-4); font-size: var(--font-size-sm); color: var(--ink-3); display: flex; flex-direction: column; gap: var(--space-1); }
+.service-hours strong { color: var(--ok); }
+.info-text-spaced { margin-top: var(--space-4); }
+.section-title { margin-bottom: var(--space-4); }
+.quick-access-container { margin-top: var(--space-5); }
+.btn-quick-access { border-color: var(--danger); color: var(--danger); }
+.btn-quick-access:hover { background: var(--danger); border-color: var(--danger); color: #fff; }
+
+/* Pharmacies "show more" */
+.farmacia-extra { display: none; }
+.farmacia-extra.show { display: block; }
+.btn-ver-mais { margin: var(--space-4) 0 var(--space-5); }
+
+/* --------------------------------------------------------------------------
+   6. Timeline (historia-faro)
+   -------------------------------------------------------------------------- */
+.timeline-container { margin-top: var(--space-5); }
+.timeline { position: relative; list-style: none; border-top: 2px solid var(--rule-strong); }
+.timeline-item {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    gap: 0 var(--space-5);
+    padding: var(--space-5) 0;
+    border-bottom: 1px solid var(--rule);
+}
+.timeline-content { display: contents; }
+.timeline-date {
+    grid-column: 1;
+    font-family: var(--font-display);
+    font-size: var(--font-size-xl);
+    font-weight: 500;
+    color: var(--terra);
+    line-height: 1.2;
+}
+.timeline-title,
+.timeline-description { grid-column: 2; }
+.timeline-title { font-size: var(--font-size-xl); grid-row: 1; }
+.timeline-description { grid-row: 2; color: var(--ink-2); max-width: var(--measure); margin-top: var(--space-2); }
+.timeline-date { grid-row: 1 / span 2; }
+
+/* --------------------------------------------------------------------------
+   7. Hotels & restaurants (cards built in src/data/hoteis.js / restaurantes.js)
+   -------------------------------------------------------------------------- */
+.hotel-header,
+.restaurante-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    order: -1;
+}
+.hotel-icon, .restaurante-icon { display: none; }
+.hotel-nome, .restaurante-nome { margin-top: var(--space-1); }
+.hotel-info, .restaurante-info { margin-top: var(--space-2); font-size: var(--font-size-sm); }
+.hotel-info .info-row,
+.restaurante-info .info-row { border-bottom: 1px dotted var(--rule); padding: var(--space-1) 0; justify-content: space-between; }
+.hotel-info .info-label,
+.restaurante-info .info-label { font-size: var(--font-size-xs); }
+.info-value.preco { color: var(--ok); }
+.info-value.classificacao { color: var(--terra); }
+.hotel-actions, .restaurante-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+    margin-top: auto;
+    padding-top: var(--space-2);
+}
+.hotel-card .btn-favorite,
+.restaurante-card .btn-favorite { margin-left: auto; }
+
+/* --------------------------------------------------------------------------
+   8. Mobility simulator & parking (mobilidade) / day simulator (oque-fazer-hoje)
+   -------------------------------------------------------------------------- */
+.simulator-container,
+.simulator-box {
+    margin-top: var(--space-5);
+    padding: var(--space-5);
+    background: var(--paper-2);
+    border-radius: var(--radius-lg);
+}
+main > section.simulator-container { padding: var(--space-6) var(--space-5); margin-top: var(--space-6); }
+.location-selector { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--space-4); align-items: end; margin-top: var(--space-4); }
+.location-group label { margin-bottom: var(--space-1); }
+.calculate-btn { margin-top: var(--space-4); }
+.results-container { display: none; margin-top: var(--space-5); }
+.results-container.active { display: block; }
+.result-card { padding-top: var(--space-4); border-top: 2px solid var(--rule-strong); }
+.result-card + .result-card { margin-top: var(--space-5); }
+.parking-zone.paid h4 { color: var(--warn); }
+.parking-zone.free h4 { color: var(--ok); }
+.day-selector { width: auto; min-width: 12rem; }
+
+/* --------------------------------------------------------------------------
+   9. Premium guide
+   -------------------------------------------------------------------------- */
+.premium-hero { padding: var(--space-7) 0 var(--space-6); border-bottom: 2px solid var(--rule-strong); }
+.premium-hero > :is(h1, h2) { font-size: var(--font-size-3xl); letter-spacing: -0.03em; line-height: 1.02; max-width: 16ch; }
+.premium-hero > p { margin-top: var(--space-4); max-width: 58ch; font-family: var(--font-display); font-size: clamp(1.1875rem, 1rem + 0.6vw, 1.4375rem); line-height: 1.45; }
+.download-section {
+    padding: var(--space-6) 0;
+    border-top: 2px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule);
+}
+.download-section h3 { font-size: var(--font-size-2xl); }
+.download-section p { max-width: var(--measure); margin: var(--space-2) 0 var(--space-4); }
+.download-button { font-size: var(--font-size-base); min-height: 3.25rem; padding: var(--space-3) var(--space-6); }
+.content-list { list-style: none; padding: 0 !important; columns: 2 18rem; column-gap: var(--space-6); margin-top: var(--space-3); }
+.content-list li { break-inside: avoid; padding: var(--space-2) 0; border-bottom: 1px solid var(--rule); margin: 0 !important; }
+.transparency-notice ul, .about-section ul { padding-left: 1.125rem; }
+
+/* --------------------------------------------------------------------------
+   10. About / tech (sobre-projeto)
+   -------------------------------------------------------------------------- */
+.api-card .api-url {
+    display: block;
+    margin-top: var(--space-2);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: var(--font-size-xs);
+    color: var(--ink-3);
+    word-break: break-all;
+}
+.contact-card a { font-weight: 700; }
+.code-block {
+    margin-top: var(--space-3);
+    padding: var(--space-4);
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: var(--radius-sm);
+    font: var(--font-size-xs)/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    overflow-x: auto;
+    white-space: pre;
+}
+body.dark-mode .code-block { background: #0d1112; color: var(--ink-2); }
+
+/* --------------------------------------------------------------------------
+   11. Demo (demo-alertas)
+   -------------------------------------------------------------------------- */
+.demo-container { padding-top: var(--space-5); }
+.demo-section { padding: var(--space-5) 0; border-top: 1px solid var(--rule); }
+.demo-section h3 { margin-bottom: var(--space-3); }
+.demo-btn.info { border-color: var(--ria); color: var(--ria); }
+.demo-btn.warning { border-color: var(--warn); color: var(--warn); }
+.demo-btn.important, .demo-btn.dismiss-all { border-color: var(--danger); color: var(--danger); }
+.demo-btn.success, .demo-btn.event { border-color: var(--ok); color: var(--ok); }
+.demo-btn:hover { color: var(--paper) !important; }
+
+/* --------------------------------------------------------------------------
+   12. Offline page
+   -------------------------------------------------------------------------- */
+.offline-container {
+    max-width: 40rem;
+    padding: var(--space-8) 0;
+}
+.offline-container > :is(h1, h2) { font-size: var(--font-size-3xl); letter-spacing: -0.03em; line-height: 1.02; }
+.offline-container > p { margin-top: var(--space-4); font-family: var(--font-display); font-size: var(--font-size-lg); }
+.cached-pages { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 2px solid var(--rule-strong); }
+.cached-pages ul { list-style: none; padding: 0 !important; columns: 2 12rem; }
+.cached-pages li { padding: var(--space-2) 0; border-bottom: 1px solid var(--rule); margin: 0 !important; break-inside: avoid; }
+.cached-pages a { font-family: var(--font-display); font-size: 1.125rem; text-decoration: none; }
+.cached-pages a:hover { text-decoration: underline; }
+.retry-button { margin-top: var(--space-6); }
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .timeline-item { grid-template-columns: minmax(0, 1fr); gap: var(--space-1); }
+    .timeline-date, .timeline-title, .timeline-description { grid-column: 1; grid-row: auto; margin-top: 0; }
+    .timeline-date { font-size: var(--font-size-lg); }
+    .emergency-card .btn-call-large + .btn-secondary-large,
+    .emergency-card .btn-secondary-large + .btn-secondary-large { margin-left: 0; margin-top: var(--space-2); }
+    .simulator-container, .simulator-box { padding: var(--space-4); }
+    main > section.simulator-container { padding: var(--space-5) var(--space-4); }
+}
+.favorites-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-5); }
+
+/* --------------------------------------------------------------------------
+   Large-text page variant (idosos.html) — bigger body copy for older readers
+   -------------------------------------------------------------------------- */
+body.page-large-text main { font-size: 1.1875rem; line-height: 1.8; }
+body.page-large-text main :is(p, li) { font-size: inherit; }
+body.page-large-text main > section > :is(h2, h3):first-child { font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem); }
+body.page-large-text .btn,
+body.page-large-text .btn-maps { font-size: 1.0625rem; }

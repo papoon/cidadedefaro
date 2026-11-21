@@ -1,8 +1,8 @@
-/* ===================================
-   ACESSIBILIDADE - ESTILOS
-   =================================== */
+/* ==========================================================================
+   Accessibility — skip link, a11y menu (src/ui/accessibility.js),
+   high-contrast mode and keyboard focus.
+   ========================================================================== */
 
-/* Screen reader only (visually hidden but accessible to screen readers) */
 .sr-only {
     position: absolute;
     width: 1px;
@@ -15,559 +15,168 @@
     border-width: 0;
 }
 
-/* Skip link para navegação por teclado */
 .skip-link {
     position: absolute;
-    top: -40px;
-    left: 0;
-    background: #146a8c;
-    color: white;
-    padding: 0.75rem 1.5rem;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 0 0 8px 0;
+    top: -100px;
+    left: var(--space-4);
     z-index: 10000;
-    transition: top 0.3s ease;
+    padding: var(--space-3) var(--space-5);
+    background: var(--ink);
+    color: var(--paper);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
 }
+.skip-link:focus { top: 0; color: var(--paper); }
 
-.skip-link:focus {
-    top: 0;
-}
-
-/* ===================================
-   BARRA DE FERRAMENTAS DE ACESSIBILIDADE
-   =================================== */
-
+/* --------------------------------------------------------------------------
+   Toolbar + menu. In the masthead it's an inline tool; on pages without the
+   shared header it falls back to a fixed button top-right.
+   -------------------------------------------------------------------------- */
 .accessibility-toolbar {
-    /* Place toolbar next to the dark-mode and lang controls on larger screens.
-       On small screens it will fall back to the side (see media query below). */
     position: fixed;
-    /* align under the dark-mode toggle (which is at top:1rem; right:1rem; width:3rem) */
-    right: 1rem;
-    top: calc(1rem + 3rem + 0.5rem);
+    top: var(--space-4);
+    right: var(--space-4);
     z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
+.accessibility-toolbar.in-masthead { position: relative; top: auto; right: auto; z-index: 60; }
 
-.accessibility-toggle {
-    /* Match the visual style of the circular dark-mode toggle on desktop */
-    background: rgba(255, 255, 255, 0.9);
-    color: #2c3338;
-    border: 2px solid #e6ddce;
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    padding: 0;
-    font-size: 1.25rem;
-    cursor: pointer;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.accessibility-toggle:hover,
-.accessibility-toggle:focus {
-    transform: scale(1.05);
-    background: rgba(245, 245, 245, 0.95);
-}
-
-.accessibility-toggle:focus {
-    outline: 3px solid #146a8c;
-    outline-offset: 2px;
-}
-
-.accessibility-menu {
-    position: absolute;
-    right: 100%;
-    top: 0;
-    background: white;
-    border-radius: 8px 0 0 8px;
-    box-shadow: -4px 4px 20px rgba(0, 0, 0, 0.15);
-    padding: 1.5rem;
-    min-width: 300px;
-    max-width: 350px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(20px);
-    transition: all 0.3s ease;
-}
-
-/* Mobile adjustments: keep the stacked top-right layout but scale controls down */
-@media (max-width: 768px) {
-    .accessibility-toolbar {
-        /* remain top-right and stacked under the dark-mode toggle */
-        right: 0.75rem;
-        top: calc(0.75rem + 2.5rem + 0.4rem);
-    }
-
-    .accessibility-toggle {
-        width: 2.5rem;
-        height: 2.5rem;
-        font-size: 1rem;
-    }
-
-    .accessibility-menu {
-        /* keep the menu positioned relative to the toggle */
-        right: 100%;
-        top: 0;
-        min-width: 260px;
-    }
-}
-
-.accessibility-menu.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0);
-}
-
-.accessibility-menu h3 {
-    color: #2c3338;
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid #e6ddce;
-}
-
-.accessibility-group {
-    margin-bottom: 1.5rem;
-}
-
-.accessibility-group label {
-    display: block;
-    color: #4a4a45;
-    font-weight: 600;
-    font-size: 0.875rem;
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.accessibility-controls {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.btn-accessibility {
-    background: #faf7f2;
-    border: 2px solid #e6ddce;
-    border-radius: 6px;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    color: #4a4a45;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.btn-accessibility:hover {
-    background: #f3ede1;
-    border-color: #146a8c;
-    transform: translateY(-2px);
-}
-
-.btn-accessibility:focus {
-    outline: 3px solid #146a8c;
-    outline-offset: 2px;
-}
-
-.btn-accessibility:active {
-    transform: translateY(0);
-}
-
-.btn-toggle {
-    flex: 1;
-    justify-content: center;
-}
-
-.btn-toggle[aria-checked="true"] {
-    background: #146a8c;
-    color: white;
-    border-color: #146a8c;
-}
-
-.font-size-display {
-    display: inline-block;
-    padding: 0.5rem 0.75rem;
-    background: #f3ede1;
-    border-radius: 6px;
-    font-weight: 600;
-    color: #2c3338;
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-}
-
-.accessibility-info {
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid #e6ddce;
-}
-
-.accessibility-info p {
-    color: #6b6a63;
-    font-size: 0.875rem;
-    margin-bottom: 0.5rem;
-}
-
-.accessibility-info ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.accessibility-info li {
-    color: #6b6a63;
-    font-size: 0.8rem;
-    padding: 0.25rem 0;
-    display: flex;
-    align-items: center;
-}
-
-.accessibility-info kbd {
-    background: #faf7f2;
-    border: 1px solid #ded3bd;
-    border-radius: 4px;
-    padding: 0.125rem 0.375rem;
-    font-size: 0.75rem;
-    font-family: monospace;
-    margin: 0 0.25rem;
-}
-
-/* ===================================
-   MODO DE ALTO CONTRASTE
-   =================================== */
-
-body.high-contrast {
-    background-color: #000;
-    color: #fff;
-}
-
-body.high-contrast header {
-    background: #000;
-    border-bottom: 3px solid #fff;
-}
-
-body.high-contrast nav a {
-    color: #fff;
-    border: 2px solid #fff;
-    margin: 0.25rem;
-}
-
-body.high-contrast nav a:hover,
-body.high-contrast nav a:focus,
-body.high-contrast nav a.active {
-    background-color: #fff;
-    color: #000;
-}
-
-body.high-contrast main {
-    background-color: #000;
-}
-
-body.high-contrast .hero,
-body.high-contrast .card,
-body.high-contrast .dados-faro-section,
-body.high-contrast section,
-body.high-contrast .search-filter-section,
-body.high-contrast .info-item {
-    background-color: #000;
-    color: #fff;
-    border: 2px solid #fff;
-}
-
-body.high-contrast h1,
-body.high-contrast h2,
-body.high-contrast h3,
-body.high-contrast h4,
-body.high-contrast h5,
-body.high-contrast h6,
-body.high-contrast p,
-body.high-contrast a,
-body.high-contrast li,
-body.high-contrast label,
-body.high-contrast .info-label,
-body.high-contrast .info-value,
-body.high-contrast .card p {
-    color: #fff;
-}
-
-body.high-contrast a:hover,
-body.high-contrast a:focus {
-    color: #f9a806;
-    text-decoration: underline;
-}
-
-body.high-contrast .card:hover {
-    background-color: #211d18;
-    border-color: #f9a806;
-}
-
-body.high-contrast .btn,
-body.high-contrast .btn-primary,
-body.high-contrast button {
-    background-color: #fff;
-    color: #000;
-    border: 2px solid #fff;
-}
-
-body.high-contrast .btn:hover,
-body.high-contrast .btn:focus,
-body.high-contrast button:hover,
-body.high-contrast button:focus {
-    background-color: #f9a806;
-    color: #000;
-    border-color: #f9a806;
-}
-
-body.high-contrast footer {
-    background: #000;
-    border-top: 3px solid #fff;
-}
-
-body.high-contrast .search-input,
-body.high-contrast input,
-body.high-contrast select,
-body.high-contrast textarea {
-    background-color: #000;
-    color: #fff;
-    border: 2px solid #fff;
-}
-
-body.high-contrast .search-input:focus,
-body.high-contrast input:focus,
-body.high-contrast select:focus,
-body.high-contrast textarea:focus {
-    border-color: #f9a806;
-    outline: 3px solid #f9a806;
-}
-
-/* Alto contraste - Barra de Acessibilidade */
-body.high-contrast .accessibility-toolbar {
-    background: #000;
-}
-
-body.high-contrast .accessibility-toggle {
-    background: #fff;
-    color: #000;
-    border: 2px solid #fff;
-}
-
-body.high-contrast .accessibility-toggle:hover,
-body.high-contrast .accessibility-toggle:focus {
-    background: #f9a806;
-    color: #000;
-    border-color: #f9a806;
-}
-
-body.high-contrast .accessibility-menu {
-    background: #000;
-    border: 3px solid #fff;
-}
-
-body.high-contrast .accessibility-menu h3 {
-    color: #fff;
-    border-bottom-color: #fff;
-}
-
-body.high-contrast .accessibility-group label {
-    color: #fff;
-}
-
-body.high-contrast .btn-accessibility {
-    background: #000;
-    color: #fff;
-    border-color: #fff;
-}
-
-body.high-contrast .btn-accessibility:hover,
-body.high-contrast .btn-accessibility:focus {
-    background: #f9a806;
-    color: #000;
-    border-color: #f9a806;
-}
-
-body.high-contrast .btn-toggle[aria-checked="true"] {
-    background: #f9a806;
-    color: #000;
-    border-color: #f9a806;
-}
-
-body.high-contrast .font-size-display {
-    background: #000;
-    color: #fff;
-    border: 2px solid #fff;
-}
-
-body.high-contrast .accessibility-info {
-    border-top-color: #fff;
-}
-
-body.high-contrast .accessibility-info p,
-body.high-contrast .accessibility-info li {
-    color: #fff;
-}
-
-body.high-contrast .accessibility-info kbd {
-    background: #000;
-    color: #fff;
-    border-color: #fff;
-}
-
-/* ===================================
-   MELHORIAS DE FOCO PARA NAVEGAÇÃO POR TECLADO
-   =================================== */
-
-body.keyboard-navigation a:focus,
-body.keyboard-navigation button:focus,
-body.keyboard-navigation input:focus,
-body.keyboard-navigation select:focus,
-body.keyboard-navigation textarea:focus,
-body.keyboard-navigation [tabindex]:focus,
-body.keyboard-navigation [role="button"]:focus,
-body.keyboard-navigation [role="menuitem"]:focus {
-    outline: 3px solid #146a8c;
-    outline-offset: 2px;
-}
-
-body.high-contrast.keyboard-navigation a:focus,
-body.high-contrast.keyboard-navigation button:focus,
-body.high-contrast.keyboard-navigation input:focus,
-body.high-contrast.keyboard-navigation select:focus,
-body.high-contrast.keyboard-navigation textarea:focus,
-body.high-contrast.keyboard-navigation [tabindex]:focus,
-body.high-contrast.keyboard-navigation [role="button"]:focus,
-body.high-contrast.keyboard-navigation [role="menuitem"]:focus {
-    outline: 3px solid #f9a806;
-    outline-offset: 2px;
-}
-
-/* Melhorar contraste de texto */
-body a {
-    color: #125a78;
-}
-
-body a:hover {
-    color: #146a8c;
-}
-
-/* Garantir contraste mínimo nos cards */
-.card h3 {
-    color: #1b272b;
-}
-
-.card p {
-    color: #4a4a45;
-}
-
-/* ===================================
-   RESPONSIVO - ACESSIBILIDADE
-   =================================== */
-
-@media (max-width: 768px) {
-    /* Keep the toolbar stacked below the dark-mode toggle on mobile instead of moving it to bottom */
-    .accessibility-toolbar {
-        right: 0.75rem;
-        top: calc(0.75rem + 2.5rem + 0.4rem);
-    }
-
-    .accessibility-menu {
-        /* position the menu to the left of the toggle when opened */
-        right: 100%;
-        top: 0;
-        border-radius: 8px 0 0 8px;
-        max-width: calc(100vw - 3.5rem);
-    }
-
-    .accessibility-menu.show {
-        transform: translateX(0);
-    }
-
-    .accessibility-toggle {
-        border-radius: 50%;
-    }
-}
-
-@media (max-width: 480px) {
-    .accessibility-menu {
-        padding: 1rem;
-        min-width: 280px;
-    }
-    
-    .accessibility-menu h3 {
-        font-size: 1rem;
-    }
-    
-    .btn-accessibility {
-        padding: 0.4rem 0.75rem;
-        font-size: 0.9rem;
-    }
-    
-    .accessibility-info {
-        font-size: 0.75rem;
-    }
-}
-
-/* ===================================
-   MELHORIAS DE LEITURA
-   =================================== */
-
-/* Melhorar espaçamento de linha para leitura */
-body {
-    line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    line-height: 1.3;
-}
-
-p {
-    max-width: 75ch;
-    margin-bottom: 1em;
-}
-
-/* Garantir que listas sejam legíveis */
-ul, ol {
-    padding-left: 1.5em;
-}
-
-li {
-    margin-bottom: 0.5em;
-}
-
-/* Melhorar legibilidade de links */
-a {
-    text-decoration-skip-ink: auto;
-}
-
-/* Garantir que elementos interativos tenham tamanho mínimo adequado (WCAG AA - 2.5.5) */
-/* Aplicado cuidadosamente para não quebrar layouts existentes */
-button:not(.inline),
-input[type="submit"],
-input[type="button"],
-input[type="checkbox"],
-input[type="radio"],
-.btn,
-.btn-favorite,
-.btn-accessibility,
-[role="button"]:not(a) {
-    min-height: 44px;
-    min-width: 44px;
-}
-
-/* Links de navegação e cards já têm tamanho adequado via padding no CSS principal */
-/* Botões específicos da acessibilidade usam inline-flex para alinhamento */
-.btn-accessibility,
-.btn-favorite,
 .accessibility-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+}
+.accessibility-toolbar:not(.in-masthead) .accessibility-toggle { background: var(--paper); border: 1.5px solid var(--ink); }
+.accessibility-toggle:hover,
+.accessibility-toggle[aria-expanded="true"] { background: var(--paper-2); }
+
+.accessibility-menu {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    right: 0;
+    width: min(20rem, calc(100vw - 2rem));
+    padding: var(--space-5);
+    background: var(--surface);
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    color: var(--ink-2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity var(--transition-base), transform var(--transition-base), visibility var(--transition-base);
+}
+.accessibility-menu.show { opacity: 1; visibility: visible; transform: none; }
+.accessibility-menu h3 {
+    font-size: var(--font-size-lg);
+    padding-bottom: var(--space-2);
+    margin-bottom: var(--space-4);
+    border-bottom: 2px solid var(--rule-strong);
+}
+.accessibility-group { margin-bottom: var(--space-5); }
+.accessibility-group label {
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: var(--space-2);
+}
+.accessibility-controls { display: flex; gap: var(--space-2); align-items: center; }
+.btn-accessibility {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding: var(--space-1) var(--space-3);
+    background: transparent;
+    border: 1.5px solid var(--ink-4);
+    border-radius: var(--radius-sm);
+    color: var(--ink);
+    font: 700 var(--font-size-base) var(--font-body);
+    cursor: pointer;
+}
+.btn-accessibility:hover { background: var(--paper-2); border-color: var(--ink); }
+.btn-toggle { flex: 1; }
+.btn-toggle[aria-checked="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.font-size-display {
+    display: inline-block;
+    margin-top: var(--space-2);
+    font-size: var(--font-size-sm);
+    color: var(--ink-3);
+    font-variant-numeric: tabular-nums;
+}
+.accessibility-info {
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--rule);
+    font-size: var(--font-size-xs);
+    color: var(--ink-3);
+}
+.accessibility-info ul { list-style: none; margin-top: var(--space-2); }
+.accessibility-info li + li { margin-top: var(--space-1); }
+
+/* --------------------------------------------------------------------------
+   High contrast — pure black/white/yellow, overrides the tokens
+   -------------------------------------------------------------------------- */
+body.high-contrast {
+    --paper: #000000;
+    --paper-2: #000000;
+    --surface: #000000;
+    --rule: #ffffff;
+    --rule-strong: #ffffff;
+    --ink: #ffffff;
+    --ink-2: #ffffff;
+    --ink-3: #ffffff;
+    --ink-4: #ffffff;
+    --ria: #ffff00;
+    --ria-deep: #ffff00;
+    --ria-tint: #000000;
+    --terra: #ffff00;
+    --terra-tint: #000000;
+    --danger: #ff6b6b;
+    --danger-tint: #000000;
+    --warn: #ffff00;
+    --warn-tint: #000000;
+    --ok: #7dff7d;
+    --ok-tint: #000000;
+    --shadow-md: none;
+    --shadow-lg: none;
+    color-scheme: dark;
+}
+body.high-contrast a { text-decoration: underline; }
+body.high-contrast :is(.callout, .info-box, .highlight-box, .tips-box, .warning-box, .contact-box, .schedule-box, .safe-routes-box, .transparency-notice, .voluntary-support, .disclaimer, .license-box, .useful-links, .premium-notice, .simulator-container, .simulator-box) {
+    border: 2px solid #ffffff;
+}
+body.high-contrast .colophon { background: #000; border-top: 2px solid #fff; color: #fff; }
+body.high-contrast .btn-call-large,
+body.high-contrast .btn-primary,
+body.high-contrast .download-button,
+body.high-contrast .calculate-btn { background: #ffff00; border-color: #ffff00; color: #000; }
+body.high-contrast .favorites-count { background: #ffff00; color: #000; }
+body.high-contrast .masthead-tools .icon,
+body.high-contrast .tool-btn { color: #fff; }
+
+/* Keyboard users (body.keyboard-navigation is set on Tab) */
+body.keyboard-navigation :is(a, button, input, select, textarea, [tabindex], [role="button"]):focus {
+    outline: 3px solid var(--color-focus-ring);
+    outline-offset: 2px;
+}
+
+/* Minimum touch target for icon-only controls (WCAG 2.5.5) */
+.btn-favorite,
+.btn-accessibility,
+.accessibility-toggle,
+.tool-btn { min-width: 44px; min-height: 44px; }
+
+@media (max-width: 480px) {
+    .accessibility-menu { padding: var(--space-4); }
 }

@@ -35,223 +35,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    <style>
-        .transport-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .transport-card h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .transport-card .icon {
-            font-size: 2rem;
-        }
-        
-        /* .info-box, .contact-box now come from the shared page patterns
-           in assets/styles/style.css */
-        .info-box ul li {
-            margin: 0.5rem 0;
-        }
-
-        .contact-item {
-            margin: 0.75rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
-        
-        .contact-item strong {
-            color: #2c3338;
-            min-width: 120px;
-        }
-        
-        .phone-number {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #2c3338;
-            margin: 0.5rem 0;
-        }
-        
-        .schedule-box {
-            background: #f3ede1;
-            border-left: 4px solid #146a8c;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .schedule-box h4 {
-            color: #2c3338;
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .schedule-box ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .schedule-box ul li {
-            padding: 0.5rem 0;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid #ded3bd;
-        }
-        
-        .schedule-box ul li:last-child {
-            border-bottom: none;
-        }
-        
-        .route-name {
-            font-weight: 600;
-            color: #2c3338;
-        }
-        
-        .route-time {
-            color: #146a8c;
-            font-weight: 600;
-        }
-        
-        /* .tips-box now comes from the shared page patterns in
-           assets/styles/style.css */
-        .tips-box ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .tips-box ul li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .tips-box ul li:before {
-            content: "💡";
-            position: absolute;
-            left: 0;
-        }
-        
-        .warning-box {
-            background: #fdddd8;
-            border-left: 4px solid #c0392b;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .warning-box h4 {
-            color: #9c2e22;
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .warning-box p {
-            color: #72352c;
-            margin: 0.5rem 0;
-        }
-        
-        .warning-box ul {
-            list-style: disc;
-            padding-left: 2rem;
-            margin-top: 0.5rem;
-        }
-        
-        .warning-box ul li {
-            color: #72352c;
-        }
-        
-        .app-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .app-badge {
-            background: white;
-            border: 2px solid #e6ddce;
-            border-radius: 8px;
-            padding: 0.75rem 1.25rem;
-            font-weight: 600;
-            color: #2c3338;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .safe-routes-box {
-            background: #e8fdee;
-            border-left: 4px solid #3d8dad;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .safe-routes-box h4 {
-            color: #2c3338;
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .safe-routes-box ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .safe-routes-box ul li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .safe-routes-box ul li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #3d8dad;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 768px) {
-            .transport-card {
-                padding: 1.5rem;
-            }
-            
-            .contact-item {
-                flex-direction: column;
-                gap: 0.25rem;
-            }
-            
-            .contact-item strong {
-                min-width: auto;
-            }
-            
-            .schedule-box ul li {
-                flex-direction: column;
-                gap: 0.25rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -259,13 +42,13 @@
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2 data-i18n="transport.hero_title">Transportes Noturnos em Faro</h2>
+            <h1 data-i18n="transport.hero_title">Transportes Noturnos em Faro</h1>
             <p data-i18n="transport.hero_description">Guia completo sobre mobilidade noturna em Faro. Encontre informações sobre últimos autocarros, táxis, TVDE e caminhos seguros para se deslocar pela cidade à noite.</p>
         </section>
 
         <!-- Últimos Autocarros -->
         <section class="transport-card">
-            <h3><span class="icon" data-i18n="transportes.key_1">🚌</span><span data-i18n="transport.last_buses">Últimos Autocarros</span></h3>
+            <h3><span data-i18n="transport.last_buses">Últimos Autocarros</span></h3>
             
             <div class="info-box">
                 <p><strong data-i18n="transportes.sobre_os_horrios_noturnos">Sobre os Horários Noturnos:</strong></p>
@@ -273,7 +56,7 @@
             </div>
             
             <div class="schedule-box">
-                <h4 data-i18n="transportes.ltimos_horrios_segunda_a_sexta">🕐 Últimos Horários (Segunda a Sexta)</h4>
+                <h4 data-i18n="transportes.ltimos_horrios_segunda_a_sexta">Últimos Horários (Segunda a Sexta)</h4>
                 <ul>
                     <li>
                         <span class="route-name" data-i18n="transportes.linha_14_centro_aeroporto">Linha 14 - Centro → Aeroporto</span>
@@ -295,12 +78,12 @@
             </div>
             
             <div class="warning-box">
-                <h4 data-i18n="transport.important_warning">⚠️ Importante</h4>
+                <h4 data-i18n="transport.important_warning">Importante</h4>
                 <p data-i18n="transport.important_warning_text">Os horários podem variar aos fins de semana e feriados. Verifique sempre os horários atualizados no site da empresa ou através da aplicação móvel.</p>
             </div>
             
             <div class="contact-box">
-                <h4 data-i18n="transportes.contactos">📞 Contactos</h4>
+                <h4 data-i18n="transportes.contactos">Contactos</h4>
                 <p><strong data-i18n="transportes.proximo_operadora_de_autocarros">Proximo (Operadora de Autocarros)</strong></p>
                 
                 <div class="contact-item">
@@ -320,7 +103,7 @@
             </div>
             
             <div class="tips-box">
-                <h4 data-i18n="transportes.dicas_teis">💡 Dicas Úteis</h4>
+                <h4 data-i18n="transportes.dicas_teis">Dicas Úteis</h4>
                 <ul>
                     <li data-i18n="transportes.descarregue_a_aplicao_da_proximo_para_co">Descarregue a aplicação da Proximo para consultar horários em tempo real</li>
                     <li data-i18n="transportes.chegue_paragem_com_510_minutos_de_antec">Chegue à paragem com 5-10 minutos de antecedência</li>
@@ -332,7 +115,7 @@
 
         <!-- Táxis -->
         <section class="transport-card">
-            <h3><span class="icon" data-i18n="transportes.key_2">🚕</span>Táxis</h3>
+            <h3>Táxis</h3>
             
             <div class="info-box">
                 <p><strong data-i18n="transportes.servio_de_txi_em_faro">Serviço de Táxi em Faro:</strong></p>
@@ -340,7 +123,7 @@
             </div>
             
             <div class="contact-box">
-                <h4 data-i18n="transportes.centrais_de_txi">📞 Centrais de Táxi</h4>
+                <h4 data-i18n="transportes.centrais_de_txi">Centrais de Táxi</h4>
                 
                 <div class="contact-item">
                     <strong data-i18n="transportes.txi_faro">Táxi Faro:</strong>
@@ -364,7 +147,7 @@
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="transportes.preos_indicativos_aproximados">💰 Preços Indicativos (aproximados):</strong></p>
+                <p><strong data-i18n="transportes.preos_indicativos_aproximados">Preços Indicativos (aproximados):</strong></p>
                 <ul>
                     <li data-i18n="transportes.bandeirada_325">Bandeirada: €3,25</li>
                     <li data-i18n="transportes.por_km_dia_047">Por km (dia): €0,47</li>
@@ -375,7 +158,7 @@
             </div>
             
             <div class="tips-box">
-                <h4 data-i18n="transportes.dicas_para_usar_txi">💡 Dicas para Usar Táxi</h4>
+                <h4 data-i18n="transportes.dicas_para_usar_txi">Dicas para Usar Táxi</h4>
                 <ul>
                     <li data-i18n="transportes.confirme_que_o_taxmetro_est_ligado_no_in">Confirme que o taxímetro está ligado no início da viagem</li>
                     <li data-i18n="transportes.pea_sempre_recibo_ao_motorista">Peça sempre recibo ao motorista</li>
@@ -388,7 +171,7 @@
 
         <!-- TVDE -->
         <section class="transport-card">
-            <h3><span class="icon" data-i18n="transportes.key_3">📱</span>TVDE (Uber, Bolt e Outras)</h3>
+            <h3>TVDE (Uber, Bolt e Outras)</h3>
             
             <div class="info-box">
                 <p><strong data-i18n="transportes.transporte_em_veculo_descaracterizado_a">Transporte em Veículo Descaracterizado a partir de Eletrónica:</strong></p>
@@ -396,17 +179,17 @@
             </div>
             
             <div class="schedule-box">
-                <h4 data-i18n="transportes.aplicaes_disponveis_em_faro">📲 Aplicações Disponíveis em Faro</h4>
+                <h4 data-i18n="transportes.aplicaes_disponveis_em_faro">Aplicações Disponíveis em Faro</h4>
                 <div class="app-list">
-                    <div class="app-badge">🚗 Uber</div>
-                    <div class="app-badge">⚡ Bolt</div>
-                    <div class="app-badge">🚙 FREE NOW</div>
-                    <div class="app-badge">🚕 Cabify</div>
+                    <div class="app-badge">Uber</div>
+                    <div class="app-badge">Bolt</div>
+                    <div class="app-badge">FREE NOW</div>
+                    <div class="app-badge">Cabify</div>
                 </div>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="transportes.vantagens_do_tvde">✨ Vantagens do TVDE:</strong></p>
+                <p><strong data-i18n="transportes.vantagens_do_tvde">Vantagens do TVDE:</strong></p>
                 <ul>
                     <li data-i18n="transportes.preo_conhecido_antecipadamente">Preço conhecido antecipadamente</li>
                     <li data-i18n="transportes.pagamento_integrado_na_aplicao_carto_ou">Pagamento integrado na aplicação (cartão ou MBWay)</li>
@@ -418,7 +201,7 @@
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="transportes.preos_indicativos_variam_consoante_proc">💰 Preços Indicativos (variam consoante procura):</strong></p>
+                <p><strong data-i18n="transportes.preos_indicativos_variam_consoante_proc">Preços Indicativos (variam consoante procura):</strong></p>
                 <ul>
                     <li data-i18n="transportes.centro_aeroporto_812">Centro → Aeroporto: €8-12</li>
                     <li data-i18n="transportes.centro_montenegro_610">Centro → Montenegro: €6-10</li>
@@ -429,7 +212,7 @@
             </div>
             
             <div class="tips-box">
-                <h4 data-i18n="transportes.dicas_para_usar_tvde">💡 Dicas para Usar TVDE</h4>
+                <h4 data-i18n="transportes.dicas_para_usar_tvde">Dicas para Usar TVDE</h4>
                 <ul>
                     <li data-i18n="transportes.descarregue_vrias_aplicaes_para_comparar">Descarregue várias aplicações para comparar preços</li>
                     <li data-i18n="transportes.confirme_a_matrcula_do_veculo_antes_de_e">Confirme a matrícula do veículo antes de entrar</li>
@@ -443,7 +226,7 @@
 
         <!-- Caminhos Seguros -->
         <section class="transport-card">
-            <h3><span class="icon" data-i18n="transportes.key_4">🛣️</span>Caminhos Seguros à Noite</h3>
+            <h3>Caminhos Seguros à Noite</h3>
             
             <div class="info-box">
                 <p><strong data-i18n="transportes.sobre_a_segurana_noturna">Sobre a Segurança Noturna:</strong></p>
@@ -451,7 +234,7 @@
             </div>
             
             <div class="safe-routes-box">
-                <h4 data-i18n="transportes.zonas_bem_iluminadas_e_movimentadas">🌟 Zonas Bem Iluminadas e Movimentadas</h4>
+                <h4 data-i18n="transportes.zonas_bem_iluminadas_e_movimentadas">Zonas Bem Iluminadas e Movimentadas</h4>
                 <ul>
                     <li data-i18n="transportes.avenida_da_repblica_junto_ria_formosa">Avenida da República (junto à Ria Formosa)</li>
                     <li data-i18n="transportes.rua_de_santo_antnio_zona_comercial">Rua de Santo António (zona comercial)</li>
@@ -465,7 +248,7 @@
             </div>
             
             <div class="tips-box">
-                <h4 data-i18n="transportes.dicas_de_segurana_noite">💡 Dicas de Segurança à Noite</h4>
+                <h4 data-i18n="transportes.dicas_de_segurana_noite">Dicas de Segurança à Noite</h4>
                 <ul>
                     <li data-i18n="transportes.prefira_ruas_bem_iluminadas_e_com_movime">Prefira ruas bem iluminadas e com movimento</li>
                     <li data-i18n="transportes.ande_sempre_com_o_telemvel_carregado">Ande sempre com o telemóvel carregado</li>
@@ -479,7 +262,7 @@
             </div>
             
             <div class="warning-box">
-                <h4 data-i18n="transportes.zonas_a_evitar_noite">⚠️ Zonas a Evitar à Noite</h4>
+                <h4 data-i18n="transportes.zonas_a_evitar_noite">Zonas a Evitar à Noite</h4>
                 <p data-i18n="transportes.embora_faro_seja_segura_algumas_zonas_po">Embora Faro seja segura, algumas zonas podem ser mais desertas à noite. Evite:</p>
                 <ul>
                     <li data-i18n="transportes.zonas_industriais_sem_movimento">Zonas industriais sem movimento</li>
@@ -490,7 +273,7 @@
             </div>
             
             <div class="contact-box">
-                <h4 data-i18n="transportes.contactos_de_emergncia">🚨 Contactos de Emergência</h4>
+                <h4 data-i18n="transportes.contactos_de_emergncia">Contactos de Emergência</h4>
                 
                 <div class="contact-item">
                     <strong data-i18n="transportes.emergncias">Emergências:</strong>
@@ -516,10 +299,10 @@
 
         <!-- Informações Gerais -->
         <section class="transport-card">
-            <h3><span class="icon" data-i18n="transportes.key_5">ℹ️</span>Informações Gerais</h3>
+            <h3>Informações Gerais</h3>
             
             <div class="info-box">
-                <p><strong data-i18n="transportes.planeie_antecipadamente">📋 Planeie Antecipadamente:</strong></p>
+                <p><strong data-i18n="transportes.planeie_antecipadamente">Planeie Antecipadamente:</strong></p>
                 <ul>
                     <li data-i18n="transportes.consulte_sempre_os_horrios_dos_autocarro">Consulte sempre os horários dos autocarros antes de sair</li>
                     <li data-i18n="transportes.tenha_dinheiro_extra_para_um_txi_ou_sald">Tenha dinheiro extra para um táxi ou saldo no telemóvel para TVDE</li>
@@ -530,7 +313,7 @@
             </div>
             
             <div class="safe-routes-box">
-                <h4 data-i18n="transportes.recursos_teis_online">🌐 Recursos Úteis Online</h4>
+                <h4 data-i18n="transportes.recursos_teis_online">Recursos Úteis Online</h4>
                 <ul>
                     <li data-i18n="transportes.site_da_proximo_para_horrios_de_autocarr">Site da Proximo para horários de autocarros</li>
                     <li data-i18n="transportes.google_maps_para_planeamento_de_rotas">Google Maps para planeamento de rotas</li>
@@ -540,7 +323,7 @@
             </div>
             
             <div class="tips-box">
-                <h4 data-i18n="transportes.dicas_finais">💡 Dicas Finais</h4>
+                <h4 data-i18n="transportes.dicas_finais">Dicas Finais</h4>
                 <ul>
                     <li data-i18n="transportes.considere_partilhar_viagens_de_tvde_com">Considere partilhar viagens de TVDE com amigos para reduzir custos</li>
                     <li data-i18n="transportes.se_sair_regularmente_noite_crie_uma_rot">Se sair regularmente à noite, crie uma rotina de transporte</li>

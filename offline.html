@@ -17,92 +17,6 @@
     <link rel="stylesheet" href="assets/styles/accessibility.css">
     <link rel="stylesheet" href="assets/styles/voice-navigation.css">
     <link rel="stylesheet" href="assets/styles/ux.css">
-    <style>
-        .offline-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 60vh;
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .offline-icon {
-            font-size: 5rem;
-            margin-bottom: 1rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .offline-container h2 {
-            color: #2c3338;
-            margin-bottom: 1rem;
-        }
-        
-        .offline-container p {
-            color: #4a4a45;
-            max-width: 500px;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-        
-        .cached-pages {
-            background: #faf7f2;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            max-width: 600px;
-            width: 100%;
-        }
-        
-        .cached-pages h3 {
-            color: #2c3338;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .cached-pages ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .cached-pages li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .cached-pages a {
-            color: #146a8c;
-            text-decoration: none;
-            display: block;
-            padding: 0.5rem;
-            border-radius: 6px;
-            transition: background-color 0.2s;
-        }
-        
-        .cached-pages a:hover {
-            background-color: #f3ede1;
-        }
-        
-        .retry-button {
-            background-color: #146a8c;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        
-        .retry-button:hover {
-            background-color: #125a78;
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -110,25 +24,24 @@
 
     <main id="main-content" role="main">
         <div class="offline-container">
-            <div class="offline-icon" role="img" aria-label="Sem conexão">📡</div>
-            <h2 data-i18n="offline.title">Você está offline</h2>
+            <h1 data-i18n="offline.title">Você está offline</h1>
             <p data-i18n="offline.description">Parece que você está sem conexão à internet. Algumas funcionalidades podem estar limitadas, mas você ainda pode acessar as páginas que já visitou anteriormente.</p>
             <button class="retry-button" onclick="window.location.reload()" data-i18n="offline.retry">
-                🔄 Tentar Novamente
+                Tentar Novamente
             </button>
             
             <div class="cached-pages">
-                <h3 data-i18n="offline.cached_pages_title">📚 Páginas disponíveis offline:</h3>
+                <h3 data-i18n="offline.cached_pages_title">Páginas disponíveis offline:</h3>
                 <ul>
-                    <li><a href="index.html" data-i18n="offline.incio">🏠 Início</a></li>
-                    <li><a href="transportes.html" data-i18n="offline.transportes">🚌 Transportes</a></li>
-                    <li><a href="saude.html" data-i18n="offline.sade">🏥 Saúde</a></li>
-                    <li><a href="ambiente.html" data-i18n="offline.ambiente">🌿 Ambiente</a></li>
-                    <li><a href="lazer.html" data-i18n="offline.lazer">🎭 Lazer</a></li>
-                    <li><a href="restaurantes.html" data-i18n="offline.onde_comer">🍽️ Onde Comer</a></li>
-                    <li><a href="hoteis.html" data-i18n="offline.onde_ficar">🏨 Onde Ficar</a></li>
-                    <li><a href="mapa.html" data-i18n="offline.mapa">🗺️ Mapa</a></li>
-                    <li><a href="favoritos.html"><span data-i18n="nav.favorites">⭐ Favoritos</span></a></li>
+                    <li><a href="index.html" data-i18n="offline.incio">Início</a></li>
+                    <li><a href="transportes.html" data-i18n="offline.transportes">Transportes</a></li>
+                    <li><a href="saude.html" data-i18n="offline.sade">Saúde</a></li>
+                    <li><a href="ambiente.html" data-i18n="offline.ambiente">Ambiente</a></li>
+                    <li><a href="lazer.html" data-i18n="offline.lazer">Lazer</a></li>
+                    <li><a href="restaurantes.html" data-i18n="offline.onde_comer">Onde Comer</a></li>
+                    <li><a href="hoteis.html" data-i18n="offline.onde_ficar">Onde Ficar</a></li>
+                    <li><a href="mapa.html" data-i18n="offline.mapa">Mapa</a></li>
+                    <li><a href="favoritos.html"><span data-i18n="nav.favorites">Favoritos</span></a></li>
                 </ul>
             </div>
         </div>

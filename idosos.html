@@ -35,249 +35,20 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    <style>
-        /* Enhanced accessibility for seniors - larger fonts and high contrast */
-        body {
-            font-size: 1.125rem;
-            line-height: 1.8;
-        }
-        
-        main h2 {
-            font-size: 2.25rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        main h3 {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
-        }
-        
-        main p, main li {
-            font-size: 1.125rem;
-            line-height: 1.8;
-        }
-        
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-            border: 2px solid #e6ddce;
-        }
-        
-        .service-card h3 {
-            color: #2c3338;
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .service-card .icon {
-            font-size: 2.5rem;
-        }
-        
-        .service-info {
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-info p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            color: #2c3338;
-        }
-        
-        .service-info strong {
-            color: #1b272b;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        
-        .contact-box {
-            background: #faf7f2;
-            border: 3px solid #146a8c;
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 1.5rem 0;
-        }
-        
-        .contact-box .phone {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #146a8c;
-            margin: 1rem 0;
-            display: block;
-        }
-        
-        .contact-box .label {
-            font-size: 1.25rem;
-            color: #2c3338;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .info-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .info-list li {
-            background: #faf7f2;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            border-left: 5px solid #146a8c;
-            font-size: 1.125rem;
-        }
-        
-        .info-list li strong {
-            display: block;
-            color: #2c3338;
-            margin-bottom: 0.75rem;
-            font-size: 1.3rem;
-        }
-        
-        .emergency-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .emergency-item {
-            background: #fff7f5;
-            padding: 2rem;
-            border-radius: 12px;
-            border: 3px solid #e0897a;
-            text-align: center;
-        }
-        
-        .emergency-item .number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #9c2e22;
-            margin: 1rem 0;
-        }
-        
-        .emergency-item .label {
-            font-size: 1.125rem;
-            color: #2c3338;
-            font-weight: 600;
-        }
-        
-        .highlight-box {
-            background: #ecf9fe;
-            border: 3px solid #48b1db;
-            padding: 2rem;
-            margin: 2rem 0;
-            border-radius: 12px;
-        }
-        
-        .highlight-box h4 {
-            color: #2f687f;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .highlight-box p {
-            color: #2c3338;
-            font-size: 1.125rem;
-        }
-        
-        /* Dark mode adjustments */
-        body.dark-mode .service-card {
-            background: #2c3338;
-            border-color: #4a4a45;
-        }
-        
-        body.dark-mode .service-card h3,
-        body.dark-mode .service-info p,
-        body.dark-mode .service-info strong {
-            color: #e6ddce;
-        }
-        
-        body.dark-mode .contact-box {
-            background: #2c3338;
-            border-color: #146a8c;
-        }
-        
-        body.dark-mode .contact-box .label,
-        body.dark-mode .info-list li,
-        body.dark-mode .info-list li strong {
-            color: #e6ddce;
-        }
-        
-        body.dark-mode .info-list li {
-            background: #2c3338;
-        }
-        
-        body.dark-mode .emergency-item {
-            background: #72352c;
-            border-color: #e0897a;
-        }
-        
-        body.dark-mode .emergency-item .label {
-            color: #fdddd8;
-        }
-        
-        body.dark-mode .highlight-box {
-            background: #2f687f;
-            border-color: #48b1db;
-        }
-        
-        body.dark-mode .highlight-box h4,
-        body.dark-mode .highlight-box p {
-            color: #e6ddce;
-        }
-        
-        @media (max-width: 768px) {
-            body {
-                font-size: 1rem;
-            }
-            
-            main h2 {
-                font-size: 1.75rem;
-            }
-            
-            main h3 {
-                font-size: 1.5rem;
-            }
-            
-            .service-card {
-                padding: 1.5rem;
-            }
-            
-            .service-card h3 {
-                font-size: 1.5rem;
-            }
-            
-            .emergency-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-box .phone {
-                font-size: 1.75rem;
-            }
-        }
-    </style>
 </head>
-<body>
+<body class="page-large-text">
     <%- header %>
     
 
     <main id="main-content" role="main">
         <section class="hero" aria-labelledby="hero-title">
-            <h2 id="hero-title" data-i18n="seniors.hero_title">👴👵 Faro para Idosos</h2>
+            <h1 id="hero-title" data-i18n="seniors.hero_title">Faro para Idosos</h1>
             <p data-i18n="seniors.hero_description">Informação útil e acessível para a população sénior de Faro. Encontre apoios sociais, serviços, transportes e atividades pensadas para si.</p>
         </section>
 
         <!-- Emergency Contacts -->
         <section class="service-card" aria-labelledby="emergency-title">
             <h3 id="emergency-title">
-                <span class="icon" aria-hidden="true">🚨</span>
                 <span data-i18n="seniors.emergency_title">Contactos de Emergência</span>
             </h3>
             <div class="service-info">
@@ -302,7 +73,6 @@
         <!-- Social Support -->
         <section class="service-card" aria-labelledby="social-support-title">
             <h3 id="social-support-title">
-                <span class="icon" aria-hidden="true">🤝</span>
                 <span data-i18n="seniors.social_support_title">Apoio Social</span>
             </h3>
             <div class="service-info">
@@ -333,7 +103,6 @@
         <!-- Day Centers -->
         <section class="service-card" aria-labelledby="day-centers-title">
             <h3 id="day-centers-title">
-                <span class="icon" aria-hidden="true">🏛️</span>
                 <span data-i18n="seniors.day_centers_title">Centros de Dia</span>
             </h3>
             <div class="service-info">
@@ -362,7 +131,6 @@
         <!-- Senior Transport -->
         <section class="service-card" aria-labelledby="transport-title">
             <h3 id="transport-title">
-                <span class="icon" aria-hidden="true">🚌</span>
                 <span data-i18n="seniors.transport_title">Transporte Sénior</span>
             </h3>
             <div class="service-info">
@@ -370,19 +138,19 @@
             </div>
             
             <div class="highlight-box">
-                <h4 data-i18n="seniors.transport_pass_title">🎫 Passe Social+</h4>
+                <h4 data-i18n="seniors.transport_pass_title">Passe Social+</h4>
                 <p data-i18n="seniors.transport_pass_desc">Maiores de 65 anos têm direito a tarifário reduzido nos transportes públicos. O Passe Social+ permite viagens ilimitadas nos transportes da Proximo por um valor reduzido.</p>
                 <p><strong data-i18n="seniors.info_label">Informações:</strong> <span data-i18n="seniors.transport_pass_contact">Proximo - 289 899 760</span></p>
             </div>
 
             <div class="highlight-box">
-                <h4 data-i18n="seniors.transport_taxi_title">🚕 Táxi Adaptado</h4>
+                <h4 data-i18n="seniors.transport_taxi_title">Táxi Adaptado</h4>
                 <p data-i18n="seniors.transport_taxi_desc">Serviço de táxis com veículos adaptados para pessoas com mobilidade reduzida.</p>
                 <p><strong data-i18n="seniors.phone_label">Telefone:</strong> 289 895 795</p>
             </div>
 
             <div class="highlight-box">
-                <h4 data-i18n="seniors.transport_social_title">🚐 Transporte Social</h4>
+                <h4 data-i18n="seniors.transport_social_title">Transporte Social</h4>
                 <p data-i18n="seniors.transport_social_desc">A Câmara Municipal e algumas instituições oferecem transporte gratuito ou a preço reduzido para consultas médicas e atividades. Contacte a Ação Social da Câmara para mais informações.</p>
                 <p><strong data-i18n="seniors.phone_label">Telefone:</strong> 289 870 870</p>
             </div>
@@ -391,7 +159,6 @@
         <!-- Activities -->
         <section class="service-card" aria-labelledby="activities-title">
             <h3 id="activities-title">
-                <span class="icon" aria-hidden="true">🎨</span>
                 <span data-i18n="seniors.activities_title">Atividades e Convívio</span>
             </h3>
             <div class="service-info">
@@ -400,24 +167,24 @@
             
             <ul class="info-list">
                 <li>
-                    <strong data-i18n="seniors.activity_1_name">🏋️ Ginástica para Seniores</strong>
+                    <strong data-i18n="seniors.activity_1_name">Ginástica para Seniores</strong>
                     <p data-i18n="seniors.activity_1_desc">Aulas de ginástica adaptada nos pavilhões municipais e centros de dia. Contacte a Câmara Municipal para horários.</p>
                 </li>
                 <li>
-                    <strong data-i18n="seniors.activity_2_name">📚 Universidade Sénior de Faro</strong>
+                    <strong data-i18n="seniors.activity_2_name">Universidade Sénior de Faro</strong>
                     <p data-i18n="seniors.activity_2_desc">Cursos, workshops e atividades culturais para maiores de 50 anos.</p>
                     <p><strong data-i18n="seniors.phone_label">Telefone:</strong> 289 870 870</p>
                 </li>
                 <li>
-                    <strong data-i18n="seniors.activity_3_name">🎭 Atividades Culturais</strong>
+                    <strong data-i18n="seniors.activity_3_name">Atividades Culturais</strong>
                     <p data-i18n="seniors.activity_3_desc">Teatro Municipal de Faro e Biblioteca Municipal oferecem programação regular com tarifas reduzidas para seniores.</p>
                 </li>
                 <li>
-                    <strong data-i18n="seniors.activity_4_name">🌳 Passeios e Excursões</strong>
+                    <strong data-i18n="seniors.activity_4_name">Passeios e Excursões</strong>
                     <p data-i18n="seniors.activity_4_desc">Grupos de caminhada e excursões organizadas pela Câmara Municipal e associações locais.</p>
                 </li>
                 <li>
-                    <strong data-i18n="seniors.activity_5_name">🎮 Informática para Seniores</strong>
+                    <strong data-i18n="seniors.activity_5_name">Informática para Seniores</strong>
                     <p data-i18n="seniors.activity_5_desc">Cursos gratuitos de informática básica e internet na Biblioteca Municipal e centros comunitários.</p>
                 </li>
             </ul>
@@ -426,7 +193,6 @@
         <!-- Health Services -->
         <section class="service-card" aria-labelledby="health-title">
             <h3 id="health-title">
-                <span class="icon" aria-hidden="true">🏥</span>
                 <span data-i18n="seniors.health_title">Serviços de Saúde</span>
             </h3>
             <div class="service-info">
@@ -446,38 +212,37 @@
             </div>
 
             <div class="highlight-box">
-                <h4 data-i18n="seniors.health_home_title">🏠 Cuidados Domiciliários</h4>
+                <h4 data-i18n="seniors.health_home_title">Cuidados Domiciliários</h4>
                 <p data-i18n="seniors.health_home_desc">Várias instituições oferecem serviços de enfermagem e apoio ao domicílio. Contacte o seu centro de saúde ou a Santa Casa da Misericórdia para mais informações.</p>
             </div>
 
-            <p style="margin-top: 1.5rem;">
+            <p>
                 <strong data-i18n="seniors.health_more_label">Mais informações:</strong> 
-                <a href="saude.html" data-i18n="seniors.health_more_link" style="color: #146a8c; text-decoration: underline; font-size: 1.125rem;">Consulte a página de Saúde</a>
+                <a href="saude.html" data-i18n="seniors.health_more_link">Consulte a página de Saúde</a>
             </p>
         </section>
 
         <!-- Useful Tips -->
         <section class="service-card" aria-labelledby="tips-title">
             <h3 id="tips-title">
-                <span class="icon" aria-hidden="true">💡</span>
                 <span data-i18n="seniors.tips_title">Dicas Úteis</span>
             </h3>
             <div class="service-info">
                 <ul class="info-list">
                     <li>
-                        <strong data-i18n="seniors.tip_1_title">📱 Linha de Apoio ao Idoso</strong>
+                        <strong data-i18n="seniors.tip_1_title">Linha de Apoio ao Idoso</strong>
                         <p data-i18n="seniors.tip_1_desc">Em caso de solidão ou necessidade de conversar: <strong>800 207 256</strong> (linha gratuita)</p>
                     </li>
                     <li>
-                        <strong data-i18n="seniors.tip_2_title">💊 Medicamentos Gratuitos</strong>
+                        <strong data-i18n="seniors.tip_2_title">Medicamentos Gratuitos</strong>
                         <p data-i18n="seniors.tip_2_desc">Pensionistas com rendimentos baixos podem ter direito a comparticipação a 100% nos medicamentos. Informe-se no seu centro de saúde.</p>
                     </li>
                     <li>
-                        <strong data-i18n="seniors.tip_3_title">🏡 Adaptação da Habitação</strong>
+                        <strong data-i18n="seniors.tip_3_title">Adaptação da Habitação</strong>
                         <p data-i18n="seniors.tip_3_desc">A Câmara Municipal tem programas de apoio para adaptação de casas (barras de apoio, rampas, etc.). Contacte os Serviços Sociais.</p>
                     </li>
                     <li>
-                        <strong data-i18n="seniors.tip_4_title">📋 Documentos Importantes</strong>
+                        <strong data-i18n="seniors.tip_4_title">Documentos Importantes</strong>
                         <p data-i18n="seniors.tip_4_desc">Tenha sempre consigo: Cartão de Cidadão, Cartão de Utente do SNS e contactos de familiares para emergências.</p>
                     </li>
                 </ul>
@@ -486,7 +251,7 @@
 
         <!-- Related Pages Section -->
         <section class="service-card">
-            <h3><span class="icon">🔗</span> Páginas Relacionadas</h3>
+            <h3>Páginas Relacionadas</h3>
             <div class="service-info">
                 <ul class="info-list">
                     <li>

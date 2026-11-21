@@ -125,6 +125,32 @@ class RestaurantesManager {
 // Instância global
 const restaurantesManager = new RestaurantesManager();
 
+// Small DOM builder: data from JSON is always set as text, never parsed as HTML
+function h(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined && text !== null) node.textContent = String(text);
+    return node;
+}
+
+function safeHref(url) {
+    const u = String(url || '');
+    return /^https?:\/\//i.test(u) ? u : null;
+}
+
+function infoRow(label, value, valueClass) {
+    if (value === undefined || value === null || value === '') return null;
+    const row = h('div', 'info-row');
+    row.append(h('span', 'info-label', label), h('span', 'info-value' + (valueClass ? ' ' + valueClass : ''), value));
+    return row;
+}
+
+function renderEmpty(container, title, text) {
+    const box = h('div', 'no-results');
+    box.append(h('h3', '', title), h('p', '', text));
+    container.replaceChildren(box);
+}
+
 /**
  * Renderiza cards de restaurantes
  */
@@ -132,113 +158,58 @@ function renderRestaurantes(restaurantes, container) {
     if (!container) return;
 
     if (restaurantes.length === 0) {
-        container.innerHTML = `
-            <div class="no-results">
-                <div class="no-results-icon">😕</div>
-                <h3>Nenhum estabelecimento encontrado</h3>
-                <p>Tente ajustar os filtros ou termo de pesquisa</p>
-            </div>
-        `;
+        renderEmpty(container, 'Nenhum estabelecimento encontrado', 'Tente ajustar os filtros ou termo de pesquisa');
         return;
     }
 
-    // Ícones por tipo
-    const tipoIcons = {
-        'Café': '☕',
-        'Pastelaria': '🍰',
-        'Restaurante': '🍽️'
-    };
-
-    let html = '<div class="restaurantes-grid">';
+    const grid = h('div', 'restaurantes-grid');
 
     restaurantes.forEach(rest => {
-        const icon = tipoIcons[rest.tipo] || '🍽️';
-        const destaque = rest.destaque ? `<span class="destaque-badge">${rest.destaque}</span>` : '';
-        
-        html += `
-            <div class="restaurante-card" id="${rest.id}" data-id="${rest.id}">
-                <div class="restaurante-header">
-                    <div class="restaurante-icon" role="img" aria-label="Ícone ${rest.tipo}">${icon}</div>
-                    <div class="restaurante-tipo">${rest.tipo}</div>
-                    ${destaque}
-                </div>
-                
-                <h3 class="restaurante-nome">${rest.nome}</h3>
-                
-                <div class="restaurante-info">
-                    <div class="info-row">
-                        <span class="info-label">📍 Morada:</span>
-                        <span class="info-value">${rest.morada}</span>
-                    </div>
-                    
-                    <div class="info-row">
-                        <span class="info-label">🏷️ Categoria:</span>
-                        <span class="info-value">${rest.categoria}</span>
-                    </div>
-                    
-                    <div class="info-row">
-                        <span class="info-label">📍 Zona:</span>
-                        <span class="info-value">${rest.zona}</span>
-                    </div>
-                    
-                    <div class="info-row">
-                        <span class="info-label">⏰ Horário:</span>
-                        <span class="info-value">${rest.horario}</span>
-                    </div>
-                    
-                    <div class="info-row">
-                        <span class="info-label">💰 Preço:</span>
-                        <span class="info-value preco">${rest.preco}</span>
-                    </div>
-                    
-                    ${rest.descricao ? `
-                        <div class="restaurante-descricao">
-                            <p>${rest.descricao}</p>
-                        </div>
-                    ` : ''}
-                    
-                    ${rest.telefone ? `
-                        <div class="info-row">
-                            <span class="info-label">📞 Telefone:</span>
-                            <span class="info-value">${rest.telefone}</span>
-                        </div>
-                    ` : ''}
-                </div>
-                
-                ${rest.mapsLink ? `
-                    <div class="restaurante-actions">
-                        <a href="${rest.mapsLink}" target="_blank" rel="noopener noreferrer" class="btn-map">
-                            🗺️ Ver no Mapa
-                        </a>
-                    </div>
-                ` : ''}
-            </div>
-        `;
+        const card = h('article', 'restaurante-card');
+        card.id = rest.id;
+        card.dataset.id = rest.id;
+
+        const header = h('div', 'restaurante-header');
+        header.appendChild(h('span', 'restaurante-tipo', rest.tipo));
+        if (rest.destaque) header.appendChild(h('span', 'destaque-badge', rest.destaque));
+        card.appendChild(header);
+
+        card.appendChild(h('h3', 'restaurante-nome', rest.nome));
+
+        const info = h('div', 'restaurante-info');
+        [
+            infoRow('Morada', rest.morada),
+            infoRow('Categoria', rest.categoria),
+            infoRow('Zona', rest.zona),
+            infoRow('Horário', rest.horario),
+            infoRow('Preço', rest.preco, 'preco'),
+            infoRow('Telefone', rest.telefone)
+        ].forEach(row => row && info.appendChild(row));
+        card.appendChild(info);
+
+        if (rest.descricao) {
+            const desc = h('div', 'restaurante-descricao');
+            desc.appendChild(h('p', '', rest.descricao));
+            card.appendChild(desc);
+        }
+
+        const maps = safeHref(rest.mapsLink);
+        if (maps) {
+            const actions = h('div', 'restaurante-actions');
+            const a = h('a', 'btn-map', 'Ver no mapa');
+            a.href = maps; a.target = '_blank'; a.rel = 'noopener noreferrer';
+            actions.appendChild(a);
+            card.appendChild(actions);
+        }
+
+        if (typeof createFavoriteButton === 'function') {
+            header.appendChild(createFavoriteButton(rest.id, 'restaurant', rest.nome, `restaurantes.html#${rest.id}`));
+        }
+
+        grid.appendChild(card);
     });
 
-    html += '</div>';
-    container.innerHTML = html;
-
-    // Adicionar aos favoritos (integração com sistema existente)
-    if (typeof createFavoriteButton === 'function') {
-        container.querySelectorAll('.restaurante-card').forEach(card => {
-            const id = card.getAttribute('data-id');
-            const rest = restaurantes.find(r => r.id === id);
-            if (rest) {
-                const favoriteBtn = createFavoriteButton(
-                    rest.id,
-                    'restaurant',
-                    rest.nome,
-                    `restaurantes.html#${rest.id}`
-                );
-                favoriteBtn.style.position = 'absolute';
-                favoriteBtn.style.top = '0.5rem';
-                favoriteBtn.style.right = '0.5rem';
-                card.style.position = 'relative';
-                card.insertBefore(favoriteBtn, card.firstChild);
-            }
-        });
-    }
+    container.replaceChildren(grid);
 }
 
 /**
@@ -269,7 +240,7 @@ async function initializeRestaurantesPage() {
     const loaded = await restaurantesManager.loadRestaurantes();
     
     if (!loaded) {
-        const errorMsg = window.i18n?.t('errors.load_restaurants') || '❌ Erro ao carregar dados dos estabelecimentos.';
+        const errorMsg = window.i18n?.t('errors.load_restaurants') || 'Erro ao carregar dados dos estabelecimentos.';
         const tryAgain = window.i18n?.t('errors.try_again') || 'Por favor, tente novamente mais tarde.';
         container.innerHTML = `
             <div class="error-message">

@@ -8,8 +8,8 @@
         "dismissible": true,
         "notify": false,
         "title": {
-            "pt": "📘 Novo: Guia Premium",
-            "en": "📘 New: Premium Guide"
+            "pt": "Novo: Guia Premium",
+            "en": "New: Premium Guide"
         },
         "message": {
             "pt": "Descarregue o nosso guia em PDF com mapas offline, dicas de transporte e muito mais. Disponível na página Premium.",
@@ -26,8 +26,8 @@
         "autoDismiss": 12000,
         "notify": false,
         "title": {
-            "pt": "ℹ️ Sobre este site",
-            "en": "ℹ️ About this site"
+            "pt": "Sobre este site",
+            "en": "About this site"
         },
         "message": {
             "pt": "O Faro Formoso é gratuito e mantido de forma independente. Encontrou um erro ou tem uma sugestão? Veja a página Problemas Frequentes.",

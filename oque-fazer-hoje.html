@@ -35,260 +35,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    <style>
-        /* Estilos específicos para a página "O que fazer hoje" */
-        
-        .filter-container {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .filter-btn {
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            font-weight: 500;
-            border: 2px solid #e6ddce;
-            background: white;
-            color: #4a4a45;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .filter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-color: #146a8c;
-        }
-        
-        .filter-btn.active {
-            background: linear-gradient(135deg, #146a8c 0%, #0d3b4f 100%);
-            color: white;
-            border-color: #146a8c;
-        }
-        
-        .filter-btn .icon {
-            font-size: 1.25rem;
-        }
-        
-        .activities-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .activity-card {
-            background: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .activity-card.hidden {
-            display: none;
-        }
-        
-        .activity-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-        
-        .activity-icon {
-            font-size: 3rem;
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .activity-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2c3338;
-            text-align: center;
-            margin-bottom: 0.5rem;
-        }
-        
-        .activity-description {
-            color: #4a4a45;
-            line-height: 1.6;
-            text-align: center;
-            flex-grow: 1;
-        }
-        
-        .activity-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            justify-content: center;
-            margin-top: 0.5rem;
-        }
-        
-        .activity-tag {
-            padding: 0.25rem 0.75rem;
-            background: #f3ede1;
-            color: #4a4a45;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-        
-        .activity-tag.sol {
-            background: #fdebc8;
-            color: #8f4811;
-        }
-        
-        .activity-tag.chuva {
-            background: #dcf3fd;
-            color: #2483a9;
-        }
-        
-        .activity-tag.familia {
-            background: #faefe9;
-            color: #7b3e20;
-        }
-        
-        .activity-tag.estudantes {
-            background: #d4f7df;
-            color: #0d5823;
-        }
-        
-        .no-results {
-            text-align: center;
-            padding: 3rem;
-            color: #6b6a63;
-            font-size: 1.125rem;
-            grid-column: 1 / -1;
-        }
-        
-        .no-results.hidden {
-            display: none;
-        }
-        
-        .simulator-container {
-            margin-bottom: 2rem;
-        }
-        
-        .simulator-box {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            text-align: center;
-        }
-        
-        .simulator-box h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-        
-        .day-selector {
-            width: 100%;
-            max-width: 400px;
-            padding: 1rem;
-            font-size: 1.125rem;
-            border: 2px solid #e6ddce;
-            border-radius: 8px;
-            background: white;
-            color: #4a4a45;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .day-selector:hover {
-            border-color: #146a8c;
-        }
-        
-        .day-selector:focus {
-            outline: none;
-            border-color: #146a8c;
-            box-shadow: 0 0 0 3px rgba(20, 106, 140, 0.1);
-        }
-        
-        .activity-location {
-            background: #f1fcf4;
-            border-left: 4px solid #4c8c5b;
-            padding: 1rem;
-            margin-top: 1rem;
-            border-radius: 8px;
-            text-align: left;
-        }
-        
-        .activity-location h4 {
-            color: #2c3338;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .activity-location p {
-            margin: 0.25rem 0;
-            font-size: 0.95rem;
-        }
-        
-        .activity-transport {
-            background: #dcf3fd;
-            border-left: 4px solid #42beef;
-            padding: 1rem;
-            margin-top: 0.5rem;
-            border-radius: 8px;
-            text-align: left;
-        }
-        
-        .activity-transport h4 {
-            color: #2c3338;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .activity-transport p {
-            margin: 0.25rem 0;
-            font-size: 0.95rem;
-        }
-        
-        @media (max-width: 768px) {
-            .filter-container {
-                padding: 1rem;
-                gap: 0.5rem;
-            }
-            
-            .filter-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .activities-container {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .activity-icon {
-                font-size: 2.5rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -296,14 +42,14 @@
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2 data-i18n="activities.simulator_title">Simulador de Dia em Faro</h2>
+            <h1 data-i18n="activities.simulator_title">Simulador de Dia em Faro</h1>
             <p data-i18n="activities.simulator_description">Escolha o dia da semana e tipo de atividade para receber sugestões personalizadas do que fazer, onde ir e como chegar!</p>
         </section>
 
         <!-- Simulador: Seleção de dia e atividade -->
         <section class="simulator-container">
             <div class="simulator-box">
-                <h3 id="day-selector-label" data-i18n="oque_fazer_hoje.escolha_o_dia_da_semana">📅 Escolha o Dia da Semana</h3>
+                <h3 id="day-selector-label" data-i18n="oque_fazer_hoje.escolha_o_dia_da_semana">Escolha o Dia da Semana</h3>
                 <select id="day-selector" class="day-selector" aria-labelledby="day-selector-label">
                     <option value="todos">Qualquer dia</option>
                     <option value="segunda">Segunda-feira</option>
@@ -320,23 +66,18 @@
         <!-- Filtros -->
         <section class="filter-container">
             <button class="filter-btn active" data-filter="todos">
-                <span class="icon">✨</span>
                 <span data-i18n="oque_fazer_hoje.todos">Todos</span>
             </button>
             <button class="filter-btn" data-filter="sol">
-                <span class="icon" data-i18n="oque_fazer_hoje.key_1">🌤️</span>
                 <span data-i18n="oque_fazer_hoje.dia_de_sol">Dia de sol</span>
             </button>
             <button class="filter-btn" data-filter="chuva">
-                <span class="icon" data-i18n="oque_fazer_hoje.key_2">🌧️</span>
                 <span data-i18n="oque_fazer_hoje.dia_de_chuva">Dia de chuva</span>
             </button>
             <button class="filter-btn" data-filter="familia">
-                <span class="icon" data-i18n="oque_fazer_hoje.key_3">👨‍👩‍👧‍👦</span>
                 <span data-i18n="oque_fazer_hoje.famlia">Família</span>
             </button>
             <button class="filter-btn" data-filter="estudantes">
-                <span class="icon" data-i18n="oque_fazer_hoje.key_4">🎓</span>
                 <span data-i18n="oque_fazer_hoje.estudantes">Estudantes</span>
             </button>
         </section>
@@ -345,345 +86,324 @@
         <section class="activities-container" id="activities">
             <!-- Atividades de sol -->
             <div class="activity-card" data-categories="sol,familia" data-days="sabado,domingo">
-                <div class="activity-icon">🏖️</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.visitar_as_praias_da_ria_formosa">Visitar as Praias da Ria Formosa</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.apanhe_o_barco_no_cais_e_descubra_as_ilh">Apanhe o barco no cais e descubra as ilhas paradisíacas de Faro. Praia de Faro, Ilha Deserta ou Culatra são opções perfeitas para um dia de sol.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.cais_das_portas_do_mar">Cais das Portas do Mar</strong> - Ponto de partida para as ilhas</p>
                     <p><strong data-i18n="oque_fazer_hoje.praia_de_faro">Praia de Faro</strong> - Acessível por estrada (7 km do centro)</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.barco">Barco:</strong> Horários regulares do Cais das Portas do Mar</p>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro">Autocarro:</strong> Linha 16 para Praia de Faro</p>
                     <p><strong data-i18n="oque_fazer_hoje.carro">Carro:</strong> Estacionamento disponível na Praia de Faro</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_1">☀️ Dia de sol</span>
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_1">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_1">Dia de sol</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_1">Família</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="sol,familia" data-days="todos">
-                <div class="activity-icon">🚴</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.ciclovias_e_parques">Ciclovias e Parques</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.explore_o_parque_ribeirinho_de_faro_de_b">Explore o Parque Ribeirinho de Faro de bicicleta ou a pé. Vista deslumbrante sobre a Ria Formosa e a marina.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_1">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_1">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.parque_ribeirinho_de_faro">Parque Ribeirinho de Faro</strong> - Junto à marina</p>
                     <p><strong data-i18n="oque_fazer_hoje.jardim_manuel_bivar">Jardim Manuel Bivar</strong> - Centro histórico</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_1">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_1">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.a_p">A pé:</strong> Centro da cidade (5-10 min do centro histórico)</p>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_1">Autocarro:</strong> Várias linhas param na marina</p>
                     <p><strong data-i18n="oque_fazer_hoje.bicicleta">Bicicleta:</strong> Ciclovias ao longo do percurso</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_2">☀️ Dia de sol</span>
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_2">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_2">Dia de sol</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_2">Família</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="sol" data-days="sabado,domingo">
-                <div class="activity-icon">🦆</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.centro_de_educao_ambiental">Centro de Educação Ambiental</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.visite_a_quinta_de_marim_no_parque_natur">Visite a Quinta de Marim no Parque Natural da Ria Formosa. Trilhos pedestres e observação de aves num ambiente natural único.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_2">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_2">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.quinta_de_marim">Quinta de Marim</strong> - Parque Natural da Ria Formosa</p>
                     <p data-i18n="oque_fazer_hoje.estrada_de_olho_8700_olho">Estrada de Olhão, 8700 Olhão</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_2">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_2">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_2">Autocarro:</strong> Linha para Olhão, apear na Quinta de Marim</p>
                     <p><strong data-i18n="oque_fazer_hoje.carro_1">Carro:</strong> Estacionamento gratuito no local</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_3">☀️ Dia de sol</span>
+                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_3">Dia de sol</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="sol,familia" data-days="todos">
-                <div class="activity-icon">⛴️</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.passeio_de_barco_pela_ria">Passeio de Barco pela Ria</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.tours_pela_ria_formosa_com_observao_da_f">Tours pela Ria Formosa com observação da fauna e flora. Passeios ao pôr do sol são especialmente bonitos.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_3">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_3">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.cais_das_portas_do_mar_1">Cais das Portas do Mar</strong> - Vários operadores turísticos</p>
                     <p data-i18n="oque_fazer_hoje.horrios_10h00_14h00_17h00_pr_do_sol">Horários: 10h00, 14h00, 17h00 (pôr do sol)</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_3">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_3">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.a_p_1">A pé:</strong> 10 minutos do centro histórico</p>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_3">Autocarro:</strong> Várias linhas param na marina</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_4">☀️ Dia de sol</span>
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_3">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_4">Dia de sol</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_3">Família</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="sol,familia" data-days="todos">
-                <div class="activity-icon">🏛️</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.centro_histrico">Centro Histórico</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.passeie_pelas_ruas_calcetadas_do_centro">Passeie pelas ruas calcetadas do centro histórico, visite a Sé Catedral e suba ao Arco da Vila para uma vista panorâmica.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_4">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_4">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.s_catedral_de_faro">Sé Catedral de Faro</strong> - Largo da Sé</p>
                     <p><strong data-i18n="oque_fazer_hoje.arco_da_vila">Arco da Vila</strong> - Entrada do centro histórico</p>
                     <p><strong data-i18n="oque_fazer_hoje.museu_municipal">Museu Municipal</strong> - Praça Afonso III</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_4">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_4">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.a_p_2">A pé:</strong> Centro da cidade</p>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_4">Autocarro:</strong> Todas as linhas param no centro</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_5">☀️ Dia de sol</span>
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_4">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_5">Dia de sol</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_4">Família</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="sol" data-days="todos">
-                <div class="activity-icon">⛳</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.golfe">Golfe</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.aproveite_os_campos_de_golfe_de_classe_m">Aproveite os campos de golfe de classe mundial na Quinta do Lago e Vale do Lobo, próximos de Faro.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_5">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_5">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.quinta_do_lago">Quinta do Lago</strong> - 20 km de Faro</p>
                     <p><strong data-i18n="oque_fazer_hoje.vale_do_lobo">Vale do Lobo</strong> - 25 km de Faro</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_5">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_5">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.carro_2">Carro:</strong> A22 ou N125 (30 min)</p>
                     <p><strong data-i18n="oque_fazer_hoje.txiuber">Táxi/Uber:</strong> Disponível</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_6">☀️ Dia de sol</span>
+                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_6">Dia de sol</span>
                 </div>
             </div>
 
             <!-- Atividades de chuva -->
             <div class="activity-card" data-categories="chuva,familia" data-days="terca,quarta,quinta,sexta,sabado,domingo">
-                <div class="activity-icon">🏛️</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.museu_municipal_de_faro">Museu Municipal de Faro</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.descubra_a_histria_de_faro_no_antigo_con">Descubra a história de Faro no antigo Convento de Nossa Senhora da Assunção. Coleções de arqueologia e arte sacra.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_6">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_6">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.museu_municipal_1">Museu Municipal</strong> - Praça Afonso III, Centro Histórico</p>
                     <p><strong data-i18n="oque_fazer_hoje.horrio">Horário:</strong> Terça a Domingo, 10h-18h</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_6">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_6">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.a_p_3">A pé:</strong> No centro histórico</p>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_5">Autocarro:</strong> Todas as linhas param no centro</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_1">🌧️ Dia de chuva</span>
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_5">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_1">Dia de chuva</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_5">Família</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="chuva,familia" data-days="quarta,quinta,sexta,sabado,domingo">
-                <div class="activity-icon">🔬</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.centro_cincia_viva">Centro Ciência Viva</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.espao_interativo_dedicado_cincia_perfei">Espaço interativo dedicado à ciência. Perfeito para crianças e adultos curiosos explorarem exposições sobre o mar e astronomia.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_7">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_7">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.centro_cincia_viva_do_algarve">Centro Ciência Viva do Algarve</strong> - Observatório Astronómico</p>
                     <p data-i18n="oque_fazer_hoje.stio_do_aougue_faro">Sítio do Açougue, Faro</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_7">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_7">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.carro_3">Carro:</strong> Estacionamento disponível</p>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_6">Autocarro:</strong> Linha municipal</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_2">🌧️ Dia de chuva</span>
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_6">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_2">Dia de chuva</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_6">Família</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="chuva,familia" data-days="todos">
-                <div class="activity-icon">🎬</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.cinema">Cinema</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.veja_as_ltimas_estreias_no_cinema_do_fru">Veja as últimas estreias no cinema do Fórum Algarve. Várias salas com tecnologia 3D e IMAX.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_8">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_8">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.frum_algarve">Fórum Algarve</strong> - Centro comercial</p>
                     <p data-i18n="oque_fazer_hoje.rua_prior_canhoto_10_montenegro_faro">Rua Prior Canhoto 10, Montenegro, Faro</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_8">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_8">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_7">Autocarro:</strong> Linhas 14 e 18</p>
                     <p><strong data-i18n="oque_fazer_hoje.carro_4">Carro:</strong> Estacionamento gratuito</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_3">🌧️ Dia de chuva</span>
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_7">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_3">Dia de chuva</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_7">Família</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="chuva" data-days="quarta,quinta,sexta,sabado,domingo">
-                <div class="activity-icon">🎭</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.teatro_das_figuras">Teatro das Figuras</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.assista_a_peas_de_teatro_concertos_ou_ex">Assista a peças de teatro, concertos ou exposições no principal espaço cultural de Faro.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_9">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_9">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.teatro_municipal_das_figuras">Teatro Municipal das Figuras</strong> - Horta das Figuras</p>
                     <p data-i18n="oque_fazer_hoje.consulte_programao_online">Consulte programação online</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_9">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_9">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.a_p_4">A pé:</strong> 15 minutos do centro</p>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_8">Autocarro:</strong> Linhas 14 e 16</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_4">🌧️ Dia de chuva</span>
+                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_4">Dia de chuva</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="chuva,estudantes" data-days="segunda,terca,quarta,quinta,sexta,sabado">
-                <div class="activity-icon">📚</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.biblioteca_municipal">Biblioteca Municipal</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.espao_moderno_para_ler_estudar_ou_usar_a">Espaço moderno para ler, estudar ou usar a internet. Vasto acervo bibliográfico e salas de estudo.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_10">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_10">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.biblioteca_municipal_antnio_ramos_rosa">Biblioteca Municipal António Ramos Rosa</strong></p>
                     <p data-i18n="oque_fazer_hoje.rua_tenente_valadim_faro">Rua Tenente Valadim, Faro</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_10">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_10">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.a_p_5">A pé:</strong> 10 minutos do centro</p>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_9">Autocarro:</strong> Várias linhas urbanas</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_5">🌧️ Dia de chuva</span>
-                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_1">🎓 Estudantes</span>
+                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_5">Dia de chuva</span>
+                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_1">Estudantes</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="chuva,familia" data-days="todos">
-                <div class="activity-icon">🛍️</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.frum_algarve_shopping">Fórum Algarve Shopping</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.centro_comercial_com_lojas_restaurantes">Centro comercial com lojas, restaurantes, cinema e zona de entretenimento. Perfeito para passar o dia em família.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_11">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_11">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.frum_algarve_1">Fórum Algarve</strong> - Montenegro</p>
                     <p><strong data-i18n="oque_fazer_hoje.horrio_1">Horário:</strong> 10h-23h todos os dias</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_11">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_11">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_10">Autocarro:</strong> Linhas 14 e 18</p>
                     <p><strong data-i18n="oque_fazer_hoje.carro_5">Carro:</strong> Estacionamento gratuito</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_6">🌧️ Dia de chuva</span>
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_8">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_6">Dia de chuva</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_8">Família</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="chuva" data-days="segunda,terca,quarta,quinta,sexta,sabado">
-                <div class="activity-icon">💀</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.capela_dos_ossos">Capela dos Ossos</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.visite_esta_capela_nica_decorada_com_oss">Visite esta capela única decorada com ossos e caveiras. Uma experiência cultural e histórica singular.</p>
                 <div class="activity-location">
-                    <h4 data-i18n="oque_fazer_hoje.onde_ir_12">📍 Onde ir</h4>
+                    <h4 data-i18n="oque_fazer_hoje.onde_ir_12">Onde ir</h4>
                     <p><strong data-i18n="oque_fazer_hoje.capela_dos_ossos_1">Capela dos Ossos</strong> - Igreja do Carmo</p>
                     <p data-i18n="oque_fazer_hoje.largo_do_carmo_faro">Largo do Carmo, Faro</p>
                 </div>
                 <div class="activity-transport">
-                    <h4 data-i18n="oque_fazer_hoje.como_chegar_12">🚌 Como chegar</h4>
+                    <h4 data-i18n="oque_fazer_hoje.como_chegar_12">Como chegar</h4>
                     <p><strong data-i18n="oque_fazer_hoje.a_p_6">A pé:</strong> 10 minutos do centro histórico</p>
                     <p><strong data-i18n="oque_fazer_hoje.autocarro_11">Autocarro:</strong> Várias linhas urbanas</p>
                 </div>
                 <div class="activity-tags">
-                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_7">🌧️ Dia de chuva</span>
+                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_7">Dia de chuva</span>
                 </div>
             </div>
 
             <!-- Atividades para família -->
             <div class="activity-card" data-categories="familia" data-days="todos">
-                <div class="activity-icon">🌳</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.jardim_manuel_bivar_1">Jardim Manuel Bivar</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.jardim_histrico_junto_ao_porto_perfeito">Jardim histórico junto ao porto, perfeito para um piquenique ou simplesmente relaxar com a família.</p>
                 <div class="activity-tags">
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_9">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_9">Família</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="familia,sol" data-days="todos">
-                <div class="activity-icon">🎪</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.parque_infantil">Parque Infantil</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.parques_infantis_bem_equipados_no_parque">Parques infantis bem equipados no Parque Ribeirinho e em vários jardins da cidade.</p>
                 <div class="activity-tags">
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_10">👨‍👩‍👧‍👦 Família</span>
-                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_7">☀️ Dia de sol</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_10">Família</span>
+                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_7">Dia de sol</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="familia" data-days="todos">
-                <div class="activity-icon">🍦</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.passear_pelo_porto">Passear pelo Porto</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.caminhe_pela_zona_ribeirinha_aprecie_a_v">Caminhe pela zona ribeirinha, aprecie a vista para a Ria Formosa e pare para um gelado numa esplanada.</p>
                 <div class="activity-tags">
-                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_11">👨‍👩‍👧‍👦 Família</span>
+                    <span class="activity-tag familia" data-i18n="oque_fazer_hoje.famlia_11">Família</span>
                 </div>
             </div>
 
             <!-- Atividades para estudantes -->
             <div class="activity-card" data-categories="estudantes" data-days="segunda,terca,quarta,quinta,sexta">
-                <div class="activity-icon">☕</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.cafs_e_espaos_de_estudo">Cafés e Espaços de Estudo</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.cafs_com_wifi_e_ambiente_tranquilo_para">Cafés com Wi-Fi e ambiente tranquilo para estudar. Zona da Baixa e próximo à Universidade do Algarve.</p>
                 <div class="activity-tags">
-                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_2">🎓 Estudantes</span>
+                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_2">Estudantes</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="estudantes" data-days="quinta,sexta,sabado">
-                <div class="activity-icon">🎵</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.vida_noturna">Vida Noturna</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.bares_e_discotecas_na_zona_da_marina_e_c">Bares e discotecas na zona da Marina e Centro Histórico. Ambiente jovem e animado, especialmente ao fim de semana.</p>
                 <div class="activity-tags">
-                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_3">🎓 Estudantes</span>
+                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_3">Estudantes</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="estudantes,sol" data-days="todos">
-                <div class="activity-icon">🏃</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.desporto_ao_ar_livre">Desporto ao Ar Livre</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.campos_de_futebol_basquetebol_e_instalae">Campos de futebol, basquetebol e instalações desportivas públicas. Zona desportiva de Montenegro e outros complexos.</p>
                 <div class="activity-tags">
-                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_4">🎓 Estudantes</span>
-                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_8">☀️ Dia de sol</span>
+                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_4">Estudantes</span>
+                    <span class="activity-tag sol" data-i18n="oque_fazer_hoje.dia_de_sol_8">Dia de sol</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="estudantes" data-days="segunda,terca,quarta,quinta,sexta,sabado,domingo">
-                <div class="activity-icon">🍕</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.restaurantes_econmicos">Restaurantes Económicos</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.restaurantes_com_menus_econmicos_para_es">Restaurantes com menus económicos para estudantes. Várias opções perto da Universidade e no centro da cidade.</p>
                 <div class="activity-tags">
-                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_5">🎓 Estudantes</span>
+                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_5">Estudantes</span>
                 </div>
             </div>
 
             <div class="activity-card" data-categories="estudantes,chuva" data-days="todos">
-                <div class="activity-icon">🎮</div>
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.espaos_de_gaming">Espaços de Gaming</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.cafs_e_espaos_com_consolas_e_jogos_de_ta">Cafés e espaços com consolas e jogos de tabuleiro. Ambiente descontraído para conviver com amigos.</p>
                 <div class="activity-tags">
-                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_6">🎓 Estudantes</span>
-                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_8">🌧️ Dia de chuva</span>
+                    <span class="activity-tag estudantes" data-i18n="oque_fazer_hoje.estudantes_6">Estudantes</span>
+                    <span class="activity-tag chuva" data-i18n="oque_fazer_hoje.dia_de_chuva_8">Dia de chuva</span>
                 </div>
             </div>
         </section>
 
         <div class="no-results hidden" id="no-results">
-            <p data-i18n="oque_fazer_hoje.nenhuma_atividade_encontrada_para_este">😔 Nenhuma atividade encontrada para este filtro.</p>
+            <p data-i18n="oque_fazer_hoje.nenhuma_atividade_encontrada_para_este">Nenhuma atividade encontrada para este filtro.</p>
             <p data-i18n="oque_fazer_hoje.tente_selecionar_outro_tipo_de_atividade">Tente selecionar outro tipo de atividade.</p>
         </div>
     </main>

@@ -35,138 +35,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    <style>
-        .problem-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .problem-card h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .problem-card .icon {
-            font-size: 2rem;
-        }
-        
-        .problem-description {
-            background: #faf7f2;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid #146a8c;
-        }
-        
-        .problem-description p {
-            margin: 0.5rem 0;
-            line-height: 1.6;
-        }
-        
-        /* .contact-box now comes from the shared page patterns in
-           assets/styles/style.css */
-        .contact-item {
-            margin: 0.75rem 0;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-        }
-        
-        .contact-item strong {
-            color: #2c3338;
-            min-width: 100px;
-        }
-        
-        .phone-number {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #2c3338;
-            margin: 0.5rem 0;
-        }
-        
-        /* .info-box now comes from the shared page patterns in
-           assets/styles/style.css */
-        .info-box ul li {
-            margin: 0.25rem 0;
-        }
-
-        .useful-links {
-            background: #fef8eb;
-            border-left: 4px solid #d98324;
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-        
-        .useful-links h4 {
-            color: #2c3338;
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .useful-links ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .useful-links ul li {
-            padding: 0.5rem 0;
-        }
-        
-        .useful-links ul li a {
-            color: #146a8c;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .useful-links ul li a:hover {
-            color: #0d3b4f;
-            text-decoration: underline;
-        }
-        
-        /* .tips-box now comes from the shared page patterns in
-           assets/styles/style.css */
-        .tips-box ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .tips-box ul li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-        
-        .tips-box ul li:before {
-            content: "💡";
-            position: absolute;
-            left: 0;
-        }
-        
-        @media (max-width: 768px) {
-            .problem-card {
-                padding: 1.5rem;
-            }
-            
-            .contact-item {
-                flex-direction: column;
-                gap: 0.25rem;
-            }
-            
-            .contact-item strong {
-                min-width: auto;
-            }
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -174,81 +42,81 @@
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2 data-i18n="faq.hero_title">FAQ da Cidade - Perguntas Frequentes</h2>
+            <h1 data-i18n="faq.hero_title">FAQ da Cidade - Perguntas Frequentes</h1>
             <p data-i18n="faq.find_answers">Respostas rápidas para as perguntas mais comuns sobre serviços e problemas urbanos em Faro. Saiba onde tratar, onde reclamar e onde pedir ajuda.</p>
         </section>
 
         <!-- FAQ Rápido -->
         <section class="problem-card">
-            <h3><span class="icon">❓</span><span data-i18n="faq.quick_guide_title">Perguntas Frequentes - Guia Rápido</span></h3>
+            <h3><span data-i18n="faq.quick_guide_title">Perguntas Frequentes - Guia Rápido</span></h3>
             
             <div class="problem-description">
                 <p><strong data-i18n="problemas_frequentes.encontre_rapidamente_a_resposta_que_proc">Encontre rapidamente a resposta que procura:</strong></p>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="problemas_frequentes.onde_tratar_documentos_e_servios_oficia">🏛️ Onde tratar documentos e serviços oficiais?</strong></p>
+                <p><strong data-i18n="problemas_frequentes.onde_tratar_documentos_e_servios_oficia">Onde tratar documentos e serviços oficiais?</strong></p>
                 <ul>
-                    <li><strong data-i18n="problemas_frequentes.carto_de_cidado">Cartão de Cidadão:</strong> Espaço Cidadão - Loja do Cidadão (Rua Brites de Almeida) | ☎️ 289 887 700</li>
-                    <li><strong data-i18n="problemas_frequentes.carta_de_conduo">Carta de Condução:</strong> IMT - Instituto da Mobilidade e dos Transportes (Faro) | ☎️ 289 899 230</li>
-                    <li><strong data-i18n="problemas_frequentes.segurana_social">Segurança Social:</strong> Centro Distrital de Faro (Rua do Repouso) | ☎️ 300 502 502</li>
-                    <li><strong data-i18n="problemas_frequentes.finanas">Finanças:</strong> Serviço de Finanças de Faro (Rua João de Deus) | ☎️ 289 870 500</li>
-                    <li><strong data-i18n="problemas_frequentes.servios_municipais">Serviços Municipais:</strong> Câmara Municipal de Faro | ☎️ 289 870 870</li>
+                    <li><strong data-i18n="problemas_frequentes.carto_de_cidado">Cartão de Cidadão:</strong> Espaço Cidadão - Loja do Cidadão (Rua Brites de Almeida) | 289 887 700</li>
+                    <li><strong data-i18n="problemas_frequentes.carta_de_conduo">Carta de Condução:</strong> IMT - Instituto da Mobilidade e dos Transportes (Faro) | 289 899 230</li>
+                    <li><strong data-i18n="problemas_frequentes.segurana_social">Segurança Social:</strong> Centro Distrital de Faro (Rua do Repouso) | 300 502 502</li>
+                    <li><strong data-i18n="problemas_frequentes.finanas">Finanças:</strong> Serviço de Finanças de Faro (Rua João de Deus) | 289 870 500</li>
+                    <li><strong data-i18n="problemas_frequentes.servios_municipais">Serviços Municipais:</strong> Câmara Municipal de Faro | 289 870 870</li>
                 </ul>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="problemas_frequentes.onde_reclamar_e_fazer_queixas">📋 Onde reclamar e fazer queixas?</strong></p>
+                <p><strong data-i18n="problemas_frequentes.onde_reclamar_e_fazer_queixas">Onde reclamar e fazer queixas?</strong></p>
                 <ul>
                     <li><strong data-i18n="problemas_frequentes.livro_de_reclamaes_online">Livro de Reclamações Online:</strong> <a href="https://www.livroreclamacoes.pt" target="_blank" data-i18n="problemas_frequentes.wwwlivroreclamacoespt">www.livroreclamacoes.pt</a> - Para qualquer estabelecimento comercial</li>
-                    <li><strong data-i18n="problemas_frequentes.problemas_urbanos_buracos_lixo_iluminao">Problemas Urbanos (buracos, lixo, iluminação):</strong> Câmara Municipal | ☎️ 289 870 870 | ✉️ geral@cm-faro.pt</li>
-                    <li><strong data-i18n="problemas_frequentes.estacionamento_irregular">Estacionamento Irregular:</strong> Polícia Municipal | ☎️ 289 870 880</li>
-                    <li><strong data-i18n="problemas_frequentes.barulho_e_perturbao_da_ordem_pblica">Barulho e Perturbação da Ordem Pública:</strong> PSP | ☎️ 289 899 899 ou 112</li>
-                    <li><strong data-i18n="problemas_frequentes.servios_de_gua_e_saneamento">Serviços de Água e Saneamento:</strong> Águas do Algarve | ☎️ 707 50 60 50</li>
-                    <li><strong data-i18n="problemas_frequentes.eletricidade">Eletricidade:</strong> EDP Distribuição | ☎️ 800 506 506</li>
+                    <li><strong data-i18n="problemas_frequentes.problemas_urbanos_buracos_lixo_iluminao">Problemas Urbanos (buracos, lixo, iluminação):</strong> Câmara Municipal | 289 870 870 | geral@cm-faro.pt</li>
+                    <li><strong data-i18n="problemas_frequentes.estacionamento_irregular">Estacionamento Irregular:</strong> Polícia Municipal | 289 870 880</li>
+                    <li><strong data-i18n="problemas_frequentes.barulho_e_perturbao_da_ordem_pblica">Barulho e Perturbação da Ordem Pública:</strong> PSP | 289 899 899 ou 112</li>
+                    <li><strong data-i18n="problemas_frequentes.servios_de_gua_e_saneamento">Serviços de Água e Saneamento:</strong> Águas do Algarve | 707 50 60 50</li>
+                    <li><strong data-i18n="problemas_frequentes.eletricidade">Eletricidade:</strong> EDP Distribuição | 800 506 506</li>
                     <li><strong data-i18n="problemas_frequentes.gs">Gás:</strong> Operador respetivo (consultar contrato)</li>
                 </ul>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="problemas_frequentes.onde_pedir_ajuda_e_apoio">🆘 Onde pedir ajuda e apoio?</strong></p>
+                <p><strong data-i18n="problemas_frequentes.onde_pedir_ajuda_e_apoio">Onde pedir ajuda e apoio?</strong></p>
                 <ul>
-                    <li><strong data-i18n="problemas_frequentes.emergncias_sade_polcia_bombeiros">Emergências (Saúde, Polícia, Bombeiros):</strong> ☎️ 112</li>
-                    <li><strong data-i18n="problemas_frequentes.sade_24_linha_de_aconselhamento">Saúde 24 (Linha de Aconselhamento):</strong> ☎️ 808 24 24 24</li>
-                    <li><strong data-i18n="problemas_frequentes.centro_de_sade_de_faro">Centro de Saúde de Faro:</strong> ☎️ 289 891 100</li>
-                    <li><strong data-i18n="problemas_frequentes.hospital_de_faro">Hospital de Faro:</strong> ☎️ 289 891 100</li>
-                    <li><strong data-i18n="problemas_frequentes.apoio_social_segurana_social">Apoio Social (Segurança Social):</strong> ☎️ 300 502 502</li>
-                    <li><strong data-i18n="problemas_frequentes.linha_nacional_de_emergncia_social">Linha Nacional de Emergência Social:</strong> ☎️ 144</li>
-                    <li><strong data-i18n="problemas_frequentes.linha_de_apoio_vtima">Linha de Apoio à Vítima:</strong> ☎️ 116 006</li>
-                    <li><strong data-i18n="problemas_frequentes.sos_voz_amiga">SOS Voz Amiga:</strong> ☎️ 213 544 545 (apoio emocional)</li>
-                    <li><strong data-i18n="problemas_frequentes.cpcj_comisso_de_proteo_de_crianas_e_jov">CPCJ - Comissão de Proteção de Crianças e Jovens:</strong> ☎️ 289 870 870</li>
-                    <li><strong data-i18n="problemas_frequentes.violncia_domstica">Violência Doméstica:</strong> ☎️ 800 202 148</li>
+                    <li><strong data-i18n="problemas_frequentes.emergncias_sade_polcia_bombeiros">Emergências (Saúde, Polícia, Bombeiros):</strong> 112</li>
+                    <li><strong data-i18n="problemas_frequentes.sade_24_linha_de_aconselhamento">Saúde 24 (Linha de Aconselhamento):</strong> 808 24 24 24</li>
+                    <li><strong data-i18n="problemas_frequentes.centro_de_sade_de_faro">Centro de Saúde de Faro:</strong> 289 891 100</li>
+                    <li><strong data-i18n="problemas_frequentes.hospital_de_faro">Hospital de Faro:</strong> 289 891 100</li>
+                    <li><strong data-i18n="problemas_frequentes.apoio_social_segurana_social">Apoio Social (Segurança Social):</strong> 300 502 502</li>
+                    <li><strong data-i18n="problemas_frequentes.linha_nacional_de_emergncia_social">Linha Nacional de Emergência Social:</strong> 144</li>
+                    <li><strong data-i18n="problemas_frequentes.linha_de_apoio_vtima">Linha de Apoio à Vítima:</strong> 116 006</li>
+                    <li><strong data-i18n="problemas_frequentes.sos_voz_amiga">SOS Voz Amiga:</strong> 213 544 545 (apoio emocional)</li>
+                    <li><strong data-i18n="problemas_frequentes.cpcj_comisso_de_proteo_de_crianas_e_jov">CPCJ - Comissão de Proteção de Crianças e Jovens:</strong> 289 870 870</li>
+                    <li><strong data-i18n="problemas_frequentes.violncia_domstica">Violência Doméstica:</strong> 800 202 148</li>
                 </ul>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="problemas_frequentes.onde_obter_cuidados_de_sade">🏥 Onde obter cuidados de saúde?</strong></p>
+                <p><strong data-i18n="problemas_frequentes.onde_obter_cuidados_de_sade">Onde obter cuidados de saúde?</strong></p>
                 <ul>
-                    <li><strong data-i18n="problemas_frequentes.centro_de_sade_de_faro_1">Centro de Saúde de Faro:</strong> Consultas programadas | ☎️ 289 891 100</li>
-                    <li><strong data-i18n="problemas_frequentes.hospital_de_faro_urgncias">Hospital de Faro - Urgências:</strong> Serviço de Urgência 24h | ☎️ 289 891 100</li>
+                    <li><strong data-i18n="problemas_frequentes.centro_de_sade_de_faro_1">Centro de Saúde de Faro:</strong> Consultas programadas | 289 891 100</li>
+                    <li><strong data-i18n="problemas_frequentes.hospital_de_faro_urgncias">Hospital de Faro - Urgências:</strong> Serviço de Urgência 24h | 289 891 100</li>
                     <li><strong data-i18n="problemas_frequentes.farmcias_de_servio">Farmácias de Serviço:</strong> Consultar em <a href="https://www.farmaciaportugal.pt" target="_blank" data-i18n="problemas_frequentes.farmaciaportugalpt">farmaciaportugal.pt</a></li>
-                    <li><strong data-i18n="problemas_frequentes.inem_emergncia_mdica">INEM - Emergência Médica:</strong> ☎️ 112</li>
+                    <li><strong data-i18n="problemas_frequentes.inem_emergncia_mdica">INEM - Emergência Médica:</strong> 112</li>
                 </ul>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="problemas_frequentes.onde_obter_informaes_sobre_transportes">🚍 Onde obter informações sobre transportes?</strong></p>
+                <p><strong data-i18n="problemas_frequentes.onde_obter_informaes_sobre_transportes">Onde obter informações sobre transportes?</strong></p>
                 <ul>
-                    <li><strong data-i18n="problemas_frequentes.transportes_urbanos_prximo">Transportes Urbanos (Próximo):</strong> ☎️ 289 899 740</li>
-                    <li><strong data-i18n="problemas_frequentes.cp_comboios_de_portugal">CP - Comboios de Portugal:</strong> ☎️ 707 210 220</li>
-                    <li><strong data-i18n="problemas_frequentes.rede_expressos">Rede Expressos:</strong> ☎️ 707 223 344</li>
-                    <li><strong data-i18n="problemas_frequentes.aeroporto_de_faro">Aeroporto de Faro:</strong> ☎️ 289 800 800</li>
-                    <li><strong data-i18n="problemas_frequentes.txis_de_faro">Táxis de Faro:</strong> ☎️ 289 895 795</li>
+                    <li><strong data-i18n="problemas_frequentes.transportes_urbanos_prximo">Transportes Urbanos (Próximo):</strong> 289 899 740</li>
+                    <li><strong data-i18n="problemas_frequentes.cp_comboios_de_portugal">CP - Comboios de Portugal:</strong> 707 210 220</li>
+                    <li><strong data-i18n="problemas_frequentes.rede_expressos">Rede Expressos:</strong> 707 223 344</li>
+                    <li><strong data-i18n="problemas_frequentes.aeroporto_de_faro">Aeroporto de Faro:</strong> 289 800 800</li>
+                    <li><strong data-i18n="problemas_frequentes.txis_de_faro">Táxis de Faro:</strong> 289 895 795</li>
                 </ul>
             </div>
             
             <div class="useful-links">
-                <h4 data-i18n="problemas_frequentes.links_teis_para_servios_online">🔗 Links Úteis para Serviços Online</h4>
+                <h4 data-i18n="problemas_frequentes.links_teis_para_servios_online">Links Úteis para Serviços Online</h4>
                 <ul>
                     <li><a href="https://www.portaldocidadao.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.portal_do_cidado_servios_pblicos_online">Portal do Cidadão - Serviços Públicos Online</a></li>
                     <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.cmara_municipal_de_faro_balco_virtual">Câmara Municipal de Faro - Balcão Virtual</a></li>
@@ -259,11 +127,11 @@
             </div>
         </section>
 
-    <h2 style="margin: 3rem 0 2rem 0; color: #2c3338; text-align: center;" data-i18n="faq.urban_problems_title">Problemas Urbanos Específicos</h2>
+    <h2 data-i18n="faq.urban_problems_title">Problemas Urbanos Específicos</h2>
 
         <!-- Buracos nas Estradas -->
         <section class="problem-card">
-            <h3><span class="icon" data-i18n="problemas_frequentes.key_1">🚧</span>Buracos nas Estradas</h3>
+            <h3>Buracos nas Estradas</h3>
             
             <div class="problem-description">
                 <p><strong data-i18n="problemas_frequentes.descrio_do_problema">Descrição do Problema:</strong></p>
@@ -271,32 +139,32 @@
             </div>
             
             <div class="contact-box">
-                <h4 data-i18n="problemas_frequentes.entidade_responsvel">🏛️ Entidade Responsável</h4>
+                <h4 data-i18n="problemas_frequentes.entidade_responsvel">Entidade Responsável</h4>
                 <p><strong data-i18n="problemas_frequentes.cmara_municipal_de_faro_diviso_de_infra">Câmara Municipal de Faro - Divisão de Infraestruturas e Obras Municipais</strong></p>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.telefone">📞 Telefone:</strong>
+                    <strong data-i18n="problemas_frequentes.telefone">Telefone:</strong>
                     <span class="phone-number" data-i18n="problemas_frequentes.289_870_870">289 870 870</span>
                 </div>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.email">✉️ E-mail:</strong>
+                    <strong data-i18n="problemas_frequentes.email">E-mail:</strong>
                     <span data-i18n="problemas_frequentes.geralcmfaropt">geral@cm-faro.pt</span>
                 </div>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.horrio">⏰ Horário:</strong>
+                    <strong data-i18n="problemas_frequentes.horrio">Horário:</strong>
                     <span data-i18n="problemas_frequentes.segunda_a_sexta_das_9h00_s_17h00">Segunda a Sexta, das 9h00 às 17h00</span>
                 </div>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.online">🌐 Online:</strong>
+                    <strong data-i18n="problemas_frequentes.online">Online:</strong>
                     <span data-i18n="problemas_frequentes.balco_virtual_da_cmara_municipal">Balcão Virtual da Câmara Municipal</span>
                 </div>
             </div>
             
             <div class="useful-links">
-                <h4 data-i18n="problemas_frequentes.links_teis">🔗 Links Úteis</h4>
+                <h4 data-i18n="problemas_frequentes.links_teis">Links Úteis</h4>
                 <ul>
                     <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.portal_da_cmara_municipal_de_faro">Portal da Câmara Municipal de Faro</a></li>
                     <li><a href="https://www.portaldocidadao.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.portal_do_cidado">Portal do Cidadão</a></li>
@@ -304,7 +172,7 @@
             </div>
             
             <div class="tips-box">
-                <h4 data-i18n="problemas_frequentes.como_reportar">💡 Como Reportar</h4>
+                <h4 data-i18n="problemas_frequentes.como_reportar">Como Reportar</h4>
                 <ul>
                     <li data-i18n="problemas_frequentes.indique_a_localizao_exata_rua_e_nmero_se">Indique a localização exata (rua e número, se possível)</li>
                     <li data-i18n="problemas_frequentes.tire_fotografias_do_buraco_para_anexar">Tire fotografias do buraco para anexar à reclamação</li>
@@ -316,7 +184,7 @@
 
         <!-- Lixo Fora do Horário -->
         <section class="problem-card">
-            <h3><span class="icon" data-i18n="problemas_frequentes.key_2">🗑️</span>Lixo Fora do Horário</h3>
+            <h3>Lixo Fora do Horário</h3>
             
             <div class="problem-description">
                 <p><strong data-i18n="problemas_frequentes.descrio_do_problema_1">Descrição do Problema:</strong></p>
@@ -324,7 +192,7 @@
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="problemas_frequentes.horrios_de_recolha_em_faro">📅 Horários de Recolha em Faro:</strong></p>
+                <p><strong data-i18n="problemas_frequentes.horrios_de_recolha_em_faro">Horários de Recolha em Faro:</strong></p>
                 <ul>
                     <li><strong data-i18n="problemas_frequentes.lixo_domstico_contentores_pretos">Lixo Doméstico (Contentores Pretos):</strong> Recolha diária, de preferência após as 20h00</li>
                     <li><strong data-i18n="problemas_frequentes.reciclagem_ecopontos">Reciclagem (Ecopontos):</strong> Disponível 24h, pode depositar a qualquer hora</li>
@@ -333,27 +201,27 @@
             </div>
             
             <div class="contact-box">
-                <h4 data-i18n="problemas_frequentes.entidade_responsvel_1">🏛️ Entidade Responsável</h4>
+                <h4 data-i18n="problemas_frequentes.entidade_responsvel_1">Entidade Responsável</h4>
                 <p><strong data-i18n="problemas_frequentes.cmara_municipal_de_faro_diviso_de_ambie">Câmara Municipal de Faro - Divisão de Ambiente e Serviços Urbanos</strong></p>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.telefone_1">📞 Telefone:</strong>
+                    <strong data-i18n="problemas_frequentes.telefone_1">Telefone:</strong>
                     <span class="phone-number" data-i18n="problemas_frequentes.289_870_870_1">289 870 870</span>
                 </div>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.email_1">✉️ E-mail:</strong>
+                    <strong data-i18n="problemas_frequentes.email_1">E-mail:</strong>
                     <span data-i18n="problemas_frequentes.ambientecmfaropt">ambiente@cm-faro.pt</span>
                 </div>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.horrio_1">⏰ Horário:</strong>
+                    <strong data-i18n="problemas_frequentes.horrio_1">Horário:</strong>
                     <span data-i18n="problemas_frequentes.segunda_a_sexta_das_9h00_s_17h00_1">Segunda a Sexta, das 9h00 às 17h00</span>
                 </div>
             </div>
             
             <div class="useful-links">
-                <h4 data-i18n="problemas_frequentes.links_teis_1">🔗 Links Úteis</h4>
+                <h4 data-i18n="problemas_frequentes.links_teis_1">Links Úteis</h4>
                 <ul>
                     <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.portal_da_cmara_municipal_de_faro_1">Portal da Câmara Municipal de Faro</a></li>
                     <li><a href="ambiente.html" data-i18n="problemas_frequentes.pgina_de_ambiente_e_reciclagem">Página de Ambiente e Reciclagem</a></li>
@@ -361,7 +229,7 @@
             </div>
             
             <div class="tips-box">
-                <h4 data-i18n="problemas_frequentes.como_reportar_1">💡 Como Reportar</h4>
+                <h4 data-i18n="problemas_frequentes.como_reportar_1">Como Reportar</h4>
                 <ul>
                     <li data-i18n="problemas_frequentes.indique_o_local_exato_onde_o_lixo_foi_de">Indique o local exato onde o lixo foi depositado irregularmente</li>
                     <li data-i18n="problemas_frequentes.tire_fotografias_como_comprovativo">Tire fotografias como comprovativo</li>
@@ -373,7 +241,7 @@
 
         <!-- Iluminação Pública -->
         <section class="problem-card">
-            <h3><span class="icon" data-i18n="problemas_frequentes.key_3">💡</span>Iluminação Pública</h3>
+            <h3>Iluminação Pública</h3>
             
             <div class="problem-description">
                 <p><strong data-i18n="problemas_frequentes.descrio_do_problema_2">Descrição do Problema:</strong></p>
@@ -381,32 +249,32 @@
             </div>
             
             <div class="contact-box">
-                <h4 data-i18n="problemas_frequentes.entidade_responsvel_2">🏛️ Entidade Responsável</h4>
+                <h4 data-i18n="problemas_frequentes.entidade_responsvel_2">Entidade Responsável</h4>
                 <p><strong data-i18n="problemas_frequentes.cmara_municipal_de_faro_diviso_de_infra_1">Câmara Municipal de Faro - Divisão de Infraestruturas e Obras Municipais</strong></p>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.telefone_2">📞 Telefone:</strong>
+                    <strong data-i18n="problemas_frequentes.telefone_2">Telefone:</strong>
                     <span class="phone-number" data-i18n="problemas_frequentes.289_870_870_2">289 870 870</span>
                 </div>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.email_2">✉️ E-mail:</strong>
+                    <strong data-i18n="problemas_frequentes.email_2">E-mail:</strong>
                     <span data-i18n="problemas_frequentes.geralcmfaropt_1">geral@cm-faro.pt</span>
                 </div>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.linha_de_emergncia_avarias_graves">🚨 Linha de Emergência (avarias graves):</strong>
+                    <strong data-i18n="problemas_frequentes.linha_de_emergncia_avarias_graves">Linha de Emergência (avarias graves):</strong>
                     <span class="phone-number" data-i18n="problemas_frequentes.289_870_899">289 870 899</span>
                 </div>
                 
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.horrio_2">⏰ Horário:</strong>
+                    <strong data-i18n="problemas_frequentes.horrio_2">Horário:</strong>
                     <span data-i18n="problemas_frequentes.segunda_a_sexta_das_9h00_s_17h00_linha_d">Segunda a Sexta, das 9h00 às 17h00 (Linha de emergência 24h)</span>
                 </div>
             </div>
             
             <div class="useful-links">
-                <h4 data-i18n="problemas_frequentes.links_teis_2">🔗 Links Úteis</h4>
+                <h4 data-i18n="problemas_frequentes.links_teis_2">Links Úteis</h4>
                 <ul>
                     <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.portal_da_cmara_municipal_de_faro_2">Portal da Câmara Municipal de Faro</a></li>
                     <li><a href="https://www.portaldocidadao.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.portal_do_cidado_1">Portal do Cidadão</a></li>
@@ -414,7 +282,7 @@
             </div>
             
             <div class="tips-box">
-                <h4 data-i18n="problemas_frequentes.como_reportar_2">💡 Como Reportar</h4>
+                <h4 data-i18n="problemas_frequentes.como_reportar_2">Como Reportar</h4>
                 <ul>
                     <li data-i18n="problemas_frequentes.indique_a_rua_e_o_nmero_do_poste_se_visv">Indique a rua e o número do poste (se visível)</li>
                     <li data-i18n="problemas_frequentes.descreva_o_problema_lmpada_fundida_poste">Descreva o problema: lâmpada fundida, poste inclinado, fios expostos, etc.</li>
@@ -427,7 +295,7 @@
 
         <!-- Estacionamento -->
         <section class="problem-card">
-            <h3><span class="icon" data-i18n="problemas_frequentes.key_4">🚗</span>Estacionamento</h3>
+            <h3>Estacionamento</h3>
             
             <div class="problem-description">
                 <p><strong data-i18n="problemas_frequentes.descrio_do_problema_3">Descrição do Problema:</strong></p>
@@ -435,7 +303,7 @@
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="problemas_frequentes.situaes_irregulares_mais_comuns">🚫 Situações Irregulares Mais Comuns:</strong></p>
+                <p><strong data-i18n="problemas_frequentes.situaes_irregulares_mais_comuns">Situações Irregulares Mais Comuns:</strong></p>
                 <ul>
                     <li data-i18n="problemas_frequentes.estacionamento_em_lugar_de_deficiente_se">Estacionamento em lugar de deficiente sem dístico</li>
                     <li data-i18n="problemas_frequentes.estacionamento_em_passadeiras_ou_passeio">Estacionamento em passadeiras ou passeios</li>
@@ -446,15 +314,15 @@
             </div>
             
             <div class="contact-box">
-                <h4 data-i18n="problemas_frequentes.entidades_responsveis">🏛️ Entidades Responsáveis</h4>
+                <h4 data-i18n="problemas_frequentes.entidades_responsveis">Entidades Responsáveis</h4>
                 
                 <p><strong data-i18n="problemas_frequentes.polcia_municipal_de_faro_fiscalizao_e_mu">Polícia Municipal de Faro (Fiscalização e Multas)</strong></p>
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.telefone_3">📞 Telefone:</strong>
+                    <strong data-i18n="problemas_frequentes.telefone_3">Telefone:</strong>
                     <span class="phone-number" data-i18n="problemas_frequentes.289_870_880">289 870 880</span>
                 </div>
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.horrio_3">⏰ Horário:</strong>
+                    <strong data-i18n="problemas_frequentes.horrio_3">Horário:</strong>
                     <span data-i18n="problemas_frequentes.segunda_a_sexta_das_9h00_s_19h00">Segunda a Sexta, das 9h00 às 19h00</span>
                 </div>
                 
@@ -462,17 +330,17 @@
                 
                 <p><strong data-i18n="problemas_frequentes.cmara_municipal_de_faro_parqumetros_e_zo">Câmara Municipal de Faro (Parquímetros e Zonas de Estacionamento)</strong></p>
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.telefone_4">📞 Telefone:</strong>
+                    <strong data-i18n="problemas_frequentes.telefone_4">Telefone:</strong>
                     <span class="phone-number" data-i18n="problemas_frequentes.289_870_870_3">289 870 870</span>
                 </div>
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.email_3">✉️ E-mail:</strong>
+                    <strong data-i18n="problemas_frequentes.email_3">E-mail:</strong>
                     <span data-i18n="problemas_frequentes.geralcmfaropt_2">geral@cm-faro.pt</span>
                 </div>
             </div>
             
             <div class="useful-links">
-                <h4 data-i18n="problemas_frequentes.links_teis_3">🔗 Links Úteis</h4>
+                <h4 data-i18n="problemas_frequentes.links_teis_3">Links Úteis</h4>
                 <ul>
                     <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.portal_da_cmara_municipal_de_faro_3">Portal da Câmara Municipal de Faro</a></li>
                     <li><a href="https://www.gnr.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.gnr_guarda_nacional_republicana">GNR - Guarda Nacional Republicana</a></li>
@@ -482,7 +350,7 @@
             </div>
             
             <div class="tips-box">
-                <h4 data-i18n="problemas_frequentes.como_reportar_3">💡 Como Reportar</h4>
+                <h4 data-i18n="problemas_frequentes.como_reportar_3">Como Reportar</h4>
                 <ul>
                     <li data-i18n="problemas_frequentes.anote_a_matrcula_do_veculo_infrator_se_a">Anote a matrícula do veículo infrator (se aplicável)</li>
                     <li data-i18n="problemas_frequentes.tire_fotografias_que_mostrem_claramente">Tire fotografias que mostrem claramente a infração</li>
@@ -495,10 +363,10 @@
 
         <!-- Informações Gerais -->
         <section class="problem-card">
-            <h3><span class="icon" data-i18n="problemas_frequentes.key_5">ℹ️</span>Informações Gerais</h3>
+            <h3>Informações Gerais</h3>
             
             <div class="info-box">
-                <p><strong data-i18n="problemas_frequentes.procedimento_geral_de_reclamao">📋 Procedimento Geral de Reclamação:</strong></p>
+                <p><strong data-i18n="problemas_frequentes.procedimento_geral_de_reclamao">Procedimento Geral de Reclamação:</strong></p>
                 <ul>
                     <li data-i18n="problemas_frequentes.recolha_toda_a_informao_relevante_local">Recolha toda a informação relevante (local, data, fotografias)</li>
                     <li data-i18n="problemas_frequentes.contacte_a_entidade_responsvel_por_telef">Contacte a entidade responsável por telefone, e-mail ou presencialmente</li>
@@ -509,23 +377,23 @@
             </div>
             
             <div class="contact-box">
-                <h4 data-i18n="problemas_frequentes.contactos_de_emergncia">📞 Contactos de Emergência</h4>
+                <h4 data-i18n="problemas_frequentes.contactos_de_emergncia">Contactos de Emergência</h4>
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.emergncias">🚨 Emergências:</strong>
+                    <strong data-i18n="problemas_frequentes.emergncias">Emergências:</strong>
                     <span class="phone-number" data-i18n="problemas_frequentes.112">112</span>
                 </div>
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.psp_polcia">🚔 PSP (Polícia):</strong>
+                    <strong data-i18n="problemas_frequentes.psp_polcia">PSP (Polícia):</strong>
                     <span class="phone-number" data-i18n="problemas_frequentes.289_899_899">289 899 899</span>
                 </div>
                 <div class="contact-item">
-                    <strong data-i18n="problemas_frequentes.bombeiros_de_faro">🚒 Bombeiros de Faro:</strong>
+                    <strong data-i18n="problemas_frequentes.bombeiros_de_faro">Bombeiros de Faro:</strong>
                     <span class="phone-number" data-i18n="problemas_frequentes.289_803_550">289 803 550</span>
                 </div>
             </div>
             
             <div class="useful-links">
-                <h4 data-i18n="problemas_frequentes.outros_links_teis">🔗 Outros Links Úteis</h4>
+                <h4 data-i18n="problemas_frequentes.outros_links_teis">Outros Links Úteis</h4>
                 <ul>
                     <li><a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.livro_de_reclamaes_online_1">Livro de Reclamações Online</a></li>
                     <li><a href="https://www.provedor-jus.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.provedor_de_justia">Provedor de Justiça</a></li>
@@ -534,7 +402,7 @@
             </div>
             
             <div class="tips-box">
-                <h4 data-i18n="problemas_frequentes.dicas_para_melhorar_a_cidade">💡 Dicas para Melhorar a Cidade</h4>
+                <h4 data-i18n="problemas_frequentes.dicas_para_melhorar_a_cidade">Dicas para Melhorar a Cidade</h4>
                 <ul>
                     <li data-i18n="problemas_frequentes.seja_um_cidado_ativo_reporte_problemas">Seja um cidadão ativo - reporte problemas quando os identificar</li>
                     <li data-i18n="problemas_frequentes.mantenha_sempre_um_tom_educado_e_constru">Mantenha sempre um tom educado e construtivo nas reclamações</li>

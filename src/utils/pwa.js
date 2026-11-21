@@ -42,7 +42,7 @@ let statusOfflineExibido = false;
 window.addEventListener('online', () => {
     console.log('✓ Conexão restaurada');
     ocultarNotificacaoOffline();
-    mostrarNotificacao('✓ Conexão restaurada', 'success');
+    mostrarNotificacao('Ligação restaurada', 'success');
 });
 
 window.addEventListener('offline', () => {
@@ -68,7 +68,6 @@ function mostrarNotificacaoOffline() {
         notificacao.id = 'offline-notification';
         notificacao.innerHTML = `
             <div class="offline-notification-content">
-                <span class="offline-icon">📡</span>
                 <span class="offline-text">Você está offline. Funcionalidades limitadas.</span>
             </div>
         `;
@@ -85,8 +84,7 @@ function mostrarNotificacaoOffline() {
                 top: 0;
                 left: 0;
                 right: 0;
-                background-color: #d98324;
-                color: white;
+                background-color: var(--warn-tint); color: var(--ink); border-bottom: 1px solid var(--warn);
                 padding: 0.75rem;
                 text-align: center;
                 z-index: 10000;
@@ -131,10 +129,9 @@ function mostrarNotificacaoOffline() {
                 position: fixed;
                 bottom: 2rem;
                 right: 2rem;
-                background-color: #1dac48;
-                color: white;
+                background-color: var(--ink); color: var(--paper);
                 padding: 1rem 1.5rem;
-                border-radius: 8px;
+                border-radius: var(--radius-sm);
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
                 z-index: 9999;
                 animation: fadeInUp 0.3s ease-out;
@@ -142,15 +139,15 @@ function mostrarNotificacaoOffline() {
             }
             
             .notification-toast.error {
-                background-color: #c0392b;
+                background-color: var(--danger); color: #fff;
             }
             
             .notification-toast.warning {
-                background-color: #d98324;
+                background-color: var(--warn); color: #fff;
             }
             
             .notification-toast.info {
-                background-color: #42beef;
+                background-color: var(--ria); color: var(--paper);
             }
             
             @keyframes fadeInUp {
@@ -178,10 +175,9 @@ function mostrarNotificacaoOffline() {
                 bottom: 2rem;
                 left: 50%;
                 transform: translateX(-50%);
-                background-color: #146a8c;
-                color: white;
+                background-color: var(--ink); color: var(--paper);
                 padding: 1rem 1.5rem;
-                border-radius: 8px;
+                border-radius: var(--radius-sm);
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
                 z-index: 9999;
                 display: flex;
@@ -191,22 +187,13 @@ function mostrarNotificacaoOffline() {
             }
             
             .update-notification button {
-                background-color: white;
-                color: #146a8c;
+                background-color: var(--paper); color: var(--ink);
                 border: none;
                 padding: 0.5rem 1rem;
-                border-radius: 6px;
+                border-radius: var(--radius-sm);
                 font-weight: 600;
                 cursor: pointer;
-                transition: transform 0.2s;
-            }
-            
-            .update-notification button:hover {
-                transform: scale(1.05);
-            }
-            
-            .update-notification button:active {
-                transform: scale(0.95);
+                min-height: 2.75rem;
             }
         `;
         document.head.appendChild(styles);
@@ -247,7 +234,7 @@ function mostrarNotificacaoAtualizacao() {
     const notificacao = document.createElement('div');
     notificacao.className = 'update-notification';
     notificacao.innerHTML = `
-        <span>🎉 Nova versão disponível!</span>
+        <span>Nova versão disponível.</span>
         <button onclick="atualizarPagina()">Atualizar agora</button>
     `;
     document.body.appendChild(notificacao);

@@ -35,188 +35,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    
-    <style>
-        .about-section {
-            background: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-section h3 {
-            color: #2c3338;
-            font-size: 1.75rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .about-section p {
-            color: #4a4a45;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-        
-        .about-section ul {
-            margin: 1.5rem 0;
-            padding-left: 0;
-            list-style: none;
-        }
-        
-        .about-section li {
-            color: #4a4a45;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            padding-left: 2rem;
-            position: relative;
-            font-size: 1.05rem;
-        }
-        
-        .about-section li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #146a8c;
-            font-weight: bold;
-            font-size: 1.25rem;
-        }
-        
-        .api-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .api-card {
-            background: #faf7f2;
-            border-left: 4px solid #146a8c;
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .api-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .api-card h4 {
-            color: #2c3338;
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .api-card p {
-            color: #4a4a45;
-            line-height: 1.6;
-            font-size: 0.95rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .api-card .api-url {
-            color: #146a8c;
-            font-size: 0.875rem;
-            word-break: break-all;
-        }
-        
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .contact-card {
-            background: #faf7f2;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.2s;
-        }
-        
-        .contact-card:hover {
-            transform: translateY(-2px);
-        }
-        
-        .contact-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-card h4 {
-            color: #2c3338;
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        
-        .contact-card a {
-            color: #146a8c;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .contact-card a:hover {
-            text-decoration: underline;
-        }
-        
-        .license-box {
-            background: #faf7f2;
-            border: 2px solid #146a8c;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .license-box h4 {
-            color: #2c3338;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .license-box p {
-            color: #4a4a45;
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .tech-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .tech-badge {
-            background: linear-gradient(135deg, #146a8c 0%, #0d3b4f 100%);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-        
-        @media (max-width: 768px) {
-            .about-section {
-                padding: 1.5rem;
-            }
-            
-            .about-section h3 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -224,13 +42,13 @@
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2 data-i18n="about.hero_title">Sobre o Projeto</h2>
+            <h1 data-i18n="about.hero_title">Sobre o Projeto</h1>
             <p data-i18n="about.hero_description">Conheça o objetivo social, tecnologias utilizadas e informações sobre o desenvolvimento do Faro Formoso.</p>
         </section>
 
         <!-- Objetivo Social -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Alvo" data-i18n="sobre_projeto.key_1">🎯</span> <span data-i18n="about.objective_title">Objetivo Social</span></h3>
+            <h3><span role="img" aria-label="Alvo" data-i18n="sobre_projeto.key_1"></span> <span data-i18n="about.objective_title">Objetivo Social</span></h3>
             <p data-i18n="about.objective_p1">O <strong data-i18n="sobre_projeto.guia_de_faro">Faro Formoso</strong> é um projeto de utilidade pública desenvolvido com o objetivo de democratizar o acesso à informação sobre a cidade de Faro. Criado de forma independente, este guia digital oferece informações essenciais para residentes e visitantes de forma completamente gratuita.</p>
             <p data-i18n="about.objective_p2">A missão principal é facilitar o dia a dia de quem vive ou visita Faro, reunindo num único local informações sobre:</p>
             <ul>
@@ -246,7 +64,7 @@
 
         <!-- Tecnologias Usadas -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Computador" data-i18n="sobre_projeto.key_2">💻</span> <span data-i18n="about.tech_title">Tecnologias Utilizadas</span></h3>
+            <h3><span role="img" aria-label="Computador" data-i18n="sobre_projeto.key_2"></span> <span data-i18n="about.tech_title">Tecnologias Utilizadas</span></h3>
             <p data-i18n="about.tech_description">O Faro Formoso é desenvolvido com tecnologias web modernas, priorizando performance, acessibilidade e facilidade de manutenção:</p>
             
             <div class="tech-stack">
@@ -258,7 +76,7 @@
                 <span class="tech-badge" data-i18n="sobre_projeto.acessibilidade_wcag">Acessibilidade WCAG</span>
             </div>
             
-            <p style="margin-top: 1.5rem;" data-i18n="about.tech_features">O projeto é 100% frontend, sem necessidade de servidor backend, o que garante maior velocidade de carregamento e facilita a hospedagem e manutenção. Inclui funcionalidades como:</p>
+            <p data-i18n="about.tech_features">O projeto é 100% frontend, sem necessidade de servidor backend, o que garante maior velocidade de carregamento e facilita a hospedagem e manutenção. Inclui funcionalidades como:</p>
             <ul>
                 <li data-i18n="about.tech_features_1">Progressive Web App (PWA) com suporte offline</li>
                 <li data-i18n="about.tech_features_2">Modo escuro com preferência persistente</li>
@@ -271,42 +89,42 @@
 
         <!-- APIs Utilizadas -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Conexão" data-i18n="sobre_projeto.key_3">🔌</span> <span data-i18n="about.apis_title">APIs e Fontes de Dados</span></h3>
+            <h3><span role="img" aria-label="Conexão" data-i18n="sobre_projeto.key_3"></span> <span data-i18n="about.apis_title">APIs e Fontes de Dados</span></h3>
             <p data-i18n="about.apis_description">O projeto integra dados de múltiplas fontes públicas e abertas para fornecer informações precisas e atualizadas:</p>
             
             <div class="api-grid">
                 <div class="api-card">
-                    <h4 data-i18n="sobre_projeto.geo_api_pt">🗺️ GEO API PT</h4>
+                    <h4 data-i18n="sobre_projeto.geo_api_pt">GEO API PT</h4>
                     <p data-i18n="about.api_geo_desc">API portuguesa de dados geográficos e demográficos dos municípios de Portugal.</p>
                     <p class="api-url" data-i18n="sobre_projeto.geoapipt">geoapi.pt</p>
                 </div>
                 
                 <div class="api-card">
-                    <h4 data-i18n="sobre_projeto.cmara_municipal_de_faro">🏛️ Câmara Municipal de Faro</h4>
+                    <h4 data-i18n="sobre_projeto.cmara_municipal_de_faro">Câmara Municipal de Faro</h4>
                     <p data-i18n="about.api_cmf_desc">Informações oficiais sobre serviços municipais, transportes e equipamentos públicos.</p>
                     <p class="api-url" data-i18n="sobre_projeto.cmfaropt">cm-faro.pt</p>
                 </div>
                 
                 <div class="api-card">
-                    <h4 data-i18n="sobre_projeto.portal_do_cidado">🏥 Portal do Cidadão</h4>
+                    <h4 data-i18n="sobre_projeto.portal_do_cidado">Portal do Cidadão</h4>
                     <p data-i18n="about.api_portal_desc">Dados sobre serviços de saúde, farmácias e outros serviços públicos.</p>
                     <p class="api-url" data-i18n="sobre_projeto.portaldocidadaopt">portaldocidadao.pt</p>
                 </div>
                 
                 <div class="api-card">
-                    <h4 data-i18n="sobre_projeto.turismo_de_portugal">🏖️ Turismo de Portugal</h4>
+                    <h4 data-i18n="sobre_projeto.turismo_de_portugal">Turismo de Portugal</h4>
                     <p data-i18n="about.api_turismo_desc">Informações turísticas oficiais, eventos e pontos de interesse.</p>
                     <p class="api-url" data-i18n="sobre_projeto.visitportugalcom">visitportugal.com</p>
                 </div>
                 
                 <div class="api-card">
-                    <h4 data-i18n="sobre_projeto.openstreetmap">🗺️ OpenStreetMap</h4>
+                    <h4 data-i18n="sobre_projeto.openstreetmap">OpenStreetMap</h4>
                     <p data-i18n="about.api_osm_desc">Mapas colaborativos abertos utilizados para visualização geográfica.</p>
                     <p class="api-url" data-i18n="sobre_projeto.openstreetmaporg">openstreetmap.org</p>
                 </div>
                 
                 <div class="api-card">
-                    <h4 data-i18n="sobre_projeto.proximo_autocarro">🚌 Proximo Autocarro</h4>
+                    <h4 data-i18n="sobre_projeto.proximo_autocarro">Proximo Autocarro</h4>
                     <p data-i18n="about.api_proximo_desc">Dados de transportes públicos e horários em tempo real.</p>
                     <p class="api-url" data-i18n="sobre_projeto.proximoautocarropt">proximoautocarro.pt</p>
                 </div>
@@ -315,45 +133,42 @@
 
         <!-- Licença -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Documento" data-i18n="sobre_projeto.key_4">📄</span> <span data-i18n="about.license_title">Licença</span></h3>
+            <h3><span role="img" aria-label="Documento" data-i18n="sobre_projeto.key_4"></span> <span data-i18n="about.license_title">Licença</span></h3>
             <p data-i18n="about.license_description">Este projeto é de código aberto e está disponível sob licença livre para uso público.</p>
             
             <div class="license-box">
                 <h4 data-i18n="about.license_box_title">Licença de Uso Livre</h4>
-                <p data-i18n="about.license_box_p1">✓ O conteúdo deste site pode ser consultado livremente por qualquer pessoa</p>
-                <p data-i18n="about.license_box_p2">✓ O código-fonte está disponível para consulta e contribuições</p>
-                <p data-i18n="about.license_box_p3">✓ As informações são fornecidas com finalidade educacional e informativa</p>
-                <p data-i18n="about.license_box_p4">✓ Todos os dados de APIs externas estão sujeitos às licenças das respetivas fontes</p>
+                <p data-i18n="about.license_box_p1">O conteúdo deste site pode ser consultado livremente por qualquer pessoa</p>
+                <p data-i18n="about.license_box_p2">O código-fonte está disponível para consulta e contribuições</p>
+                <p data-i18n="about.license_box_p3">As informações são fornecidas com finalidade educacional e informativa</p>
+                <p data-i18n="about.license_box_p4">Todos os dados de APIs externas estão sujeitos às licenças das respetivas fontes</p>
             </div>
         </section>
 
         <!-- Autor -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Pessoa" data-i18n="sobre_projeto.key_5">👤</span> <span data-i18n="about.author_title">Autor</span></h3>
+            <h3><span role="img" aria-label="Pessoa" data-i18n="sobre_projeto.key_5"></span> <span data-i18n="about.author_title">Autor</span></h3>
             <p data-i18n="about.author_description">O Faro Formoso é desenvolvido e mantido de forma independente como um projeto pessoal de utilidade pública. O desenvolvimento é feito de forma voluntária, com o objetivo de contribuir para a comunidade local.</p>
             <p data-i18n="about.author_support">Se este projeto é útil para si, considere apoiá-lo de forma voluntária através do botão "Apoiar o Projeto" no rodapé da página. O site permanecerá sempre 100% gratuito.</p>
         </section>
 
         <!-- Contacto -->
         <section class="about-section">
-            <h3><span role="img" aria-label="Envelope" data-i18n="sobre_projeto.key_6">✉️</span> <span data-i18n="about.contact_title">Contacto</span></h3>
+            <h3><span role="img" aria-label="Envelope" data-i18n="sobre_projeto.key_6"></span> <span data-i18n="about.contact_title">Contacto</span></h3>
             <p data-i18n="about.contact_description">Para sugestões, correções ou questões sobre o projeto:</p>
             
             <div class="contact-grid">
                 <div class="contact-card">
-                    <div class="icon" role="img" aria-label="GitHub">💻</div>
                     <h4 data-i18n="about.contact_github_title">Código Fonte</h4>
                     <p><a href="https://github.com/papoon/cidadedefaro" target="_blank" rel="noopener noreferrer" data-i18n="sobre_projeto.githubcompapooncidadedefaro">github.com/papoon/cidadedefaro</a></p>
                 </div>
                 
                 <div class="contact-card">
-                    <div class="icon" role="img" aria-label="Issues">🐛</div>
                     <h4 data-i18n="about.contact_issues_title">Reportar Problemas</h4>
                     <p><a href="https://github.com/papoon/cidadedefaro/issues/new" target="_blank" rel="noopener noreferrer" data-i18n="about.contact_issues_link">Abrir Issue no GitHub</a></p>
                 </div>
                 
                 <div class="contact-card">
-                    <div class="icon" role="img" aria-label="Café">☕</div>
                     <h4 data-i18n="about.contact_support_title">Apoiar o Projeto</h4>
                     <p><a href="https://www.buymeacoffee.com/guiadefaro" target="_blank" rel="noopener noreferrer" data-i18n="about.contact_support_link">Fazer uma doação voluntária</a></p>
                 </div>

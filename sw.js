@@ -1,6 +1,6 @@
 // Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
-const CACHE_VERSION = 'v5';
+const CACHE_VERSION = 'v6';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
 
@@ -139,9 +139,12 @@ self.addEventListener('fetch', (event) => {
         return;
     }
     
-    // Estratégia para CSS/JS/Dados - Cache First com fallback para network
+    // Estratégia para CSS/JS/Dados/Fontes - Cache First com fallback para network
+    // (.woff2: as fontes self-hosted são referenciadas a partir do CSS, por isso o
+    // Vite dá-lhes nome com hash - cacheadas aqui em runtime, não no precache)
     if (
         url.pathname.endsWith('.css') ||
+        url.pathname.endsWith('.woff2') ||
         url.pathname.endsWith('.js') ||
         url.pathname.endsWith('.json') ||
         url.pathname.startsWith('/css/') ||

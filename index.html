@@ -74,109 +74,115 @@
     
 
     <main id="main-content" role="main">
-        <section class="hero" aria-labelledby="hero-title">
-            <h2 id="hero-title" data-i18n="home.hero_title">Bem-vindo ao Faro Formoso</h2>
-            <p data-i18n="home.hero_description">Faro Formoso — viver, descobrir e participar na cidade. O seu guia completo para viver e visitar Faro. Encontre informações essenciais sobre transportes, saúde, ambiente e lazer na cidade.</p>
-            
-            <!-- Premium Guide Notice -->
-            <div class="premium-notice">
-                <p>
-                    <span class="notice-label" data-i18n="home.premium_notice_label">📘 Novo:</span> 
-                    <span data-i18n="home.premium_notice_text" data-i18n-html="true">Descarregue o <a href="guia-premium.html">Guia Premium de Faro</a> com mapas offline, dicas de transporte e eventos detalhados.</span>
-                </p>
-            </div>
-        </section>
-
-        <!-- Previsão do tempo (Open-Meteo, sem chave de API) -->
-        <section id="tempo-secao" class="tempo-section" aria-labelledby="tempo-title">
-            <h2 id="tempo-title" data-i18n="weather.section_title">🌤️ Tempo em Faro</h2>
-            <div class="tempo-widget tempo-loading" role="status" aria-live="polite">
-                <p class="tempo-loading-text" data-i18n="weather.loading">A carregar previsão...</p>
-            </div>
-        </section>
-
-        <!-- Informações do Município via GEO API PT -->
-        <section id="dados-faro" class="dados-faro-section">
-        </section>
-
-        <section class="cards-container" aria-labelledby="sections-title">
-            <h2 id="sections-title" data-i18n="home.sections_title">Explore as Secções</h2>
-            
-            <!-- Filter Container -->
-            <div class="filter-container">
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all" data-i18n="ui.filter_all">Todos</button>
-                    <button class="filter-btn" data-filter="info" data-i18n="ui.filter_info">Informação</button>
-                    <button class="filter-btn" data-filter="tourism" data-i18n="ui.filter_tourism">Turismo</button>
-                    <button class="filter-btn" data-filter="services" data-i18n="ui.filter_services">Serviços</button>
+        <section class="home-hero no-number" aria-labelledby="hero-title">
+            <div class="home-hero-text">
+                <p class="kicker" data-i18n="home.hero_kicker">Edição digital · gratuita · bilingue</p>
+                <h1 id="hero-title" data-i18n="home.hero_title" data-i18n-html="true">O guia prático da cidade de <em>Faro</em>.</h1>
+                <p class="lede" data-i18n="home.hero_lede">Saúde, transportes, onde comer e dormir, e o que fazer hoje — reunido num só sítio, em português e inglês, e disponível mesmo sem rede.</p>
+                <div class="home-hero-actions">
+                    <a href="mapa.html" class="btn btn-primary">
+                        <svg class="icon" aria-hidden="true"><use href="#i-map"></use></svg>
+                        <span data-i18n="home.hero_cta_map">Abrir o mapa</span>
+                    </a>
+                    <a href="oque-fazer-hoje.html" class="btn">
+                        <span data-i18n="home.hero_cta_today">O que fazer hoje</span>
+                    </a>
                 </div>
             </div>
-            
-            <div class="cards-grid">
-                <!-- Priority: Essential Daily Use -->
-                <a href="saude.html" class="card" data-filter-category="info,services">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_hospital" data-i18n-attr="aria-label" aria-label="Ícone de hospital">🏥</div>
-                    <h3 data-i18n="home.card_health_title">Saúde</h3>
-                    <p data-i18n="home.card_health_desc">Centros de saúde, hospitais e serviços médicos</p>
-                </a>
+            <figure class="home-hero-art">
+                <svg viewBox="0 -40 320 430" role="img" aria-labelledby="arco-caption" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- sun -->
+                    <circle cx="262" cy="22" r="22" style="stroke: var(--terra)"/>
+                    <!-- stork + nest on the belfry -->
+                    <path d="M136 -2c8 4 40 4 48 0M138 2c10 3 34 3 44 0"/>
+                    <path d="M150 -3c2-10 12-14 22-10 5 2 6 6 4 9"/>
+                    <path d="M172 -13c2-8 0-15-5-19M167 -32l14 3"/>
+                    <path d="M158 -3l-2 6M166 -3l1 6"/>
+                    <!-- belfry -->
+                    <path d="M144 48V8h32v40"/>
+                    <path d="M151 48V28a9 9 0 0 1 18 0v20"/>
+                    <circle cx="160" cy="36" r="3.5"/>
+                    <path d="M140 8h40"/>
+                    <!-- attic with niche and statue -->
+                    <path d="M92 136V68c20-14 46-20 68-20s48 6 68 20v68"/>
+                    <path d="M140 130V96a20 20 0 0 1 40 0v34z"/>
+                    <circle cx="160" cy="96" r="5"/>
+                    <path d="M153 128l3-22h8l3 22"/>
+                    <path d="M100 76h120"/>
+                    <!-- entablature -->
+                    <path d="M48 136h224v14H48z"/>
+                    <path d="M56 150h208"/>
+                    <!-- façade -->
+                    <path d="M60 150v230M260 150v230"/>
+                    <!-- pilasters -->
+                    <path d="M74 156v224M90 156v224M230 156v224M246 156v224"/>
+                    <path d="M70 156h24M226 156h24M70 368h24M226 368h24"/>
+                    <!-- arch -->
+                    <path d="M116 380V252a44 44 0 0 1 88 0v128"/>
+                    <path d="M108 380V252a52 52 0 0 1 104 0v128"/>
+                    <path d="M154 200h12l-2 10h-8z"/>
+                    <!-- side walls -->
+                    <path d="M60 240H18v140M260 240h42v140"/>
+                    <path d="M18 252h42M260 252h42"/>
+                    <!-- ground & calçada -->
+                    <path d="M4 380h312"/>
+                    <path d="M24 392c10-4 20 4 30 0s20 4 30 0M236 392c10-4 20 4 30 0s20 4 30 0M120 396c10-4 20 4 30 0s20 4 30 0s20 4 30 0"/>
+                </svg>
+                <figcaption id="arco-caption" data-i18n="home.hero_art_caption">Arco da Vila, entrada da Cidade Velha</figcaption>
+            </figure>
+        </section>
 
-                <a href="transportes.html" class="card" data-filter-category="info,services">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_bus" data-i18n-attr="aria-label" aria-label="Ícone de autocarro">🚌</div>
-                    <h3 data-i18n="home.card_transport_title">Transportes</h3>
-                    <p data-i18n="home.card_transport_desc">Informações sobre autocarros, comboios e mobilidade na cidade</p>
-                </a>
+        <aside class="urgent-line" data-i18n="home.urgent_aria" data-i18n-attr="aria-label" aria-label="Contactos urgentes">
+            <span class="kicker" data-i18n="home.urgent_label">Urgente</span>
+            <a href="tel:112"><span data-i18n="home.urgent_emergency">Emergência</span> <span class="num">112</span></a>
+            <a href="tel:808242424"><span data-i18n="home.urgent_sns">SNS 24</span> <span class="num">808 24 24 24</span></a>
+            <a href="saude.html#farmacias-section"><span data-i18n="home.urgent_pharmacies">Farmácias</span></a>
+            <a href="saude-onde-ir-agora.html" class="urgent-more">
+                <span data-i18n="home.urgent_where">Onde ir agora</span>
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
+        </aside>
 
-                <!-- Services: Frequent Use -->
-                <a href="restaurantes.html" class="card" data-filter-category="tourism,services">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_food" data-i18n-attr="aria-label" aria-label="Ícone de garfo e faca">🍽️</div>
-                    <h3 data-i18n="home.card_restaurants_title">Onde Comer</h3>
-                    <p data-i18n="home.card_restaurants_desc">Descubra cafés, pastelarias e restaurantes em Faro</p>
-                </a>
+        <div class="fact-row">
+            <!-- Previsão do tempo (Open-Meteo, sem chave de API) -->
+            <section id="tempo-secao" class="tempo-section" aria-labelledby="tempo-title">
+                <h2 id="tempo-title" data-i18n="weather.section_title">Tempo em Faro</h2>
+                <div class="tempo-widget tempo-loading" role="status" aria-live="polite">
+                    <p class="tempo-loading-text" data-i18n="weather.loading">A carregar previsão…</p>
+                </div>
+            </section>
 
-                <a href="hoteis.html" class="card" data-filter-category="tourism,services">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_hotel" data-i18n-attr="aria-label" aria-label="Ícone de hotel">🏨</div>
-                    <h3 data-i18n="home.card_hotels_title">Onde Ficar</h3>
-                    <p data-i18n="home.card_hotels_desc">Hotéis, hostels e alojamentos em Faro</p>
-                </a>
+            <!-- Informações do Município via GEO API PT -->
+            <section id="dados-faro" class="dados-faro-section" aria-label="Município de Faro"></section>
+        </div>
 
-                <a href="problemas-frequentes.html" class="card" data-filter-category="info,services">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_tools" data-i18n-attr="aria-label" aria-label="Ícone de ferramentas">🛠️</div>
-                    <h3 data-i18n="home.card_faq_title">Problemas Frequentes</h3>
-                    <p data-i18n="home.card_faq_desc">Saiba como resolver problemas urbanos comuns na cidade</p>
-                </a>
+        <section class="section-index-wrap no-number" aria-labelledby="sections-title">
+            <div class="section-index-head">
+                <h2 id="sections-title" data-i18n="home.sections_title">O guia, por temas</h2>
+                <p data-i18n="home.sections_intro">Tudo o que precisa para viver, visitar e descobrir Faro, organizado por tema.</p>
+            </div>
+            <ol class="section-index">
+                <li><a href="saude.html"><span class="si-title" data-i18n="home.card_health_title">Saúde</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_health_desc">Centros de saúde, hospitais e serviços médicos</span></a></li>
+                <li><a href="transportes.html"><span class="si-title" data-i18n="home.card_transport_title">Transportes</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_transport_desc">Informações sobre autocarros, comboios e mobilidade na cidade</span></a></li>
+                <li><a href="restaurantes.html"><span class="si-title" data-i18n="home.card_restaurants_title">Onde Comer</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_restaurants_desc">Descubra cafés, pastelarias e restaurantes em Faro</span></a></li>
+                <li><a href="hoteis.html"><span class="si-title" data-i18n="home.card_hotels_title">Onde Ficar</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_hotels_desc">Hotéis, hostels e alojamentos em Faro</span></a></li>
+                <li><a href="oque-fazer-hoje.html"><span class="si-title" data-i18n="home.card_today_title">O que fazer hoje</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_today_desc">Sugestões para hoje, com sol ou com chuva</span></a></li>
+                <li><a href="lazer.html"><span class="si-title" data-i18n="home.card_leisure_title">Lazer</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_leisure_desc">Cultura, turismo e atividades de lazer</span></a></li>
+                <li><a href="viver-em-faro.html"><span class="si-title" data-i18n="home.card_living_title">Viver em Faro</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_living_desc">Guia essencial para novos residentes na cidade</span></a></li>
+                <li><a href="idosos.html"><span class="si-title" data-i18n="home.card_seniors_title">Faro para Idosos</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_seniors_desc">Apoios sociais, centros de dia, transporte e atividades para seniores</span></a></li>
+                <li><a href="problemas-frequentes.html"><span class="si-title" data-i18n="home.card_faq_title">Problemas Frequentes</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_faq_desc">Saiba como resolver problemas urbanos comuns na cidade</span></a></li>
+                <li><a href="mobilidade.html"><span class="si-title" data-i18n="home.card_mobility_title">Mobilidade</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_mobility_desc">Simulador de percursos, estacionamento e bicicletas</span></a></li>
+                <li><a href="ambiente.html"><span class="si-title" data-i18n="home.card_environment_title">Ambiente</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_environment_desc">Sustentabilidade, reciclagem e espaços verdes</span></a></li>
+                <li><a href="historia-faro.html"><span class="si-title" data-i18n="home.card_history_title">História</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_history_desc">Da Ossonoba romana à capital do Algarve</span></a></li>
+                <li class="si-featured"><a href="guia-premium.html"><span class="si-title" data-i18n="home.card_premium_title">Guia Premium</span><svg class="icon si-arrow" aria-hidden="true"><use href="#i-arrow-right"></use></svg><span class="si-desc" data-i18n="home.card_premium_desc">Conteúdo detalhado com mapas offline, transporte e eventos (apoio voluntário)</span></a></li>
+            </ol>
+        </section>
 
-                <!-- Living: Residents -->
-                <a href="viver-em-faro.html" class="card" data-filter-category="info">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_home" data-i18n-attr="aria-label" aria-label="Ícone de casa">🏠</div>
-                    <h3 data-i18n="home.card_living_title">Viver em Faro</h3>
-                    <p data-i18n="home.card_living_desc">Guia essencial para novos residentes na cidade</p>
-                </a>
-
-                <a href="idosos.html" class="card" data-filter-category="info,services">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_seniors" data-i18n-attr="aria-label" aria-label="Ícone de idosos">👴👵</div>
-                    <h3 data-i18n="home.card_seniors_title">Faro para Idosos</h3>
-                    <p data-i18n="home.card_seniors_desc">Apoios sociais, centros de dia, transporte e atividades para seniores</p>
-                </a>
-
-                <!-- Leisure & Tourism -->
-                <a href="lazer.html" class="card" data-filter-category="tourism">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_theater" data-i18n-attr="aria-label" aria-label="Ícone de máscara teatral">🎭</div>
-                    <h3 data-i18n="home.card_leisure_title">Lazer</h3>
-                    <p data-i18n="home.card_leisure_desc">Cultura, turismo e atividades de lazer</p>
-                </a>
-
-                <!-- Additional Information -->
-                <a href="ambiente.html" class="card" data-filter-category="info,services">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_plant" data-i18n-attr="aria-label" aria-label="Ícone de planta">🌿</div>
-                    <h3 data-i18n="home.card_environment_title">Ambiente</h3>
-                    <p data-i18n="home.card_environment_desc">Sustentabilidade, reciclagem e espaços verdes</p>
-                </a>
-
-                <a href="guia-premium.html" class="card card-premium" data-filter-category="tourism,info">
-                    <div class="card-icon" role="img" data-i18n="ui.icon_book" data-i18n-attr="aria-label" aria-label="Ícone de livro premium">📘</div>
-                    <h3 data-i18n="home.card_premium_title">Guia Premium</h3>
-                    <p data-i18n="home.card_premium_desc">Conteúdo detalhado com mapas offline, transporte e eventos (apoio voluntário)</p>
-                </a>
+        <section class="home-closing no-number" aria-labelledby="closing-title">
+            <h2 id="closing-title" data-i18n="home.closing_title">Um projeto de utilidade pública</h2>
+            <div>
+                <p data-i18n="home.closing_description">Gratuito, sem tracking e mantido de forma independente. Conheça a missão do projeto e como pode contribuir.</p>
+                <a href="sobre-projeto.html" class="btn" data-i18n="home.closing_cta">Sobre o Projeto</a>
             </div>
         </section>
     </main>
@@ -191,19 +197,14 @@
         document.addEventListener('DOMContentLoaded', function() {
             exibirDadosFaro('dados-faro');
             
-            // Adicionar botões de favoritos aos cards
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                const title = card.querySelector('h3')?.textContent;
-                const url = card.getAttribute('href');
-                if (title && url) {
+            // Botão de favorito em cada entrada do índice
+            document.querySelectorAll('.section-index > li').forEach(item => {
+                const link = item.querySelector('a');
+                const title = item.querySelector('.si-title')?.textContent;
+                const url = link?.getAttribute('href');
+                if (title && url && typeof createFavoriteButton === 'function') {
                     const pageId = 'page-' + url.replace('.html', '');
-                    const favoriteBtn = createFavoriteButton(pageId, 'page', title, url);
-                    favoriteBtn.style.position = 'absolute';
-                    favoriteBtn.style.top = '1rem';
-                    favoriteBtn.style.right = '1rem';
-                    card.style.position = 'relative';
-                    card.appendChild(favoriteBtn);
+                    item.appendChild(createFavoriteButton(pageId, 'page', title, url));
                 }
             });
 

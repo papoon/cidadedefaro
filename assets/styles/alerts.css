@@ -1,249 +1,82 @@
-/* ===================================
-   ALERTAS LOCAIS NÃO INTRUSIVOS
-   =================================== */
+/* ==========================================================================
+   Local alerts (src/ui/alerts.js) — non-blocking banners at the top
+   ========================================================================== */
 
-/* Container for alerts - positioned at top of page, non-blocking.
-   z-index must stay above the fixed top-right controls (dark-mode toggle,
-   language switcher, accessibility toolbar, voice-nav toggle all sit
-   between z-index 9997-10000), otherwise alerts render underneath them
-   and their close button becomes unreachable, especially on mobile where
-   the alert spans the full width and those controls are stacked at the
-   top-right. */
 #alerts-container {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10010;
-    pointer-events: none; /* Allow clicking through container */
-    max-width: 100%;
-    padding: 0.5rem;
+    pointer-events: none;
+    padding: var(--space-2);
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--space-2);
     align-items: center;
 }
 
-/* Individual alert banner */
 .local-alert {
-    pointer-events: auto; /* Enable interaction with alerts */
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    padding: 1rem 1.5rem;
-    max-width: 800px;
-    width: 100%;
+    pointer-events: auto;
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: var(--space-3);
+    width: 100%;
+    max-width: 46rem;
     margin: 0 auto;
-    animation: slideDown 0.3s ease-out;
-    border-left: 4px solid #146a8c;
+    padding: var(--space-4) var(--space-5);
+    background: var(--surface);
+    border: 1.5px solid var(--ink);
+    border-top-width: 4px;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    animation: alert-in 0.25s ease-out;
 }
+@keyframes alert-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@keyframes alert-out { to { opacity: 0; transform: translateY(-6px); } }
+.local-alert.closing { animation: alert-out 0.25s ease-in forwards; }
 
-/* Animation for alert entrance */
-@keyframes slideDown {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+.alert-icon { display: inline-flex; flex-shrink: 0; padding-top: 0.125rem; }
+.alert-icon .icon { width: 1.375rem; height: 1.375rem; }
+.alert-content { flex: 1; min-width: 0; }
+.alert-title { font-family: var(--font-display); font-size: 1.125rem; font-weight: 600; color: var(--ink); line-height: 1.25; }
+.alert-message { margin-top: var(--space-1); font-size: var(--font-size-sm); color: var(--ink-2); line-height: 1.5; }
+.alert-message a { color: var(--ria); font-weight: 700; }
 
-/* Animation for alert exit */
-@keyframes slideUp {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-}
-
-.local-alert.closing {
-    animation: slideUp 0.3s ease-out forwards;
-}
-
-/* Alert icon */
-.alert-icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    line-height: 1;
-}
-
-/* Alert content */
-.alert-content {
-    flex: 1;
-    min-width: 0; /* Allow text to wrap properly */
-}
-
-.alert-title {
-    font-weight: 600;
-    font-size: 1rem;
-    color: #2c3338;
-    margin: 0 0 0.25rem 0;
-}
-
-.alert-message {
-    font-size: 0.875rem;
-    color: #4a4a45;
-    margin: 0;
-    line-height: 1.5;
-}
-
-.alert-message a {
-    color: #146a8c;
-    text-decoration: underline;
-    font-weight: 600;
-}
-
-.alert-message a:hover {
-    color: #0d3b4f;
-}
-
-/* Close button */
 .alert-close {
-    background: none;
-    border: none;
-    color: #6b6a63;
-    cursor: pointer;
-    font-size: 1.25rem;
-    padding: 0;
-    width: 1.5rem;
-    height: 1.5rem;
-    display: flex;
+    flex-shrink: 0;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
-    transition: all 0.2s ease;
-    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin: calc(-1 * var(--space-2)) calc(-1 * var(--space-3)) 0 0;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: none;
+    color: var(--ink-3);
+    font-size: 1.25rem;
+    cursor: pointer;
 }
+.alert-close:hover { background: var(--paper-2); color: var(--ink); }
 
-.alert-close:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #2c3338;
-}
+.local-alert.alert-info,
+.local-alert.alert-event { border-top-color: var(--ria); }
+.local-alert.alert-info .alert-icon,
+.local-alert.alert-event .alert-icon { color: var(--ria); }
+.local-alert.alert-warning { border-top-color: var(--warn); }
+.local-alert.alert-warning .alert-icon { color: var(--warn); }
+.local-alert.alert-success { border-top-color: var(--ok); }
+.local-alert.alert-success .alert-icon { color: var(--ok); }
+.local-alert.alert-important { border-top-color: var(--danger); }
+.local-alert.alert-important .alert-icon { color: var(--danger); }
 
-.alert-close:focus {
-    outline: 2px solid #146a8c;
-    outline-offset: 2px;
-}
-
-/* Alert categories - different colors for different types */
-.local-alert.alert-info {
-    border-left-color: #48b1db;
-}
-
-.local-alert.alert-info .alert-icon {
-    color: #48b1db;
-}
-
-.local-alert.alert-warning {
-    border-left-color: #e8863b;
-}
-
-.local-alert.alert-warning .alert-icon {
-    color: #e8863b;
-}
-
-.local-alert.alert-event {
-    border-left-color: #1f7fa3;
-}
-
-.local-alert.alert-event .alert-icon {
-    color: #1f7fa3;
-}
-
-.local-alert.alert-success {
-    border-left-color: #4c8c5b;
-}
-
-.local-alert.alert-success .alert-icon {
-    color: #4c8c5b;
-}
-
-.local-alert.alert-important {
-    border-left-color: #d9584a;
-}
-
-.local-alert.alert-important .alert-icon {
-    color: #d9584a;
-}
-
-/* Dark mode support */
-body.dark-mode .local-alert {
-    background: #2c3338;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-mode .alert-title {
-    color: #faf7f2;
-}
-
-body.dark-mode .alert-message {
-    color: #e6ddce;
-}
-
-body.dark-mode .alert-close {
-    color: #9c968a;
-}
-
-body.dark-mode .alert-close:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: #faf7f2;
-}
-
-body.dark-mode .alert-message a {
-    color: #1f7fa3;
-}
-
-body.dark-mode .alert-message a:hover {
-    color: #5fb8d6;
-}
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
-    #alerts-container {
-        padding: 0.25rem;
-        /* Clear the fixed top-right control stack (dark-mode toggle,
-           language switcher, accessibility toolbar, voice-nav toggle,
-           notifications toggle) so the alert card doesn't sit
-           underneath/behind them. */
-        padding-top: calc(0.75rem + 2.5rem + 0.4rem + 2.5rem + 0.5rem + 2.5rem + 0.5rem + 2.5rem + 0.5rem);
-    }
-
-    .local-alert {
-        padding: 0.875rem 1rem;
-        gap: 0.75rem;
-        width: calc(100% - 0.5rem);
-    }
-
-    .alert-icon {
-        font-size: 1.25rem;
-    }
-
-    .alert-title {
-        font-size: 0.9375rem;
-    }
-
-    .alert-message {
-        font-size: 0.8125rem;
-    }
+    #alerts-container { padding: var(--space-1); }
+    .local-alert { padding: var(--space-3) var(--space-4); }
 }
 
-/* Accessibility - reduce motion */
 @media (prefers-reduced-motion: reduce) {
-    .local-alert {
-        animation: none;
-    }
-    
-    .local-alert.closing {
-        animation: none;
-        opacity: 0;
-    }
+    .local-alert, .local-alert.closing { animation: none; }
+    .local-alert.closing { opacity: 0; }
 }

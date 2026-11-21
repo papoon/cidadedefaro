@@ -35,166 +35,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    <style>
-        .culture-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .culture-card h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .culture-card .icon {
-            font-size: 2rem;
-        }
-        
-        /* .location-grid, .location-item, .info-box now come from the
-           shared page patterns in assets/styles/style.css */
-        .location-item .location-icon {
-            margin-right: 0.25rem;
-        }
-
-        .info-box ul li {
-            margin: 0.25rem 0;
-        }
-
-        .beach-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .beach-item {
-            background: linear-gradient(135deg, #e1f2f9 0%, #b5dfef 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .beach-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-        
-        .beach-item .beach-name {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #13759b;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .beach-item .beach-icon {
-            font-size: 1.75rem;
-        }
-        
-        .beach-item .beach-description {
-            color: #076d95;
-            margin-bottom: 0.75rem;
-            line-height: 1.6;
-        }
-        
-        .beach-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.75rem;
-        }
-        
-        .beach-feature {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 0.25rem 0.75rem;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            color: #076d95;
-            font-weight: 500;
-        }
-        
-        .events-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .event-item {
-            background: linear-gradient(135deg, #feeee1 0%, #fdd4b4 100%);
-            padding: 1.5rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            border-left: 4px solid #e96806;
-        }
-        
-        .event-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-        
-        .event-item .event-name {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #e06406;
-            margin-bottom: 0.5rem;
-        }
-        
-        .event-item .event-time {
-            font-size: 0.9rem;
-            color: #e96806;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-        }
-        
-        .event-item .event-description {
-            color: #5c3d38;
-            line-height: 1.6;
-            font-size: 0.9rem;
-        }
-        
-        .contact-info {
-            background: #f1fcf4;
-            border-left: 4px solid #4c8c5b;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-        
-        .contact-info p {
-            margin: 0.5rem 0;
-        }
-        
-        .contact-info .phone {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: #2c3338;
-            margin: 0.5rem 0;
-        }
-        
-        @media (max-width: 768px) {
-            .culture-card {
-                padding: 1.5rem;
-            }
-            
-            .location-grid,
-            .beach-grid,
-            .events-list {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -202,13 +42,13 @@
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2 data-i18n="leisure.hero_title">Lazer e Cultura</h2>
+            <h1 data-i18n="leisure.hero_title">Lazer e Cultura</h1>
             <p data-i18n="leisure.hero_description">Descubra o melhor de Faro: praias deslumbrantes, museus fascinantes, espaços verdes relaxantes e eventos culturais únicos. Explore a rica herança cultural e as maravilhas naturais da capital algarvia.</p>
         </section>
 
         <!-- Previsão do tempo (Open-Meteo, sem chave de API) -->
         <section id="tempo-secao" class="tempo-section" aria-labelledby="tempo-title">
-            <h2 id="tempo-title" data-i18n="weather.section_title">🌤️ Tempo em Faro</h2>
+            <h2 id="tempo-title" data-i18n="weather.section_title">Tempo em Faro</h2>
             <div class="tempo-widget tempo-loading" role="status" aria-live="polite">
                 <p class="tempo-loading-text" data-i18n="weather.loading">A carregar previsão...</p>
             </div>
@@ -216,213 +56,209 @@
 
         <!-- Praias -->
         <section class="culture-card">
-            <h3><span class="icon" data-i18n="lazer.key_1">🏖️</span><span data-i18n="leisure.beaches_title">Praias</span></h3>
+            <h3><span data-i18n="leisure.beaches_title">Praias</span></h3>
             <p data-i18n="leisure.beaches_intro">Faro é porta de entrada para algumas das praias mais belas do Algarve, localizadas na deslumbrante Ria Formosa, um parque natural protegido.</p>
             
             <div class="beach-grid">
                 <div class="beach-item">
                     <div class="beach-name">
-                        <span class="beach-icon" data-i18n="lazer.key_2">🏝️</span>
                         Praia de Faro
                     </div>
                     <div class="beach-description">
                         A praia mais próxima da cidade, localizada na Península do Ancão. Extensa faixa de areia dourada com excelentes infraestruturas.
                     </div>
                     <div class="beach-features">
-                        <span class="beach-feature" data-i18n="lazer.duches">🚿 Duches</span>
-                        <span class="beach-feature" data-i18n="lazer.nadadorsalvador">🏥 Nadador-salvador</span>
-                        <span class="beach-feature" data-i18n="lazer.restaurantes">🍽️ Restaurantes</span>
-                        <span class="beach-feature" data-i18n="lazer.estacionamento">🚗 Estacionamento</span>
-                        <span class="beach-feature" data-i18n="lazer.acessvel">♿ Acessível</span>
+                        <span class="beach-feature" data-i18n="lazer.duches">Duches</span>
+                        <span class="beach-feature" data-i18n="lazer.nadadorsalvador">Nadador-salvador</span>
+                        <span class="beach-feature" data-i18n="lazer.restaurantes">Restaurantes</span>
+                        <span class="beach-feature" data-i18n="lazer.estacionamento">Estacionamento</span>
+                        <span class="beach-feature" data-i18n="lazer.acessvel">Acessível</span>
                     </div>
                 </div>
                 
                 <div class="beach-item">
                     <div class="beach-name">
-                        <span class="beach-icon" data-i18n="lazer.key_3">🌊</span>
                         Ilha Deserta
                     </div>
                     <div class="beach-description">
                         Ilha paradisíaca com quilómetros de praia virgem. Acessível apenas por barco, perfeita para quem procura tranquilidade e natureza intocada.
                     </div>
                     <div class="beach-features">
-                        <span class="beach-feature" data-i18n="lazer.acesso_por_barco">⛴️ Acesso por barco</span>
-                        <span class="beach-feature" data-i18n="lazer.restaurante">🍽️ Restaurante</span>
-                        <span class="beach-feature" data-i18n="lazer.praia_selvagem">🏝️ Praia selvagem</span>
-                        <span class="beach-feature" data-i18n="lazer.observao_de_aves">🐦 Observação de aves</span>
+                        <span class="beach-feature" data-i18n="lazer.acesso_por_barco">Acesso por barco</span>
+                        <span class="beach-feature" data-i18n="lazer.restaurante">Restaurante</span>
+                        <span class="beach-feature" data-i18n="lazer.praia_selvagem">Praia selvagem</span>
+                        <span class="beach-feature" data-i18n="lazer.observao_de_aves">Observação de aves</span>
                     </div>
                 </div>
                 
                 <div class="beach-item">
                     <div class="beach-name">
-                        <span class="beach-icon" data-i18n="lazer.key_4">🏖️</span>
                         Ilha da Culatra
                     </div>
                     <div class="beach-description">
                         Ilha-barreira com uma pequena comunidade de pescadores. Praias tranquilas com águas cristalinas e ambiente autêntico.
                     </div>
                     <div class="beach-features">
-                        <span class="beach-feature" data-i18n="lazer.acesso_por_barco_1">⛴️ Acesso por barco</span>
-                        <span class="beach-feature" data-i18n="lazer.vila_piscatria">🐟 Vila piscatória</span>
-                        <span class="beach-feature" data-i18n="lazer.marisqueiras">🍽️ Marisqueiras</span>
-                        <span class="beach-feature" data-i18n="lazer.pores_do_sol">🌅 Pores do sol</span>
+                        <span class="beach-feature" data-i18n="lazer.acesso_por_barco_1">Acesso por barco</span>
+                        <span class="beach-feature" data-i18n="lazer.vila_piscatria">Vila piscatória</span>
+                        <span class="beach-feature" data-i18n="lazer.marisqueiras">Marisqueiras</span>
+                        <span class="beach-feature" data-i18n="lazer.pores_do_sol">Pores do sol</span>
                     </div>
                 </div>
                 
                 <div class="beach-item">
                     <div class="beach-name">
-                        <span class="beach-icon" data-i18n="lazer.key_5">🏝️</span>
                         Ilha da Barreta (Farol)
                     </div>
                     <div class="beach-description">
                         Conhecida como Ilha do Farol, é o ponto mais a sul de Portugal continental. Praia selvagem de beleza única.
                     </div>
                     <div class="beach-features">
-                        <span class="beach-feature" data-i18n="lazer.acesso_por_barco_2">⛴️ Acesso por barco</span>
-                        <span class="beach-feature" data-i18n="lazer.farol_histrico">🗼 Farol histórico</span>
-                        <span class="beach-feature" data-i18n="lazer.praia_virgem">🏝️ Praia virgem</span>
-                        <span class="beach-feature" data-i18n="lazer.surf">🌊 Surf</span>
+                        <span class="beach-feature" data-i18n="lazer.acesso_por_barco_2">Acesso por barco</span>
+                        <span class="beach-feature" data-i18n="lazer.farol_histrico">Farol histórico</span>
+                        <span class="beach-feature" data-i18n="lazer.praia_virgem">Praia virgem</span>
+                        <span class="beach-feature" data-i18n="lazer.surf">Surf</span>
                     </div>
                 </div>
             </div>
             
             <div class="info-box">
-                <p data-i18n-html="true" data-i18n="leisure.islands_access_title"><strong data-i18n="lazer.acesso_s_ilhas">🚤 Acesso às Ilhas:</strong></p>
+                <p data-i18n-html="true" data-i18n="leisure.islands_access_title"><strong data-i18n="lazer.acesso_s_ilhas">Acesso às Ilhas:</strong></p>
                 <p data-i18n="leisure.islands_access_desc">Barcos partem regularmente do cais da Porta Nova (junto ao centro histórico) e da Marina de Faro para as ilhas da Ria Formosa.</p>
-                <p><strong data-i18n="leisure.islands_hours_label">⏰ Horários:</strong> <span data-i18n="leisure.islands_hours">Variáveis conforme a época do ano (mais frequentes no verão)</span></p>
-                <p><strong data-i18n="leisure.islands_prices_label">💰 Preços:</strong> <span data-i18n="leisure.islands_prices">Entre 3€ a 15€ (ida e volta, dependendo do destino)</span></p>
+                <p><strong data-i18n="leisure.islands_hours_label">Horários:</strong> <span data-i18n="leisure.islands_hours">Variáveis conforme a época do ano (mais frequentes no verão)</span></p>
+                <p><strong data-i18n="leisure.islands_prices_label">Preços:</strong> <span data-i18n="leisure.islands_prices">Entre 3€ a 15€ (ida e volta, dependendo do destino)</span></p>
             </div>
         </section>
 
         <!-- Museus -->
         <section class="culture-card">
-            <h3><span class="icon" data-i18n="lazer.key_6">🏛️</span><span data-i18n="leisure.museums_title">Museus e Património</span></h3>
+            <h3><span data-i18n="leisure.museums_title">Museus e Património</span></h3>
             <p data-i18n="leisure.museums_intro">Faro possui um rico património histórico e cultural, com museus que contam a história da região desde a época romana até aos nossos dias.</p>
             
             <div class="location-grid">
                 <div class="location-item">
                     <strong data-i18n="lazer.museu_municipal_de_faro">Museu Municipal de Faro</strong>
                     <p data-i18n="lazer.instalado_no_antigo_convento_de_nossa_se">Instalado no antigo Convento de Nossa Senhora da Assunção (século XVI). Exposições de arqueologia, arte sacra e etnografia algarvia.</p>
-                    <p class="location-icon" data-i18n="lazer.largo_dom_afonso_iii_centro_histrico">📍 Largo Dom Afonso III, Centro Histórico</p>
-                    <p class="location-icon" data-i18n="lazer.tera_a_sexta_10h0018h00_sbado_e_doming">⏰ Terça a Sexta: 10h00-18h00 | Sábado e Domingo: 10h30-17h00</p>
-                    <p class="location-icon" data-i18n="lazer.entrada_2_gratuito_aos_domingos_at_14h0">💰 Entrada: 2€ (gratuito aos domingos até 14h00)</p>
+                    <p class="location-icon" data-i18n="lazer.largo_dom_afonso_iii_centro_histrico">Largo Dom Afonso III, Centro Histórico</p>
+                    <p class="location-icon" data-i18n="lazer.tera_a_sexta_10h0018h00_sbado_e_doming">Terça a Sexta: 10h00-18h00 | Sábado e Domingo: 10h30-17h00</p>
+                    <p class="location-icon" data-i18n="lazer.entrada_2_gratuito_aos_domingos_at_14h0">Entrada: 2€ (gratuito aos domingos até 14h00)</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.museu_regional_do_algarve">Museu Regional do Algarve</strong>
                     <p data-i18n="lazer.coleo_etnogrfica_que_mostra_o_modo_de_vi">Coleção etnográfica que mostra o modo de vida tradicional algarvio: artesanato, alfaias agrícolas, trajes típicos e reconstituição de ambientes.</p>
-                    <p class="location-icon" data-i18n="lazer.praa_da_liberdade">📍 Praça da Liberdade</p>
-                    <p class="location-icon" data-i18n="lazer.segunda_a_sexta_10h0013h00_e_14h0017h00">⏰ Segunda a Sexta: 10h00-13h00 e 14h00-17h00</p>
-                    <p class="location-icon" data-i18n="lazer.entrada_gratuita">💰 Entrada gratuita</p>
+                    <p class="location-icon" data-i18n="lazer.praa_da_liberdade">Praça da Liberdade</p>
+                    <p class="location-icon" data-i18n="lazer.segunda_a_sexta_10h0013h00_e_14h0017h00">Segunda a Sexta: 10h00-13h00 e 14h00-17h00</p>
+                    <p class="location-icon" data-i18n="lazer.entrada_gratuita">Entrada gratuita</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.centro_cincia_viva_do_algarve">Centro Ciência Viva do Algarve</strong>
                     <p data-i18n="lazer.espao_interativo_dedicado_divulgao_da_c">Espaço interativo dedicado à divulgação da ciência, com exposições sobre o mar, astronomia e biodiversidade da Ria Formosa.</p>
-                    <p class="location-icon" data-i18n="lazer.rua_comandante_francisco_manuel_junto">📍 Rua Comandante Francisco Manuel, junto à Doca de Faro</p>
-                    <p class="location-icon" data-i18n="lazer.tera_a_sexta_10h0018h00_sbado_e_doming_1">⏰ Terça a Sexta: 10h00-18h00 | Sábado e Domingo: 14h00-19h00</p>
-                    <p class="location-icon" data-i18n="lazer.entrada_4_adultos_2_crianas">💰 Entrada: 4€ adultos, 2€ crianças</p>
+                    <p class="location-icon" data-i18n="lazer.rua_comandante_francisco_manuel_junto">Rua Comandante Francisco Manuel, junto à Doca de Faro</p>
+                    <p class="location-icon" data-i18n="lazer.tera_a_sexta_10h0018h00_sbado_e_doming_1">Terça a Sexta: 10h00-18h00 | Sábado e Domingo: 14h00-19h00</p>
+                    <p class="location-icon" data-i18n="lazer.entrada_4_adultos_2_crianas">Entrada: 4€ adultos, 2€ crianças</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.arco_da_vila">Arco da Vila</strong>
                     <p data-i18n="lazer.porta_monumental_de_entrada_ao_centro_hi">Porta monumental de entrada ao centro histórico, construída no século XIX sobre vestígios romanos e árabes. Do topo, vista panorâmica sobre a cidade.</p>
-                    <p class="location-icon" data-i18n="lazer.largo_da_s">📍 Largo da Sé</p>
-                    <p class="location-icon" data-i18n="lazer.sempre_acessvel_visita_externa">⏰ Sempre acessível (visita externa)</p>
-                    <p class="location-icon" data-i18n="lazer.gratuito">💰 Gratuito</p>
+                    <p class="location-icon" data-i18n="lazer.largo_da_s">Largo da Sé</p>
+                    <p class="location-icon" data-i18n="lazer.sempre_acessvel_visita_externa">Sempre acessível (visita externa)</p>
+                    <p class="location-icon" data-i18n="lazer.gratuito">Gratuito</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.capela_dos_ossos">Capela dos Ossos</strong>
                     <p data-i18n="lazer.capela_nica_decorada_com_ossos_e_caveira">Capela única decorada com ossos e caveiras de mais de 1000 monges. Monumento religioso e artístico do século XIX.</p>
-                    <p class="location-icon" data-i18n="lazer.igreja_do_carmo_largo_do_carmo">📍 Igreja do Carmo, Largo do Carmo</p>
-                    <p class="location-icon" data-i18n="lazer.segunda_a_sexta_10h0018h00_sbado_10h00">⏰ Segunda a Sexta: 10h00-18h00 | Sábado: 10h00-13h00</p>
-                    <p class="location-icon" data-i18n="lazer.entrada_2">💰 Entrada: 2€</p>
+                    <p class="location-icon" data-i18n="lazer.igreja_do_carmo_largo_do_carmo">Igreja do Carmo, Largo do Carmo</p>
+                    <p class="location-icon" data-i18n="lazer.segunda_a_sexta_10h0018h00_sbado_10h00">Segunda a Sexta: 10h00-18h00 | Sábado: 10h00-13h00</p>
+                    <p class="location-icon" data-i18n="lazer.entrada_2">Entrada: 2€</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.s_catedral_de_faro">Sé Catedral de Faro</strong>
                     <p data-i18n="lazer.catedral_gticarenascentista_do_sculo_xii">Catedral gótica-renascentista do século XIII, construída sobre uma antiga mesquita. Torre com vista panorâmica sobre Faro e a Ria Formosa.</p>
-                    <p class="location-icon" data-i18n="lazer.largo_da_s_centro_histrico">📍 Largo da Sé, Centro Histórico</p>
-                    <p class="location-icon" data-i18n="lazer.segunda_a_sexta_10h0017h30_sbado_10h00">⏰ Segunda a Sexta: 10h00-17h30 | Sábado: 10h00-13h00</p>
-                    <p class="location-icon" data-i18n="lazer.entrada_350">💰 Entrada: 3,50€</p>
+                    <p class="location-icon" data-i18n="lazer.largo_da_s_centro_histrico">Largo da Sé, Centro Histórico</p>
+                    <p class="location-icon" data-i18n="lazer.segunda_a_sexta_10h0017h30_sbado_10h00">Segunda a Sexta: 10h00-17h30 | Sábado: 10h00-13h00</p>
+                    <p class="location-icon" data-i18n="lazer.entrada_350">Entrada: 3,50€</p>
                 </div>
             </div>
             
             <div class="info-box">
-                <p data-i18n-html="true" data-i18n="leisure.museums_tip"><strong data-i18n="lazer.dica">💡 Dica:</strong> Muitos museus oferecem entrada gratuita ou descontos em dias específicos. Verifique os horários sazonais, que podem variar entre verão e inverno.</p>
+                <p data-i18n-html="true" data-i18n="leisure.museums_tip"><strong data-i18n="lazer.dica">Dica:</strong> Muitos museus oferecem entrada gratuita ou descontos em dias específicos. Verifique os horários sazonais, que podem variar entre verão e inverno.</p>
             </div>
         </section>
 
         <!-- Zonas Verdes -->
         <section class="culture-card">
-            <h3><span class="icon" data-i18n="lazer.key_7">🌳</span><span data-i18n="leisure.parks_title">Zonas Verdes e Parques</span></h3>
+            <h3><span data-i18n="leisure.parks_title">Zonas Verdes e Parques</span></h3>
             <p data-i18n="leisure.parks_intro">Faro oferece diversos espaços verdes perfeitos para relaxar, fazer exercício ou simplesmente desfrutar da natureza.</p>
             
             <div class="location-grid">
                 <div class="location-item">
                     <strong data-i18n="lazer.jardim_manuel_bivar">Jardim Manuel Bivar</strong>
                     <p data-i18n="lazer.jardim_histrico_junto_ao_porto_com_rvore">Jardim histórico junto ao porto, com árvores centenárias e vista para a Ria Formosa. Ponto de encontro tradicional dos farenses.</p>
-                    <p class="location-icon" data-i18n="lazer.avenida_da_repblica">📍 Avenida da República</p>
-                    <p class="location-icon" data-i18n="lazer.bancos_sombra_quiosques">🌿 Bancos, sombra, quiosques</p>
-                    <p class="location-icon" data-i18n="lazer.sempre_aberto">⏰ Sempre aberto</p>
+                    <p class="location-icon" data-i18n="lazer.avenida_da_repblica">Avenida da República</p>
+                    <p class="location-icon" data-i18n="lazer.bancos_sombra_quiosques">Bancos, sombra, quiosques</p>
+                    <p class="location-icon" data-i18n="lazer.sempre_aberto">Sempre aberto</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.parque_ribeirinho_de_faro">Parque Ribeirinho de Faro</strong>
                     <p data-i18n="lazer.parque_moderno_junto_doca_ideal_para_ca">Parque moderno junto à doca, ideal para caminhadas, corrida e ciclismo. Espaço verde amplo com vista para a marina e Ria Formosa.</p>
-                    <p class="location-icon" data-i18n="lazer.doca_de_faro">📍 Doca de Faro</p>
-                    <p class="location-icon" data-i18n="lazer.ciclovias_parque_infantil_bares">🚴 Ciclovias, parque infantil, bares</p>
-                    <p class="location-icon" data-i18n="lazer.sempre_aberto_1">⏰ Sempre aberto</p>
+                    <p class="location-icon" data-i18n="lazer.doca_de_faro">Doca de Faro</p>
+                    <p class="location-icon" data-i18n="lazer.ciclovias_parque_infantil_bares">Ciclovias, parque infantil, bares</p>
+                    <p class="location-icon" data-i18n="lazer.sempre_aberto_1">Sempre aberto</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.parque_natural_da_ria_formosa">Parque Natural da Ria Formosa</strong>
                     <p data-i18n="lazer.sistema_lagunar_protegido_com_18000_hect">Sistema lagunar protegido com 18.000 hectares. Uma das 7 Maravilhas Naturais de Portugal. Habitat de centenas de espécies de aves.</p>
-                    <p class="location-icon" data-i18n="lazer.centro_de_educao_ambiental_quinta_de_m">📍 Centro de Educação Ambiental - Quinta de Marim</p>
-                    <p class="location-icon" data-i18n="lazer.observao_de_aves_trilhos_pedestres">🦆 Observação de aves, trilhos pedestres</p>
-                    <p class="location-icon" data-i18n="lazer.9h0017h00_centro_de_visitantes">⏰ 9h00-17h00 (centro de visitantes)</p>
+                    <p class="location-icon" data-i18n="lazer.centro_de_educao_ambiental_quinta_de_m">Centro de Educação Ambiental - Quinta de Marim</p>
+                    <p class="location-icon" data-i18n="lazer.observao_de_aves_trilhos_pedestres">Observação de aves, trilhos pedestres</p>
+                    <p class="location-icon" data-i18n="lazer.9h0017h00_centro_de_visitantes">9h00-17h00 (centro de visitantes)</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.alameda_joo_de_deus">Alameda João de Deus</strong>
                     <p data-i18n="lazer.alameda_arborizada_no_centro_da_cidade_p">Alameda arborizada no centro da cidade, perfeita para passeios tranquilos. Árvores de grande porte proporcionam sombra agradável.</p>
-                    <p class="location-icon" data-i18n="lazer.centro_de_faro">📍 Centro de Faro</p>
-                    <p class="location-icon" data-i18n="lazer.bancos_sombra">🌿 Bancos, sombra</p>
-                    <p class="location-icon" data-i18n="lazer.sempre_aberto_2">⏰ Sempre aberto</p>
+                    <p class="location-icon" data-i18n="lazer.centro_de_faro">Centro de Faro</p>
+                    <p class="location-icon" data-i18n="lazer.bancos_sombra">Bancos, sombra</p>
+                    <p class="location-icon" data-i18n="lazer.sempre_aberto_2">Sempre aberto</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.parque_da_quinta_do_lago">Parque da Quinta do Lago</strong>
                     <p data-i18n="lazer.zona_de_luxo_com_extensos_espaos_verdes">Zona de luxo com extensos espaços verdes, campos de golfe e acesso à praia. Área de grande beleza natural.</p>
-                    <p class="location-icon" data-i18n="lazer.quinta_do_lago_15_min_de_faro">📍 Quinta do Lago (15 min de Faro)</p>
-                    <p class="location-icon" data-i18n="lazer.golf_trilhos_ciclovia">⛳ Golf, trilhos, ciclovia</p>
-                    <p class="location-icon" data-i18n="lazer.acesso_livre_s_reas_pblicas">⏰ Acesso livre às áreas públicas</p>
+                    <p class="location-icon" data-i18n="lazer.quinta_do_lago_15_min_de_faro">Quinta do Lago (15 min de Faro)</p>
+                    <p class="location-icon" data-i18n="lazer.golf_trilhos_ciclovia">Golf, trilhos, ciclovia</p>
+                    <p class="location-icon" data-i18n="lazer.acesso_livre_s_reas_pblicas">Acesso livre às áreas públicas</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.mata_nacional_das_dunas_litorais_de_faro">Mata Nacional das Dunas Litorais de Faro</strong>
                     <p data-i18n="lazer.floresta_de_pinheiros_junto_praia_de_fa">Floresta de pinheiros junto à Praia de Faro. Trilhos para caminhadas e ciclismo em ambiente natural.</p>
-                    <p class="location-icon" data-i18n="lazer.praia_de_faro">📍 Praia de Faro</p>
-                    <p class="location-icon" data-i18n="lazer.trilhos_piqueniques">🌲 Trilhos, piqueniques</p>
-                    <p class="location-icon" data-i18n="lazer.sempre_aberto_3">⏰ Sempre aberto</p>
+                    <p class="location-icon" data-i18n="lazer.praia_de_faro">Praia de Faro</p>
+                    <p class="location-icon" data-i18n="lazer.trilhos_piqueniques">Trilhos, piqueniques</p>
+                    <p class="location-icon" data-i18n="lazer.sempre_aberto_3">Sempre aberto</p>
                 </div>
             </div>
             
             <div class="info-box">
-                <p data-i18n-html="true" data-i18n="leisure.parks_birdwatch"> <strong data-i18n="lazer.observao_de_aves_1">🐦 Observação de Aves:</strong> A Ria Formosa é um dos melhores locais da Europa para observação de aves, especialmente durante as migrações. Mais de 200 espécies já foram registadas na área.</p>
+                <p data-i18n-html="true" data-i18n="leisure.parks_birdwatch"> <strong data-i18n="lazer.observao_de_aves_1">Observação de Aves:</strong> A Ria Formosa é um dos melhores locais da Europa para observação de aves, especialmente durante as migrações. Mais de 200 espécies já foram registadas na área.</p>
             </div>
         </section>
 
         <!-- Eventos Típicos -->
         <section class="culture-card">
-            <h3><span class="icon" data-i18n="lazer.key_8">🎭</span><span data-i18n="leisure.events_title">Eventos e Festivais</span></h3>
+            <h3><span data-i18n="leisure.events_title">Eventos e Festivais</span></h3>
             <p data-i18n="leisure.events_intro">Faro tem um calendário cultural rico, com eventos tradicionais, festivais de música, gastronomia e celebrações religiosas ao longo de todo o ano.</p>
             
             <div class="events-list">
                 <div class="event-item">
                     <div class="event-name">Carnaval de Faro</div>
-                    <div class="event-time">📅 Fevereiro/Março</div>
+                    <div class="event-time">Fevereiro/Março</div>
                     <div class="event-description">
                         Desfile de carros alegóricos e grupos carnavalescos pelas ruas da cidade. Música, dança e muita animação.
                     </div>
@@ -430,7 +266,7 @@
                 
                 <div class="event-item">
                     <div class="event-name">Semana Santa</div>
-                    <div class="event-time">📅 Março/Abril</div>
+                    <div class="event-time">Março/Abril</div>
                     <div class="event-description">
                         Procissões religiosas tradicionais, com destaque para a Procissão do Senhor dos Passos e a Procissão de Nossa Senhora da Piedade.
                     </div>
@@ -438,7 +274,7 @@
                 
                 <div class="event-item">
                     <div class="event-name">Faro Capital da Cultura</div>
-                    <div class="event-time">📅 Maio</div>
+                    <div class="event-time">Maio</div>
                     <div class="event-description">
                         Mês dedicado à cultura com exposições, concertos, teatro e atividades culturais por toda a cidade.
                     </div>
@@ -446,7 +282,7 @@
                 
                 <div class="event-item">
                     <div class="event-name">Festas da Ria Formosa</div>
-                    <div class="event-time">📅 Junho</div>
+                    <div class="event-time">Junho</div>
                     <div class="event-description">
                         Celebração da cultura marítima com regatas, espetáculos, gastronomia de mar e animação junto à doca.
                     </div>
@@ -454,7 +290,7 @@
                 
                 <div class="event-item">
                     <div class="event-name">Feira de Santa Iria</div>
-                    <div class="event-time">📅 Outubro</div>
+                    <div class="event-time">Outubro</div>
                     <div class="event-description">
                         A maior feira do Algarve! Diversões, artesanato, gastronomia, concertos e eventos culturais durante duas semanas.
                     </div>
@@ -462,7 +298,7 @@
                 
                 <div class="event-item">
                     <div class="event-name">Festival F</div>
-                    <div class="event-time">📅 Setembro</div>
+                    <div class="event-time">Setembro</div>
                     <div class="event-description">
                         Festival de música com artistas nacionais e internacionais. Vários palcos espalhados pela cidade e concertos gratuitos.
                     </div>
@@ -470,7 +306,7 @@
                 
                 <div class="event-item">
                     <div class="event-name">Motociclo Faro</div>
-                    <div class="event-time">📅 Julho</div>
+                    <div class="event-time">Julho</div>
                     <div class="event-description">
                         Concentração motard com milhares de motociclistas, concertos de rock e muita animação.
                     </div>
@@ -478,7 +314,7 @@
                 
                 <div class="event-item">
                     <div class="event-name">Mercado Medieval</div>
-                    <div class="event-time">📅 Agosto (ocasional)</div>
+                    <div class="event-time">Agosto (ocasional)</div>
                     <div class="event-description">
                         Recriação de um mercado medieval no centro histórico, com artesãos, música antiga e gastronomia tradicional.
                     </div>
@@ -486,7 +322,7 @@
                 
                 <div class="event-item">
                     <div class="event-name">Noite Branca</div>
-                    <div class="event-time">📅 Julho/Agosto</div>
+                    <div class="event-time">Julho/Agosto</div>
                     <div class="event-description">
                         Noite cultural com museus abertos até tarde, espetáculos de rua, concertos e exposições por toda a cidade.
                     </div>
@@ -494,7 +330,7 @@
                 
                 <div class="event-item">
                     <div class="event-name">Mercado de Natal</div>
-                    <div class="event-time">📅 Dezembro</div>
+                    <div class="event-time">Dezembro</div>
                     <div class="event-description">
                         Mercado natalício com produtos artesanais, gastronomia típica, pista de gelo e decorações festivas.
                     </div>
@@ -502,73 +338,73 @@
             </div>
             
             <div class="info-box">
-                <p data-i18n-html="true" data-i18n="leisure.events_agenda"><strong data-i18n="lazer.agenda_cultural">📱 Agenda Cultural:</strong> Consulte a agenda cultural completa no site da Câmara Municipal de Faro ou no posto de turismo para datas exatas e programação detalhada dos eventos.</p>
+                <p data-i18n-html="true" data-i18n="leisure.events_agenda"><strong data-i18n="lazer.agenda_cultural">Agenda Cultural:</strong> Consulte a agenda cultural completa no site da Câmara Municipal de Faro ou no posto de turismo para datas exatas e programação detalhada dos eventos.</p>
             </div>
         </section>
 
         <!-- Outras Atividades de Lazer -->
         <section class="culture-card">
-            <h3><span class="icon" data-i18n="lazer.key_9">🎯</span><span data-i18n="leisure.other_activities_title">Outras Atividades de Lazer</span></h3>
+            <h3><span data-i18n="leisure.other_activities_title">Outras Atividades de Lazer</span></h3>
             
             <div class="location-grid">
                 <div class="location-item">
                     <strong data-i18n="lazer.teatro_das_figuras">Teatro das Figuras</strong>
                     <p data-i18n="lazer.principal_espao_cultural_de_faro_teatro">Principal espaço cultural de Faro. Teatro, dança, música, cinema e exposições.</p>
-                    <p class="location-icon" data-i18n="lazer.horta_do_terminio">📍 Horta do Terminio</p>
-                    <p class="location-icon" data-i18n="lazer.289_888_110">📞 289 888 110</p>
+                    <p class="location-icon" data-i18n="lazer.horta_do_terminio">Horta do Terminio</p>
+                    <p class="location-icon" data-i18n="lazer.289_888_110">289 888 110</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.cinema">Cinema</strong>
                     <p data-i18n="lazer.cinemas_no_frum_algarve_shopping_com_as">Cinemas no Fórum Algarve Shopping com as últimas estreias nacionais e internacionais.</p>
-                    <p class="location-icon" data-i18n="lazer.frum_algarve">📍 Fórum Algarve</p>
-                    <p class="location-icon" data-i18n="lazer.vrias_salas_3d_imax">🎬 Várias salas, 3D, IMAX</p>
+                    <p class="location-icon" data-i18n="lazer.frum_algarve">Fórum Algarve</p>
+                    <p class="location-icon" data-i18n="lazer.vrias_salas_3d_imax">Várias salas, 3D, IMAX</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.biblioteca_municipal">Biblioteca Municipal</strong>
                     <p data-i18n="lazer.espao_moderno_com_vasto_acervo_bibliogrf">Espaço moderno com vasto acervo bibliográfico, sala de leitura, internet e atividades culturais.</p>
-                    <p class="location-icon" data-i18n="lazer.alameda_joo_de_deus_1">📍 Alameda João de Deus</p>
-                    <p class="location-icon" data-i18n="lazer.emprstimo_gratuito_com_carto_de_leitor">📚 Empréstimo gratuito com cartão de leitor</p>
+                    <p class="location-icon" data-i18n="lazer.alameda_joo_de_deus_1">Alameda João de Deus</p>
+                    <p class="location-icon" data-i18n="lazer.emprstimo_gratuito_com_carto_de_leitor">Empréstimo gratuito com cartão de leitor</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.passeios_de_barco">Passeios de Barco</strong>
                     <p data-i18n="lazer.tours_pela_ria_formosa_observao_de_aves">Tours pela Ria Formosa, observação de aves, pesca desportiva e passeios ao pôr do sol.</p>
-                    <p class="location-icon" data-i18n="lazer.cais_da_porta_nova_marina_de_faro">📍 Cais da Porta Nova, Marina de Faro</p>
-                    <p class="location-icon" data-i18n="lazer.vrias_empresas_e_tipos_de_passeio">⛵ Várias empresas e tipos de passeio</p>
+                    <p class="location-icon" data-i18n="lazer.cais_da_porta_nova_marina_de_faro">Cais da Porta Nova, Marina de Faro</p>
+                    <p class="location-icon" data-i18n="lazer.vrias_empresas_e_tipos_de_passeio">Várias empresas e tipos de passeio</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.desportos_aquticos">Desportos Aquáticos</strong>
                     <p data-i18n="lazer.paddle_surf_kayak_kitesurf_e_windsurf_na">Paddle surf, kayak, kitesurf e windsurf nas praias e na Ria Formosa.</p>
-                    <p class="location-icon" data-i18n="lazer.praia_de_faro_ilhas">📍 Praia de Faro, ilhas</p>
-                    <p class="location-icon" data-i18n="lazer.escolas_e_aluguer_de_equipamento">🏄 Escolas e aluguer de equipamento</p>
+                    <p class="location-icon" data-i18n="lazer.praia_de_faro_ilhas">Praia de Faro, ilhas</p>
+                    <p class="location-icon" data-i18n="lazer.escolas_e_aluguer_de_equipamento">Escolas e aluguer de equipamento</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="lazer.golfe">Golfe</strong>
                     <p data-i18n="lazer.regio_com_excelentes_campos_de_golfe_alg">Região com excelentes campos de golfe, alguns dos melhores da Europa.</p>
-                    <p class="location-icon" data-i18n="lazer.quinta_do_lago_vale_do_lobo_prximo">📍 Quinta do Lago, Vale do Lobo (próximo)</p>
-                    <p class="location-icon" data-i18n="lazer.campos_de_18_buracos">⛳ Campos de 18 buracos</p>
+                    <p class="location-icon" data-i18n="lazer.quinta_do_lago_vale_do_lobo_prximo">Quinta do Lago, Vale do Lobo (próximo)</p>
+                    <p class="location-icon" data-i18n="lazer.campos_de_18_buracos">Campos de 18 buracos</p>
                 </div>
             </div>
         </section>
 
         <!-- Informações de Contacto -->
         <section class="culture-card">
-            <h3><span class="icon" data-i18n="lazer.key_10">ℹ️</span><span data-i18n="leisure.tourist_info_title">Informações Turísticas</span></h3>
+            <h3><span data-i18n="leisure.tourist_info_title">Informações Turísticas</span></h3>
             
             <div class="contact-info">
-                <p><strong data-i18n="lazer.posto_de_turismo_de_faro">📍 Posto de Turismo de Faro:</strong></p>
+                <p><strong data-i18n="lazer.posto_de_turismo_de_faro">Posto de Turismo de Faro:</strong></p>
                 <p data-i18n="lazer.rua_da_misericrdia_812_centro_histrico">Rua da Misericórdia, 8-12, Centro Histórico</p>
                 <p class="phone" data-i18n="lazer.289_803_604">289 803 604</p>
-                <p><strong data-i18n="lazer.horrio">⏰ Horário:</strong> Segunda a Sexta: 9h30-13h00 e 14h00-17h30</p>
-                <p><strong data-i18n="lazer.email">✉️ E-mail:</strong> turismo@cm-faro.pt</p>
+                <p><strong data-i18n="lazer.horrio">Horário:</strong> Segunda a Sexta: 9h30-13h00 e 14h00-17h30</p>
+                <p><strong data-i18n="lazer.email">E-mail:</strong> turismo@cm-faro.pt</p>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="lazer.links_teis">🌐 Links Úteis:</strong></p>
+                <p><strong data-i18n="lazer.links_teis">Links Úteis:</strong></p>
                 <ul>
                     <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer" data-i18n="lazer.cmara_municipal_de_faro">Câmara Municipal de Faro</a></li>
                     <li><a href="https://www.visitalgarve.pt" target="_blank" rel="noopener noreferrer" data-i18n="lazer.turismo_do_algarve">Turismo do Algarve</a></li>

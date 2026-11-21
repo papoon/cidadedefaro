@@ -37,186 +37,6 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     
     <%- metaCommon %>
-    <style>
-        .service-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-card h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .service-card .icon {
-            font-size: 2rem;
-        }
-        
-        .service-info {
-            margin-bottom: 1rem;
-        }
-        
-        .service-info p {
-            margin-bottom: 0.5rem;
-            line-height: 1.6;
-        }
-        
-        .service-info strong {
-            color: #2c3338;
-            font-weight: 600;
-        }
-        
-        .btn-maps {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background: linear-gradient(135deg, #146a8c 0%, #0d3b4f 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin-top: 0.5rem;
-        }
-        
-        .btn-maps:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(20, 106, 140, 0.4);
-        }
-        
-        .emergency-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .emergency-item {
-            background: #faf7f2;
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid #c0392b;
-            text-align: center;
-        }
-        
-        .emergency-item .number {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #c0392b;
-            margin: 0.5rem 0;
-        }
-        
-        .emergency-item .label {
-            font-size: 0.875rem;
-            color: #6b6a63;
-            font-weight: 600;
-        }
-        
-        .location-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .location-list li {
-            background: #faf7f2;
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            border-radius: 8px;
-            border-left: 4px solid #146a8c;
-        }
-        
-        .location-list li strong {
-            display: block;
-            color: #2c3338;
-            margin-bottom: 0.25rem;
-        }
-        
-        #mapa-saude {
-            height: 400px;
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            margin-top: 1rem;
-        }
-        
-        /* Show more functionality for pharmacies */
-        .farmacia-extra {
-            display: none;
-        }
-        
-        .farmacia-extra.show {
-            display: block;
-        }
-        
-        .btn-ver-mais {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            background-color: #f3ede1;
-            color: #4a4a45;
-            text-decoration: none;
-            border: 2px solid #ded3bd;
-            border-radius: 8px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-            text-align: center;
-        }
-        
-        .btn-ver-mais:hover {
-            background-color: #e6ddce;
-            border-color: #9c968a;
-        }
-        
-        @media (max-width: 768px) {
-            .service-card {
-                padding: 1.5rem;
-            }
-            
-            .service-card h3 {
-                font-size: 1.25rem;
-            }
-            
-            .emergency-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            #mapa-saude {
-                height: 300px;
-            }
-        }
-        
-        /* Quick Access Link Styles */
-        .quick-access-container {
-            margin-top: 1.5rem;
-            text-align: center;
-        }
-        
-        .btn-quick-access {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #c0392b 0%, #9c2e22 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-quick-access:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(192, 57, 43, 0.4);
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -224,7 +44,7 @@
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2 data-i18n="health.hero_title">Saúde e Serviços Essenciais</h2>
+            <h1 data-i18n="health.hero_title">Saúde e Serviços Essenciais</h1>
             <p data-i18n="health.hero_description">Informações sobre hospitais, centros de saúde, farmácias e contactos de emergência em Faro.</p>
             
             <!-- Quick Access Link -->
@@ -232,14 +52,14 @@
                 <a href="saude-onde-ir-agora.html" 
                    class="btn-quick-access"
                    data-i18n="health.quick_access_link">
-                    🚨 Precisa de Ajuda Agora? Acesso Rápido
+                    Precisa de Ajuda Agora? Acesso Rápido
                 </a>
             </div>
         </section>
 
         <!-- Hospital de Faro -->
         <section class="service-card">
-            <h3><span class="icon" data-i18n="saude.key_1">🏥</span><span data-i18n="health.hospital_title">Hospital de Faro</span></h3>
+            <h3><span data-i18n="health.hospital_title">Hospital de Faro</span></h3>
             <div class="service-info">
                 <p><strong data-i18n="saude.nome">Nome:</strong> Centro Hospitalar Universitário do Algarve - Hospital de Faro</p>
                 <p><strong data-i18n="saude.morada">Morada:</strong> Leão Penedo, 8000-386 Faro</p>
@@ -250,12 +70,12 @@
             <a href="https://www.google.com/maps/search/?api=1&query=Centro+Hospitalar+Universitário+do+Algarve+Hospital+de+Faro" 
                target="_blank" 
                rel="noopener noreferrer" 
-               class="btn-maps" data-i18n="saude.ver_no_google_maps">📍 Ver no Google Maps</a>
+               class="btn-maps" data-i18n="saude.ver_no_google_maps">Ver no Google Maps</a>
         </section>
 
         <!-- Centros de Saúde -->
         <section class="service-card">
-            <h3><span class="icon" data-i18n="saude.key_2">🏢</span><span data-i18n="health.centers_title">Centros de Saúde</span></h3>
+            <h3><span data-i18n="health.centers_title">Centros de Saúde</span></h3>
             <div class="service-info">
                 <ul class="location-list">
                     <li>
@@ -265,7 +85,7 @@
                         <a href="https://www.google.com/maps/search/?api=1&query=Centro+de+Saúde+de+Faro" 
                            target="_blank" 
                            rel="noopener noreferrer" 
-                           class="btn-maps" data-i18n="saude.ver_no_google_maps_1">📍 Ver no Google Maps</a>
+                           class="btn-maps" data-i18n="saude.ver_no_google_maps_1">Ver no Google Maps</a>
                     </li>
                     <li>
                         <strong data-i18n="saude.usf_conde_de_oeiras">USF Conde de Oeiras</strong>
@@ -274,7 +94,7 @@
                         <a href="https://www.google.com/maps/search/?api=1&query=USF+Conde+de+Oeiras+Faro" 
                            target="_blank" 
                            rel="noopener noreferrer" 
-                           class="btn-maps" data-i18n="saude.ver_no_google_maps_2">📍 Ver no Google Maps</a>
+                           class="btn-maps" data-i18n="saude.ver_no_google_maps_2">Ver no Google Maps</a>
                     </li>
                     <li>
                         <strong data-i18n="saude.usf_ria_formosa">USF Ria Formosa</strong>
@@ -283,7 +103,7 @@
                         <a href="https://www.google.com/maps/search/?api=1&query=USF+Ria+Formosa+Faro" 
                            target="_blank" 
                            rel="noopener noreferrer" 
-                           class="btn-maps" data-i18n="saude.ver_no_google_maps_3">📍 Ver no Google Maps</a>
+                           class="btn-maps" data-i18n="saude.ver_no_google_maps_3">Ver no Google Maps</a>
                     </li>
                 </ul>
             </div>
@@ -291,7 +111,7 @@
 
         <!-- Farmácias -->
         <section class="service-card" id="farmacias-section">
-            <h3><span class="icon" data-i18n="saude.key_3">💊</span><span data-i18n="health.pharmacies_title">Farmácias</span></h3>
+            <h3><span data-i18n="health.pharmacies_title">Farmácias</span></h3>
             <div class="service-info">
                 <p><strong data-i18n="health.label_info">Informação:</strong> <span data-i18n="health.pharmacies_info">Existem várias farmácias em Faro, com serviço de rotatividade 24 horas.</span></p>
                 <ul class="location-list" id="farmacias-list">
@@ -304,7 +124,7 @@
 
         <!-- Contactos de Emergência -->
         <section class="service-card">
-            <h3><span class="icon" data-i18n="saude.key_4">🚨</span>Contactos de Emergência</h3>
+            <h3>Contactos de Emergência</h3>
             <div class="service-info">
                 <p><strong data-i18n="saude.nota_importante">Nota importante:</strong> Em caso de emergência médica grave, ligue sempre para o <strong data-i18n="saude.112">112</strong>.</p>
                 <p>A <strong data-i18n="saude.linha_sade_24_808_24_24_24_1">Linha Saúde 24 (808 24 24 24)</strong> está disponível 24 horas para aconselhamento de saúde não urgente.</p>
@@ -319,11 +139,11 @@
                     <div class="number">808 24 24 24</div>
                 </div>
             </div>
-            <div style="margin-top: 1.5rem;">
-                <a href="saude-onde-ir-agora.html" class="btn-maps" style="display: inline-block;">
-                    🚨 Ver Todos os Contactos de Emergência
+            <div>
+                <a href="saude-onde-ir-agora.html" class="btn-maps">
+                    Ver Todos os Contactos de Emergência
                 </a>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b6a63;">
+                <p>
                     Acesso rápido a urgências, centros de saúde, farmácias de serviço e mais informações detalhadas.
                 </p>
             </div>
@@ -331,7 +151,7 @@
 
         <!-- Mapa com Localizações -->
         <section class="service-card">
-            <h3><span class="icon" data-i18n="saude.key_5">🗺️</span>Mapa de Serviços de Saúde</h3>
+            <h3>Mapa de Serviços de Saúde</h3>
             <p data-i18n="saude.localizao_dos_principais_servios_de_sade">Localização dos principais serviços de saúde em Faro:</p>
             <div id="mapa-saude"></div>
         </section>
@@ -397,20 +217,20 @@
 
                 // Ícones personalizados para diferentes tipos de serviços
                 const iconeHospital = L.divIcon({
-                    html: '<div style="font-size: 24px;">🏥</div>',
-                    className: 'custom-icon',
+                    html: '<span class="map-pin" style="--pin: var(--danger)"><svg class="icon" aria-hidden="true"><use href="#i-health"></use></svg></span>',
+                    className: 'map-pin-wrap',
                     iconSize: [32, 32]
                 });
 
                 const iconeCentro = L.divIcon({
-                    html: '<div style="font-size: 24px;">🏢</div>',
-                    className: 'custom-icon',
+                    html: '<span class="map-pin" style="--pin: var(--ria)"><svg class="icon" aria-hidden="true"><use href="#i-home"></use></svg></span>',
+                    className: 'map-pin-wrap',
                     iconSize: [32, 32]
                 });
 
                 const iconeFarmacia = L.divIcon({
-                    html: '<div style="font-size: 24px;">💊</div>',
-                    className: 'custom-icon',
+                    html: '<span class="map-pin" style="--pin: var(--ok)"><svg class="icon" aria-hidden="true"><use href="#i-pill"></use></svg></span>',
+                    className: 'map-pin-wrap',
                     iconSize: [32, 32]
                 });
 

@@ -75,11 +75,10 @@
         });
     }
 
+    // The sun/moon icons are both in the markup (src/partials/header.html);
+    // CSS shows the right one based on body.dark-mode. Kept as a hook.
     function updateDarkModeIcon(button, isDark) {
-        const icon = button.querySelector('.dark-mode-icon');
-        if (icon) {
-            icon.textContent = isDark ? '☀️' : '🌙';
-        }
+        button.setAttribute('aria-pressed', String(isDark));
     }
 
     // Update site logo src according to theme, using data attributes on the <img>
@@ -135,31 +134,9 @@
     // 4. LIGHT ANIMATIONS (Animações Leves)
     // ===================================
     function initAnimations() {
-        // Fade in elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Observe cards and sections
-        document.querySelectorAll('.card, .hero, .dados-faro-section, section').forEach(element => {
-            element.classList.add('animate-on-scroll');
-            observer.observe(element);
-        });
-
-        // Add hover animation class to interactive elements
-        document.querySelectorAll('.card, .btn, nav a').forEach(element => {
-            element.classList.add('animate-hover');
-        });
+        // Intentionally empty: content is visible immediately. The previous
+        // fade-in-on-scroll set every <section> to opacity:0 until it was
+        // observed, which hurt perceived speed and printed/blank states.
     }
 
     // ===================================
@@ -173,7 +150,14 @@
         button.id = 'scroll-to-top';
         button.className = 'scroll-to-top';
         button.setAttribute('aria-label', 'Voltar ao topo');
-        button.innerHTML = '<span class="scroll-icon">↑</span>';
+        const svgNS = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(svgNS, 'svg');
+        svg.setAttribute('class', 'icon');
+        svg.setAttribute('aria-hidden', 'true');
+        const use = document.createElementNS(svgNS, 'use');
+        use.setAttribute('href', '#i-arrow-up');
+        svg.appendChild(use);
+        button.appendChild(svg);
         
         document.body.appendChild(button);
     }

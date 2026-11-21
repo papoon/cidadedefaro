@@ -28,73 +28,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    
-    <style>
-        .terms-section {
-            background: white;
-            border-radius: 12px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .terms-section h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .terms-section h4 {
-            color: #2c3338;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .terms-section p {
-            color: #4a4a45;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-        
-        .terms-section ul, .terms-section ol {
-            margin: 1rem 0;
-            padding-left: 1.5rem;
-            color: #4a4a45;
-        }
-        
-        .terms-section li {
-            line-height: 1.8;
-            margin-bottom: 0.5rem;
-            font-size: 1.05rem;
-        }
-        
-        /* .highlight-box, .warning-box, .last-updated now come from the
-           shared page patterns in assets/styles/style.css */
-        .warning-box p {
-            color: #72352c;
-        }
-
-        .last-updated {
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .terms-section {
-                padding: 1.5rem;
-            }
-            
-            .terms-section h3 {
-                font-size: 1.3rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -102,20 +35,20 @@
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2 data-i18n="terms.hero_title">Termos e Condições</h2>
+            <h1 data-i18n="terms.hero_title">Termos e Condições</h1>
             <p data-i18n="terms.hero_description">Condições de utilização do Faro Formoso</p>
         </section>
 
         <!-- Aceitação dos Termos -->
         <section class="terms-section">
-            <h3 data-i18n="terms.acceptance_title">📋 Aceitação dos Termos</h3>
+            <h3 data-i18n="terms.acceptance_title">Aceitação dos Termos</h3>
             <p data-i18n="terms.acceptance_p1">Ao aceder e utilizar o site Faro Formoso ("o Site"), você concorda em cumprir e estar vinculado aos seguintes termos e condições de utilização. Se não concordar com qualquer parte destes termos, não deve utilizar o Site.</p>
             <p data-i18n="terms.acceptance_p2">Estes termos aplicam-se a todos os utilizadores do Site, incluindo visitantes, residentes de Faro e turistas que acedam ao conteúdo disponibilizado.</p>
         </section>
 
         <!-- Descrição do Serviço -->
         <section class="terms-section">
-            <h3 data-i18n="terms.service_title">ℹ️ Descrição do Serviço</h3>
+            <h3 data-i18n="terms.service_title">Descrição do Serviço</h3>
             <p data-i18n="terms.service_p1">O Faro Formoso é um guia digital gratuito e de utilidade pública que fornece informações sobre a cidade de Faro, Portugal. O Site oferece:</p>
             <ul>
                 <li data-i18n="terms.service_item1">Informações sobre transportes, saúde, ambiente e lazer</li>
@@ -132,7 +65,7 @@
 
         <!-- Utilização do Site -->
         <section class="terms-section">
-            <h3 data-i18n="terms.usage_title">✅ Utilização do Site</h3>
+            <h3 data-i18n="terms.usage_title">Utilização do Site</h3>
             <p data-i18n="terms.usage_p1">Ao utilizar o Faro Formoso, você concorda em:</p>
             <ul>
                 <li data-i18n="terms.usage_item1">Utilizar o Site apenas para fins legais e informativos</li>
@@ -145,7 +78,7 @@
 
         <!-- Propriedade Intelectual -->
         <section class="terms-section">
-            <h3 data-i18n="terms.intellectual_title">©️ Propriedade Intelectual</h3>
+            <h3 data-i18n="terms.intellectual_title">©Propriedade Intelectual</h3>
             <p data-i18n="terms.intellectual_p1">O conteúdo original do Faro Formoso, incluindo textos, design, logotipos e código, é propriedade do projeto e está protegido por direitos de autor.</p>
             
             <h4 data-i18n="terms.intellectual_opensource_title">Código Aberto</h4>
@@ -157,7 +90,7 @@
 
         <!-- Isenção de Responsabilidade -->
         <section class="terms-section">
-            <h3 data-i18n="terms.disclaimer_title">⚠️ Isenção de Responsabilidade</h3>
+            <h3 data-i18n="terms.disclaimer_title">Isenção de Responsabilidade</h3>
             
             <div class="warning-box">
                 <p data-i18n="terms.disclaimer_important"><strong>Importante:</strong> O Faro Formoso é fornecido "como está" sem garantias de qualquer tipo.</p>
@@ -188,13 +121,13 @@
 
         <!-- Links Externos -->
         <section class="terms-section">
-            <h3 data-i18n="terms.external_title">🔗 Links para Sites Externos</h3>
+            <h3 data-i18n="terms.external_title">Links para Sites Externos</h3>
             <p data-i18n="terms.external_desc">O Site contém links para websites de terceiros para sua conveniência. Não controlamos nem somos responsáveis pelo conteúdo, políticas de privacidade ou práticas desses sites externos. A inclusão de links não implica endosso ou aprovação.</p>
         </section>
 
         <!-- Modificações -->
         <section class="terms-section">
-            <h3 data-i18n="terms.modifications_title">🔄 Modificações do Site e dos Termos</h3>
+            <h3 data-i18n="terms.modifications_title">Modificações do Site e dos Termos</h3>
             <p data-i18n="terms.modifications_p1">Reservamos o direito de:</p>
             <ul>
                 <li data-i18n="terms.modifications_item1">Modificar, suspender ou descontinuar qualquer parte do Site a qualquer momento</li>
@@ -206,26 +139,26 @@
 
         <!-- Disponibilidade -->
         <section class="terms-section">
-            <h3 data-i18n="terms.availability_title">🌐 Disponibilidade do Serviço</h3>
+            <h3 data-i18n="terms.availability_title">Disponibilidade do Serviço</h3>
             <p data-i18n="terms.availability_desc">Embora nos esforcemos para manter o Site disponível 24/7, não garantimos acesso ininterrupto. O Site pode estar temporariamente indisponível devido a manutenção, atualizações ou problemas técnicos. Não somos responsáveis por quaisquer perdas resultantes de indisponibilidade.</p>
         </section>
 
         <!-- Doações -->
         <section class="terms-section">
-            <h3 data-i18n="terms.donations_title">☕ Apoio Voluntário</h3>
+            <h3 data-i18n="terms.donations_title">Apoio Voluntário</h3>
             <p data-i18n="terms.donations_p1">O Faro Formoso é completamente gratuito. Disponibilizamos uma opção de doação voluntária para quem deseja apoiar o projeto financeiramente.</p>
             <p data-i18n="terms.donations_p2">Todas as doações são voluntárias e não conferem direitos especiais, acesso privilegiado ou qualquer tipo de contrato de serviço. As doações não são reembolsáveis e são processadas por plataformas de terceiros (como Buy Me a Coffee), sujeitas aos seus próprios termos e condições.</p>
         </section>
 
         <!-- Lei Aplicável -->
         <section class="terms-section">
-            <h3 data-i18n="terms.law_title">⚖️ Lei Aplicável</h3>
+            <h3 data-i18n="terms.law_title">Lei Aplicável</h3>
             <p data-i18n="terms.law_desc">Estes termos e condições são regidos pela legislação portuguesa. Qualquer disputa relacionada com o uso do Site será sujeita à jurisdição exclusiva dos tribunais portugueses.</p>
         </section>
 
         <!-- Contacto -->
         <section class="terms-section">
-            <h3 data-i18n="terms.contact_title">📧 Contacto</h3>
+            <h3 data-i18n="terms.contact_title">Contacto</h3>
             <p data-i18n="terms.contact_desc">Se tiver questões sobre estes termos e condições, pode contactar-nos através de:</p>
             <ul>
                 <li><a href="https://github.com/papoon/cidadedefaro/issues" target="_blank" rel="noopener noreferrer" data-i18n="terms.contact_github">GitHub Issues</a></li>

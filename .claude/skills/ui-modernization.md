@@ -1,337 +1,180 @@
-# UI Modernization — Faro Formoso Design System
+# UI — Faro Formoso Editorial Design System
 
-This is the **single source of truth** for frontend design decisions in this project. Reference it
-whenever creating or updating any page, component, or piece of UI. The tokens and rules here are
-implemented in [assets/styles/style.css](../../assets/styles/style.css) (`:root` block at the top) —
-treat that file as the executable version of this document; if they ever disagree, fix the drift
-rather than picking one to trust.
+Single source of truth for frontend design decisions. The executable version lives in:
 
-## Design philosophy
+- [assets/styles/style.css](../../assets/styles/style.css) — tokens, fonts, base type, site chrome
+  (masthead, nav, index, colophon), shared components (buttons, forms, tables, callouts, entries,
+  search, favorites, home, weather, maps).
+- [assets/styles/components.css](../../assets/styles/components.css) — page-family components
+  (timeline, emergency, recycling bins, hotel/restaurant entries, simulators…).
+- [src/partials/icons.html](../../src/partials/icons.html) — the inline SVG icon sprite.
 
-- **Faro-inspired, not generic SaaS.** The palette and mood should evoke the Algarve coast — ocean,
-  sand, sun-warmed clay — not a default indigo/purple admin-panel look.
-- **Light, professional, welcoming.** Generous whitespace, soft shadows, rounded corners. Nothing
-  loud or gimmicky — this is a public-utility guide used by residents and tourists, including
-  elderly users (see `idosos.html`), not a marketing site.
-- **Calm, not flashy.** Motion and color are used to clarify state and hierarchy, never for
-  decoration. If an animation or color doesn't help the user understand something, cut it.
-- **Consistency over novelty.** Reuse the components and tokens below instead of inventing new
-  one-off patterns per page. A new page should look like it belongs to this site without anyone
-  having to think about it.
-- **Accessible by default.** WCAG AA is the floor, not a follow-up task.
+If this document and the CSS disagree, fix the drift rather than picking one.
 
-## Faro-inspired color palette
+## Direction: a printed city guide, not an app template
 
-All colors are CSS custom properties defined in `assets/styles/style.css`'s `:root`. Always use the
-variable, never hardcode a hex value in new CSS.
+The site reads like a well-edited pocket guide (think Monocle / Wallpaper* city guides, newspaper
+layouts): **typography and rules do the work, not boxes, shadows and gradients.** It is still a
+public-utility tool used by residents, tourists and elderly people, so legibility and quick access
+to urgent information always beat decoration.
 
-| Token | Value | Use |
+Things this design deliberately does **not** do (they were the "AI template" tells of the old UI):
+
+- No emoji as icons — anywhere (HTML, i18n JSON, JS-generated markup, map markers).
+- No gradients (`linear-gradient`) on chrome, buttons or cards. No decorative wave SVGs.
+- No grids of identical shadowed rounded cards with icon + title + blurb.
+- No hover "lift" (`translateY`) or scale effects. Hover = colour/underline change.
+- No coloured `border-left: 4px` callout stripes.
+- No floating circular buttons stacked down the right edge — tools live in the masthead.
+- No fade-in-on-scroll for content.
+
+## Tokens
+
+All colour comes from tokens on `:root` (light) and `body.dark-mode` (dark). High contrast mode
+(`body.high-contrast`, in `accessibility.css`) overrides the same tokens with black/white/yellow.
+Never hardcode a hex in new CSS.
+
+| Token | Light | Use |
 |---|---|---|
-| `--color-ocean-900` | `#0d3b4f` | Deepest ocean — gradient ends, dark text on light bg, table headers |
-| `--color-ocean-700` | `#146a8c` | **Primary brand color** — links, primary buttons, active states, headings accents |
-| `--color-ocean-500` | `#2f8fb8` | Lighter ocean — info states, secondary accents |
-| `--color-ocean-100` | `#e3f2f7` | Info background tint |
-| `--color-sand-50` | `#faf7f2` | Page background |
-| `--color-sand-100` | `#f3ede1` | Card/section alt background, secondary button bg |
-| `--color-sand-300` | `#e6ddce` | Default border color |
-| `--color-sand-500` | `#ded3bd` | Stronger border / divider |
-| `--color-terracotta-700` | `#a85a2f` | Terracotta accent, dark variant |
-| `--color-terracotta-600` | `#c8703f` | Terracotta accent — sparing highlight, badges, icons |
-| `--color-terracotta-100` | `#f8e3d3` | Terracotta background tint |
-| `--color-green-700` | `#2c623c` | Success text |
-| `--color-green-600` | `#4c8c5b` | **Natural green — success/confirmation ONLY, used sparingly** |
-| `--color-green-100` | `#eef6ee` | Success background tint |
-| `--color-ink-900` | `#2c3338` | Headings, strongest body text |
-| `--color-ink-700` | `#4a4a45` | Default body text |
-| `--color-ink-500` | `#6b6a63` | Muted/secondary text |
-| `--color-ink-300` | `#9c968a` | Placeholder text, disabled state, faint labels |
-| `--color-error` / `--color-error-dark` | `#c0392b` / `#9c2e22` | Error states, destructive actions |
-| `--color-error-bg` | `#fdece9` | Error background tint |
-| `--color-warning` | `#d98324` | Warning states |
-| `--color-warning-bg` | `#f7e8d0` | Warning background tint |
-| `--color-focus-ring` | `#ffca4f` | Keyboard focus outline (accessibility-critical, kept high-contrast — do not theme this away) |
-| `--gradient-ocean` | `linear-gradient(135deg, var(--color-ocean-700), var(--color-ocean-900))` | Header, footer, primary button, hero accents |
+| `--paper` | `#f6f1e7` | Page background |
+| `--paper-2` | `#ede5d5` | Tinted bands, neutral callouts, hover |
+| `--surface` | `#fbf8f2` | Inputs, dropdowns, modals |
+| `--rule` | `#d6cbb7` | Hairline rules between items |
+| `--rule-strong` | `#1d2428` | Heavy editorial rules (top of lists, under page headers) |
+| `--ink` | `#1d2428` | Headings, strong text |
+| `--ink-2` | `#353d42` | Body text |
+| `--ink-3` | `#5d605a` | Meta / muted text (≥ 5:1 on paper) |
+| `--ink-4` | `#8a867c` | Placeholders, disabled, input borders |
+| `--ria` / `--ria-deep` / `--ria-tint` | `#0f5872` / `#0a3e51` / `#e0eae8` | Links and actions; info callouts |
+| `--terra` / `--terra-tint` | `#a84f26` / `#f2dfd0` | **Numbering and highlights only** (section numbers, active nav underline, featured badge) |
+| `--danger` / `--danger-tint` | `#a3301d` / `#f5ddd6` | Emergency numbers, destructive actions, errors |
+| `--warn` / `--warn-tint` | `#7d5200` / `#f2e4c4` | Warnings |
+| `--ok` / `--ok-tint` | `#2b6439` / `#dfece0` | Success / confirmation / contact channels — never decorative |
+| `--color-focus-ring` | `#ffca4f` | Keyboard focus — never reuse for anything else |
 
-**Rules:**
-- Ocean blue is the primary/dominant color. Sand/cream is the base background. Terracotta is an
-  *accent* — use it for highlights, badges, and calls to attention, not large surfaces. Green is
-  reserved for success/confirmation semantics only (don't use it decoratively — that dilutes its
-  meaning when a user actually needs to see "this worked").
-- Never repurpose `--color-focus-ring` for anything but keyboard focus. It's tuned for maximum
-  visibility against both the ocean gradient and the sand background.
-- If a new semantic color is needed (e.g. a new alert type), derive it from the existing hue
-  families above rather than introducing an unrelated color.
+Legacy names (`--color-ocean-700`, `--color-sand-100`, `--color-text`, …) are kept as aliases at the
+bottom of `:root` so older stylesheets keep working. Use the new names in new CSS.
+
+Radius is nearly square (`--radius-sm` 2px … `--radius-lg` 4px). Shadows (`--shadow-md/lg`) are only
+for things that float above the page: dropdowns, the index panel, toasts, modals.
 
 ## Typography
 
-- Font stack: system UI stack already in `body` (`-apple-system, BlinkMacSystemFont, "Segoe UI",
-  Roboto, "Helvetica Neue", Arial, sans-serif`) — no webfonts, keeps the site fast and dependency-free.
-- Type scale (`--font-size-*` tokens): `sm` 0.875rem, `base` 1rem, `lg` 1.125rem, `xl` 1.5rem,
-  `2xl` 1.875rem, `3xl` a fluid `clamp(1.75rem, 1.4rem + 1.5vw, 2.5rem)` for page-level hero headings.
-- Base line-height is `1.6` on `body` — keep it there or higher for paragraph text; never drop
-  below `1.4` for body copy (readability, especially for older users).
-- Headings use `--color-ink-900`; body text uses `--color-ink-700`; secondary/meta text uses
-  `--color-ink-500`.
-- Heading weight: 600–700. Don't go below 600 for `h1`–`h3` — thin headings read poorly at small
-  sizes on mobile.
+Self-hosted in `assets/fonts/` (SIL OFL, licences alongside), declared with `@font-face` at the top
+of `style.css`. `font-display: swap`, latin + latin-ext subsets via `unicode-range`.
 
-## Spacing system
+- **Fraunces** (variable, `opsz` + `wght`) — `--font-display`: `h1`–`h3`, wordmark, ledes, entry
+  titles, big numbers (temperatures, phone numbers, emergency numbers, timeline dates).
+- **Atkinson Hyperlegible** — `--font-body`: all body text, UI, labels. Chosen for low-vision
+  legibility (important for `idosos.html`).
+- Small-caps label voice (`.kicker` and friends): body font, `--font-size-xs`, 700, `letter-spacing:
+  .09em`, uppercase, `--ink-3`. Use it for section kickers, meta labels, column headings.
+- Scale: `--font-size-xs` .8125 · `sm` .9375 · `base` 1.0625 · `lg` 1.25 · `xl` 1.5 ·
+  `2xl` fluid ~1.6–2.25 · `3xl` fluid 2.5–4.5rem (page `h1`).
+- Body line-height 1.65; long text capped at `--measure` (68ch).
+- `h4` is body-font bold, not serif.
 
-4px-based scale, exposed as `--space-1` through `--space-8`:
+## Layout
 
-| Token | Value | Typical use |
-|---|---|---|
-| `--space-1` | 0.25rem (4px) | Icon gaps, tight inline spacing |
-| `--space-2` | 0.5rem (8px) | Form field label gap, small gaps |
-| `--space-3` | 0.75rem (12px) | Button padding (vertical), compact card padding |
-| `--space-4` | 1rem (16px) | Standard padding, form input padding |
-| `--space-5` | 1.5rem (24px) | Section/card internal padding, form field spacing |
-| `--space-6` | 2rem (32px) | Section margins, page `main` padding |
-| `--space-7` | 3rem (48px) | Hero padding, large section separation |
-| `--space-8` | 4rem (64px) | Rare — major page-section breaks |
+- `main` is centred at `--page-max` (1180px) with `--gutter` side padding.
+- **Every content page opens with `<section class="hero">`** containing the page's only `<h1>` and a
+  lede `<p>`. It is styled as an editorial page header (huge serif title, serif lede, heavy rule
+  below). The masthead wordmark is not a heading.
+- Top-level `main > section`s are separated by hairline rules. Their first `h2`/`h3` gets an
+  automatic terracotta section number (`01`, `02`… via CSS counters, hidden from assistive tech).
+  Add `.no-number` to opt out.
+- "Article" sections (`.service-card`, `.transport-card`, `.info-section`, `.about-section`,
+  `.privacy-section`, … or any section with `.is-article`) become a two-column layout ≥ 900px: sticky
+  title on the left (4/12), content on the right (8/12).
+- Repeated items are **entries**, not cards: a 1px `--rule-strong` top border, serif title, muted
+  meta, laid out in auto-fill columns (`.entry-grid`, or the page-family grids in
+  `components.css`). Use `.entry` for new ones.
 
-Always use a token instead of an arbitrary `px`/`rem` value in new CSS. If none of the steps fit,
-that's a signal to reconsider the layout rather than inventing a one-off value.
+## Site chrome
 
-## Buttons
+- **Masthead** (`src/partials/header.html`): kicker + tool row (language, theme, notifications;
+  `accessibility.js` and `voice-navigation.js` append their buttons into `#masthead-tools`), serif
+  wordmark + tagline, global search (injected by `search.js`), then the nav between a heavy and a thin
+  rule.
+- **Nav** (`src/partials/navigation.html`): max 7 primary links + favourites + the **Índice** button,
+  which opens a panel listing every page in numbered groups (behaviour in `src/core/main.js`:
+  `aria-expanded`, Esc and click-outside close). Current page = terracotta underline via
+  `aria-current="page"` (set in `main.js`). New pages go in the index panel; only promote to the
+  primary row if it's top-7 important.
+- **Colophon** (`src/partials/footer.html`): dark ink band, columns for mission, sources, project
+  links, donation.
+- **Icons**: `<svg class="icon" aria-hidden="true"><use href="#i-name"></use></svg>`, ids listed in
+  `src/partials/icons.html` (Lucide-derived, ISC). Always pair with visible text or an
+  `aria-label` on the control. Add new symbols to the sprite rather than inlining paths.
+  ⚠ i18n: `data-i18n` on a non-`<span>` element replaces its `innerHTML` — put the key on a child
+  `<span>` next to the icon, never on the element that contains the `<svg>`.
 
-Base class `.btn` + a modifier. Never write a bespoke button style per page — extend these.
+## Components (all in style.css unless noted)
 
-- `.btn-primary` — `--gradient-ocean` background, white text. The single default call-to-action
-  style. One primary button per view/section; don't have two competing primary CTAs side by side.
-- `.btn-secondary` — sand background (`--color-sand-100`), ink text, sand border. Use for secondary
-  actions next to a primary button.
-- `.btn-outline` — transparent background, ocean border + text, fills solid ocean on hover. Use for
-  tertiary/low-emphasis actions.
-- All buttons: `var(--radius-md)` corners, `var(--space-3) var(--space-5)` padding, hover = subtle
-  `translateY(-2px)` lift + shadow (already wired via `.btn-primary:hover` etc.) — keep this
-  consistent, don't add heavier hover effects (scaling, rotation, color flips) elsewhere.
-- Destructive actions (e.g. "remove favorite") use `--color-error`/`--color-error-dark`, not a new
-  red.
-
-## Form guidelines
-
-Generic `input[type=...]`, `select`, `textarea`, and `label` styles are defined globally in
-`style.css` — most forms need **zero** custom CSS.
-
-- Wrap a labeled field in `.form-field` for consistent bottom margin (`--space-5`).
-- Use `.form-hint` for helper text below a field, `.form-error` for validation errors (always paired
-  with `aria-describedby` pointing at the hint/error element, and `aria-invalid="true"` on the input
-  when in an error state).
-- Focus state is handled globally (ocean border + soft ocean glow) — don't override `:focus` styles
-  per page.
-- Every input needs a visible `<label>`; placeholder text is not a substitute for a label.
-- Disabled state is handled globally (sand background, muted text) — don't hand-roll a disabled look.
-
-## Card layouts
-
-- `.card` — white surface, `var(--radius-lg)`, `var(--shadow-sm)`, lifts to `var(--shadow-lg)` +
-  ocean border on hover. This is the default content-tile pattern (see homepage nav cards).
-- `.card-premium` — ocean gradient background variant for a single highlighted/premium card; don't
-  reuse this treatment for more than one card per page or it stops reading as "special."
-  variant for a single
-- Card grids use `.cards-grid` (`repeat(auto-fit, minmax(250px, 1fr))`) — reuse this instead of a
-  bespoke grid per page.
-- Keep card content hierarchy consistent: icon → `h3` title → short description paragraph. Don't mix
-  in unrelated content types (forms, tables) inside a `.card`.
-
-## Table styling
-
-Global `table`/`thead`/`tbody` styles now exist in `style.css` — ocean-900 header row, white body,
-sand hover row, soft shadow, rounded container corners. Use plain semantic `<table>` markup
-(`<caption>`, `<thead><th scope="col">`, `<tbody>`) — the styling is automatic.
-
-- Wrap any table whose columns can't reasonably shrink on mobile in `<div class="table-scroll">…</div>`
-  for horizontal scroll instead of squeezing columns unreadably.
-- Don't build tabular data as a grid of `<div>`s — use real `<table>` markup for anything genuinely
-  tabular (schedules, price comparisons, opening hours) so screen readers and this shared styling
-  both work correctly.
-
-## Navigation standards
-
-- Header/footer use `--gradient-ocean`. Don't introduce a different gradient or flat color for either.
-- Nav links: pill-shaped, semi-transparent dark background over the gradient for contrast, white
-  bold text, active/current page uses the high-contrast `--color-focus-ring` (`#ffca4f`) amber pill
-  with black text — this is intentional (WCAG contrast on a busy gradient background), don't swap it
-  for an ocean or terracotta highlight.
-- Every nav link needs `aria-current="page"` set server-side/templated when it matches the current
-  page — this drives both the active visual state and assistive-tech announcement.
-- New pages must be added to `src/partials/navigation.html` (not just `vite.config.js`'s `htmlPages`
-  array) or they're unreachable from the UI — see the "Do's and Don'ts" checklist below.
-
-## Responsive design principles
-
-- Mobile-first content, but the CSS in this codebase is written desktop-first with `max-width`
-  breakpoints at `768px` (tablet) and `480px` (small mobile) — follow that existing pattern for
-  consistency rather than switching to `min-width` mid-file.
-- Every new component needs at least a `768px` breakpoint pass: check nav wrapping, card grid
-  collapsing to 1 column, font-size reduction, and padding reduction, mirroring the adjustments
-  already made for `.hero`, `.cards-grid`, `.info-grid`, tables, etc.
-- Never let a fixed-width element (image, embed, table) overflow the viewport — use `max-width: 100%`
-  and, for tables, `.table-scroll`.
-- Touch targets (buttons, nav links, form controls) must stay ≥ 44×44px on mobile breakpoints.
-
-## Accessibility checklist
-
-Run through this for every new page/component, not just at the end of a big change:
-
-- [ ] Color contrast ≥ 4.5:1 for body text, ≥ 3:1 for large text (18px+/bold 14px+) and UI
-      components, against their actual background — verify ocean-on-white, white-on-ocean-gradient,
-      and any status-color combinations you introduce.
-- [ ] Every interactive element (link, button, input, custom control) has a visible
-      `:focus-visible` state — the global rule in `style.css` covers standard elements; verify custom
-      JS-driven controls (dropdowns, modals) don't suppress it.
-- [ ] Full keyboard operability: tab order is logical, nothing is a keyboard trap, custom widgets
-      (modals, the search dropdown, the alerts close button) are operable with Enter/Space/Escape as
-      appropriate.
-- [ ] Semantic HTML first: `<button>` for actions, `<a>` for navigation, real `<table>` for tabular
-      data, heading levels (`h1`→`h2`→`h3`) never skipped.
-- [ ] Every `<img>` has meaningful `alt` text (or `alt=""` if purely decorative).
-- [ ] Form inputs have associated `<label>`s (not placeholder-only), and error/hint text is wired
-      via `aria-describedby`.
-- [ ] Dynamic content updates (alerts, search results, favorites count) use appropriate `aria-live`
-      regions — see `src/ui/alerts.js`'s `aria-live="polite"` container as the reference pattern.
-- [ ] `prefers-reduced-motion: reduce` is respected — the global rule in `style.css` already
-      disables/shortens all animations and transitions site-wide; don't add an animation that
-      bypasses it (e.g. via `!important` or JS-driven inline styles).
-- [ ] Text remains readable and layout doesn't break at 200% browser zoom.
-
-## Animation guidelines
-
-- Motion should communicate state change (hover, focus, appearing, dismissing), never be purely
-  decorative.
-- Standard durations: `--transition-fast` (0.15s) for micro-interactions (icon color change),
-  `--transition-base` (0.25s) for hover/focus lifts and color transitions, `--transition-slow`
-  (0.4s) for larger appearance changes (modals, the `.fade-in-up` utility).
-- Standard hover pattern for clickable surfaces (cards, buttons): `translateY(-2px)` to
-  `translateY(-5px)` lift + shadow increase. Don't introduce scale/rotate/skew hover effects — it
-  would be inconsistent with every existing component.
-- Use the `.fade-in-up` utility class (`animation: fade-in-up var(--transition-slow) both`) for
-  opt-in entrance animation on a section/card; don't hand-write new `@keyframes` for the same effect.
-- All animation/transition is automatically shortened to near-zero under
-  `prefers-reduced-motion: reduce` — never fight this with `!important`.
-
-## Component consistency rules
-
-- Before writing new CSS for a page, check whether `assets/styles/style.css` already has a
-  component that fits (`.card`, `.btn-*`, `.hero`, `.info-grid`, `.notification`, table styles, form
-  styles) — reuse it. Duplicating a near-identical block inside a page's own `<style>` tag is exactly
-  the pattern this redesign is moving away from.
-- If a page-specific `<style>` block only contains color/spacing values that already exist as
-  tokens, replace the literals with `var(--token-name)` rather than leaving hardcoded hex/px — this
-  keeps future palette or spacing changes a one-line edit instead of a repo-wide search.
-- If two or more pages need the same new component, add it to `assets/styles/style.css` (or a
-  dedicated shared stylesheet loaded via `src/partials/meta-common.html`) instead of copy-pasting it
-  into each page's inline `<style>` block.
-- Shared chrome (header, nav, footer, common meta tags/scripts) lives in `src/partials/*.html` —
-  never fork it into a page-local copy.
-
-## Do's and Don'ts
-
-**Do:**
-- Use the design tokens (`var(--color-...)`, `var(--space-...)`, `var(--radius-...)`,
-  `var(--shadow-...)`) for anything new.
-- Reuse `.btn`, `.card`, `.cards-grid`, form, and table base styles.
-- Test every new/changed page at 768px and 480px breakpoints.
-- Keep green reserved for success/confirmation states.
-- Add new pages to both `vite.config.js`'s `htmlPages` array **and**
-  `src/partials/navigation.html` **and** `sitemap.xml`.
-- Add both PT and EN translations for any new `data-i18n` key at the same time you add it.
-
-**Don't:**
-- Don't hardcode a hex color, arbitrary spacing value, or one-off shadow when a token exists.
-- Don't introduce a second gradient, accent hue, or button style "just for this page."
-- Don't use `innerHTML`/string-built HTML for anything containing dynamic or user-influenced text —
-  build DOM nodes and use `textContent` (see `src/ui/alerts.js` for the reference pattern; this
-  codebase has shipped an XSS bug from violating this before).
-- Don't suppress or override the global focus-visible outline for aesthetic reasons.
-- Don't use green decoratively — it reads as "success" to users by convention.
-- Don't build tabular data as styled `<div>`s instead of a real `<table>`.
-- Don't add a new inline `<style>` block to a page for something that belongs in shared CSS.
-- Don't ship an animation that ignores `prefers-reduced-motion`.
-
-## New-page checklist
-
-Before considering any new page or major component change complete:
-
-1. [ ] Uses `src/partials/meta-common.html`, `header`, `navigation` (via `header`), `footer`, and
-       `scriptsCommon` partials — no forked/duplicated chrome.
-2. [ ] Added to `vite.config.js`'s `htmlPages` array, `src/partials/navigation.html`, and
-       `sitemap.xml`.
-3. [ ] Uses design tokens (colors/spacing/radius/shadow) — no new hardcoded hex or arbitrary spacing.
-4. [ ] Reuses `.btn`, `.card`, table, and form base styles instead of duplicating them locally.
-5. [ ] All visible text has PT and EN entries in `assets/lang/pt.json` / `assets/lang/en.json` via
-       `data-i18n`, with real translations (not a copy-pasted placeholder in the other language).
-6. [ ] Passes the accessibility checklist above (contrast, focus states, keyboard nav, semantic
-       markup, alt text, labels, `aria-live` where relevant, reduced-motion respected).
-7. [ ] Responsive at 768px and 480px — no overflow, nav wraps sanely, touch targets stay ≥44px.
-8. [ ] No `innerHTML`/string-HTML interpolation of dynamic content.
-9. [ ] If it should be available offline, added to `sw.js`'s `HTML_PAGES` (and `CACHE_VERSION`
-       bumped) — see `.claude/CLAUDE.md` for the caveats on what `sw.js` can and can't precache in
-       this project's build.
-10. [ ] Verified with a real build (`docker exec cidadedefaro-dev sh -c "cd /app && npm run build"`),
-        not just the dev server — this project's CI failed before from drift that only showed up in
-        `npm ci && npm run build`.
-
-## Reusable page patterns (extracted from duplicated inline styles)
-
-These live in the "PADRÕES DE PÁGINA REUTILIZÁVEIS" section of `style.css`, extracted from
-near-identical `<style>` blocks that were previously copy-pasted across 2–5 pages each. Use these
-instead of redefining the same box/grid/panel locally on a new page:
-
-| Class | Purpose |
-|---|---|
-| `.info-box` (+ `.info-box--warning`) | Neutral informational callout; warning variant for cautionary content |
-| `.highlight-box` / `.warning-box` | Aside/callout note; warning variant for cautionary standalone notes |
-| `.tips-box` (+ `.tips-box--success`) | Friendly tip/suggestion callout; success variant for positive tips |
-| `.contact-box` | Success-toned block highlighting a contact/help channel |
-| `.no-results` / `.no-results-icon` | Card-style empty state for search/filter results |
-| `.location-grid` / `.location-item` | Grid of place/address cards |
-| `.emergency-grid` | Grid layout for emergency-contact listings (item styling stays page-local — see note in `style.css`) |
-| `.search-filter-section`, `.search-box`, `.search-input-container`, `.filters-section`, `.filter-group`, `.filter-options`, `.filter-checkbox`, `.filter-actions`, `.results-header` | Full search + filter panel used by browse/listing pages (`hoteis.html`, `restaurantes.html`) |
-
-`hoteis.html` and `restaurantes.html` still each have their own `.hotel-*`/`.restaurante-*` card
-styling (near-identical structure, different class names) — see Future enhancements below for why
-that wasn't merged in this pass.
-
-## Print styles
-
-`assets/styles/print.css` (loaded via `<link ... media="print">` in `meta-common.html`, so it never
-affects screen rendering) hides navigation/PWA chrome and interactive-only controls, flattens colors
-to black-on-white, expands external link URLs, and prevents cards/tables from breaking across pages.
-Applies site-wide; most relevant to `guia-premium.html`, which references a downloadable PDF guide —
-the on-site page itself should also print cleanly. Reuses the same component classes
-(`.card`, `.info-box`, `table`, ...) so new components generally don't need print-specific rules.
+- **Buttons**: `.btn` (ink outline, fills ink on hover), `.btn-primary` (solid Ria — one per view),
+  `.btn-secondary`, `.btn-outline`. In-list text actions (`.btn-maps`, `.btn-map`, `.btn-website`,
+  `.external-link`) are underlined links, not buttons. `.btn-call-large` is the urgent red call button.
+  Min height 2.75rem (44px).
+- **Callouts**: `.callout` + `--info | --warn | --urgent | --ok`, tinted background, small-caps
+  heading, no side stripe. Legacy names (`.info-box`, `.warning-box`, `.tips-box`, `.contact-box`,
+  `.schedule-box`, `.highlight-box`, …) map onto the same look.
+- **Tags**: `.tag` (and legacy `.activity-tag`, `.servico-badge`, …) — 1px outline, small caps-ish,
+  no fill.
+- **Filters**: `.filter-btn` / `.filter-checkbox` — outline; selected = solid ink.
+- **Tables**: plain semantic markup; ruled, small-caps header, tabular numerals. Wrap wide tables in
+  `.table-scroll`.
+- **Home** (`index.html`): `.home-hero` (headline + Arco da Vila line drawing), `.urgent-line`
+  (112 / SNS 24 / pharmacies / where to go now — keep it; it's the fastest path to urgent help),
+  `.fact-row` (weather + municipality), `.section-index` (numbered table of contents),
+  `.home-closing`.
+- **Map pins**: `.map-pin` with `--pin` colour + sprite icon, used in Leaflet `divIcon`s.
+- Page families (`components.css`): timeline, emergency numbers, recycling bins (the one place
+  literal colour is information), hotel/restaurant entries, simulators, premium guide, offline.
 
 ## Dark mode
 
-Dark mode is toggled via `body.dark-mode` (see `src/ui/ux.js`). `style.css`'s `:root` defines a
-`body.dark-mode { --color-bg, --color-surface, --color-border, --color-text, --color-text-strong,
---color-text-muted, --color-sand-* }` override block right after the base tokens. **Any component
-built from those semantic/sand tokens re-themes for dark mode automatically — no per-component
-`.dark-mode` override needed.** This is why the new reusable page patterns above, the table/form
-styles, and `.card`/`.hero`/`.dados-faro-section`/`.info-item`/`.filtro-checkbox` all support dark
-mode with zero dedicated dark-mode CSS.
+Token-driven only: `body.dark-mode` redefines the tokens and everything re-themes. **Do not add
+`body.dark-mode .component { … }` rules** — if something looks wrong in dark mode, it's using a
+hardcoded colour; switch it to a token. The only exceptions are the colophon background and text on
+saturated fills (`.btn-call-large`, `.map-pin`, `.favorites-count`).
 
-Some older components (search bar, favorites list, notifications, header/footer gradients, the
-dark-mode toggle button itself) still have hand-tuned `body.dark-mode .selector { ... }` overrides in
-`ux.css`/`alerts.css`/`pwa-install-modal.css`. These are intentionally left as-is — they're more
-specific than the token-driven base rules so they keep working unchanged, and their values were
-tuned individually rather than being safe to blanket-replace. When touching one of those components,
-prefer converting it to token-driven styling (removing the manual override once you've verified the
-token-driven result matches) over adding a new manual override.
+## Accessibility checklist
 
-## Future enhancements (not done in this pass)
+- [ ] Contrast ≥ 4.5:1 body / 3:1 large text & UI, in light, dark **and** high-contrast modes.
+- [ ] One `<h1>` per page (in `.hero`); heading levels never skip.
+- [ ] Visible `:focus-visible` (global rule; don't override).
+- [ ] Keyboard: Índice panel, a11y menu, search results, modals all operable with Tab/Enter/Esc.
+- [ ] Icon-only controls have `aria-label`; decorative SVGs have `aria-hidden="true"`.
+- [ ] Touch targets ≥ 44×44px.
+- [ ] Dynamic updates use `aria-live` (see `alerts.js`, weather widget).
+- [ ] Respect `prefers-reduced-motion` (global rule in `style.css`).
+- [ ] Works at 200% zoom and with the a11y font-size control (it scales the root `font-size`).
 
-- **`hoteis.html` / `restaurantes.html` card markup unification**: these two pages are near-identical
-  templates with parallel `.hotel-*`/`.restaurante-*` class names for the same card structure. The
-  shared search/filter panel was extracted (see above), but merging the card styling itself would
-  require renaming classes in the HTML markup — riskier, since `src/data/hoteis.js` /
-  `src/data/restaurantes.js` may reference those class names when rendering cards. Do this as a
-  dedicated pass that checks the JS first.
-- **Further component extraction**: `.emergency-item` (idosos.html vs saude.html) and `.contact-box`
-  on `idosos.html` were deliberately left page-local because their visual weight is intentionally
-  different (larger/bolder treatment for senior readability) — don't force these into the shared
-  classes without a design decision on whether that differentiation should remain.
-- **FAQ accordions, comparison tables, step-by-step guides** that still exist as bespoke per-page CSS
-  in 2–3 pages each and weren't part of this pass's audit.
+## Rules
+
+**Do**
+- Use tokens for every colour, space, radius and shadow.
+- Reuse `.hero`, `.entry`, `.callout`, `.btn`, `.tag`, table/form base styles.
+- Test at 1280, 768 and 375px; light, dark and high contrast; PT and EN.
+- Add new pages to `vite.config.js` `htmlPages`, the Índice panel in `navigation.html`, and
+  `sitemap.xml`.
+- Add PT **and** EN strings for every new `data-i18n` key, with real translations.
+
+**Don't**
+- Add a `<style>` block or `style=""` attribute to a page — put it in `components.css`.
+- Use emoji, gradients, hover lifts, or a new accent colour.
+- Use `innerHTML` / string-built HTML for dynamic or data-driven text — build nodes with
+  `createElement` + `textContent` (see `renderHoteis` in `src/data/hoteis.js`,
+  `renderFavoritesList` in `src/utils/favorites.js`).
+- Use green decoratively or reuse `--color-focus-ring`.
+
+## New-page checklist
+
+1. [ ] Uses `metaCommon`, `header`, `footer`, `scriptsCommon` partials.
+2. [ ] Opens with `<section class="hero">` + single `<h1>` + lede.
+3. [ ] Listed in `vite.config.js`, the Índice panel, and `sitemap.xml`.
+4. [ ] No inline styles; only tokens; only shared components (or a new family in `components.css`).
+5. [ ] PT + EN strings.
+6. [ ] Accessibility checklist above.
+7. [ ] If it should work offline: added to `sw.js` `HTML_PAGES`, `CACHE_VERSION` bumped.
+8. [ ] Verified with a real build: `docker exec cidadedefaro-dev sh -c "cd /app && npm run build"`.

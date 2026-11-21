@@ -56,7 +56,7 @@ function createInstallModal() {
                 <div class="pwa-install-ios-steps">
                     <ol>
                         <li data-i18n="pwa_install.ios_step_1">Toque no botão <strong>Partilhar</strong> <span class="pwa-install-emoji">⎙</span> na barra inferior do Safari</li>
-                        <li data-i18n="pwa_install.ios_step_2">Deslize para baixo e toque em <strong>"Adicionar ao Ecrã Principal"</strong> <span class="pwa-install-emoji">➕</span></li>
+                        <li data-i18n="pwa_install.ios_step_2">Deslize para baixo e toque em <strong>"Adicionar ao Ecrã Principal"</strong></li>
                         <li data-i18n="pwa_install.ios_step_3">Toque em <strong>"Adicionar"</strong> no canto superior direito</li>
                     </ol>
                 </div>
@@ -64,10 +64,10 @@ function createInstallModal() {
                 <div class="pwa-install-benefits">
                     <h3 data-i18n="pwa_install.modal_benefits_title">Benefícios:</h3>
                     <ul>
-                        <li data-i18n="pwa_install.benefit_1">✓ Acesso rápido a partir do ecrã inicial</li>
-                        <li data-i18n="pwa_install.benefit_2">✓ Funciona offline</li>
-                        <li data-i18n="pwa_install.benefit_3">✓ Notificações de atualizações</li>
-                        <li data-i18n="pwa_install.benefit_4">✓ Experiência otimizada para dispositivos móveis</li>
+                        <li data-i18n="pwa_install.benefit_1">Acesso rápido a partir do ecrã inicial</li>
+                        <li data-i18n="pwa_install.benefit_2">Funciona offline</li>
+                        <li data-i18n="pwa_install.benefit_3">Notificações de atualizações</li>
+                        <li data-i18n="pwa_install.benefit_4">Experiência otimizada para dispositivos móveis</li>
                     </ul>
                 </div>
                 
@@ -102,10 +102,10 @@ function createInstallModal() {
                 <div class="pwa-install-benefits">
                     <h3 data-i18n="pwa_install.modal_benefits_title">Benefícios:</h3>
                     <ul>
-                        <li data-i18n="pwa_install.benefit_1">✓ Acesso rápido a partir do ecrã inicial</li>
-                        <li data-i18n="pwa_install.benefit_2">✓ Funciona offline</li>
-                        <li data-i18n="pwa_install.benefit_3">✓ Notificações de atualizações</li>
-                        <li data-i18n="pwa_install.benefit_4">✓ Experiência otimizada para dispositivos móveis</li>
+                        <li data-i18n="pwa_install.benefit_1">Acesso rápido a partir do ecrã inicial</li>
+                        <li data-i18n="pwa_install.benefit_2">Funciona offline</li>
+                        <li data-i18n="pwa_install.benefit_3">Notificações de atualizações</li>
+                        <li data-i18n="pwa_install.benefit_4">Experiência otimizada para dispositivos móveis</li>
                     </ul>
                 </div>
                 

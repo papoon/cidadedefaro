@@ -1,27 +1,26 @@
-    <!-- Dark Mode Toggle -->
-    <button id="dark-mode-toggle" data-i18n="ui.dark_mode_toggle" data-i18n-attr="aria-label" aria-label="Alternar modo escuro" aria-pressed="false">
-        <span class="dark-mode-icon">🌙</span>
-    </button>
-
-    <!-- Notifications Toggle -->
-    <button id="notifications-toggle" data-i18n="ui.notifications_toggle_off" data-i18n-attr="aria-label" aria-label="Ativar notificações de alertas" aria-pressed="false">
-        <span class="notifications-icon" aria-hidden="true">🔕</span>
-    </button>
-
-    <header role="banner">
-        <div class="site-branding">
-            <a href="./index.html" class="logo-link" aria-label="Faro Formoso">
-                <img src="assets/branding/logo/logo-vertical-light.svg" data-light-src="assets/branding/logo/logo-vertical-light.svg" data-dark-src="assets/branding/logo/logo-vertical-dark.svg" alt="Faro Formoso logo" class="site-logo" id="site-logo-img">
-            </a>
-            <h1 data-i18n="site.title">Faro Formoso</h1>
+<%- icons %>
+    <header role="banner" class="masthead">
+        <div class="masthead-top">
+            <p class="masthead-kicker" data-i18n="masthead.kicker">Guia público e gratuito · Faro, Algarve</p>
+            <div class="masthead-tools" id="masthead-tools">
+                <div id="lang-switcher" role="group" data-i18n="ui.lang_group" data-i18n-attr="aria-label" aria-label="Idioma">
+                    <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" data-i18n="ui.lang_switch_pt" data-i18n-attr="aria-label" aria-label="Mudar para Português">PT</button>
+                    <button data-lang="en" onclick="window.i18n.switchLanguage('en')" data-i18n="ui.lang_switch_en" data-i18n-attr="aria-label" aria-label="Switch to English">EN</button>
+                </div>
+                <button id="dark-mode-toggle" class="tool-btn" data-i18n="ui.dark_mode_toggle" data-i18n-attr="aria-label" aria-label="Alternar modo escuro" aria-pressed="false">
+                    <svg class="icon icon-when-light" aria-hidden="true"><use href="#i-moon"></use></svg>
+                    <svg class="icon icon-when-dark" aria-hidden="true"><use href="#i-sun"></use></svg>
+                </button>
+                <button id="notifications-toggle" class="tool-btn" data-i18n="ui.notifications_toggle_off" data-i18n-attr="aria-label" aria-label="Ativar notificações de alertas" aria-pressed="false">
+                    <svg class="icon notifications-icon" aria-hidden="true"><use href="#i-bell-off"></use></svg>
+                </button>
+            </div>
         </div>
-        <div id="lang-switcher">
-            <button data-lang="pt" onclick="window.i18n.switchLanguage('pt')" data-i18n="ui.lang_switch_pt" data-i18n-attr="aria-label" aria-label="Mudar para Português">
-                🇵🇹 PT
-            </button>
-            <button data-lang="en" onclick="window.i18n.switchLanguage('en')" data-i18n="ui.lang_switch_en" data-i18n-attr="aria-label" aria-label="Switch to English">
-                🇬🇧 EN
-            </button>
+        <div class="masthead-brand">
+            <a href="./index.html" class="wordmark logo-link">
+                <span class="wordmark-name" data-i18n="site.title">Faro Formoso</span>
+            </a>
+            <p class="wordmark-tagline" data-i18n="masthead.tagline">Viver, descobrir e participar na cidade</p>
         </div>
         <%- navigation %>
     </header>

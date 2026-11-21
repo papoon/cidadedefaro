@@ -22,32 +22,33 @@ let grupoMarcadoresServicos = null;
 // Configuração de ícones personalizados para cada tipo de serviço
 const iconesServicos = {
     farmacias: {
-        icon: '💊',
-        color: '#1dac48',
+        icon: 'i-pill',
+        color: 'var(--ok)',
         nome: 'Farmácia'
     },
     hospitais: {
-        icon: '🏥',
-        color: '#c0392b',
+        icon: 'i-health',
+        color: 'var(--danger)',
         nome: 'Hospital'
     },
     multibancos: {
-        icon: '🏧',
-        color: '#42beef',
+        icon: 'i-landmark',
+        color: 'var(--ria)',
         nome: 'Multibanco'
     },
     supermercados: {
-        icon: '🛒',
-        color: '#d98324',
+        icon: 'i-utensils',
+        color: 'var(--warn)',
         nome: 'Supermercado'
     }
 };
 
 // Função para criar ícone personalizado
-function criarIconePersonalizado(emoji, cor) {
+// iconId = sprite id (src/partials/icons.html); cor = CSS colour/token
+function criarIconePersonalizado(iconId, cor) {
     return L.divIcon({
-        html: `<div style="background-color: ${cor}; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 2px solid white;">${emoji}</div>`,
-        className: 'emoji-icon',
+        html: `<span class="map-pin" style="--pin: ${cor}"><svg class="icon" aria-hidden="true"><use href="#${iconId}"></use></svg></span>`,
+        className: 'map-pin-wrap',
         iconSize: [32, 32],
         iconAnchor: [16, 16],
         popupAnchor: [0, -16]
@@ -140,7 +141,7 @@ function obterLocalizacaoUsuario() {
     }
 
     // Atualizar texto do botão
-    btnLocalizacao.textContent = '🔄 Obtendo localização...';
+    btnLocalizacao.textContent = 'A obter localização…';
     btnLocalizacao.disabled = true;
 
     navigator.geolocation.getCurrentPosition(
@@ -158,7 +159,7 @@ function obterLocalizacaoUsuario() {
 
             // Criar ícone para localização do usuário
             const iconeUsuario = L.divIcon({
-                html: '<div style="background-color: #146a8c; width: 16px; height: 16px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 8px rgba(0,0,0,0.4);"></div>',
+                html: '<span class="map-pin-user"></span>',
                 className: 'user-location-icon',
                 iconSize: [16, 16],
                 iconAnchor: [8, 8]
@@ -178,7 +179,7 @@ function obterLocalizacaoUsuario() {
             filtrosContainer.style.display = 'flex';
 
             // Restaurar botão
-            btnLocalizacao.textContent = '✓ Localização obtida';
+            btnLocalizacao.textContent = 'Localização obtida';
             btnLocalizacao.disabled = false;
         },
         // Erro
@@ -201,7 +202,7 @@ function obterLocalizacaoUsuario() {
             alert(mensagem);
             
             // Restaurar botão
-            btnLocalizacao.textContent = '📍 Tentar novamente';
+            btnLocalizacao.textContent = 'Tentar novamente';
             btnLocalizacao.disabled = false;
         },
         // Opções
@@ -323,12 +324,9 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
                 }
 
                 popupContent += `
-                        <small style="color: #666;">
+                        <small>
                             <a href="https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}" 
-                               target="_blank" 
-                               style="color: #146a8c; text-decoration: none;">
-                                📍 Como chegar
-                            </a>
+                               target="_blank" rel="noopener noreferrer">Como chegar</a>
                         </small>
                     </div>
                 `;

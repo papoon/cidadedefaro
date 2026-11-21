@@ -68,7 +68,7 @@ function renderFarmacias(farmacias, container, isExtra = false) {
                 <a href="${farmacia.mapsLink}" 
                    target="_blank" 
                    rel="noopener noreferrer" 
-                   class="btn-maps">📍 Ver no Google Maps</a>
+                   class="btn-maps">Ver no Google Maps</a>
             </li>
         `;
     });

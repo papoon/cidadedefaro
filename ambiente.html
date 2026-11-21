@@ -30,206 +30,23 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    <style>
-        .environment-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .environment-card h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .environment-card .icon {
-            font-size: 2rem;
-        }
-        
-        .recycling-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-        
-        .recycling-item {
-            background: #faf7f2;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .recycling-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .recycling-item .bin-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
-        }
-        
-        .recycling-item .bin-name {
-            font-size: 1.125rem;
-            font-weight: 600;
-            color: #2c3338;
-            margin-bottom: 0.5rem;
-        }
-        
-        .recycling-item .bin-color {
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.75rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            display: inline-block;
-        }
-        
-        .bin-color.amarelo {
-            background-color: #fdebc8;
-            color: #8f4811;
-        }
-        
-        .bin-color.azul {
-            background-color: #dcf3fd;
-            color: #226a86;
-        }
-        
-        .bin-color.verde {
-            background-color: #d4f7df;
-            color: #0d5823;
-        }
-        
-        .bin-color.vermelho {
-            background-color: #fde6e3;
-            color: #962e1e;
-        }
-        
-        .recycling-item ul {
-            list-style: none;
-            padding: 0;
-            text-align: left;
-            font-size: 0.9rem;
-            color: #4a4a45;
-        }
-        
-        .recycling-item ul li {
-            padding: 0.25rem 0;
-            padding-left: 1.25rem;
-            position: relative;
-        }
-        
-        .recycling-item ul li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #4c8c5b;
-            font-weight: bold;
-        }
-        
-        .tips-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .tips-list li {
-            background: #faf7f2;
-            padding: 1rem;
-            margin-bottom: 0.75rem;
-            border-radius: 8px;
-            border-left: 4px solid #4c8c5b;
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-        
-        .tips-list li .tip-icon {
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .tips-list li .tip-text {
-            flex: 1;
-        }
-        
-        .tips-list li .tip-text strong {
-            color: #2c3338;
-            display: block;
-            margin-bottom: 0.25rem;
-        }
-        
-        /* .location-grid, .location-item, .info-box now come from the
-           shared page patterns in assets/styles/style.css */
-        .location-item p {
-            margin: 0.25rem 0;
-            font-size: 0.9rem;
-            color: #4a4a45;
-        }
-
-        .contact-info {
-            background: #f1fcf4;
-            border-left: 4px solid #4c8c5b;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-        }
-        
-        .contact-info p {
-            margin: 0.5rem 0;
-        }
-        
-        .contact-info .phone {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #2c3338;
-            margin: 0.5rem 0;
-        }
-        
-        @media (max-width: 768px) {
-            .environment-card {
-                padding: 1.5rem;
-            }
-            
-            .recycling-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .location-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <%- header %>
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2 data-i18n="environment.hero_title">Ambiente e Reciclagem</h2>
+            <h1 data-i18n="environment.hero_title">Ambiente e Reciclagem</h1>
             <p data-i18n="environment.hero_description">Informações sobre sustentabilidade, reciclagem e cuidados ambientais em Faro. Juntos, podemos fazer a diferença pela nossa cidade e pelo planeta.</p>
         </section>
 
         <!-- O que Reciclar -->
         <section class="environment-card">
-            <h3><span class="icon" data-i18n="ambiente.key_1">♻️</span><span data-i18n="environment.what_to_recycle">O que Reciclar</span></h3>
+            <h3><span data-i18n="environment.what_to_recycle">O que Reciclar</span></h3>
             <p data-i18n="environment.what_to_recycle_intro">Conheça os diferentes tipos de ecopontos e o que deve depositar em cada um:</p>
             
             <div class="recycling-grid">
                 <div class="recycling-item">
-                    <span class="bin-icon" data-i18n="ambiente.key_2">🟡</span>
                     <div class="bin-name">Embalão Amarelo</div>
                     <span class="bin-color amarelo" data-i18n="ambiente.plstico_e_metal">Plástico e Metal</span>
                     <ul>
@@ -243,7 +60,6 @@
                 </div>
                 
                 <div class="recycling-item">
-                    <span class="bin-icon" data-i18n="ambiente.key_3">🔵</span>
                     <div class="bin-name">Papelão Azul</div>
                     <span class="bin-color azul" data-i18n="ambiente.papel_e_carto">Papel e Cartão</span>
                     <ul>
@@ -257,7 +73,6 @@
                 </div>
                 
                 <div class="recycling-item">
-                    <span class="bin-icon" data-i18n="ambiente.key_4">🟢</span>
                     <div class="bin-name">Vidrão Verde</div>
                     <span class="bin-color verde" data-i18n="ambiente.vidro">Vidro</span>
                     <ul>
@@ -270,7 +85,6 @@
                 </div>
                 
                 <div class="recycling-item">
-                    <span class="bin-icon" data-i18n="ambiente.key_5">🔴</span>
                     <div class="bin-name">Pilhão Vermelho</div>
                     <span class="bin-color vermelho" data-i18n="ambiente.pilhas_e_baterias">Pilhas e Baterias</span>
                     <ul>
@@ -284,8 +98,8 @@
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="ambiente.no_reciclar_nos_ecopontos">⚠️ Não reciclar nos ecopontos:</strong></p>
-                <ul style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                <p><strong data-i18n="ambiente.no_reciclar_nos_ecopontos">Não reciclar nos ecopontos:</strong></p>
+                <ul>
                     <li data-i18n="ambiente.fraldas_e_toalhitas">Fraldas e toalhitas</li>
                     <li data-i18n="ambiente.espelhos_e_vidros_de_janela">Espelhos e vidros de janela</li>
                     <li data-i18n="ambiente.cermica_e_loia">Cerâmica e loiça</li>
@@ -298,73 +112,73 @@
 
         <!-- Ecopontos em Faro -->
         <section class="environment-card">
-            <h3><span class="icon" data-i18n="ambiente.key_6">📍</span><span data-i18n="environment.ecopoints_title">Ecopontos em Faro</span></h3>
+            <h3><span data-i18n="environment.ecopoints_title">Ecopontos em Faro</span></h3>
             <p data-i18n="environment.ecopoints_description">Principais localizações de ecopontos na cidade de Faro:</p>
             
             <div class="location-grid">
                 <div class="location-item">
                     <strong data-i18n="ambiente.ecoponto_centro_histrico">Ecoponto - Centro Histórico</strong>
-                    <p data-i18n="ambiente.largo_de_so_francisco">📍 Largo de São Francisco</p>
-                    <p data-i18n="ambiente.amarelo_azul_e_verde">🗑️ Amarelo, Azul e Verde</p>
+                    <p data-i18n="ambiente.largo_de_so_francisco">Largo de São Francisco</p>
+                    <p data-i18n="ambiente.amarelo_azul_e_verde">Amarelo, Azul e Verde</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="ambiente.ecoponto_avenida_da_repblica">Ecoponto - Avenida da República</strong>
-                    <p data-i18n="ambiente.junto_ao_jardim_manuel_bivar">📍 Junto ao Jardim Manuel Bivar</p>
-                    <p data-i18n="ambiente.amarelo_azul_verde_e_vermelho">🗑️ Amarelo, Azul, Verde e Vermelho</p>
+                    <p data-i18n="ambiente.junto_ao_jardim_manuel_bivar">Junto ao Jardim Manuel Bivar</p>
+                    <p data-i18n="ambiente.amarelo_azul_verde_e_vermelho">Amarelo, Azul, Verde e Vermelho</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="ambiente.ecoponto_frum_algarve">Ecoponto - Fórum Algarve</strong>
-                    <p data-i18n="ambiente.parque_de_estacionamento">📍 Parque de estacionamento</p>
-                    <p data-i18n="ambiente.amarelo_azul_verde_e_vermelho_1">🗑️ Amarelo, Azul, Verde e Vermelho</p>
+                    <p data-i18n="ambiente.parque_de_estacionamento">Parque de estacionamento</p>
+                    <p data-i18n="ambiente.amarelo_azul_verde_e_vermelho_1">Amarelo, Azul, Verde e Vermelho</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="ambiente.ecoponto_montenegro">Ecoponto - Montenegro</strong>
-                    <p data-i18n="ambiente.largo_de_montenegro">📍 Largo de Montenegro</p>
-                    <p data-i18n="ambiente.amarelo_azul_e_verde_1">🗑️ Amarelo, Azul e Verde</p>
+                    <p data-i18n="ambiente.largo_de_montenegro">Largo de Montenegro</p>
+                    <p data-i18n="ambiente.amarelo_azul_e_verde_1">Amarelo, Azul e Verde</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="ambiente.ecoponto_parque_ribeirinho">Ecoponto - Parque Ribeirinho</strong>
-                    <p data-i18n="ambiente.junto_doca_de_faro">📍 Junto à Doca de Faro</p>
-                    <p data-i18n="ambiente.amarelo_azul_verde_e_vermelho_2">🗑️ Amarelo, Azul, Verde e Vermelho</p>
+                    <p data-i18n="ambiente.junto_doca_de_faro">Junto à Doca de Faro</p>
+                    <p data-i18n="ambiente.amarelo_azul_verde_e_vermelho_2">Amarelo, Azul, Verde e Vermelho</p>
                 </div>
                 
                 <div class="location-item">
                     <strong data-i18n="ambiente.ecoponto_estdio_de_faro">Ecoponto - Estádio de Faro</strong>
-                    <p data-i18n="ambiente.prximo_do_estdio_algarve">📍 Próximo do Estádio Algarve</p>
-                    <p data-i18n="ambiente.amarelo_azul_e_verde_2">🗑️ Amarelo, Azul e Verde</p>
+                    <p data-i18n="ambiente.prximo_do_estdio_algarve">Próximo do Estádio Algarve</p>
+                    <p data-i18n="ambiente.amarelo_azul_e_verde_2">Amarelo, Azul e Verde</p>
                 </div>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="ambiente.dica">💡 Dica:</strong> Existem mais de 100 ecopontos espalhados pela cidade. Use os ecopontos mais próximos da sua residência para facilitar a reciclagem diária.</p>
+                <p><strong data-i18n="ambiente.dica">Dica:</strong> Existem mais de 100 ecopontos espalhados pela cidade. Use os ecopontos mais próximos da sua residência para facilitar a reciclagem diária.</p>
             </div>
         </section>
 
         <!-- Recolha de Monstros -->
         <section class="environment-card">
-            <h3><span class="icon" data-i18n="ambiente.key_7">🛋️</span><span data-i18n="environment.title_recolha_monstros">Recolha de Monstros</span></h3>
+            <h3><span data-i18n="environment.title_recolha_monstros">Recolha de Monstros</span></h3>
             <p data-i18n="environment.recolha_intro">Serviço gratuito para recolha de resíduos volumosos (móveis, colchões, eletrodomésticos grandes, etc.)</p>
             
             <div class="info-box">
-                <p><strong data-i18n="environment.how_it_works_title">🗓️ Como funciona:</strong></p>
+                <p><strong data-i18n="environment.how_it_works_title">Como funciona:</strong></p>
                 <p data-i18n-html="true" data-i18n="environment.recolha_details">A recolha de monstros deve ser <strong data-i18n="ambiente.agendada_previamente">agendada previamente</strong> com os serviços municipais. Não abandone objetos volumosos na via pública sem marcação.</p>
             </div>
             
             <div class="contact-info">
-                <p><strong data-i18n="environment.schedule_title">📞 Para agendar a recolha:</strong></p>
+                <p><strong data-i18n="environment.schedule_title">Para agendar a recolha:</strong></p>
                 <p class="phone" data-i18n="ambiente.289_870_870">289 870 870</p>
-                <p><strong data-i18n="environment.schedule_hours_label">⏰ Horário de atendimento:</strong> <span data-i18n="environment.schedule_hours">Segunda a Sexta, das 9h00 às 17h00</span></p>
-                <p><strong data-i18n="environment.schedule_email_label">✉️ E-mail:</strong> <span data-i18n="environment.schedule_email">geral@cm-faro.pt</span></p>
-                <p><strong data-i18n="environment.schedule_online_label">🌐 Online:</strong> <span data-i18n="environment.schedule_online">Balcão Virtual da Câmara Municipal de Faro</span></p>
+                <p><strong data-i18n="environment.schedule_hours_label">Horário de atendimento:</strong> <span data-i18n="environment.schedule_hours">Segunda a Sexta, das 9h00 às 17h00</span></p>
+                <p><strong data-i18n="environment.schedule_email_label">E-mail:</strong> <span data-i18n="environment.schedule_email">geral@cm-faro.pt</span></p>
+                <p><strong data-i18n="environment.schedule_online_label">Online:</strong> <span data-i18n="environment.schedule_online">Balcão Virtual da Câmara Municipal de Faro</span></p>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="environment.what_can_be_collected">📋 O que pode ser recolhido:</strong></p>
-                <ul style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                <p><strong data-i18n="environment.what_can_be_collected">O que pode ser recolhido:</strong></p>
+                <ul>
                     <li data-i18n="environment.collect_list_1">Móveis velhos (sofás, armários, mesas, cadeiras)</li>
                     <li data-i18n="environment.collect_list_2">Colchões e estofos</li>
                     <li data-i18n="environment.collect_list_3">Eletrodomésticos grandes (frigoríficos, fogões, máquinas de lavar)</li>
@@ -372,29 +186,29 @@
                     <li data-i18n="environment.collect_list_5">Bicicletas e objetos volumosos</li>
                 </ul>
                 <br>
-                <p><strong data-i18n="environment.attention_label">⚠️ Atenção:</strong> <span data-i18n="environment.attention_text">Resíduos perigosos, entulho de obras e pneus devem ser entregues no Ecocentro.</span></p>
+                <p><strong data-i18n="environment.attention_label">Atenção:</strong> <span data-i18n="environment.attention_text">Resíduos perigosos, entulho de obras e pneus devem ser entregues no Ecocentro.</span></p>
             </div>
         </section>
 
         <!-- Ecocentro de Faro -->
         <section class="environment-card">
-            <h3><span class="icon" data-i18n="ambiente.key_8">🏭</span><span data-i18n="environment.ecocentro_title">Ecocentro de Faro</span></h3>
+            <h3><span data-i18n="environment.ecocentro_title">Ecocentro de Faro</span></h3>
             <p data-i18n="environment.ecocentro_intro">Centro de recolha para resíduos que não podem ser depositados nos ecopontos comuns.</p>
             
             <div class="info-box">
-                <p><strong data-i18n="environment.ecocentro_location_label">📍 Localização:</strong> <span data-i18n="environment.ecocentro_location">Zona Industrial de Faro, Sítio das Barradas</span></p>
-                <p><strong data-i18n="environment.ecocentro_hours_label">⏰ Horário:</strong></p>
-                <ul style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                <p><strong data-i18n="environment.ecocentro_location_label">Localização:</strong> <span data-i18n="environment.ecocentro_location">Zona Industrial de Faro, Sítio das Barradas</span></p>
+                <p><strong data-i18n="environment.ecocentro_hours_label">Horário:</strong></p>
+                <ul>
                     <li><strong data-i18n="environment.ecocentro_weekdays_label">Segunda a Sexta:</strong> <span data-i18n="environment.ecocentro_weekdays">9h00 - 18h00</span></li>
                     <li><strong data-i18n="environment.ecocentro_saturday_label">Sábados:</strong> <span data-i18n="environment.ecocentro_saturday">9h00 - 13h00</span></li>
                     <li><strong data-i18n="environment.ecocentro_closed_label">Domingos e Feriados:</strong> <span data-i18n="environment.ecocentro_closed">Encerrado</span></li>
                 </ul>
-                <p><strong data-i18n="environment.ecocentro_contact_label">📞 Contacto:</strong> <span data-i18n="environment.ecocentro_contact">289 870 870</span></p>
+                <p><strong data-i18n="environment.ecocentro_contact_label">Contacto:</strong> <span data-i18n="environment.ecocentro_contact">289 870 870</span></p>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="environment.ecocentro_accepts_label">♻️ O que pode depositar no Ecocentro:</strong></p>
-                <ul style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                <p><strong data-i18n="environment.ecocentro_accepts_label">O que pode depositar no Ecocentro:</strong></p>
+                <ul>
                     <li data-i18n="environment.ecocentro_item_1">Eletrodomésticos e equipamentos eletrónicos</li>
                     <li data-i18n="environment.ecocentro_item_2">Pilhas e baterias</li>
                     <li data-i18n="environment.ecocentro_item_3">Lâmpadas fluorescentes</li>
@@ -409,18 +223,17 @@
             </div>
             
             <div class="contact-info">
-                <p><strong data-i18n="environment.ecocentro_access_label">🚗 Acesso:</strong> <span data-i18n="environment.ecocentro_access">Gratuito para particulares (mediante apresentação de documento de identificação e comprovativo de residência em Faro)</span></p>
+                <p><strong data-i18n="environment.ecocentro_access_label">Acesso:</strong> <span data-i18n="environment.ecocentro_access">Gratuito para particulares (mediante apresentação de documento de identificação e comprovativo de residência em Faro)</span></p>
             </div>
         </section>
 
         <!-- Dicas Ambientais -->
         <section class="environment-card">
-            <h3><span class="icon" data-i18n="ambiente.key_9">🌱</span><span data-i18n="environment.tips_title">Dicas Ambientais</span></h3>
+            <h3><span data-i18n="environment.tips_title">Dicas Ambientais</span></h3>
             <p data-i18n="environment.tips_intro">Pequenos gestos que fazem a diferença para um Faro mais sustentável:</p>
             
             <ul class="tips-list">
                 <li>
-                    <span class="tip-icon" data-i18n="ambiente.key_10">💧</span>
                     <div class="tip-text">
                         <strong data-i18n="environment.tip_save_water">Poupe Água</strong>
                         <span data-i18n="environment.tip_save_water_desc">Feche a torneira enquanto escova os dentes e prefira duches rápidos. Uma torneira aberta desperdiça cerca de 12 litros de água por minuto.</span>
@@ -428,7 +241,6 @@
                 </li>
                 
                 <li>
-                    <span class="tip-icon" data-i18n="ambiente.key_11">💡</span>
                     <div class="tip-text">
                         <strong data-i18n="environment.tip_save_energy">Economize Energia</strong>
                         <span data-i18n="environment.tip_save_energy_desc">Desligue aparelhos em stand-by e prefira lâmpadas LED. Podem reduzir o consumo energético em até 80%.</span>
@@ -436,7 +248,6 @@
                 </li>
                 
                 <li>
-                    <span class="tip-icon" data-i18n="ambiente.key_12">🛍️</span>
                     <div class="tip-text">
                         <strong data-i18n="environment.tip_use_reusable">Use Sacos Reutilizáveis</strong>
                         <span data-i18n="environment.tip_use_reusable_desc">Leve sempre um saco reutilizável nas compras. Um saco de plástico demora centenas de anos a degradar-se.</span>
@@ -444,7 +255,6 @@
                 </li>
                 
                 <li>
-                    <span class="tip-icon" data-i18n="ambiente.key_13">🚲</span>
                     <div class="tip-text">
                         <strong data-i18n="environment.tip_sustainable_mobility">Mobilidade Sustentável</strong>
                         <span data-i18n="environment.tip_sustainable_mobility_desc">Opte por caminhar, andar de bicicleta ou usar transportes públicos sempre que possível. Reduz a poluição e faz bem à saúde.</span>
@@ -452,7 +262,6 @@
                 </li>
                 
                 <li>
-                    <span class="tip-icon" data-i18n="ambiente.key_14">🥗</span>
                     <div class="tip-text">
                         <strong data-i18n="environment.tip_avoid_food_waste">Evite o Desperdício Alimentar</strong>
                         <span data-i18n="environment.tip_avoid_food_waste_desc">Planeie as refeições, aproveite sobras e faça compostagem. Em Portugal, desperdiça-se cerca de 1 milhão de toneladas de alimentos por ano.</span>
@@ -460,7 +269,6 @@
                 </li>
                 
                 <li>
-                    <span class="tip-icon" data-i18n="ambiente.key_15">♻️</span>
                     <div class="tip-text">
                         <strong data-i18n="environment.tip_recycle_correctly">Recicle Corretamente</strong>
                         <span data-i18n="environment.tip_recycle_correctly_desc">Lave as embalagens antes de reciclar e separe corretamente os materiais. A reciclagem poupa recursos naturais e energia.</span>
@@ -468,7 +276,6 @@
                 </li>
                 
                 <li>
-                    <span class="tip-icon" data-i18n="ambiente.key_16">🌳</span>
                     <div class="tip-text">
                         <strong data-i18n="environment.tip_care_greens">Cuide dos Espaços Verdes</strong>
                         <span data-i18n="environment.tip_care_greens_desc">Respeite jardins e parques, não deixe lixo e contribua para manter Faro limpa e verde.</span>
@@ -476,7 +283,6 @@
                 </li>
                 
                 <li>
-                    <span class="tip-icon" data-i18n="ambiente.key_17">🌊</span>
                     <div class="tip-text">
                         <strong data-i18n="environment.tip_protect_ria">Proteja a Ria Formosa</strong>
                         <span data-i18n="environment.tip_protect_ria_desc">A Ria Formosa é um tesouro natural. Não deixe lixo nas praias e respeite a fauna e flora locais.</span>
@@ -487,16 +293,16 @@
 
         <!-- Informações Adicionais -->
         <section class="environment-card">
-            <h3><span class="icon" data-i18n="ambiente.key_18">ℹ️</span>Informações e Contactos</h3>
+            <h3>Informações e Contactos</h3>
             
             <div class="contact-info">
-                <p><strong data-i18n="ambiente.linha_de_ambiente_da_cmara_municipal_de">📞 Linha de Ambiente da Câmara Municipal de Faro:</strong></p>
+                <p><strong data-i18n="ambiente.linha_de_ambiente_da_cmara_municipal_de">Linha de Ambiente da Câmara Municipal de Faro:</strong></p>
                 <p class="phone" data-i18n="ambiente.289_870_870_1">289 870 870</p>
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="ambiente.links_teis">🌐 Links Úteis:</strong></p>
-                <ul style="list-style: disc; padding-left: 2rem; margin-top: 0.5rem;">
+                <p><strong data-i18n="ambiente.links_teis">Links Úteis:</strong></p>
+                <ul>
                     <li><a href="https://www.cm-faro.pt" target="_blank" rel="noopener noreferrer" data-i18n="ambiente.cmara_municipal_de_faro">Câmara Municipal de Faro</a></li>
                     <li><a href="https://www.apambiente.pt" target="_blank" rel="noopener noreferrer" data-i18n="ambiente.agncia_portuguesa_do_ambiente">Agência Portuguesa do Ambiente</a></li>
                     <li><a href="https://www.pontoverde.pt" target="_blank" rel="noopener noreferrer" data-i18n="ambiente.sociedade_ponto_verde_reciclagem">Sociedade Ponto Verde (Reciclagem)</a></li>
@@ -504,7 +310,7 @@
             </div>
             
             <div class="info-box">
-                <p><strong data-i18n="ambiente.denncias_ambientais">📱 Denúncias Ambientais:</strong></p>
+                <p><strong data-i18n="ambiente.denncias_ambientais">Denúncias Ambientais:</strong></p>
                 <p data-i18n="ambiente.se_observar_situaes_de_poluio_deposio_il">Se observar situações de poluição, deposição ilegal de resíduos ou outras infrações ambientais, contacte a Linha de Ambiente Municipal ou a GNR - Serviço de Proteção da Natureza e do Ambiente (SEPNA).</p>
             </div>
         </section>

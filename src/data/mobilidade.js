@@ -65,11 +65,13 @@ function formatarDistancia(km) {
 function mostrarErro(mensagem) {
     const resultsContainer = document.getElementById('results');
     if (!resultsContainer) return;
-    resultsContainer.innerHTML = `
-        <div style="background: #fdddd8; border: 2px solid #c0392b; border-radius: 8px; padding: 1.5rem; text-align: center; color: #72352c;">
-            <strong>⚠️ ${mensagem}</strong>
-        </div>
-    `;
+    const box = document.createElement('div');
+    box.className = 'callout callout--urgent';
+    box.setAttribute('role', 'alert');
+    const strong = document.createElement('strong');
+    strong.textContent = mensagem;
+    box.appendChild(strong);
+    resultsContainer.replaceChildren(box);
     resultsContainer.classList.add('active');
     resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
@@ -115,7 +117,7 @@ function calcularTempo() {
     if (!document.getElementById('tempo-pe')) {
         resultsContainer.innerHTML = `
             <div class="result-card">
-                <h4>🚶‍♂️ A pé</h4>
+                <h4>A pé</h4>
                 <div class="result-info">
                     <div class="result-item">
                         <div class="result-label">Tempo estimado</div>
@@ -129,7 +131,7 @@ function calcularTempo() {
             </div>
 
             <div class="result-card">
-                <h4>🚴‍♂️ De bicicleta</h4>
+                <h4>De bicicleta</h4>
                 <div class="result-info">
                     <div class="result-item">
                         <div class="result-label">Tempo estimado</div>
@@ -200,8 +202,8 @@ function inicializarMapaRota(origem, destino) {
 
         // Criar ícone personalizado para origem (verde)
         const iconeOrigem = L.divIcon({
-            html: '<div style="background-color: #1dac48; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 3px solid white;">🏁</div>',
-            className: 'custom-icon',
+            html: '<span class="map-pin" style="--pin: var(--ok)"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span>',
+            className: 'map-pin-wrap',
             iconSize: [32, 32],
             iconAnchor: [16, 32],
             popupAnchor: [0, -32]
@@ -209,8 +211,8 @@ function inicializarMapaRota(origem, destino) {
 
         // Criar ícone personalizado para destino (vermelho)
         const iconeDestino = L.divIcon({
-            html: '<div style="background-color: #c0392b; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); border: 3px solid white;">🎯</div>',
-            className: 'custom-icon',
+            html: '<span class="map-pin" style="--pin: var(--danger)"><svg class="icon" aria-hidden="true"><use href="#i-pin"></use></svg></span>',
+            className: 'map-pin-wrap',
             iconSize: [32, 32],
             iconAnchor: [16, 32],
             popupAnchor: [0, -32]

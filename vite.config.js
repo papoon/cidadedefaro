@@ -10,12 +10,16 @@ const header = readFileSync(resolve(__dirname, 'src/partials/header.html'), 'utf
 const navigation = readFileSync(resolve(__dirname, 'src/partials/navigation.html'), 'utf-8')
 const footer = readFileSync(resolve(__dirname, 'src/partials/footer.html'), 'utf-8')
 const scriptsCommon = readFileSync(resolve(__dirname, 'src/partials/scripts-common.html'), 'utf-8')
+const icons = readFileSync(resolve(__dirname, 'src/partials/icons.html'), 'utf-8')
 
 // Common data for all pages
 const commonData = {
   metaCommon: metaCommon,
-  // Inline navigation into header so nested `<%- navigation %>` is rendered
-  header: header.replace(/<%-\s*navigation\s*%>/g, navigation),
+  // Inline navigation + icon sprite into header so nested `<%- navigation %>` /
+  // `<%- icons %>` are rendered (EJS doesn't re-render tags inside injected strings)
+  header: header
+    .replace(/<%-\s*navigation\s*%>/g, navigation)
+    .replace(/<%-\s*icons\s*%>/g, icons),
   navigation: navigation,
   footer: footer,
   scriptsCommon: scriptsCommon

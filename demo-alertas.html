@@ -1,116 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo Sistema de Alertas - Faro Formoso</title>
-    <link rel="stylesheet" href="assets/styles/style.css">
-    <link rel="stylesheet" href="assets/styles/alerts.css">
-    <style>
-        .demo-container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 2rem;
-        }
-        .demo-section {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        .demo-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        .demo-btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            color: white;
-        }
-        .demo-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        .demo-btn.info { background-color: #48b1db; }
-        .demo-btn.warning { background-color: #e8863b; }
-        .demo-btn.event { background-color: #1f7fa3; }
-        .demo-btn.success { background-color: #4c8c5b; }
-        .demo-btn.important { background-color: #d9584a; }
-        .demo-btn.dismiss-all { background-color: #6b6a63; }
-        .demo-btn.clear-dismissed { background-color: #2c3338; }
-        .code-block {
-            background: #2c3338;
-            color: #faf7f2;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-            font-size: 0.875rem;
-            margin-top: 1rem;
-        }
-    </style>
+    <meta name="robots" content="noindex">
+    <%- metaCommon %>
 </head>
 <body>
     <%- header %>
     
     <main id="main-content" class="demo-container">
         <div class="demo-section">
-            <h2>🎨 Sistema de Alertas Locais Não Intrusivos</h2>
+            <h1>Sistema de Alertas Locais Não Intrusivos</h1>
             <p>Este é um sistema de alertas discreto e não intrusivo para informar utilizadores sobre eventos importantes, alterações relevantes ou situações excecionais.</p>
             
             <h3>Características:</h3>
             <ul>
-                <li>✅ Banner discreto que não bloqueia a navegação</li>
-                <li>✅ Alertas categorizados por tipo (info, aviso, evento, sucesso, importante)</li>
-                <li>✅ Possibilidade de fechar/dispensar alertas</li>
-                <li>✅ Persistência opcional - alertas dispensados não aparecem novamente</li>
-                <li>✅ Sem tracking ou notificações invasivas</li>
-                <li>✅ Compatível com modo escuro</li>
-                <li>✅ Totalmente acessível com teclado e leitores de ecrã</li>
+                <li>Banner discreto que não bloqueia a navegação</li>
+                <li>Alertas categorizados por tipo (info, aviso, evento, sucesso, importante)</li>
+                <li>Possibilidade de fechar/dispensar alertas</li>
+                <li>Persistência opcional - alertas dispensados não aparecem novamente</li>
+                <li>Sem tracking ou notificações invasivas</li>
+                <li>Compatível com modo escuro</li>
+                <li>Totalmente acessível com teclado e leitores de ecrã</li>
             </ul>
         </div>
 
         <div class="demo-section">
-            <h2>🎯 Demonstração</h2>
+            <h2>Demonstração</h2>
             <p>Clique nos botões abaixo para ver exemplos de diferentes tipos de alertas:</p>
             
             <div class="demo-buttons">
                 <button class="demo-btn info" onclick="showInfoAlert()">
-                    ℹ️ Alerta Informativo
+                    Alerta Informativo
                 </button>
                 <button class="demo-btn warning" onclick="showWarningAlert()">
-                    ⚠️ Aviso
+                    Aviso
                 </button>
                 <button class="demo-btn event" onclick="showEventAlert()">
-                    📅 Evento
+                    Evento
                 </button>
                 <button class="demo-btn success" onclick="showSuccessAlert()">
-                    ✅ Sucesso
+                    Sucesso
                 </button>
                 <button class="demo-btn important" onclick="showImportantAlert()">
-                    ❗ Importante
+                    Importante
                 </button>
             </div>
 
-            <div class="demo-buttons" style="margin-top: 2rem;">
+            <div class="demo-buttons">
                 <button class="demo-btn dismiss-all" onclick="dismissAll()">
-                    ✕ Fechar Todos os Alertas
+                    Fechar Todos os Alertas
                 </button>
                 <button class="demo-btn clear-dismissed" onclick="clearDismissed()">
-                    🔄 Limpar Histórico de Dispensados
+                    Limpar Histórico de Dispensados
                 </button>
             </div>
         </div>
 
         <div class="demo-section">
-            <h2>💻 Como Usar</h2>
+            <h2>Como Usar</h2>
             <p>Para mostrar um alerta na sua página, use a API JavaScript:</p>
             
             <div class="code-block">
@@ -142,7 +90,7 @@ window.localAlerts.show({
         </div>
 
         <div class="demo-section">
-            <h2>🎨 Casos de Uso</h2>
+            <h2>Casos de Uso</h2>
             <p>Exemplos de quando usar o sistema de alertas:</p>
             <ul>
                 <li><strong>Eventos Grandes:</strong> "Festival de Verão em Faro de 15 a 20 de Julho"</li>
@@ -154,13 +102,13 @@ window.localAlerts.show({
         </div>
 
         <div class="demo-section">
-            <h2>✅ Critérios de Aceitação</h2>
+            <h2>Critérios de Aceitação</h2>
             <ul>
-                <li>✅ Alertas não bloqueiam a navegação - aparecem no topo sem overlay</li>
-                <li>✅ Fácil de desativar - botão de fechar claramente visível</li>
-                <li>✅ Conteúdo claro - títulos e mensagens diretas</li>
-                <li>✅ Sem tracking - nenhum dado é enviado para servidores externos</li>
-                <li>✅ Sem notificações invasivas - tudo é controlado localmente</li>
+                <li>Alertas não bloqueiam a navegação - aparecem no topo sem overlay</li>
+                <li>Fácil de desativar - botão de fechar claramente visível</li>
+                <li>Conteúdo claro - títulos e mensagens diretas</li>
+                <li>Sem tracking - nenhum dado é enviado para servidores externos</li>
+                <li>Sem notificações invasivas - tudo é controlado localmente</li>
             </ul>
         </div>
     </main>

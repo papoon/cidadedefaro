@@ -129,7 +129,8 @@
         button.setAttribute('data-i18n', labelKey);
         button.setAttribute('data-i18n-attr', 'aria-label');
 
-        if (icon) icon.textContent = enabled ? '🔔' : '🔕';
+        const use = icon && icon.querySelector('use');
+        if (use) use.setAttribute('href', enabled ? '#i-bell' : '#i-bell-off');
     }
 
     async function handleToggleClick(button) {

@@ -143,23 +143,31 @@ class HoteisManager {
 // Instância global
 const hoteisManager = new HoteisManager();
 
-// Ícones por tipo (constantes)
-const TIPO_ICONS = {
-    'Hotel': '🏨',
-    'Hostel': '🏠',
-    'Alojamento Local': '🏡',
-    'Apartamento': '🏢'
-};
+// Small DOM builder: data from JSON is always set as text, never parsed as HTML
+function h(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined && text !== null) node.textContent = String(text);
+    return node;
+}
 
-// Ícones de serviços (constantes)
-const SERVICO_ICONS = {
-    'Pequeno-almoço': '🍳',
-    'Wi-Fi': '📶',
-    'Estacionamento': '🅿️',
-    'Piscina': '🏊',
-    'Cozinha': '🍴',
-    'Cozinha Partilhada': '🍴'
-};
+function safeHref(url) {
+    const u = String(url || '');
+    return /^https?:\/\//i.test(u) ? u : null;
+}
+
+function infoRow(label, value, valueClass) {
+    if (value === undefined || value === null || value === '') return null;
+    const row = h('div', 'info-row');
+    row.append(h('span', 'info-label', label), h('span', 'info-value' + (valueClass ? ' ' + valueClass : ''), value));
+    return row;
+}
+
+function renderEmpty(container, title, text) {
+    const box = h('div', 'no-results');
+    box.append(h('h3', '', title), h('p', '', text));
+    container.replaceChildren(box);
+}
 
 /**
  * Renderiza cards de hotéis
@@ -168,120 +176,70 @@ function renderHoteis(hoteis, container) {
     if (!container) return;
 
     if (hoteis.length === 0) {
-        container.innerHTML = `
-            <div class="no-results">
-                <div class="no-results-icon">🏨</div>
-                <h3>Nenhum alojamento encontrado</h3>
-                <p>Tente ajustar os filtros ou termo de pesquisa</p>
-            </div>
-        `;
+        renderEmpty(container, 'Nenhum alojamento encontrado', 'Tente ajustar os filtros ou termo de pesquisa');
         return;
     }
 
-    let html = '<div class="hoteis-grid">';
+    const grid = h('div', 'hoteis-grid');
 
     hoteis.forEach(hotel => {
-        const icon = TIPO_ICONS[hotel.tipo] || '🏨';
-        const destaque = hotel.destaque ? `<span class="destaque-badge">${hotel.destaque}</span>` : '';
-        const stars = '⭐'.repeat(parseInt(hotel.classificacao, 10));
-        
-        // Renderizar serviços com ícones
-        let servicosHtml = '';
-        if (hotel.servicos && hotel.servicos.length > 0) {
-            servicosHtml = '<div class="hotel-servicos">';
-            hotel.servicos.forEach(servico => {
-                const servicoIcon = SERVICO_ICONS[servico] || '✓';
-                servicosHtml += `<span class="servico-badge" title="${servico}">${servicoIcon} ${servico}</span>`;
-            });
-            servicosHtml += '</div>';
+        const card = h('article', 'hotel-card');
+        card.id = hotel.id;
+        card.dataset.id = hotel.id;
+
+        const header = h('div', 'hotel-header');
+        header.appendChild(h('span', 'hotel-tipo', hotel.tipo));
+        if (hotel.destaque) header.appendChild(h('span', 'destaque-badge', hotel.destaque));
+        card.appendChild(header);
+
+        card.appendChild(h('h3', 'hotel-nome', hotel.nome));
+
+        const info = h('div', 'hotel-info');
+        const estrelas = parseInt(hotel.classificacao, 10);
+        [
+            Number.isFinite(estrelas) ? infoRow('Classificação', `${'★'.repeat(estrelas)} (${estrelas} estrelas)`, 'classificacao') : null,
+            infoRow('Zona', hotel.zona),
+            infoRow('Morada', hotel.morada),
+            infoRow('Preço por noite', hotel.preco, 'preco'),
+            infoRow('Telefone', hotel.telefone)
+        ].forEach(row => row && info.appendChild(row));
+        card.appendChild(info);
+
+        if (hotel.descricao) {
+            const desc = h('div', 'hotel-descricao');
+            desc.appendChild(h('p', '', hotel.descricao));
+            card.appendChild(desc);
         }
-        
-        html += `
-            <div class="hotel-card" id="${hotel.id}" data-id="${hotel.id}">
-                <div class="hotel-header">
-                    <div class="hotel-icon" role="img" aria-label="Ícone ${hotel.tipo}">${icon}</div>
-                    <div class="hotel-tipo">${hotel.tipo}</div>
-                    ${destaque}
-                </div>
-                
-                <h3 class="hotel-nome">${hotel.nome}</h3>
-                
-                <div class="hotel-info">
-                    <div class="info-row">
-                        <span class="info-label">⭐ Classificação:</span>
-                        <span class="info-value classificacao">${stars} (${hotel.classificacao} estrelas)</span>
-                    </div>
-                    
-                    <div class="info-row">
-                        <span class="info-label">📍 Zona:</span>
-                        <span class="info-value">${hotel.zona}</span>
-                    </div>
-                    
-                    <div class="info-row">
-                        <span class="info-label">📍 Morada:</span>
-                        <span class="info-value">${hotel.morada}</span>
-                    </div>
-                    
-                    <div class="info-row">
-                        <span class="info-label">💰 Preço por noite:</span>
-                        <span class="info-value preco">${hotel.preco}</span>
-                    </div>
-                    
-                    ${hotel.descricao ? `
-                        <div class="hotel-descricao">
-                            <p>${hotel.descricao}</p>
-                        </div>
-                    ` : ''}
-                    
-                    ${servicosHtml}
-                    
-                    ${hotel.telefone ? `
-                        <div class="info-row">
-                            <span class="info-label">📞 Telefone:</span>
-                            <span class="info-value">${hotel.telefone}</span>
-                        </div>
-                    ` : ''}
-                </div>
-                
-                <div class="hotel-actions">
-                    ${hotel.mapsLink ? `
-                        <a href="${hotel.mapsLink}" target="_blank" rel="noopener noreferrer" class="btn-map">
-                            🗺️ Ver no Mapa
-                        </a>
-                    ` : ''}
-                    ${hotel.website ? `
-                        <a href="${hotel.website}" target="_blank" rel="noopener noreferrer" class="btn-website">
-                            🌐 Website
-                        </a>
-                    ` : ''}
-                </div>
-            </div>
-        `;
+
+        if (hotel.servicos && hotel.servicos.length > 0) {
+            const servicos = h('div', 'hotel-servicos');
+            hotel.servicos.forEach(servico => servicos.appendChild(h('span', 'servico-badge', servico)));
+            card.appendChild(servicos);
+        }
+
+        const actions = h('div', 'hotel-actions');
+        const maps = safeHref(hotel.mapsLink);
+        if (maps) {
+            const a = h('a', 'btn-map', 'Ver no mapa');
+            a.href = maps; a.target = '_blank'; a.rel = 'noopener noreferrer';
+            actions.appendChild(a);
+        }
+        const site = safeHref(hotel.website);
+        if (site) {
+            const a = h('a', 'btn-website', 'Website');
+            a.href = site; a.target = '_blank'; a.rel = 'noopener noreferrer';
+            actions.appendChild(a);
+        }
+        if (actions.childElementCount) card.appendChild(actions);
+
+        if (typeof createFavoriteButton === 'function') {
+            header.appendChild(createFavoriteButton(hotel.id, 'hotel', hotel.nome, `hoteis.html#${hotel.id}`));
+        }
+
+        grid.appendChild(card);
     });
 
-    html += '</div>';
-    container.innerHTML = html;
-
-    // Adicionar aos favoritos (integração com sistema existente)
-    if (typeof createFavoriteButton === 'function') {
-        container.querySelectorAll('.hotel-card').forEach(card => {
-            const id = card.getAttribute('data-id');
-            const hotel = hoteis.find(h => h.id === id);
-            if (hotel) {
-                const favoriteBtn = createFavoriteButton(
-                    hotel.id,
-                    'hotel',
-                    hotel.nome,
-                    `hoteis.html#${hotel.id}`
-                );
-                favoriteBtn.style.position = 'absolute';
-                favoriteBtn.style.top = '0.5rem';
-                favoriteBtn.style.right = '0.5rem';
-                card.style.position = 'relative';
-                card.insertBefore(favoriteBtn, card.firstChild);
-            }
-        });
-    }
+    container.replaceChildren(grid);
 }
 
 /**

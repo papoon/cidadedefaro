@@ -124,7 +124,7 @@ async function exibirDadosFaro(elementoId) {
     // Mostrar estado de carregamento
     elemento.innerHTML = `
         <div class="loading">
-            <p>🔄 A carregar dados de Faro...</p>
+            <p>A carregar dados de Faro…</p>
         </div>
     `;
     
@@ -133,6 +133,7 @@ async function exibirDadosFaro(elementoId) {
     
     if (dados) {
         // Função auxiliar para escapar HTML e prevenir XSS
+        const t = (key, fallback) => window.i18n?.t(key) || fallback;
         const escapeHtml = (text) => {
             const div = document.createElement('div');
             div.textContent = text;
@@ -162,33 +163,33 @@ async function exibirDadosFaro(elementoId) {
         // Exibir dados com sucesso (com sanitização)
         elemento.innerHTML = `
             <div class="dados-municipio">
-                <h3>📍 Informações do Município</h3>
+                <h3>${escapeHtml(t('home.municipality_title', 'O município'))}</h3>
                 <div class="info-grid">
                     <div class="info-item">
-                        <span class="info-label">Município:</span>
+                        <span class="info-label">${escapeHtml(t('home.municipality_name', 'Município'))}</span>
                         <span class="info-value">${escapeHtml(String(dados.nome))}</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Distrito:</span>
+                        <span class="info-label">${escapeHtml(t('home.municipality_district', 'Distrito'))}</span>
                         <span class="info-value">${escapeHtml(String(dados.distrito))}</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">População:</span>
+                        <span class="info-label">${escapeHtml(t('home.municipality_population', 'População'))}</span>
                         <span class="info-value">${escapeHtml(String(dados.populacao))}</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-label">Área:</span>
+                        <span class="info-label">${escapeHtml(t('home.municipality_area', 'Área'))}</span>
                         <span class="info-value">${escapeHtml(String(dados.area))}</span>
                     </div>
                 </div>
-                <p class="fonte-dados">Fonte: ${escapeHtml(fonteText)}</p>
+                <p class="fonte-dados">${escapeHtml(t('home.municipality_source', 'Fonte'))}: ${escapeHtml(fonteText)}</p>
             </div>
         `;
     } else {
         // Exibir mensagem de erro
         elemento.innerHTML = `
             <div class="erro-dados">
-                <p>❌ Não foi possível carregar os dados de Faro.</p>
+                <p>Não foi possível carregar os dados de Faro.</p>
                 <p>Por favor, tente novamente mais tarde.</p>
             </div>
         `;

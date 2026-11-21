@@ -35,130 +35,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    <style>
-        .info-section {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .info-section h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .info-section .icon {
-            font-size: 2rem;
-        }
-        
-        .info-content {
-            color: #4a4a45;
-            line-height: 1.8;
-        }
-        
-        .info-content p {
-            margin-bottom: 1rem;
-        }
-        
-        .info-content ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .info-content ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .info-content strong {
-            color: #2c3338;
-            font-weight: 600;
-        }
-        
-        /* .highlight-box now comes from the shared page patterns in
-           assets/styles/style.css */
-        .cost-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .cost-item {
-            background: #faf7f2;
-            padding: 1rem;
-            border-radius: 8px;
-            border-left: 4px solid #146a8c;
-        }
-        
-        .cost-item .label {
-            font-size: 0.875rem;
-            color: #6b6a63;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cost-item .value {
-            font-size: 1.25rem;
-            color: #2c3338;
-            font-weight: 600;
-        }
-        
-        .zone-card {
-            background: #faf7f2;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            border-left: 4px solid #146a8c;
-        }
-        
-        .zone-card h4 {
-            color: #2c3338;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-        
-        .zone-card p {
-            color: #4a4a45;
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-        
-        .external-link {
-            color: #146a8c;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .external-link:hover {
-            color: #0d3b4f;
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .info-section {
-                padding: 1.5rem;
-            }
-            
-            .info-section h3 {
-                font-size: 1.25rem;
-            }
-            
-            .cost-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -166,13 +42,13 @@
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2 data-i18n="living.hero_title">Viver em Faro</h2>
+            <h1 data-i18n="living.hero_title">Viver em Faro</h1>
             <p data-i18n="living.description">Guia essencial para quem se mudou recentemente para Faro. Informações práticas sobre documentos, transportes, saúde, custos e zonas da cidade.</p>
         </section>
 
         <!-- Documentos -->
         <section class="info-section">
-            <h3><span class="icon" data-i18n="viver_em_faro.key_1">📄</span><span data-i18n="living.documents_title">Como Tratar Documentos</span></h3>
+            <h3><span data-i18n="living.documents_title">Como Tratar Documentos</span></h3>
             <div class="info-content">
                 <p data-i18n="living.documents_intro">Ao mudar-se para Faro, é importante atualizar os seus documentos e registos. Aqui estão os passos essenciais:</p>
                 
@@ -210,14 +86,14 @@
                 </ul>
 
                 <div class="highlight-box" data-i18n-html="true" data-i18n="living.documents_tip">
-                    <strong data-i18n="viver_em_faro.dica_importante">💡 Dica Importante:</strong> Traga sempre consigo cópias dos documentos importantes e comprovativo de morada atualizado.
+                    <strong data-i18n="viver_em_faro.dica_importante">Dica Importante:</strong> Traga sempre consigo cópias dos documentos importantes e comprovativo de morada atualizado.
                 </div>
             </div>
         </section>
 
         <!-- Transportes -->
         <section class="info-section">
-            <h3><span class="icon" data-i18n="viver_em_faro.key_2">🚌</span><span data-i18n="living.transport_title">Transportes</span></h3>
+            <h3><span data-i18n="living.transport_title">Transportes</span></h3>
             <div class="info-content">
                 <p data-i18n="living.transport_intro">Faro oferece várias opções de transporte público e alternativas para deslocações dentro e fora da cidade.</p>
 
@@ -253,14 +129,14 @@
                 </ul>
 
                 <div class="highlight-box" data-i18n-html="true" data-i18n="living.transport_tip">
-                    <strong data-i18n="viver_em_faro.dica_de_mobilidade">💡 Dica de Mobilidade:</strong> Para mais informações sobre transportes, consulte a página dedicada de <a href="transportes.html" class="external-link"><span data-i18n="nav.transport">Transportes</span></a>.
+                    <strong data-i18n="viver_em_faro.dica_de_mobilidade">Dica de Mobilidade:</strong> Para mais informações sobre transportes, consulte a página dedicada de <a href="transportes.html" class="external-link"><span data-i18n="nav.transport">Transportes</span></a>.
                 </div>
             </div>
         </section>
 
         <!-- Saúde -->
         <section class="info-section">
-            <h3><span class="icon" data-i18n="viver_em_faro.key_3">🏥</span><span data-i18n="living.health_section_title">Saúde</span></h3>
+            <h3><span data-i18n="living.health_section_title">Saúde</span></h3>
             <div class="info-content">
                 <p data-i18n="living.health_section_intro">Faro dispõe de serviços de saúde públicos e privados para atender às necessidades dos residentes.</p>
 
@@ -292,14 +168,14 @@
                 </ul>
 
                 <div class="highlight-box" data-i18n-html="true" data-i18n="living.health_tip">
-                    <strong data-i18n="viver_em_faro.para_mais_detalhes">💡 Para mais detalhes:</strong> Consulte a página completa de <a href="saude.html" class="external-link"><span data-i18n="nav.health">Saúde</span></a> com moradas e mapa de serviços.
+                    <strong data-i18n="viver_em_faro.para_mais_detalhes">Para mais detalhes:</strong> Consulte a página completa de <a href="saude.html" class="external-link"><span data-i18n="nav.health">Saúde</span></a> com moradas e mapa de serviços.
                 </div>
             </div>
         </section>
 
         <!-- Custo de Vida -->
         <section class="info-section">
-            <h3><span class="icon" data-i18n="viver_em_faro.key_4">💰</span><span data-i18n="living.cost_title">Custo Médio de Vida</span></h3>
+            <h3><span data-i18n="living.cost_title">Custo Médio de Vida</span></h3>
             <div class="info-content">
                 <p data-i18n="living.cost_intro">Faro oferece um custo de vida relativamente acessível comparado com outras capitais de distrito portuguesas, especialmente Lisboa e Porto.</p>
 
@@ -380,7 +256,7 @@
                 </div>
 
                 <div class="highlight-box" data-i18n-html="true" data-i18n="living.cost_estimate">
-                    <strong data-i18n="viver_em_faro.estimativa_total">💡 Estimativa Total:</strong> Um adulto sozinho pode viver confortavelmente em Faro com €900-1200/mês (incluindo renda). Um casal pode precisar de €1500-2000/mês.
+                    <strong data-i18n="viver_em_faro.estimativa_total">Estimativa Total:</strong> Um adulto sozinho pode viver confortavelmente em Faro com €900-1200/mês (incluindo renda). Um casal pode precisar de €1500-2000/mês.
                 </div>
 
                 <p data-i18n="living.cost_note"><em data-i18n="viver_em_faro.nota_estes_valores_so_estimativas_basead">Nota: Estes valores são estimativas baseadas em dados de 2024 e podem variar. Os preços de habitação têm aumentado nos últimos anos devido à procura turística.</em></p>
@@ -389,12 +265,12 @@
 
         <!-- Zonas da Cidade -->
         <section class="info-section">
-            <h3><span class="icon" data-i18n="viver_em_faro.key_5">🗺️</span><span data-i18n="living.zones_title">Zonas da Cidade</span></h3>
+            <h3><span data-i18n="living.zones_title">Zonas da Cidade</span></h3>
             <div class="info-content">
                 <p data-i18n="living.zones_intro">Faro é dividida em várias zonas, cada uma com características próprias. Conheça as principais áreas:</p>
 
                 <div class="zone-card">
-                    <h4 data-i18n="viver_em_faro.centro_histrico_cidade_velha">🏛️ Centro Histórico (Cidade Velha)</h4>
+                    <h4 data-i18n="viver_em_faro.centro_histrico_cidade_velha">Centro Histórico (Cidade Velha)</h4>
                     <p><strong data-i18n="viver_em_faro.caractersticas">Características:</strong> Zona histórica dentro das muralhas, com ruas estreitas e edifícios antigos.</p>
                     <p><strong data-i18n="viver_em_faro.ideal_para">Ideal para:</strong> Quem aprecia história e quer viver no coração turístico da cidade.</p>
                     <p><strong data-i18n="viver_em_faro.servios">Serviços:</strong> Restaurantes, cafés, museus, catedral.</p>
@@ -402,7 +278,7 @@
                 </div>
 
                 <div class="zone-card">
-                    <h4 data-i18n="viver_em_faro.baixa_de_faro">🏙️ Baixa de Faro</h4>
+                    <h4 data-i18n="viver_em_faro.baixa_de_faro">Baixa de Faro</h4>
                     <p><strong data-i18n="viver_em_faro.caractersticas_1">Características:</strong> Zona comercial central com lojas, bancos e serviços.</p>
                     <p><strong data-i18n="viver_em_faro.ideal_para_1">Ideal para:</strong> Quem quer estar perto de tudo e não precisa de carro.</p>
                     <p><strong data-i18n="viver_em_faro.servios_1">Serviços:</strong> Centro comercial Forum Algarve próximo, supermercados, transportes públicos.</p>
@@ -410,7 +286,7 @@
                 </div>
 
                 <div class="zone-card">
-                    <h4 data-i18n="viver_em_faro.montenegro">🌳 Montenegro</h4>
+                    <h4 data-i18n="viver_em_faro.montenegro">Montenegro</h4>
                     <p><strong data-i18n="viver_em_faro.caractersticas_2">Características:</strong> Zona residencial tranquila a oeste do centro.</p>
                     <p><strong data-i18n="viver_em_faro.ideal_para_2">Ideal para:</strong> Famílias e quem procura mais espaço e sossego.</p>
                     <p><strong data-i18n="viver_em_faro.servios_2">Serviços:</strong> Escolas, centro de saúde, supermercados, espaços verdes.</p>
@@ -418,7 +294,7 @@
                 </div>
 
                 <div class="zone-card">
-                    <h4 data-i18n="viver_em_faro.penhagambelas">🏘️ Penha/Gambelas</h4>
+                    <h4 data-i18n="viver_em_faro.penhagambelas">Penha/Gambelas</h4>
                     <p><strong data-i18n="viver_em_faro.caractersticas_3">Características:</strong> Zona residencial em expansão, próxima à Universidade do Algarve.</p>
                     <p><strong data-i18n="viver_em_faro.ideal_para_3">Ideal para:</strong> Estudantes e jovens profissionais.</p>
                     <p><strong data-i18n="viver_em_faro.servios_3">Serviços:</strong> Campus universitário, centros comerciais, transportes públicos.</p>
@@ -426,7 +302,7 @@
                 </div>
 
                 <div class="zone-card">
-                    <h4 data-i18n="viver_em_faro.so_pedropraia_de_faro">🌊 São Pedro/Praia de Faro</h4>
+                    <h4 data-i18n="viver_em_faro.so_pedropraia_de_faro">São Pedro/Praia de Faro</h4>
                     <p><strong data-i18n="viver_em_faro.caractersticas_4">Características:</strong> Zona junto à Ria Formosa e praias.</p>
                     <p><strong data-i18n="viver_em_faro.ideal_para_4">Ideal para:</strong> Quem gosta de estar perto do mar e atividades aquáticas.</p>
                     <p><strong data-i18n="viver_em_faro.servios_4">Serviços:</strong> Restaurantes de peixe, cafés, acesso às praias.</p>
@@ -434,7 +310,7 @@
                 </div>
 
                 <div class="zone-card">
-                    <h4 data-i18n="viver_em_faro.conceioestoi">🏡 Conceição/Estoi</h4>
+                    <h4 data-i18n="viver_em_faro.conceioestoi">Conceição/Estoi</h4>
                     <p><strong data-i18n="viver_em_faro.caractersticas_5">Características:</strong> Zonas mais periféricas e rurais.</p>
                     <p><strong data-i18n="viver_em_faro.ideal_para_5">Ideal para:</strong> Quem prefere tranquilidade e natureza.</p>
                     <p><strong data-i18n="viver_em_faro.servios_5">Serviços:</strong> Serviços básicos, necessário carro para deslocações.</p>
@@ -442,14 +318,14 @@
                 </div>
 
                 <div class="highlight-box" data-i18n-html="true" data-i18n="living.zones_tip">
-                    <strong data-i18n="viver_em_faro.dica_de_escolha">💡 Dica de Escolha:</strong> Visite diferentes zonas antes de decidir onde morar. Considere a proximidade ao trabalho, transportes e serviços que são importantes para si.
+                    <strong data-i18n="viver_em_faro.dica_de_escolha">Dica de Escolha:</strong> Visite diferentes zonas antes de decidir onde morar. Considere a proximidade ao trabalho, transportes e serviços que são importantes para si.
                 </div>
             </div>
         </section>
 
         <!-- Informações Úteis -->
         <section class="info-section">
-            <h3><span class="icon" data-i18n="viver_em_faro.key_6">📋</span><span data-i18n="living.additional_info_title">Informações Úteis Adicionais</span></h3>
+            <h3><span data-i18n="living.additional_info_title">Informações Úteis Adicionais</span></h3>
             <div class="info-content">
                 <h4><strong data-i18n="viver_em_faro.escolas_e_educao">Escolas e Educação</strong></h4>
                 <ul>
@@ -483,7 +359,7 @@
 
         <!-- Related Pages Section -->
         <section class="info-section">
-            <h3><span class="icon">🔗</span> Páginas Relacionadas</h3>
+            <h3>Páginas Relacionadas</h3>
             <div class="info-content">
                 <ul>
                     <li><a href="saude.html"><strong>Saúde em Faro</strong></a> - Centros de saúde, hospitais e farmácias</li>

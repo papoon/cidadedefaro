@@ -1,31 +1,68 @@
-        <nav role="navigation" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
-            <ul role="menubar">
-                <!-- Essencial (uso diário) -->
-                <li role="none"><a href="index.html" role="menuitem" data-i18n="nav.home">Início</a></li>
-                <li role="none"><a href="saude.html" role="menuitem" data-i18n="nav.health">Saúde</a></li>
-                <li role="none"><a href="saude-onde-ir-agora.html" role="menuitem" data-i18n="nav.health_now">🚑 Onde Ir Agora</a></li>
-                <li role="none"><a href="transportes.html" role="menuitem" data-i18n="nav.transport">Transportes</a></li>
-                <li role="none"><a href="mapa.html" role="menuitem" data-i18n="nav.map">Mapa</a></li>
-                
-                <!-- Serviços (uso frequente) -->
-                <li role="none"><a href="restaurantes.html" role="menuitem" data-i18n="nav.restaurants">Onde Comer</a></li>
-                <li role="none"><a href="hoteis.html" role="menuitem" data-i18n="nav.hotels">Onde Ficar</a></li>
-                <li role="none"><a href="problemas-frequentes.html" role="menuitem" data-i18n="nav.faq">Problemas</a></li>
-                
-                <!-- Viver (residentes) -->
-                <li role="none"><a href="viver-em-faro.html" role="menuitem" data-i18n="nav.living">Viver em Faro</a></li>
-                <li role="none"><a href="idosos.html" role="menuitem" data-i18n="nav.seniors">Idosos</a></li>
-                
-                <!-- Lazer e Turismo -->
-                <li role="none"><a href="lazer.html" role="menuitem" data-i18n="nav.leisure">Lazer</a></li>
-                <li role="none"><a href="oque-fazer-hoje.html" role="menuitem" data-i18n="nav.what_to_do">Hoje</a></li>
-                
-                <!-- Mais informações -->
-                <li role="none"><a href="ambiente.html" role="menuitem" data-i18n="nav.environment">Ambiente</a></li>
-                <li role="none"><a href="mobilidade.html" role="menuitem" data-i18n="nav.mobility">Mobilidade</a></li>
-                <li role="none"><a href="historia-faro.html" role="menuitem" data-i18n="nav.history">História</a></li>
-                <li role="none"><a href="guia-premium.html" role="menuitem" data-i18n="nav.premium">📘 Premium</a></li>
-                <li role="none"><a href="sobre-projeto.html" role="menuitem" data-i18n="nav.about">Sobre</a></li>
-                <li role="none"><a href="favoritos.html" role="menuitem" data-i18n="nav.favorites">⭐ <span id="favorites-count" class="favorites-count" style="display:none;" aria-live="polite">0</span></a></li>
+        <nav class="site-nav" data-i18n="ui.main_menu" data-i18n-attr="aria-label" aria-label="Menu principal">
+            <ul class="nav-primary">
+                <li><a href="saude.html" data-i18n="nav.health">Saúde</a></li>
+                <li><a href="transportes.html" data-i18n="nav.transport">Transportes</a></li>
+                <li><a href="mapa.html" data-i18n="nav.map">Mapa</a></li>
+                <li><a href="restaurantes.html" data-i18n="nav.restaurants">Onde Comer</a></li>
+                <li><a href="hoteis.html" data-i18n="nav.hotels">Onde Ficar</a></li>
+                <li><a href="viver-em-faro.html" data-i18n="nav.living">Viver em Faro</a></li>
+                <li><a href="lazer.html" data-i18n="nav.leisure">Lazer</a></li>
             </ul>
+            <div class="nav-aux">
+                <a href="favoritos.html" class="nav-favorites" data-i18n="nav.favorites" data-i18n-attr="aria-label" aria-label="Favoritos">
+                    <svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg>
+                    <span id="favorites-count" class="favorites-count" style="display:none;" aria-live="polite">0</span>
+                </a>
+                <button type="button" class="nav-index-toggle" aria-expanded="false" aria-controls="nav-index">
+                    <svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg>
+                    <span data-i18n="nav.index">Índice</span>
+                </button>
+            </div>
+            <div id="nav-index" class="nav-index" hidden>
+                <div class="nav-index-inner">
+                    <div class="nav-index-group">
+                        <p class="nav-index-title"><span class="nav-index-num">01</span> <span data-i18n="nav.group_essential">Essencial</span></p>
+                        <ul>
+                            <li><a href="index.html" data-i18n="nav.home">Início</a></li>
+                            <li><a href="saude.html" data-i18n="nav.health">Saúde</a></li>
+                            <li><a href="saude-onde-ir-agora.html" data-i18n="nav.health_now">Onde Ir Agora</a></li>
+                            <li><a href="transportes.html" data-i18n="nav.transport">Transportes</a></li>
+                            <li><a href="mapa.html" data-i18n="nav.map">Mapa</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-index-group">
+                        <p class="nav-index-title"><span class="nav-index-num">02</span> <span data-i18n="nav.group_services">Serviços</span></p>
+                        <ul>
+                            <li><a href="restaurantes.html" data-i18n="nav.restaurants">Onde Comer</a></li>
+                            <li><a href="hoteis.html" data-i18n="nav.hotels">Onde Ficar</a></li>
+                            <li><a href="problemas-frequentes.html" data-i18n="nav.faq">Problemas Frequentes</a></li>
+                            <li><a href="mobilidade.html" data-i18n="nav.mobility">Mobilidade</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-index-group">
+                        <p class="nav-index-title"><span class="nav-index-num">03</span> <span data-i18n="nav.group_living">Viver</span></p>
+                        <ul>
+                            <li><a href="viver-em-faro.html" data-i18n="nav.living">Viver em Faro</a></li>
+                            <li><a href="idosos.html" data-i18n="nav.seniors">Faro para Idosos</a></li>
+                            <li><a href="ambiente.html" data-i18n="nav.environment">Ambiente</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-index-group">
+                        <p class="nav-index-title"><span class="nav-index-num">04</span> <span data-i18n="nav.group_leisure">Lazer e cultura</span></p>
+                        <ul>
+                            <li><a href="lazer.html" data-i18n="nav.leisure">Lazer</a></li>
+                            <li><a href="oque-fazer-hoje.html" data-i18n="nav.what_to_do">O que fazer hoje</a></li>
+                            <li><a href="historia-faro.html" data-i18n="nav.history">História</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-index-group">
+                        <p class="nav-index-title"><span class="nav-index-num">05</span> <span data-i18n="nav.group_project">O projeto</span></p>
+                        <ul>
+                            <li><a href="guia-premium.html" data-i18n="nav.premium">Guia Premium</a></li>
+                            <li><a href="sobre-projeto.html" data-i18n="nav.about">Sobre o Projeto</a></li>
+                            <li><a href="favoritos.html" data-i18n="nav.favorites">Favoritos</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </nav>

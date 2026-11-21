@@ -17,30 +17,30 @@
 
     // Mapeamento de códigos WMO (https://open-meteo.com/en/docs) para ícone + descrição
     const WEATHER_CODES = {
-        0: { icon: '☀️', pt: 'Céu limpo', en: 'Clear sky' },
-        1: { icon: '🌤️', pt: 'Poucas nuvens', en: 'Mostly clear' },
-        2: { icon: '⛅', pt: 'Parcialmente nublado', en: 'Partly cloudy' },
-        3: { icon: '☁️', pt: 'Nublado', en: 'Overcast' },
-        45: { icon: '🌫️', pt: 'Nevoeiro', en: 'Fog' },
-        48: { icon: '🌫️', pt: 'Nevoeiro com geada', en: 'Depositing rime fog' },
-        51: { icon: '🌦️', pt: 'Chuvisco fraco', en: 'Light drizzle' },
-        53: { icon: '🌦️', pt: 'Chuvisco moderado', en: 'Moderate drizzle' },
-        55: { icon: '🌦️', pt: 'Chuvisco forte', en: 'Dense drizzle' },
-        61: { icon: '🌧️', pt: 'Chuva fraca', en: 'Slight rain' },
-        63: { icon: '🌧️', pt: 'Chuva moderada', en: 'Moderate rain' },
-        65: { icon: '🌧️', pt: 'Chuva forte', en: 'Heavy rain' },
-        66: { icon: '🌧️', pt: 'Chuva gelada', en: 'Freezing rain' },
-        67: { icon: '🌧️', pt: 'Chuva gelada forte', en: 'Heavy freezing rain' },
-        71: { icon: '🌨️', pt: 'Neve fraca', en: 'Slight snow' },
-        73: { icon: '🌨️', pt: 'Neve moderada', en: 'Moderate snow' },
-        75: { icon: '🌨️', pt: 'Neve forte', en: 'Heavy snow' },
-        77: { icon: '🌨️', pt: 'Grãos de neve', en: 'Snow grains' },
-        80: { icon: '🌦️', pt: 'Aguaceiros fracos', en: 'Slight rain showers' },
-        81: { icon: '🌧️', pt: 'Aguaceiros moderados', en: 'Moderate rain showers' },
-        82: { icon: '⛈️', pt: 'Aguaceiros fortes', en: 'Violent rain showers' },
-        95: { icon: '⛈️', pt: 'Trovoada', en: 'Thunderstorm' },
-        96: { icon: '⛈️', pt: 'Trovoada com granizo', en: 'Thunderstorm with hail' },
-        99: { icon: '⛈️', pt: 'Trovoada com granizo forte', en: 'Thunderstorm with heavy hail' }
+        0: { icon: 'i-sun', pt: 'Céu limpo', en: 'Clear sky' },
+        1: { icon: 'i-cloud-sun', pt: 'Poucas nuvens', en: 'Mostly clear' },
+        2: { icon: 'i-cloud-sun', pt: 'Parcialmente nublado', en: 'Partly cloudy' },
+        3: { icon: 'i-cloud', pt: 'Nublado', en: 'Overcast' },
+        45: { icon: 'i-cloud-fog', pt: 'Nevoeiro', en: 'Fog' },
+        48: { icon: 'i-cloud-fog', pt: 'Nevoeiro com geada', en: 'Depositing rime fog' },
+        51: { icon: 'i-cloud-rain', pt: 'Chuvisco fraco', en: 'Light drizzle' },
+        53: { icon: 'i-cloud-rain', pt: 'Chuvisco moderado', en: 'Moderate drizzle' },
+        55: { icon: 'i-cloud-rain', pt: 'Chuvisco forte', en: 'Dense drizzle' },
+        61: { icon: 'i-cloud-rain', pt: 'Chuva fraca', en: 'Slight rain' },
+        63: { icon: 'i-cloud-rain', pt: 'Chuva moderada', en: 'Moderate rain' },
+        65: { icon: 'i-cloud-rain', pt: 'Chuva forte', en: 'Heavy rain' },
+        66: { icon: 'i-cloud-rain', pt: 'Chuva gelada', en: 'Freezing rain' },
+        67: { icon: 'i-cloud-rain', pt: 'Chuva gelada forte', en: 'Heavy freezing rain' },
+        71: { icon: 'i-snow', pt: 'Neve fraca', en: 'Slight snow' },
+        73: { icon: 'i-snow', pt: 'Neve moderada', en: 'Moderate snow' },
+        75: { icon: 'i-snow', pt: 'Neve forte', en: 'Heavy snow' },
+        77: { icon: 'i-snow', pt: 'Grãos de neve', en: 'Snow grains' },
+        80: { icon: 'i-cloud-rain', pt: 'Aguaceiros fracos', en: 'Slight rain showers' },
+        81: { icon: 'i-cloud-rain', pt: 'Aguaceiros moderados', en: 'Moderate rain showers' },
+        82: { icon: 'i-cloud-storm', pt: 'Aguaceiros fortes', en: 'Violent rain showers' },
+        95: { icon: 'i-cloud-storm', pt: 'Trovoada', en: 'Thunderstorm' },
+        96: { icon: 'i-cloud-storm', pt: 'Trovoada com granizo', en: 'Thunderstorm with hail' },
+        99: { icon: 'i-cloud-storm', pt: 'Trovoada com granizo forte', en: 'Thunderstorm with heavy hail' }
     };
 
     const DAY_NAMES = {
@@ -54,7 +54,7 @@
 
     function describeCode(code, lang) {
         const entry = WEATHER_CODES[code];
-        if (!entry) return { icon: '🌡️', text: '' };
+        if (!entry) return { icon: 'i-cloud', text: '' };
         return { icon: entry.icon, text: entry[lang] || entry.pt };
     }
 
@@ -115,7 +115,8 @@
             forecastHtml += `
                 <div class="tempo-day">
                     <span class="tempo-day-name">${dayName.slice(0, 3)}</span>
-                    <span class="tempo-day-icon" aria-hidden="true">${dayWeather.icon}</span>
+                    <span class="tempo-day-icon" aria-hidden="true"><svg class="icon"><use href="#${dayWeather.icon}"></use></svg></span>
+                    <span class="sr-only">${dayWeather.text}</span>
                     <span class="tempo-day-temps"><strong>${max}°</strong> ${min}°</span>
                 </div>
             `;
@@ -123,7 +124,7 @@
 
         container.innerHTML = `
             <div class="tempo-current">
-                <span class="tempo-icon" aria-hidden="true">${currentWeather.icon}</span>
+                <span class="tempo-icon" aria-hidden="true"><svg class="icon"><use href="#${currentWeather.icon}"></use></svg></span>
                 <div class="tempo-current-info">
                     <span class="tempo-temp">${temp}°C</span>
                     <span class="tempo-description">${currentWeather.text}</span>
@@ -142,7 +143,7 @@
         const message = lang === 'en'
             ? 'Weather forecast unavailable right now.'
             : 'Previsão do tempo indisponível de momento.';
-        container.innerHTML = `<p class="tempo-error">🌡️ ${message}</p>`;
+        container.innerHTML = `<p class="tempo-error">${message}</p>`;
         container.classList.remove('tempo-loading');
     }
 

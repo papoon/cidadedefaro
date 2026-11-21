@@ -162,6 +162,8 @@ function updateLanguageSwitcher() {
             } else {
                 enBtn.classList.add('active');
             }
+            ptBtn.setAttribute('aria-pressed', String(currentLang === 'pt'));
+            enBtn.setAttribute('aria-pressed', String(currentLang === 'en'));
         }
     }
 }

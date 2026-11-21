@@ -280,7 +280,7 @@ function createSearchInterface() {
     searchContainer.className = 'search-container';
     searchContainer.innerHTML = `
         <div class="search-input-wrapper">
-            <span class="search-icon" aria-hidden="true">🔍</span>
+            <span class="search-icon" aria-hidden="true"><svg class="icon"><use href="#i-search"></use></svg></span>
             <input
                 type="search"
                 id="global-search-input"
@@ -294,7 +294,7 @@ function createSearchInterface() {
                 aria-autocomplete="list"
             />
             <button id="search-clear-btn" class="search-clear-btn" title="Limpar pesquisa" aria-label="Limpar pesquisa">
-                ✕
+                <svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg>
             </button>
         </div>
         <div id="search-results" class="search-results" role="listbox" aria-label="Resultados da pesquisa"></div>
@@ -313,7 +313,7 @@ function renderSearchResults(results, container, statusEl) {
     if (!container) return;
 
     if (results.length === 0) {
-        const noResults = window.i18n?.t('errors.no_results') || '😕 Nenhum resultado encontrado';
+        const noResults = window.i18n?.t('errors.no_results') || 'Nenhum resultado encontrado';
         const searchTip = window.i18n?.t('errors.search_tip') || 'Tente usar outras palavras-chave';
         container.innerHTML = `
             <div class="search-no-results">
@@ -326,11 +326,6 @@ function renderSearchResults(results, container, statusEl) {
         return;
     }
 
-    const typeIcons = {
-        page: '📄',
-        service: '🏢',
-        location: '📍'
-    };
 
     const typeLabels = {
         page: 'Página',
@@ -341,12 +336,10 @@ function renderSearchResults(results, container, statusEl) {
     let html = '<ul class="search-results-list">';
 
     results.forEach((result, index) => {
-        const icon = typeIcons[result.type] || '📌';
         const label = typeLabels[result.type] || 'Item';
 
         html += `
             <li id="search-result-${index}" class="search-result-item" role="option" tabindex="-1" data-url="${result.url}">
-                <div class="result-icon">${icon}</div>
                 <div class="result-content">
                     <div class="result-title">${result.highlight}</div>
                     <div class="result-meta">

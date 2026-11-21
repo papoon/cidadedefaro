@@ -188,7 +188,8 @@ function createFavoriteButton(id, type, title, url, metadata = {}) {
     
     const isFav = favoritesManager.isFavorite(id);
     button.classList.toggle('is-favorite', isFav);
-    button.innerHTML = isFav ? '⭐' : '☆';
+    button.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-star"></use></svg>';
+    button.setAttribute('aria-pressed', String(isFav));
     
     button.addEventListener('click', function(e) {
         e.preventDefault();
@@ -200,17 +201,19 @@ function createFavoriteButton(id, type, title, url, metadata = {}) {
         if (isFavorite) {
             favoritesManager.removeFavorite(itemId);
             this.classList.remove('is-favorite');
-            this.innerHTML = '☆';
+            this.setAttribute('aria-pressed', 'false');
             const addLabel = window.i18n?.t('favorites.add_to_favorites') || 'Adicionar aos favoritos';
             this.setAttribute('title', addLabel);
+            this.setAttribute('aria-label', addLabel);
             const removedMsg = window.i18n?.t('favorites.removed_from_favorites') || 'Removido dos favoritos';
             showNotification(removedMsg, 'info');
         } else {
             favoritesManager.addFavorite(itemId, type, title, url, metadata);
             this.classList.add('is-favorite');
-            this.innerHTML = '⭐';
+            this.setAttribute('aria-pressed', 'true');
             const removeLabel = window.i18n?.t('favorites.remove_from_favorites') || 'Remover dos favoritos';
             this.setAttribute('title', removeLabel);
+            this.setAttribute('aria-label', removeLabel);
             const addedMsg = window.i18n?.t('favorites.added_to_favorites') || 'Adicionado aos favoritos';
             showNotification(addedMsg, 'success');
         }
@@ -250,93 +253,86 @@ function showNotification(message, type = 'info') {
  */
 function renderFavoritesList(container, filterType = null) {
     if (!container) return;
-    
-    const favorites = filterType 
+
+    const el = (tag, className, text) => {
+        const node = document.createElement(tag);
+        if (className) node.className = className;
+        if (text !== undefined) node.textContent = text;
+        return node;
+    };
+
+    const favorites = filterType
         ? favoritesManager.getFavoritesByType(filterType)
         : favoritesManager.getAllFavorites();
-    
+
+    container.replaceChildren();
+
     if (favorites.length === 0) {
         const emptyTitle = window.i18n?.t('favorites.empty_title') || 'Ainda não tem favoritos guardados.';
         const emptyDesc = window.i18n?.t('favorites.empty_description') || 'Adicione páginas, serviços e locais aos seus favoritos para acesso rápido!';
-        container.innerHTML = `
-            <div class="empty-favorites">
-                <p>📌 ${emptyTitle}</p>
-                <p>${emptyDesc}</p>
-            </div>
-        `;
+        const empty = el('div', 'empty-favorites');
+        empty.append(el('p', '', emptyTitle), el('p', '', emptyDesc));
+        container.appendChild(empty);
         return;
     }
-    
-    // Agrupar por tipo
+
     const grouped = {
         page: favorites.filter(f => f.type === 'page'),
         service: favorites.filter(f => f.type === 'service'),
         location: favorites.filter(f => f.type === 'location')
     };
-    
+
     const typeLabels = {
         page: window.i18n?.t('favorites.type_pages') || 'Páginas',
         service: window.i18n?.t('favorites.type_services') || 'Serviços',
         location: window.i18n?.t('favorites.type_locations') || 'Locais'
     };
-    
-    const typeIcons = {
-        page: '📄',
-        service: '🏢',
-        location: '📍'
-    };
-    
-    let html = '';
-    
+
+    const addedOnText = window.i18n?.t('favorites.added_on') || 'Adicionado em';
+    const removeText = window.i18n?.t('favorites.remove_button') || 'Remover';
+
     for (const [type, items] of Object.entries(grouped)) {
         if (items.length === 0) continue;
-        
-        html += `
-            <div class="favorites-group">
-                <h3>${typeLabels[type]} <span class="count">(${items.length})</span></h3>
-                <ul class="favorites-list">
-        `;
-        
+
+        const group = el('div', 'favorites-group');
+        const heading = el('h3', '', typeLabels[type] + ' ');
+        heading.appendChild(el('span', 'count', `(${items.length})`));
+        const list = el('ul', 'favorites-list');
+
         items.forEach(item => {
-            const date = new Date(item.addedAt).toLocaleDateString('pt-PT');
-            const addedOnText = window.i18n?.t('favorites.added_on') || 'Adicionado em';
-            const removeText = window.i18n?.t('favorites.remove_button') || 'Remover';
-            html += `
-                <li class="favorite-item" data-id="${item.id}">
-                    <div class="favorite-content">
-                        <span class="favorite-icon">${typeIcons[type]}</span>
-                        <div class="favorite-info">
-                            <a href="${item.url}" class="favorite-title">${item.title}</a>
-                            <span class="favorite-date">${addedOnText} ${date}</span>
-                        </div>
-                    </div>
-                    <button class="btn-remove-favorite" data-id="${item.id}" title="${removeText}" aria-label="${removeText}">
-                        🗑️
-                    </button>
-                </li>
-            `;
+            const li = el('li', 'favorite-item');
+            li.dataset.id = item.id;
+
+            const content = el('div', 'favorite-content');
+            const info = el('div', 'favorite-info');
+            const link = el('a', 'favorite-title', item.title);
+            // Only allow relative / http(s) links (favorites come from localStorage)
+            const url = String(item.url || '');
+            link.href = /^(https?:)?\/\//i.test(url) || !/^[a-z][a-z0-9+.-]*:/i.test(url) ? url : '#';
+            const date = new Date(item.addedAt).toLocaleDateString(window.i18n?.getCurrentLanguage?.() === 'en' ? 'en-GB' : 'pt-PT');
+            info.append(link, el('span', 'favorite-date', `${addedOnText} ${date}`));
+            content.appendChild(info);
+
+            const removeBtn = el('button', 'btn-remove-favorite', removeText);
+            removeBtn.type = 'button';
+            removeBtn.dataset.id = item.id;
+            removeBtn.setAttribute('aria-label', `${removeText}: ${item.title}`);
+            removeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (favoritesManager.removeFavorite(item.id)) {
+                    const removedMsg = window.i18n?.t('favorites.favorite_removed') || 'Favorito removido';
+                    showNotification(removedMsg, 'info');
+                    renderFavoritesList(container, filterType);
+                }
+            });
+
+            li.append(content, removeBtn);
+            list.appendChild(li);
         });
-        
-        html += `
-                </ul>
-            </div>
-        `;
+
+        group.append(heading, list);
+        container.appendChild(group);
     }
-    
-    container.innerHTML = html;
-    
-    // Adicionar event listeners aos botões de remover
-    container.querySelectorAll('.btn-remove-favorite').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const id = this.getAttribute('data-id');
-            if (favoritesManager.removeFavorite(id)) {
-                const removedMsg = window.i18n?.t('favorites.favorite_removed') || 'Favorito removido';
-                showNotification(removedMsg, 'info');
-                renderFavoritesList(container, filterType);
-            }
-        });
-    });
 }
 
 // Exportar funções globalmente para uso em scripts inline

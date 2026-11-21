@@ -2,16 +2,30 @@
    VOICE NAVIGATION - ESTILOS
    =================================== */
 
-/* Voice Navigation Toggle Button */
+/* Voice Navigation Toggle Button — inline in the masthead tool row when
+   present (.in-masthead, styled in style.css); fixed fallback otherwise. */
+.voice-nav-toggle.in-masthead {
+    position: static;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    box-shadow: none;
+    color: var(--ink);
+}
+.voice-nav-toggle.in-masthead.active { background: transparent; color: var(--ria); }
+.voice-nav-toggle.in-masthead.listening { background: var(--danger); color: var(--paper); animation: none; }
+
 .voice-nav-toggle {
     position: fixed;
     right: 1rem;
     /* Position below the accessibility toolbar (which is at top: ~5rem) */
     top: calc(1rem + 3rem + 0.5rem + 3rem + 0.5rem);
     z-index: 9998;
-    background: rgba(255, 255, 255, 0.9);
-    color: #2c3338;
-    border: 2px solid #e6ddce;
+    background: var(--surface);
+    color: var(--ink);
+    border: 2px solid var(--rule);
     border-radius: 50%;
     width: 3rem;
     height: 3rem;
@@ -27,25 +41,25 @@
 
 .voice-nav-toggle:hover,
 .voice-nav-toggle:focus {
-    transform: scale(1.05);
-    background: rgba(245, 245, 245, 0.95);
+    
+    background: var(--paper-2);
 }
 
 .voice-nav-toggle:focus {
-    outline: 3px solid #146a8c;
+    outline: 3px solid var(--ria);
     outline-offset: 2px;
 }
 
 .voice-nav-toggle.active {
-    background: #146a8c;
-    color: white;
-    border-color: #146a8c;
+    background: var(--ria);
+    color: var(--paper);
+    border-color: var(--ria);
 }
 
 .voice-nav-toggle.listening {
-    background: #d9584a;
-    color: white;
-    border-color: #d9584a;
+    background: var(--danger);
+    color: var(--paper);
+    border-color: var(--danger);
     animation: pulse-voice 1.5s ease-in-out infinite;
 }
 
@@ -84,8 +98,8 @@
 
 /* Voice Navigation Modal */
 .voice-nav-modal {
-    background: white;
-    border-radius: 16px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
     padding: 2rem;
     max-width: 500px;
     width: 90%;
@@ -95,7 +109,7 @@
 
 .voice-nav-modal h2 {
     margin-top: 0;
-    color: #2c3338;
+    color: var(--ink);
     font-size: 1.5rem;
 }
 
@@ -115,45 +129,45 @@
         transform: translateY(0);
     }
     50% {
-        transform: translateY(-10px);
+        
     }
 }
 
 /* Voice Status Text */
 .voice-status {
     font-size: 1.125rem;
-    color: #4a4a45;
+    color: var(--ink-2);
     margin: 1rem 0;
     min-height: 1.5rem;
 }
 
 .voice-status.listening {
-    color: #d9584a;
+    color: var(--danger);
     font-weight: 600;
 }
 
 .voice-status.success {
-    color: #4c8c5b;
+    color: var(--ok);
     font-weight: 600;
 }
 
 /* Voice Transcript Display */
 .voice-transcript {
-    background: #faf7f2;
-    border: 2px solid #e6ddce;
-    border-radius: 8px;
+    background: var(--paper);
+    border: 2px solid var(--rule);
+    border-radius: var(--radius-lg);
     padding: 1rem;
     margin: 1rem 0;
     min-height: 3rem;
     font-size: 1rem;
-    color: #2c3338;
+    color: var(--ink);
     font-style: italic;
 }
 
 /* Voice Commands Help */
 .voice-commands-help {
-    background: #f3ede1;
-    border-radius: 8px;
+    background: var(--paper-2);
+    border-radius: var(--radius-lg);
     padding: 1rem;
     margin-top: 1.5rem;
     text-align: left;
@@ -162,7 +176,7 @@
 .voice-commands-help h3 {
     margin-top: 0;
     font-size: 1rem;
-    color: #2c3338;
+    color: var(--ink);
 }
 
 .voice-commands-help ul {
@@ -173,12 +187,12 @@
 
 .voice-commands-help li {
     padding: 0.5rem 0;
-    color: #4a4a45;
+    color: var(--ink-2);
     font-size: 0.875rem;
 }
 
 .voice-commands-help code {
-    background: #ded3bd;
+    background: var(--rule);
     padding: 0.125rem 0.5rem;
     border-radius: 4px;
     font-family: 'Courier New', monospace;
@@ -195,8 +209,9 @@
 
 .voice-btn {
     padding: 0.75rem 1.5rem;
+    min-height: 2.75rem;
     border: none;
-    border-radius: 8px;
+    border-radius: var(--radius-lg);
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -204,34 +219,34 @@
 }
 
 .voice-btn-primary {
-    background: #146a8c;
-    color: white;
+    background: var(--ria);
+    color: var(--paper);
 }
 
 .voice-btn-primary:hover {
-    background: #125a78;
+    background: var(--ria-deep);
 }
 
 .voice-btn-secondary {
-    background: #e6ddce;
-    color: #2c3338;
+    background: var(--rule);
+    color: var(--ink);
 }
 
 .voice-btn-secondary:hover {
-    background: #ded3bd;
+    background: var(--rule);
 }
 
 .voice-btn-danger {
-    background: #d9584a;
-    color: white;
+    background: var(--danger);
+    color: var(--paper);
 }
 
 .voice-btn-danger:hover {
-    background: #c0392b;
+    background: var(--danger);
 }
 
 .voice-btn:focus {
-    outline: 3px solid #146a8c;
+    outline: 3px solid var(--ria);
     outline-offset: 2px;
 }
 
@@ -248,14 +263,14 @@
 .voice-help-toggle {
     background: none;
     border: none;
-    color: #146a8c;
+    color: var(--ria);
     text-decoration: underline;
     cursor: pointer;
     font-size: 0.875rem;
 }
 
 .voice-help-toggle:hover {
-    color: #125a78;
+    color: var(--ria-deep);
 }
 
 /* Voice Feedback Toast */
@@ -264,8 +279,8 @@
     top: 6rem;
     left: 50%;
     transform: translateX(-50%);
-    background: white;
-    border-radius: 8px;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
     padding: 1rem 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 10000;
@@ -280,83 +295,21 @@
 }
 
 .voice-toast.success {
-    border-left: 4px solid #4c8c5b;
+    border-left: 4px solid var(--ok);
 }
 
 .voice-toast.error {
-    border-left: 4px solid #d9584a;
+    border-left: 4px solid var(--danger);
 }
 
 .voice-toast.info {
-    border-left: 4px solid #48b1db;
-}
-
-/* Dark Mode Support */
-.dark-mode .voice-nav-toggle {
-    background: rgba(44, 51, 56, 0.9);
-    color: #e6ddce;
-    border-color: #4a4a45;
-}
-
-.dark-mode .voice-nav-toggle.active {
-    background: #146a8c;
-    color: white;
-}
-
-.dark-mode .voice-nav-modal {
-    background: #2c3338;
-    color: #e6ddce;
-}
-
-.dark-mode .voice-nav-modal h2 {
-    color: #e6ddce;
-}
-
-.dark-mode .voice-status {
-    color: #9c968a;
-}
-
-.dark-mode .voice-transcript {
-    background: #1b272b;
-    border-color: #4a4a45;
-    color: #e6ddce;
-}
-
-.dark-mode .voice-commands-help {
-    background: #1b272b;
-}
-
-.dark-mode .voice-commands-help h3 {
-    color: #e6ddce;
-}
-
-.dark-mode .voice-commands-help li {
-    color: #9c968a;
-}
-
-.dark-mode .voice-commands-help code {
-    background: #4a4a45;
-    color: #e6ddce;
-}
-
-.dark-mode .voice-btn-secondary {
-    background: #4a4a45;
-    color: #e6ddce;
-}
-
-.dark-mode .voice-btn-secondary:hover {
-    background: #6b6a63;
-}
-
-.dark-mode .voice-toast {
-    background: #2c3338;
-    color: #e6ddce;
+    border-left: 4px solid var(--ria);
 }
 
 /* High Contrast Mode Support */
 .high-contrast .voice-nav-toggle {
     background: #000;
-    color: #fff;
+    color: var(--paper);
     border: 3px solid #fff;
 }
 
@@ -368,14 +321,14 @@
 
 .high-contrast .voice-nav-modal {
     background: #000;
-    color: #fff;
+    color: var(--paper);
     border: 3px solid #fff;
 }
 
 .high-contrast .voice-transcript {
     background: #000;
     border-color: #fff;
-    color: #fff;
+    color: var(--paper);
 }
 
 /* Mobile Responsive */
@@ -385,8 +338,6 @@
         height: 2.5rem;
         font-size: 1rem;
         right: 0.75rem;
-        /* Position below accessibility button instead of at bottom
-           Calculation: 0.75rem (initial margin) + 2.5rem (dark mode toggle) + 0.4rem (gap) + 2.5rem (accessibility button) + 0.5rem (gap) */
         top: calc(0.75rem + 2.5rem + 0.4rem + 2.5rem + 0.5rem);
         bottom: auto;
     }
@@ -434,3 +385,4 @@
         }
     }
 }
+.voice-mic-icon .icon { width: 3rem; height: 3rem; stroke-width: 1.3; }

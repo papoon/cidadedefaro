@@ -35,253 +35,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    <style>
-        .quick-access-hero {
-            background: linear-gradient(135deg, #c0392b 0%, #9c2e22 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-        
-        .quick-access-hero h2 {
-            color: white;
-            margin-bottom: 0.5rem;
-            font-size: 2rem;
-        }
-        
-        .quick-access-hero p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-        }
-        
-        .emergency-card {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #c0392b;
-        }
-        
-        .emergency-card.priority {
-            border-left-width: 8px;
-            background: #fff7f5;
-        }
-        
-        .emergency-card h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-        
-        .emergency-card .icon {
-            font-size: 2.5rem;
-        }
-        
-        .btn-call-large {
-            display: block;
-            width: 100%;
-            padding: 1.25rem 2rem;
-            background: linear-gradient(135deg, #c0392b 0%, #9c2e22 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.5rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            margin-bottom: 1rem;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
-        }
-        
-        .btn-call-large:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(192, 57, 43, 0.4);
-        }
-        
-        .btn-call-large:active {
-            transform: translateY(-1px);
-        }
-        
-        .btn-call-large .phone-icon {
-            font-size: 1.8rem;
-            margin-right: 0.5rem;
-        }
-        
-        .btn-secondary-large {
-            display: block;
-            width: 100%;
-            padding: 1rem 1.5rem;
-            background: linear-gradient(135deg, #146a8c 0%, #0d3b4f 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1.2rem;
-            text-align: center;
-            transition: all 0.3s ease;
-            margin-bottom: 0.75rem;
-            box-shadow: 0 3px 10px rgba(20, 106, 140, 0.3);
-        }
-        
-        .btn-secondary-large:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(20, 106, 140, 0.4);
-        }
-        
-        .info-text {
-            color: #4a4a45;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-        
-        .info-text strong {
-            color: #2c3338;
-            font-weight: 600;
-        }
-        
-        .service-hours {
-            background: #faf7f2;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            border-left: 4px solid #4c8c5b;
-        }
-        
-        .service-hours strong {
-            color: #2c3338;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        
-        .disclaimer {
-            background: #fff7f0;
-            border: 2px solid #e8863b;
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .disclaimer h4 {
-            color: #bc6625;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            font-size: 1.1rem;
-        }
-        
-        .disclaimer p {
-            color: #723c12;
-            line-height: 1.6;
-            margin: 0;
-        }
-        
-        .quick-links {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .quick-link-card {
-            background: #faf7f2;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            border: 2px solid #e6ddce;
-            transition: all 0.3s ease;
-        }
-        
-        .quick-link-card:hover {
-            border-color: #146a8c;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(20, 106, 140, 0.2);
-        }
-        
-        .quick-link-card .icon {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .quick-link-card h4 {
-            color: #2c3338;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .quick-link-card p {
-            color: #6b6a63;
-            font-size: 0.95rem;
-        }
-        
-        @media (max-width: 768px) {
-            .quick-access-hero h2 {
-                font-size: 1.5rem;
-            }
-            
-            .quick-access-hero p {
-                font-size: 1rem;
-            }
-            
-            .emergency-card {
-                padding: 1.5rem;
-            }
-            
-            .emergency-card h3 {
-                font-size: 1.25rem;
-            }
-            
-            .btn-call-large {
-                font-size: 1.3rem;
-                padding: 1rem 1.5rem;
-            }
-            
-            .btn-secondary-large {
-                font-size: 1.1rem;
-                padding: 0.875rem 1.25rem;
-            }
-        }
-        
-        /* High contrast improvements for accessibility */
-        @media (prefers-contrast: high) {
-            .btn-call-large,
-            .btn-secondary-large {
-                border: 2px solid currentColor;
-            }
-            
-            .emergency-card {
-                border-width: 3px;
-            }
-        }
-        
-        /* Utility classes */
-        .info-text-spaced {
-            margin-top: 1rem;
-        }
-        
-        .section-title {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #2c3338;
-        }
-        
-        .phone-link {
-            color: #146a8c;
-            text-decoration: underline;
-        }
-        
-        .phone-link:hover {
-            color: #0d3b4f;
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -289,24 +42,23 @@
 
     <main id="main-content" role="main">
         <div class="quick-access-hero">
-            <h2 data-i18n="health_now.hero_title">🚨 Saúde: Onde Ir Agora</h2>
+            <h1 data-i18n="health_now.hero_title">Saúde: Onde Ir Agora</h1>
             <p data-i18n="health_now.hero_description">Acesso rápido a serviços de saúde essenciais em Faro</p>
         </div>
 
         <!-- SNS 24 - Priority Contact -->
         <section class="emergency-card priority" aria-labelledby="sns24-title">
             <h3 id="sns24-title">
-                <span class="icon" aria-hidden="true">📞</span>
                 <span data-i18n="health_now.sns24_title">SNS 24 - Linha de Saúde</span>
             </h3>
             <p class="info-text" data-i18n="health_now.sns24_description">
                 Ligue para obter aconselhamento de saúde gratuito 24 horas, orientação sobre sintomas e informação sobre farmácias de serviço.
             </p>
             <a href="tel:808242424" class="btn-call-large" data-i18n="health_now.call_sns24_aria" data-i18n-attr="aria-label" aria-label="Ligar para SNS 24">
-                <span class="phone-icon" aria-hidden="true">📞</span> <span data-i18n="health_now.call_sns24">808 24 24 24</span>
+                <span data-i18n="health_now.call_sns24">808 24 24 24</span>
             </a>
             <div class="service-hours">
-                <strong data-i18n="health_now.available_247">✅ Disponível 24 horas, 7 dias por semana</strong>
+                <strong data-i18n="health_now.available_247">Disponível 24 horas, 7 dias por semana</strong>
                 <span data-i18n="health_now.sns24_services">Aconselhamento médico, triagem de sintomas, farmácias de serviço</span>
             </div>
         </section>
@@ -314,24 +66,22 @@
         <!-- Emergency 112 -->
         <section class="emergency-card priority" aria-labelledby="emergency-title">
             <h3 id="emergency-title">
-                <span class="icon" aria-hidden="true">🚨</span>
                 <span data-i18n="health_now.emergency_title">Emergência Médica Grave</span>
             </h3>
             <p class="info-text" data-i18n="health_now.emergency_description">
                 Em caso de emergência médica grave (risco de vida, acidente grave, perda de consciência), ligue imediatamente.
             </p>
             <a href="tel:112" class="btn-call-large" data-i18n="health_now.call_112_aria" data-i18n-attr="aria-label" aria-label="Ligar para 112">
-                <span class="phone-icon" aria-hidden="true">🚨</span> <span data-i18n="health_now.call_112">112</span>
+                <span data-i18n="health_now.call_112">112</span>
             </a>
             <div class="service-hours">
-                <strong data-i18n="health_now.emergency_only">⚠️ Apenas para emergências graves</strong>
+                <strong data-i18n="health_now.emergency_only">Apenas para emergências graves</strong>
             </div>
         </section>
 
         <!-- Hospital Emergency -->
         <section class="emergency-card" aria-labelledby="hospital-title">
             <h3 id="hospital-title">
-                <span class="icon" aria-hidden="true">🏥</span>
                 <span data-i18n="health_now.hospital_title">Urgências do Hospital de Faro</span>
             </h3>
             <p class="info-text">
@@ -339,24 +89,23 @@
                 <span data-i18n="health_now.hospital_address">Leão Penedo, 8000-386 Faro</span>
             </p>
             <div class="service-hours">
-                <strong data-i18n="health_now.hospital_hours">🕐 Urgências abertas 24 horas</strong>
+                <strong data-i18n="health_now.hospital_hours">Urgências abertas 24 horas</strong>
             </div>
             <a href="tel:289891100" class="btn-secondary-large" data-i18n="health_now.call_hospital">
-                📞 Ligar: 289 891 100
+                Ligar: 289 891 100
             </a>
             <a href="https://www.google.com/maps/search/?api=1&query=Centro+Hospitalar+Universitário+do+Algarve+Hospital+de+Faro" 
                target="_blank" 
                rel="noopener noreferrer" 
                class="btn-secondary-large" 
                data-i18n="health_now.directions_hospital">
-                🗺️ Ver Direções no Mapa
+                Ver Direções no Mapa
             </a>
         </section>
 
         <!-- Health Centers -->
         <section class="emergency-card" aria-labelledby="health-centers-title">
             <h3 id="health-centers-title">
-                <span class="icon" aria-hidden="true">🏢</span>
                 <span data-i18n="health_now.health_centers_title">Centros de Saúde</span>
             </h3>
             <p class="info-text" data-i18n="health_now.health_centers_description">
@@ -366,11 +115,11 @@
             <div class="service-hours">
                 <strong data-i18n="health_now.center_faro">Centro de Saúde de Faro</strong>
                 <span data-i18n="health_now.center_faro_address">Rua Leão Penedo, 8000-355 Faro</span><br>
-                <span data-i18n="health_now.center_hours">🕐 Horário: Segunda a Sexta, 8h-20h</span>
+                <span data-i18n="health_now.center_hours">Horário: Segunda a Sexta, 8h-20h</span>
             </div>
             
             <a href="tel:289891000" class="btn-secondary-large" data-i18n="health_now.call_center">
-                📞 Ligar: 289 891 000
+                Ligar: 289 891 000
             </a>
             
             <p class="info-text info-text-spaced">
@@ -383,7 +132,6 @@
         <!-- Pharmacies on Duty -->
         <section class="emergency-card" aria-labelledby="pharmacies-title">
             <h3 id="pharmacies-title">
-                <span class="icon" aria-hidden="true">💊</span>
                 <span data-i18n="health_now.pharmacies_title">Farmácias de Serviço (Hoje)</span>
             </h3>
             <p class="info-text" data-i18n="health_now.pharmacies_description">
@@ -391,7 +139,7 @@
             </p>
             
             <a href="tel:808242424" class="btn-secondary-large" data-i18n="health_now.call_sns24_pharmacy">
-                📞 Ligar SNS 24: 808 24 24 24
+                Ligar SNS 24: 808 24 24 24
             </a>
             
             <a href="https://www.portaldasfarmacias.pt" 
@@ -399,28 +147,27 @@
                rel="noopener noreferrer" 
                class="btn-secondary-large" 
                data-i18n="health_now.check_online_pharmacies">
-                🌐 Consultar Online
+                Consultar Online
             </a>
             
             <a href="saude.html#farmacias-section" class="btn-secondary-large" data-i18n="health_now.all_pharmacies">
-                💊 Ver Todas as Farmácias em Faro
+                Ver Todas as Farmácias em Faro
             </a>
         </section>
 
         <!-- Poison Center -->
         <section class="emergency-card" aria-labelledby="poison-title">
             <h3 id="poison-title">
-                <span class="icon" aria-hidden="true">☠️</span>
                 <span data-i18n="health_now.poison_title">Centro de Informação Antivenenos</span>
             </h3>
             <p class="info-text" data-i18n="health_now.poison_description">
                 Em caso de intoxicação ou envenenamento, contacte o Centro de Informação Antivenenos.
             </p>
             <a href="tel:800250250" class="btn-secondary-large" data-i18n="health_now.call_poison">
-                📞 Ligar: 800 250 250
+                Ligar: 800 250 250
             </a>
             <div class="service-hours">
-                <strong data-i18n="health_now.poison_hours">✅ Disponível 24 horas</strong>
+                <strong data-i18n="health_now.poison_hours">Disponível 24 horas</strong>
             </div>
         </section>
 
@@ -431,19 +178,16 @@
             </h3>
             <div class="quick-links">
                 <a href="saude.html" class="quick-link-card">
-                    <div class="icon" aria-hidden="true">🏥</div>
                     <h4 data-i18n="health_now.link_all_services">Todos os Serviços de Saúde</h4>
                     <p data-i18n="health_now.link_all_services_desc">Informação completa sobre saúde em Faro</p>
                 </a>
                 
                 <a href="problemas-frequentes.html" class="quick-link-card">
-                    <div class="icon" aria-hidden="true">🛠️</div>
                     <h4 data-i18n="health_now.link_common_issues">Problemas Frequentes</h4>
                     <p data-i18n="health_now.link_common_issues_desc">Resolver problemas urbanos comuns</p>
                 </a>
                 
                 <a href="index.html" class="quick-link-card">
-                    <div class="icon" aria-hidden="true">🏠</div>
                     <h4 data-i18n="health_now.link_home">Página Inicial</h4>
                     <p data-i18n="health_now.link_home_desc">Voltar ao guia de Faro</p>
                 </a>
@@ -452,7 +196,7 @@
 
         <!-- Medical Disclaimer -->
         <section class="disclaimer" role="complementary" aria-labelledby="disclaimer-title">
-            <h4 id="disclaimer-title" data-i18n="health_now.disclaimer_title">⚠️ Aviso Importante</h4>
+            <h4 id="disclaimer-title" data-i18n="health_now.disclaimer_title">Aviso Importante</h4>
             <p data-i18n="health_now.disclaimer_text">
                 Esta página fornece informação de caráter geral e não substitui o aconselhamento, diagnóstico ou tratamento médico profissional. 
                 Em caso de dúvida ou emergência médica, contacte sempre um profissional de saúde qualificado ou ligue para o 112. 

@@ -223,14 +223,20 @@
         toggleBtn.className = 'voice-nav-toggle';
         toggleBtn.setAttribute('aria-label', getTranslation('voice_nav.toggle_label'));
         toggleBtn.setAttribute('aria-pressed', voiceNavState.enabled);
-        toggleBtn.innerHTML = '<span aria-hidden="true">🎤</span>';
+        toggleBtn.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-mic"></use></svg>';
         
         if (voiceNavState.enabled) {
             toggleBtn.classList.add('active');
         }
         
         toggleBtn.addEventListener('click', toggleVoiceNavigation);
-        document.body.appendChild(toggleBtn);
+        const tools = document.getElementById('masthead-tools');
+        if (tools) {
+            toggleBtn.classList.add('in-masthead');
+            tools.appendChild(toggleBtn);
+        } else {
+            document.body.appendChild(toggleBtn);
+        }
         
         // Create overlay modal
         const overlay = document.createElement('div');
@@ -239,7 +245,7 @@
         overlay.innerHTML = `
             <div class="voice-nav-modal" role="dialog" aria-modal="true" aria-labelledby="voice-nav-modal-title">
                 <h2 id="voice-nav-modal-title">${getTranslation('voice_nav.modal_title')}</h2>
-                <div class="voice-mic-icon" id="voice-mic-icon" aria-hidden="true">🎤</div>
+                <div class="voice-mic-icon" id="voice-mic-icon" aria-hidden="true"><svg class="icon"><use href="#i-mic"></use></svg></div>
                 <div class="voice-status" id="voice-status" aria-live="polite" aria-atomic="true">${getTranslation('voice_nav.status_ready')}</div>
                 <div class="voice-transcript" id="voice-transcript" aria-live="polite"></div>
 

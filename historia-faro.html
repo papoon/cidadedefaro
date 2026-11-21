@@ -35,176 +35,6 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
     
     <%- metaCommon %>
-    <style>
-        .timeline-container {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        
-        .timeline {
-            position: relative;
-            padding: 2rem 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(135deg, #146a8c 0%, #0d3b4f 100%);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            width: 100%;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-        
-        .timeline-item:nth-child(even) {
-            justify-content: flex-end;
-        }
-        
-        .timeline-content {
-            width: 45%;
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content {
-            text-align: right;
-        }
-        
-        .timeline-icon {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #146a8c 0%, #0d3b4f 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            z-index: 2;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        .timeline-date {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #146a8c;
-            margin-bottom: 0.5rem;
-        }
-        
-        .timeline-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #2c3338;
-            margin-bottom: 1rem;
-        }
-        
-        .timeline-description {
-            color: #4a4a45;
-            line-height: 1.6;
-        }
-        
-        .intro-section {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 3rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .intro-section h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-        
-        .intro-section p {
-            color: #4a4a45;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-        
-        .urban-evolution-section {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-top: 3rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .urban-evolution-section h3 {
-            color: #2c3338;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-        
-        .evolution-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .evolution-card {
-            background: #faf7f2;
-            border-left: 4px solid #146a8c;
-            padding: 1.5rem;
-            border-radius: 8px;
-        }
-        
-        .evolution-card h4 {
-            color: #2c3338;
-            font-size: 1.125rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .evolution-card p {
-            color: #4a4a45;
-            line-height: 1.6;
-        }
-        
-        @media (max-width: 768px) {
-            .timeline::before {
-                left: 30px;
-            }
-            
-            .timeline-item {
-                justify-content: flex-end !important;
-            }
-            
-            .timeline-content {
-                width: calc(100% - 80px);
-                text-align: left !important;
-            }
-            
-            .timeline-icon {
-                left: 30px;
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <%- header %>
@@ -212,12 +42,12 @@
 
     <main id="main-content" role="main">
         <section class="hero">
-            <h2 data-i18n="history.hero_title">Linha do Tempo da Cidade de Faro</h2>
+            <h1 data-i18n="history.hero_title">Linha do Tempo da Cidade de Faro</h1>
             <p data-i18n="history.hero_description">Descubra a rica história de Faro através dos séculos, desde a sua fundação até aos dias de hoje.</p>
         </section>
 
         <section class="intro-section">
-            <h3 data-i18n="history.about_title">🏛️ Sobre Faro</h3>
+            <h3 data-i18n="history.about_title">Sobre Faro</h3>
             <p data-i18n="history.about_p1">Faro é uma das cidades mais antigas de Portugal, com uma história que remonta a mais de dois mil anos. Localizada no sul do país, na região do Algarve, Faro tem sido um importante centro comercial e cultural desde a época romana.</p>
             <p data-i18n="history.about_p2">A cidade foi palco de diversos eventos históricos marcantes, desde a ocupação romana e mourisca até à reconstrução após o terramoto de 1755. Hoje, Faro é a capital administrativa do Algarve e um importante destino turístico, preservando o seu rico património histórico e cultural.</p>
         </section>
@@ -226,7 +56,6 @@
             <div class="timeline">
                 <!-- Pré-História e Antiguidade -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">🏺</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_phoenician">Séc. IV a.C.</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_phoenician">Fundação Fenícia</h3>
@@ -236,7 +65,6 @@
 
                 <!-- Período Romano -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">🏛️</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_roman">Séc. II d.C.</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_roman">Ossonoba Romana</h3>
@@ -246,7 +74,6 @@
 
                 <!-- Período Visigótico -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">⛪</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_visigoth">Séc. V-VIII</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_visigoth">Período Visigótico</h3>
@@ -256,7 +83,6 @@
 
                 <!-- Domínio Muçulmano -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">🕌</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_moorish">714-1249</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_moorish">Hárune Mourisca</h3>
@@ -266,7 +92,6 @@
 
                 <!-- Reconquista Cristã -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">⚔️</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_reconquest">1249</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_reconquest">Reconquista por D. Afonso III</h3>
@@ -276,7 +101,6 @@
 
                 <!-- Era dos Descobrimentos -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">⛵</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_discoveries">Séc. XV-XVI</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_discoveries">Era dos Descobrimentos</h3>
@@ -286,7 +110,6 @@
 
                 <!-- Invasão Inglesa -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">🏴</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_essex">1596</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_essex">Ataque de Essex</h3>
@@ -296,7 +119,6 @@
 
                 <!-- Terramoto de 1755 -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">🌊</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_earthquake">1755</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_earthquake">Terramoto e Reconstrução</h3>
@@ -306,7 +128,6 @@
 
                 <!-- Capital do Algarve -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">🏛️</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_capital">1808</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_capital">Capital do Algarve</h3>
@@ -316,7 +137,6 @@
 
                 <!-- Modernização -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">🚂</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_railway">1889</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_railway">Chegada do Comboio</h3>
@@ -326,7 +146,6 @@
 
                 <!-- Universidade -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">🎓</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_university">1979</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_university">Universidade do Algarve</h3>
@@ -336,7 +155,6 @@
 
                 <!-- Aeroporto -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">✈️</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_airport">1965</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_airport">Aeroporto Internacional</h3>
@@ -346,7 +164,6 @@
 
                 <!-- Atualidade -->
                 <div class="timeline-item">
-                    <div class="timeline-icon">🌟</div>
                     <div class="timeline-content">
                         <div class="timeline-date" data-i18n="history.timeline_date_modern">Século XXI</div>
                         <h3 class="timeline-title" data-i18n="history.timeline_title_modern">Faro Moderna</h3>
@@ -357,37 +174,37 @@
         </section>
 
         <section class="urban-evolution-section">
-            <h3 data-i18n="history.evolution_title">🏙️ Evolução Urbana</h3>
+            <h3 data-i18n="history.evolution_title">Evolução Urbana</h3>
             <p data-i18n="history.evolution_description">A evolução urbana de Faro reflete as diferentes épocas e influências culturais que marcaram a cidade ao longo dos séculos.</p>
             
             <div class="evolution-grid">
                 <div class="evolution-card">
-                    <h4 data-i18n="history.evolution_historic_title">🏛️ Centro Histórico</h4>
+                    <h4 data-i18n="history.evolution_historic_title">Centro Histórico</h4>
                     <p data-i18n="history.evolution_historic_desc">O núcleo medieval, circundado por muralhas do período islâmico, preserva o traçado urbano antigo. Destacam-se a Sé Catedral, o Arco da Vila e os palácios episcopais, todos reconstruídos após 1755.</p>
                 </div>
                 
                 <div class="evolution-card">
-                    <h4 data-i18n="history.evolution_pombaline_title">🏘️ Expansão Pombalina</h4>
+                    <h4 data-i18n="history.evolution_pombaline_title">Expansão Pombalina</h4>
                     <p data-i18n="history.evolution_pombaline_desc">Após o terramoto de 1755, a cidade expandiu-se seguindo princípios urbanísticos pombalinos, com ruas largas e traçado ortogonal. Esta zona caracteriza-se por edifícios neoclássicos e maior regularidade urbana.</p>
                 </div>
                 
                 <div class="evolution-card">
-                    <h4 data-i18n="history.evolution_waterfront_title">🌳 Zona Ribeirinha</h4>
+                    <h4 data-i18n="history.evolution_waterfront_title">Zona Ribeirinha</h4>
                     <p data-i18n="history.evolution_waterfront_desc">O desenvolvimento do Parque Ribeirinho e da marina transformou a frente de água num espaço de lazer e turismo. A requalificação desta área valorizou a relação da cidade com a Ria Formosa.</p>
                 </div>
                 
                 <div class="evolution-card">
-                    <h4 data-i18n="history.evolution_modern_title">🏢 Expansão Moderna</h4>
+                    <h4 data-i18n="history.evolution_modern_title">Expansão Moderna</h4>
                     <p data-i18n="history.evolution_modern_desc">No século XX, Faro expandiu-se significativamente para norte e oeste, com novos bairros residenciais, zonas comerciais e o campus universitário. O aeroporto e as vias rápidas melhoraram a acessibilidade.</p>
                 </div>
                 
                 <div class="evolution-card">
-                    <h4 data-i18n="history.evolution_natural_title">🏞️ Parque Natural</h4>
+                    <h4 data-i18n="history.evolution_natural_title">Parque Natural</h4>
                     <p data-i18n="history.evolution_natural_desc">A Ria Formosa, classificada como Parque Natural em 1987, é um elemento fundamental da identidade de Faro. A preservação deste ecossistema único condiciona e enriquece o desenvolvimento urbano.</p>
                 </div>
                 
                 <div class="evolution-card">
-                    <h4 data-i18n="history.evolution_future_title">🎯 Futuro Sustentável</h4>
+                    <h4 data-i18n="history.evolution_future_title">Futuro Sustentável</h4>
                     <p data-i18n="history.evolution_future_desc">Os planos de desenvolvimento atuais focam-se na sustentabilidade, mobilidade urbana, requalificação de espaços públicos e promoção da identidade cultural e histórica de Faro.</p>
                 </div>
             </div>

@@ -8,12 +8,13 @@
     const STORAGE_KEY = 'guiafaro-dismissed-alerts';
 
     // Alert types and their icons
+    // Values are sprite ids from src/partials/icons.html
     const ALERT_TYPES = {
-        info: 'ℹ️',
-        warning: '⚠️',
-        event: '📅',
-        success: '✅',
-        important: '❗'
+        info: 'i-info',
+        warning: 'i-alert',
+        event: 'i-calendar',
+        success: 'i-check',
+        important: 'i-siren'
     };
 
     // Store for active alerts
@@ -120,7 +121,13 @@
         const iconSpan = document.createElement('span');
         iconSpan.className = 'alert-icon';
         iconSpan.setAttribute('aria-hidden', 'true');
-        iconSpan.textContent = icon;
+        const svgNS = 'http://www.w3.org/2000/svg';
+        const iconSvg = document.createElementNS(svgNS, 'svg');
+        iconSvg.setAttribute('class', 'icon');
+        const iconUse = document.createElementNS(svgNS, 'use');
+        iconUse.setAttribute('href', '#' + icon);
+        iconSvg.appendChild(iconUse);
+        iconSpan.appendChild(iconSvg);
         alertElement.appendChild(iconSpan);
 
         const contentDiv = document.createElement('div');
@@ -147,7 +154,7 @@
             closeBtn.setAttribute('title', 'Fechar alerta');
             closeBtn.setAttribute('data-i18n', 'alerts.close_button');
             closeBtn.setAttribute('data-i18n-attr', 'aria-label,title');
-            closeBtn.textContent = '✕';
+            closeBtn.innerHTML = '<svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg>';
             closeBtn.addEventListener('click', function() {
                 dismissAlert(options.id, !options.persistent);
             });
