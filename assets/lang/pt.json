@@ -32,6 +32,7 @@
     "phrases": "Frases Úteis"
   },
   "weather": {
+    "attribution": "Dados meteorológicos:",
     "section_title": "Tempo em Faro",
     "loading": "A carregar previsão…"
   },
@@ -42,7 +43,7 @@
     "hero_cta_map": "Abrir o mapa",
     "sections_title": "O guia, por temas",
     "sections_intro": "Tudo o que precisa para viver, visitar e descobrir Faro, organizado por tema.",
-    "closing_title": "Um projeto de utilidade pública",
+    "closing_title": "Um projeto comunitário e independente",
     "closing_description": "Gratuito, sem tracking e mantido de forma independente. Conheça a missão do projeto e como pode contribuir.",
     "closing_cta": "Sobre o Projeto",
     "card_transport_title": "Transportes",
@@ -88,13 +89,15 @@
   },
   "footer": {
     "copyright": "&copy; 2025–2026 Faro Formoso",
-    "data_sources": "Fontes de dados: OpenStreetMap, Open-Meteo, INE e fontes oficiais (Câmara Municipal de Faro, gov.pt, SNS)",
+    "data_sources": "Fontes de dados: OpenStreetMap, Open-Meteo, IPMA, INE e fontes oficiais (Câmara Municipal de Faro, gov.pt, SNS)",
     "donation_message": "Apoie este projeto de forma voluntária",
     "donation_button": "Apoiar o Projeto",
     "privacy_policy": "Política de Privacidade",
     "terms_conditions": "Termos e Condições",
     "about": "Sobre",
-    "mission": "Um guia de utilidade pública, gratuito, sem publicidade e sem tracking, mantido de forma independente.",
+    "mission": "Um guia comunitário, gratuito, sem publicidade e sem tracking, mantido de forma independente.",
+    "unofficial": "Projeto independente e não oficial: sem ligação à Câmara Municipal de Faro nem a qualquer entidade pública. Confirme sempre a informação importante junto das fontes oficiais.",
+    "accessibility_statement": "Declaração de Acessibilidade",
     "label_sources": "Fontes",
     "label_project": "Projeto"
   },
@@ -124,13 +127,15 @@
     "home_title": "Faro Formoso - Viver, Descobrir e Participar na Cidade de Faro, Portugal",
     "beaches_title": "Praias e Ilhas: Barcos e Horários - Faro Formoso",
     "arrival_title": "Chegar a Faro: do Aeroporto ao Centro - Faro Formoso",
-    "phrases_title": "Frases Úteis em Português - Faro Formoso"
+    "phrases_title": "Frases Úteis em Português - Faro Formoso",
+    "accessibility_statement_title": "Declaração de Acessibilidade - Faro Formoso",
+    "accessibility_statement_description": "Declaração de acessibilidade do Faro Formoso: estado de conformidade com as WCAG 2.1, funcionalidades, limitações conhecidas e contacto."
   },
   "about": {
     "hero_title": "Sobre o Projeto",
     "hero_description": "Conheça o objetivo social, tecnologias utilizadas e informações sobre o desenvolvimento do Guia de Faro.",
     "objective_title": "Objetivo Social",
-    "objective_p1": "O Faro Formoso é um projeto de utilidade pública desenvolvido com o objetivo de democratizar o acesso à informação sobre a cidade de Faro. Criado de forma independente e sem fins lucrativos, este guia digital oferece informações essenciais para residentes e visitantes de forma completamente gratuita.",
+    "objective_p1": "O Faro Formoso é um projeto comunitário e independente desenvolvido com o objetivo de democratizar o acesso à informação sobre a cidade de Faro. Criado de forma independente e sem fins lucrativos, este guia digital oferece informações essenciais para residentes e visitantes de forma completamente gratuita.",
     "objective_p2": "A missão principal é facilitar o dia a dia de quem vive ou visita Faro, reunindo num único local informações sobre:",
     "objective_list_1": "Transportes públicos e mobilidade urbana",
     "objective_list_2": "Serviços de saúde e farmácias",
@@ -159,7 +164,7 @@
     "license_box_p3": "As informações são fornecidas com finalidade educacional e informativa",
     "license_box_p4": "Todos os dados de APIs externas estão sujeitos às licenças das respetivas fontes",
     "author_title": "Autor",
-    "author_description": "O Faro Formoso é desenvolvido e mantido de forma independente como um projeto pessoal de utilidade pública. O desenvolvimento é feito de forma voluntária, sem fins lucrativos, com o objetivo de contribuir para a comunidade local.",
+    "author_description": "O Faro Formoso é desenvolvido e mantido de forma independente como um projeto pessoal e comunitário. O desenvolvimento é feito de forma voluntária, sem fins lucrativos, com o objetivo de contribuir para a comunidade local.",
     "author_support": "Se este projeto é útil para si, considere apoiá-lo de forma voluntária através do botão \"Apoiar o Projeto\" no rodapé da página. O site permanecerá sempre 100% gratuito e sem publicidade.",
     "contact_title": "Contacto",
     "contact_description": "Para sugestões, correções ou questões sobre o projeto:",
@@ -177,7 +182,7 @@
     "hero_description": "Como protegemos e tratamos os seus dados no Faro Formoso",
     "intro_title": "Introdução",
     "intro_p1": "O Faro Formoso respeita a sua privacidade e está comprometido em proteger os seus dados pessoais. Esta política de privacidade explica como tratamos as informações quando utiliza o nosso site.",
-    "intro_p2": "Este site não tem servidor próprio nem contas de utilizador, e não recolhe dados pessoais identificáveis. As preferências que guarda ficam no seu dispositivo. Algumas funcionalidades contactam serviços externos, descritos mais abaixo.",
+    "intro_p2": "Este site não tem servidor próprio nem contas de utilizador, e nós não recolhemos nem guardamos dados pessoais. As preferências que guarda ficam no seu dispositivo. Como em qualquer site, o serviço de alojamento e alguns serviços externos recebem tecnicamente o seu endereço IP — estão descritos mais abaixo.",
     "data_collected_title": "Dados Recolhidos",
     "local_data_title": "Dados Armazenados Localmente",
     "local_data_desc": "O Faro Formoso utiliza o armazenamento local do navegador (LocalStorage e Cache Storage) para guardar preferências e melhorar a sua experiência. Estes dados ficam no seu dispositivo e incluem:",
@@ -188,7 +193,7 @@
     "no_personal_title": "Dados Pessoais Não Recolhidos",
     "no_personal_desc": "O Faro Formoso NÃO recolhe ou armazena:",
     "no_personal_item1": "Nome, email ou informações de contacto",
-    "no_personal_item2": "Endereço IP ou localização (a sua localização só é usada no seu dispositivo, e enviada ao serviço de mapas, quando pede expressamente \"perto de mim\")",
+    "no_personal_item2": "Endereço IP ou localização num servidor nosso (não temos servidor próprio — ver abaixo o que recebem o alojamento e os serviços externos). A sua localização só é usada quando pede expressamente \"perto de mim\"",
     "no_personal_item3": "Informações de cartão de crédito ou pagamento",
     "no_personal_item4": "Histórico de navegação fora deste site",
     "no_personal_item5": "Cookies de rastreamento ou publicidade",
@@ -201,8 +206,7 @@
     "external_apis_title": "Serviços Externos e APIs",
     "external_apis_desc": "Algumas funcionalidades fazem pedidos diretamente do seu navegador a serviços externos. Esses serviços recebem o seu endereço IP, como em qualquer visita a um site, e têm as suas próprias políticas de privacidade:",
     "external_apis_item1": "<strong>Open-Meteo:</strong> previsão do tempo para Faro (não envia a sua localização)",
-    "external_apis_item2": "<strong>OpenStreetMap e Overpass API:</strong> mosaicos do mapa e pesquisa de farmácias, hospitais, multibancos e supermercados. Se usar \"perto de mim\", as coordenadas aproximadas são enviadas à Overpass API para fazer a pesquisa",
-    "external_apis_item3": "<strong>unpkg.com:</strong> carrega a biblioteca de mapas Leaflet nas páginas com mapa",
+    "external_apis_item2": "<strong>OpenStreetMap:</strong> os mosaicos do mapa são carregados automaticamente dos servidores da OpenStreetMap Foundation nas páginas com mapa (Mapa, Mobilidade e Saúde). A biblioteca de mapas Leaflet é servida pelo próprio site",
     "external_apis_note": "Não partilhamos dados pessoais com estes serviços além do estritamente necessário para cada pedido.",
     "cookies_title": "Cookies",
     "cookies_desc": "Este site não utiliza cookies de rastreamento, cookies de publicidade ou cookies de terceiros, nem ferramentas de análise. Utilizamos apenas o armazenamento local do navegador para as funcionalidades descritas acima.",
@@ -213,7 +217,7 @@
     "security_item3": "Sem backend: Não há servidor para armazenar ou comprometer dados",
     "security_item4": "Código aberto: O código pode ser auditado publicamente no GitHub",
     "rights_title": "Os Seus Direitos",
-    "rights_desc": "Como não recolhemos dados pessoais em servidores, você tem controlo total sobre todos os dados armazenados localmente:",
+    "rights_desc": "Nos termos do RGPD tem direito de acesso, retificação, apagamento, limitação, oposição e portabilidade dos seus dados. Como não guardamos dados pessoais, normalmente não temos dados seus para consultar ou apagar. Quanto aos dados no seu dispositivo:",
     "rights_item1": "Acesso: Todos os dados estão no seu dispositivo e podem ser inspecionados nas ferramentas de programador do navegador",
     "rights_item2": "Eliminação: Pode limpar todos os dados a qualquer momento nas configurações do navegador (limpar dados de navegação)",
     "rights_item3": "Portabilidade: Os favoritos podem ser exportados manualmente se desejar",
@@ -224,12 +228,27 @@
     "children_desc": "O Faro Formoso é um site de informação pública adequado para todas as idades. Não recolhemos intencionalmente dados de menores de 16 anos. Como não recolhemos dados pessoais, este site é seguro para uso por crianças sob supervisão de pais ou responsáveis.",
     "changes_title": "Alterações a Esta Política",
     "changes_desc": "Podemos atualizar esta política de privacidade ocasionalmente. Quaisquer alterações serão publicadas nesta página com a data de atualização. Recomendamos que reveja esta política periodicamente.",
-    "last_updated": "Última atualização: novembro de 2026",
+    "last_updated": "Última atualização: 21 de novembro de 2026",
     "contact_title": "Contacto",
     "contact_desc": "Se tiver questões sobre esta política de privacidade ou sobre como tratamos os dados, pode contactar-nos através de:",
     "contact_github": "GitHub Issues",
     "contact_about": "Página Sobre o Projeto",
-    "external_apis_item4": "<strong>Navegação por voz:</strong> usa o reconhecimento de voz do navegador; em alguns navegadores (por ex. Chrome) o áudio é processado nos servidores do fornecedor do navegador"
+    "external_apis_item4": "<strong>Navegação por voz:</strong> usa o reconhecimento de voz do navegador; em alguns navegadores (por ex. Chrome, da Google LLC, EUA) o áudio é processado nos servidores do fornecedor do navegador. Só é ativada se a ligar",
+    "controller_title": "Responsável pelo Tratamento",
+    "controller_desc": "O responsável por este site é o <strong>Faro Formoso</strong>, um projeto independente e não oficial, sem ligação à Câmara Municipal de Faro nem a qualquer entidade pública. Contacto para questões de privacidade: <a href=\"mailto:info@faroformoso.pt\">info@faroformoso.pt</a>.",
+    "local_data_item5": "<strong>Checklist do novo residente:</strong> os passos que marcou como concluídos",
+    "legal_basis_title": "Base Legal",
+    "legal_basis_desc": "Nos termos do Regulamento Geral sobre a Proteção de Dados (RGPD), os tratamentos descritos nesta política têm as seguintes bases legais:",
+    "legal_basis_item1": "<strong>Interesse legítimo</strong> (art. 6.º, n.º 1, alínea f): disponibilizar as páginas, os mapas e os avisos meteorológicos, o que implica que o alojamento e os serviços externos recebam o seu endereço IP",
+    "legal_basis_item2": "<strong>Consentimento</strong> (art. 6.º, n.º 1, alínea a): localização (\"perto de mim\"), microfone (navegação por voz) e notificações só são usados depois de os autorizar no navegador. Pode retirar a autorização a qualquer momento nas definições do navegador",
+    "legal_basis_item3": "<strong>Armazenamento no dispositivo:</strong> as preferências guardadas localmente são estritamente necessárias às funcionalidades que pede (Lei n.º 41/2004, que transpõe a Diretiva ePrivacy), pelo que não exigem consentimento",
+    "external_apis_hosting": "<strong>GitHub Pages (GitHub, Inc., EUA):</strong> aloja o site. Como em qualquer alojamento, recebe o seu endereço IP e dados técnicos do pedido (navegador, página pedida) para servir as páginas e por razões de segurança",
+    "external_apis_ipma": "<strong>IPMA:</strong> avisos meteorológicos para o distrito de Faro, consultados em todas as páginas (não envia a sua localização)",
+    "external_apis_overpass": "<strong>Overpass API (overpass-api.de, Alemanha):</strong> pesquisa de farmácias, hospitais, multibancos e outros pontos no mapa. Se usar \"perto de mim\", as coordenadas aproximadas são enviadas a este serviço para fazer a pesquisa; nós não as guardamos",
+    "transfers_title": "Transferências Internacionais",
+    "transfers_desc": "O GitHub (alojamento) e, se usar a navegação por voz no Chrome, a Google estão sediados nos EUA, pelo que o seu endereço IP e, nesse caso, o áudio podem ser tratados fora da União Europeia. Estas empresas indicam basear estas transferências nos mecanismos previstos no RGPD (Quadro de Proteção de Dados UE-EUA e/ou cláusulas contratuais-tipo).",
+    "rights_contact": "Para exercer estes direitos ou colocar qualquer questão, contacte <a href=\"mailto:info@faroformoso.pt\">info@faroformoso.pt</a>.",
+    "rights_complaint": "Tem também o direito de apresentar reclamação à autoridade de controlo, a Comissão Nacional de Proteção de Dados (CNPD): <a href=\"https://www.cnpd.pt\" target=\"_blank\" rel=\"noopener noreferrer\">www.cnpd.pt</a>."
   },
   "terms": {
     "hero_title": "Termos e Condições",
@@ -238,7 +257,7 @@
     "acceptance_p1": "Ao aceder e utilizar o site Faro Formoso (\"o Site\"), você concorda em cumprir e estar vinculado aos seguintes termos e condições de utilização. Se não concordar com qualquer parte destes termos, não deve utilizar o Site.",
     "acceptance_p2": "Estes termos aplicam-se a todos os utilizadores do Site, incluindo visitantes, residentes de Faro e turistas que acedam ao conteúdo disponibilizado.",
     "service_title": "Descrição do Serviço",
-    "service_p1": "O Faro Formoso é um guia digital gratuito e de utilidade pública que fornece informações sobre a cidade de Faro, Portugal. O Site oferece:",
+    "service_p1": "O Faro Formoso é um guia digital gratuito e independente que fornece informações sobre a cidade de Faro, Portugal. O Site oferece:",
     "service_item1": "Informações sobre transportes, saúde, ambiente e lazer",
     "service_item2": "Diretórios de restaurantes, hotéis e serviços públicos",
     "service_item3": "Mapas interativos e conteúdo informativo",
@@ -295,7 +314,7 @@
     "contact_github": "GitHub Issues",
     "contact_about": "Página Sobre o Projeto",
     "last_updated": "Última atualização: novembro de 2026",
-    "final_acceptance": "Ao utilizar o Faro Formoso, você reconhece que leu, compreendeu e concordou com estes Termos e Condições, bem como com a nossa Política de Privacidade."
+    "final_acceptance": "<strong>Ao utilizar o Faro Formoso, aceita estes Termos e Condições. O tratamento de dados pessoais não depende desta aceitação e está descrito na nossa <a href=\"politica-privacidade.html\">Política de Privacidade</a>.</strong>"
   },
   "health": {
     "hero_title": "Saúde e Serviços Essenciais",
@@ -449,7 +468,7 @@
   "restaurants": {
     "page_title": "Onde Comer em Faro",
     "hero_title": "Onde Comer em Faro",
-    "hero_description": "Descubra os melhores cafés, pastelarias e restaurantes de Faro. Pesquise, filtre e encontre o local perfeito para comer ou tomar café na capital algarvia.",
+    "hero_description": "Descubra uma seleção de cafés, pastelarias e restaurantes de Faro. Pesquise, filtre e encontre o local perfeito para comer ou tomar café na capital algarvia.",
     "search_placeholder": "Pesquisar restaurantes",
     "search_label": "Pesquisar",
     "clear_search": "Limpar pesquisa",
@@ -1174,7 +1193,7 @@
     "dia_de_chuva_8": "Dia de chuva",
     "nenhuma_atividade_encontrada_para_este": "Nenhuma atividade encontrada para este filtro.",
     "tente_selecionar_outro_tipo_de_atividade": "Tente selecionar outro tipo de atividade.",
-    "copy_2024_guia_de_faro": "&copy; 2024 Faro Formoso",
+    "copy_2024_guia_de_faro": "&copy; 2025–2026 Faro Formoso",
     "fontes_de_dados_cmara_municipal_de_faro": "Fontes de dados: Câmara Municipal de Faro, Turismo do Algarve",
     "apoie_este_projeto_de_forma_voluntria": "Apoie este projeto de forma voluntária",
     "apoiar_o_projeto": "Apoiar o Projeto"
@@ -1771,7 +1790,7 @@
     "install_failed": "Falha ao instalar. Tente novamente."
   },
   "masthead": {
-    "kicker": "Guia público e gratuito · Faro, Algarve",
+    "kicker": "Guia gratuito e independente · Faro, Algarve",
     "tagline": "Viver, descobrir e participar na cidade"
   },
   "ipma_warnings": {
@@ -1947,7 +1966,7 @@
   },
   "rental": {
     "title": "Arrendar Casa sem Burlas",
-    "intro": "A PSP registou mais de 4 500 burlas com falsos arrendamentos entre 2023 e 2025. Antes de pagar seja o que for, confirme estes pontos.",
+    "intro": "As burlas com falsos anúncios de arrendamento são frequentes e a PSP alerta regularmente para elas. Antes de pagar seja o que for, confirme estes pontos.",
     "signs_title": "Sinais de alerta",
     "sign_price": "Preço muito abaixo do mercado, com fotografias e morada reais.",
     "sign_upfront": "Pedem sinal, caução ou cópias do Cartão de Cidadão, passaporte ou NIF antes de visitar a casa.",
@@ -2007,5 +2026,26 @@
     "offseason_watch_beachbars": "Alguns bares e restaurantes de praia e das ilhas fecham para férias; confirme antes de ir.",
     "link_beaches": "Barcos e praias",
     "link_health": "Farmácias de serviço"
+  },
+  "accessibility_statement": {
+    "hero_title": "Declaração de Acessibilidade",
+    "hero_description": "O compromisso do Faro Formoso com a acessibilidade digital",
+    "commitment_title": "Compromisso",
+    "commitment_p1": "O Faro Formoso pretende ser utilizável por todas as pessoas, incluindo pessoas com deficiência e pessoas idosas. Seguimos como referência as Diretrizes de Acessibilidade para o Conteúdo da Web (WCAG) 2.1, nível AA, e o Decreto-Lei n.º 83/2018. Como projeto independente, e não entidade pública, publicamos esta declaração de forma voluntária.",
+    "status_title": "Estado de Conformidade",
+    "status_p1": "Este site está <strong>parcialmente conforme</strong> com as WCAG 2.1 nível AA, devido às limitações indicadas abaixo. A avaliação foi feita pelo próprio projeto (autoavaliação), sem auditoria externa.",
+    "features_title": "Funcionalidades de Acessibilidade",
+    "features_item1": "Ajuste do tamanho da letra (80% a 150%) e modo de alto contraste",
+    "features_item2": "Modo escuro e respeito pela preferência de movimento reduzido do sistema",
+    "features_item3": "Ligação para saltar diretamente para o conteúdo principal e navegação por teclado",
+    "features_item4": "Estrutura semântica com cabeçalhos e regiões identificadas para leitores de ecrã",
+    "features_item5": "Navegação por voz opcional e conteúdo em português e inglês",
+    "limitations_title": "Limitações Conhecidas",
+    "limitations_item1": "<strong>Mapas interativos:</strong> os mapas (Mapa, Mobilidade e Saúde) não são totalmente utilizáveis por teclado ou leitor de ecrã. A mesma informação (moradas, contactos e horários) está disponível em texto nas respetivas páginas",
+    "limitations_item2": "<strong>Conteúdo de terceiros:</strong> sites e documentos externos para onde remetemos (por ex. PDFs de horários) não são controlados por nós e podem não ser acessíveis",
+    "limitations_item3": "<strong>Navegação por voz:</strong> depende do suporte do navegador e não funciona em todos os navegadores",
+    "feedback_title": "Contacto e Sugestões",
+    "feedback_p1": "Se encontrar alguma barreira de acessibilidade ou precisar da informação noutro formato, contacte-nos por <a href=\"mailto:info@faroformoso.pt\">info@faroformoso.pt</a> ou através das GitHub Issues do projeto. Procuramos responder num prazo razoável.",
+    "date_p": "Declaração preparada em 21 de novembro de 2026 e revista sempre que o site muda de forma significativa."
   }
 }

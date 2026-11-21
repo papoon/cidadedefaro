@@ -26,7 +26,7 @@ const warnings = [];
 const NOT_IN_SITEMAP = new Set(['offline.html', 'demo-alertas.html', 'favoritos.html']);
 const NOT_IN_NAV = new Set(['offline.html', 'demo-alertas.html']);
 // index.html e offline.html estão em PRECACHE_URLS; páginas legais não precisam de offline.
-const NOT_IN_SW = new Set(['politica-privacidade.html', 'termos-condicoes.html']);
+const NOT_IN_SW = new Set(['politica-privacidade.html', 'termos-condicoes.html', 'declaracao-acessibilidade.html']);
 
 // Valores que são legitimamente iguais em PT e EN (nomes próprios, siglas, números, etc.).
 const SAME_VALUE_OK = /^[\d\s+()€.,:%/–-]*$|^(Faro Formoso|Email|E-mail|SNS 24|112|OK|Wi-Fi|PWA|GitHub|OpenStreetMap|Leaflet)$/i;

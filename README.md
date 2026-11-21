@@ -47,7 +47,6 @@ Este projeto tem como missão democratizar o acesso à informação sobre Faro, 
 - ⭐ **Sistema de Favoritos**: Salve seus locais preferidos
 - 🔍 **Busca Global**: Encontre rapidamente o que procura
 - 🗺️ **Mapas Interativos**: Visualize localizações com Leaflet.js e OpenStreetMap
-- 📘 **Guia Premium**: Conteúdo detalhado com mapas offline disponível para download
 - 🔄 **Sem Backend**: 100% frontend, rápido e leve
 
 ---
@@ -83,10 +82,12 @@ A informação é compilada a partir de fontes públicas e abertas. Dados em tem
 
 | API/Fonte | Uso no site | URL |
 |-----------|-------------|-----|
-| 🌤️ **Open-Meteo** | Previsão do tempo (`src/data/tempo.js`) | [open-meteo.com](https://open-meteo.com) |
-| 🗺️ **OpenStreetMap / Overpass API** | Mapas e pontos de interesse (`src/data/mapa.js`); verificação de moradas, telefones e horários dos datasets em `assets/data/` | [openstreetmap.org](https://www.openstreetmap.org) |
+| 🌤️ **Open-Meteo** | Previsão do tempo (`src/data/tempo.js`) — licença CC BY 4.0 | [open-meteo.com](https://open-meteo.com) |
+| ⚠️ **IPMA** | Avisos meteorológicos para o distrito de Faro (`src/data/avisos-ipma.js`) — dados abertos do IPMA | [api.ipma.pt](https://api.ipma.pt) |
+| 🗺️ **OpenStreetMap / Overpass API** | Mapas e pontos de interesse (`src/data/mapa.js`); verificação de moradas, telefones e horários dos datasets em `assets/data/` — licença ODbL (© OpenStreetMap contributors) | [openstreetmap.org](https://www.openstreetmap.org) |
 | 📊 **INE** | População do concelho (Censos 2021) em `assets/data/municipio-faro.json` | [ine.pt](https://www.ine.pt) |
-| 🏛️ **Fontes oficiais** | Câmara Municipal de Faro, gov.pt / ePortugal, SNS, FAGAR, VisitPortugal – consultadas para verificar contactos | [cm-faro.pt](https://www.cm-faro.pt) · [gov.pt](https://www.gov.pt) |
+| 🏨 **VisitPortugal** | Verificação de alojamentos em `assets/data/hoteis.json` | [visitportugal.com](https://www.visitportugal.com) |
+| 🏛️ **Fontes oficiais** | Câmara Municipal de Faro, gov.pt / ePortugal, SNS, FAGAR – consultadas para verificar contactos | [cm-faro.pt](https://www.cm-faro.pt) · [gov.pt](https://www.gov.pt) |
 
 
 ---
@@ -402,7 +403,14 @@ Contribuições são bem-vindas! Siga estes passos:
 
 ## 📝 Licença
 
-Este projeto é **código aberto**, distribuído sob a licença [ISC](LICENSE).
+O **código-fonte** é aberto e distribuído sob a licença [ISC](LICENSE).
+
+A licença ISC **não** cobre:
+- **Nome, logótipos e identidade visual "Faro Formoso"** (`assets/branding/`) — não são licenciados para uso fora do projeto; ver [assets/branding/README.md](assets/branding/README.md).
+- **Dados de terceiros** — mantêm a licença da fonte original: OpenStreetMap (ODbL), Open-Meteo (CC BY 4.0), IPMA, INE e restantes fontes oficiais, cada uma segundo os seus termos.
+- **Fontes tipográficas** — SIL Open Font License (ver `assets/fonts/OFL-*.txt`).
+
+O Faro Formoso é um projeto independente e **não oficial**, sem ligação à Câmara Municipal de Faro nem a qualquer entidade pública.
 
 ### Condições de Uso
 ✅ Consulta livre por qualquer pessoa  

@@ -192,5 +192,13 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://faroformoso.pt/termos-condicoes.html?lang=pt"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://faroformoso.pt/termos-condicoes.html?lang=en"/>
   </url>
+  <url>
+    <loc>https://faroformoso.pt/declaracao-acessibilidade.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://faroformoso.pt/declaracao-acessibilidade.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://faroformoso.pt/declaracao-acessibilidade.html?lang=en"/>
+  </url>
 
 </urlset>

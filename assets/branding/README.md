@@ -182,7 +182,7 @@ rsvg-convert -w 2000 logo/logo-horizontal-light.svg -o logo/logo-horizontal-ligh
 
 ## 📄 Licença
 
-Todos os assets de branding são parte do projeto **Faro Formoso** e seguem a mesma licença do projeto.
+Os assets de branding (nome, logótipos, ícones) **não** estão abrangidos pela licença ISC do código-fonte. Pertencem ao projeto **Faro Formoso**:
 
 - ✅ Uso livre para fins relacionados ao projeto
 - ✅ Modificação permitida com atribuição

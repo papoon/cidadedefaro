@@ -7,7 +7,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Assunção+Faro",
     "coordenadas": [37.03155, -7.96171],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-02",
@@ -17,7 +18,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20Almeida%2C%20Estrada%20Senhora%20da%20Sa%C3%BAde%2039%2C%208005-147%20Faro%2C%20Portugal",
     "coordenadas": [37.02574, -7.94006],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-03",
@@ -27,7 +29,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+da+Penha+Faro",
     "coordenadas": [37.023755, -7.926629],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-04",
@@ -37,7 +40,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20Baptista%2C%20Forum%20Algarve%2C%20EN125%2C%208005-445%20Faro%2C%20Portugal",
     "coordenadas": [37.02826, -7.94533],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-05",
@@ -47,7 +51,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Amoreira+Faro",
     "coordenadas": [37.027698, -7.927384],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-06",
@@ -57,7 +62,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Crespo+Santos+Faro",
     "coordenadas": [37.02056, -7.93194],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-07",
@@ -67,7 +73,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Pereira+Gago+Faro",
     "coordenadas": [37.016591, -7.931251],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-08",
@@ -77,7 +84,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20da%20Baixa%2C%20Rua%20Ivens%2031%2C%208000-364%20Faro%2C%20Portugal",
     "coordenadas": [37.016895, -7.934036],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-09",
@@ -87,7 +95,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Helena+Faro",
     "coordenadas": [37.01937, -7.92834],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-11",
@@ -97,7 +106,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Palma+Batista+Faro",
     "coordenadas": [37.022136, -7.933038],
     "destaque": false,
-    "coordsConfidence": "media"
+    "coordsConfidence": "media",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-12",
@@ -107,7 +117,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20Higiene%2C%20Rua%20Doutor%20Jos%C3%A9%20de%20Matos%2021%2C%208000-504%20Faro%2C%20Portugal",
     "coordenadas": [37.01516, -7.921139],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-13",
@@ -117,7 +128,8 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20Huguette%20Ribeiro%2C%20Rua%20Marechal%20Guerra%2031%2C%20Patac%C3%A3o%2C%208005-511%20Faro%2C%20Portugal",
     "coordenadas": [37.052228, -7.943538],
     "destaque": false,
-    "coordsConfidence": "media"
+    "coordsConfidence": "media",
+    "fonte": "OpenStreetMap"
   },
   {
     "id": "farm-15",
@@ -127,6 +139,7 @@
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Caniné+Faro",
     "coordenadas": [37.016125, -7.934718],
     "destaque": false,
-    "coordsConfidence": "alta"
+    "coordsConfidence": "alta",
+    "fonte": "OpenStreetMap"
   }
 ]

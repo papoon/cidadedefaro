@@ -49,6 +49,7 @@ const htmlPages = [
   'saude-onde-ir-agora.html',
   'sobre-projeto.html',
   'termos-condicoes.html',
+  'declaracao-acessibilidade.html',
   'transportes.html',
   'viver-em-faro.html'
 ]

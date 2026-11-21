@@ -32,9 +32,7 @@
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.ipma.pt; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
-     <!-- Leaflet CSS (CDN) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.ipma.pt; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
     
     <%- metaCommon %>
 </head>
@@ -158,13 +156,21 @@
             <p data-i18n="saude.localizao_dos_principais_servios_de_sade">Localização dos principais serviços de saúde em Faro:</p>
             <div id="mapa-saude"></div>
         </section>
+        <!-- Aviso médico (reutiliza as chaves de saude-onde-ir-agora) -->
+        <section class="disclaimer" role="complementary" aria-labelledby="disclaimer-title">
+            <h4 id="disclaimer-title" data-i18n="health_now.disclaimer_title">Aviso Importante</h4>
+            <p data-i18n="health_now.disclaimer_text">
+                Esta página fornece informação de caráter geral e não substitui o aconselhamento, diagnóstico ou tratamento médico profissional. 
+                Em caso de dúvida ou emergência médica, contacte sempre um profissional de saúde qualificado ou ligue para o 112. 
+                As informações aqui apresentadas são de domínio público e estão sujeitas a alterações sem aviso prévio.
+            </p>
+        </section>
     </main>
 
     <%- footer %>
 
     <%- scriptsCommon %>
-     <!-- Leaflet CSS (CDN) -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script type="module" src="src/vendor/leaflet.js"></script>
     
     <script type="module" src="src/data/farmacias.js"></script>
     <script>
