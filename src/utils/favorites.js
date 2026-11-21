@@ -307,8 +307,14 @@ function renderFavoritesList(container, filterType = null) {
             const info = el('div', 'favorite-info');
             const link = el('a', 'favorite-title', item.title);
             // Only allow relative / http(s) links (favorites come from localStorage)
-            const url = String(item.url || '');
-            link.href = /^(https?:)?\/\//i.test(url) || !/^[a-z][a-z0-9+.-]*:/i.test(url) ? url : '#';
+            // Parse with the URL API (same normalisation the browser applies, so
+            // " javascript:" / "java\tscript:" tricks can't slip past a regex)
+            let safeHref = '#';
+            try {
+                const parsed = new URL(String(item.url || ''), window.location.href);
+                if (parsed.protocol === 'http:' || parsed.protocol === 'https:') safeHref = parsed.href;
+            } catch (e) { /* invalid URL: keep '#' */ }
+            link.href = safeHref;
             const date = new Date(item.addedAt).toLocaleDateString(window.i18n?.getCurrentLanguage?.() === 'en' ? 'en-GB' : 'pt-PT');
             info.append(link, el('span', 'favorite-date', `${addedOnText} ${date}`));
             content.appendChild(info);

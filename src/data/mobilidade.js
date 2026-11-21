@@ -24,6 +24,15 @@ const velocidades = {
 let mapaRota = null;
 let mapaRotaInicializado = false;
 
+// Popup "<strong>label</strong><br>nome" construído com DOM (sem interpolar HTML)
+function criarPopupLocal(label, nome) {
+    const wrap = document.createElement('div');
+    const strong = document.createElement('strong');
+    strong.textContent = label;
+    wrap.append(strong, document.createElement('br'), document.createTextNode(String(nome)));
+    return wrap;
+}
+
 // Função para calcular distância entre dois pontos (fórmula de Haversine)
 function calcularDistancia(lat1, lon1, lat2, lon2) {
     const R = 6371; // Raio da Terra em km
@@ -222,10 +231,10 @@ function inicializarMapaRota(origem, destino) {
 
         // Adicionar marcadores
         const marcadorOrigem = L.marker([origem.lat, origem.lng], { icon: iconeOrigem }).addTo(mapaRota);
-        marcadorOrigem.bindPopup(`<strong>Origem</strong><br>${origem.nome}`);
+        marcadorOrigem.bindPopup(criarPopupLocal('Origem', origem.nome));
 
         const marcadorDestino = L.marker([destino.lat, destino.lng], { icon: iconeDestino }).addTo(mapaRota);
-        marcadorDestino.bindPopup(`<strong>Destino</strong><br>${destino.nome}`);
+        marcadorDestino.bindPopup(criarPopupLocal('Destino', destino.nome));
 
         // Adicionar linha entre origem e destino
         const linha = L.polyline([

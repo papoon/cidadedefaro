@@ -32,7 +32,7 @@
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; object-src 'none'; base-uri 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
     
     <%- metaCommon %>
 </head>
@@ -68,7 +68,7 @@
             <div class="info-box">
                 <p><strong data-i18n="problemas_frequentes.onde_reclamar_e_fazer_queixas">Onde reclamar e fazer queixas?</strong></p>
                 <ul>
-                    <li><strong data-i18n="problemas_frequentes.livro_de_reclamaes_online">Livro de Reclamações Online:</strong> <a href="https://www.livroreclamacoes.pt" target="_blank" data-i18n="problemas_frequentes.wwwlivroreclamacoespt">www.livroreclamacoes.pt</a> - Para qualquer estabelecimento comercial</li>
+                    <li><strong data-i18n="problemas_frequentes.livro_de_reclamaes_online">Livro de Reclamações Online:</strong> <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" data-i18n="problemas_frequentes.wwwlivroreclamacoespt">www.livroreclamacoes.pt</a> - Para qualquer estabelecimento comercial</li>
                     <li><strong data-i18n="problemas_frequentes.problemas_urbanos_buracos_lixo_iluminao">Problemas Urbanos (buracos, lixo, iluminação):</strong> Câmara Municipal | 289 870 870 | geral@cm-faro.pt · Iluminação pública: E-REDES 800 506 506</li>
                     <li><strong data-i18n="problemas_frequentes.estacionamento_irregular">Estacionamento Irregular:</strong> Polícia Municipal (via Câmara Municipal) | 289 870 870</li>
                     <li><strong data-i18n="problemas_frequentes.barulho_e_perturbao_da_ordem_pblica">Barulho e Perturbação da Ordem Pública:</strong> PSP | 289 078 100 ou 112</li>
