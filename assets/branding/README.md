@@ -16,17 +16,23 @@ assets/branding/
 ## 🎯 Design e Conceito
 
 ### Conceito Visual
-O logo do Faro Formoso representa:
-- **Letra F**: Inicial de "Faro" e "Formoso", elemento principal do design
-- **Onda dourada**: Representa o mar e as praias da Ria Formosa
-- **Círculo azul**: Simboliza o céu, o mar e a cidade de Faro
-- **Ponto branco**: Representa o sol do Algarve
+O símbolo (favicon / ícones PWA) do Faro Formoso representa:
+- **Farol**: Torre clara com faixas terracota e lanterna acesa — o farol do Cabo de Santa Maria
+- **Feixes de luz**: Orientação, o papel do guia
+- **Água ondulada**: A Ria Formosa
+
+O desenho é propositadamente simples para continuar legível a 16×16.
 
 ### Paleta de Cores
-- **Azul principal**: `#667eea` - Representa o céu e o mar
-- **Dourado/Areia**: `#f5d076` - Representa as praias e o sol
-- **Branco**: `#ffffff` - Clareza e simplicidade
-- **Texto escuro**: `#2c3e50` - Para legibilidade em fundos claros
+Alinhada com o design system do site (ver `.claude/skills/ui-modernization.md`):
+- **Ria**: `#0f5872` - Fundo do ícone
+- **Ria profunda**: `#0a3e51` - Água
+- **Papel**: `#f6f1e7` - Torre e feixes de luz
+- **Terra**: `#a84f26` - Faixas e cúpula do farol
+- **Lanterna**: `#ffca4f` - Luz do farol
+
+> Os logos horizontais/verticais em `/logo/` ainda usam a paleta antiga (`#667eea`) e não são usados
+> pelo site (o cabeçalho usa o wordmark em texto).
 
 ### Tipografia
 - Fonte: System fonts (sans-serif) para melhor compatibilidade
