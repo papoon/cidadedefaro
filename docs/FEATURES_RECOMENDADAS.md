@@ -67,7 +67,7 @@ Muitas cidades têm horários de recolha diferentes por freguesia/zona. Um peque
 "a minha zona" (guardado em `localStorage`, como já se faz com favoritos) que filtra/realça os dias
 de recolha aplicáveis seria um upgrade natural da secção de reciclagem existente.
 
-### 2.3 Checklist interativa "Novo Residente em Faro"
+### 2.3 Checklist interativa "Novo Residente em Faro" ✅
 **Esforço: Médio** · Depende de: `viver-em-faro.html`, `src/utils/favorites.js`
 
 Uma checklist com passos (registo na Junta de Freguesia, Segurança Social, centro de saúde, NIF,
@@ -195,7 +195,7 @@ recorrentes que o site ainda não cobre — confirmar dados em fontes oficiais a
 | 6.2 ✅ | Avisos do IPMA para o distrito de Faro (vários avisos laranja/amarelo em 2026) | Feito: `src/data/avisos-ipma.js` (API aberta, CORS `*`) mostra avisos amarelo+ em todas as páginas via `localAlerts`; secção "Calor Extremo" em `idosos.html` | Médio |
 | 6.3 ✅ | Horários dos barcos para Deserta/Culatra/Farol mudam por época e divergem entre fontes; dúvidas no autocarro 14/16 para a Praia de Faro | Feito: `praias.html` + `assets/data/barcos.json` (horário oficial 2026 da Câmara) com estado de hoje, próximo barco e último regresso; Deserta e autocarros só com links (sem horários estáveis publicados); praia acessível; InfoÁgua | Médio |
 | 6.4 ✅ | Chegada pelo aeroporto: autocarro parte pouco depois das aterragens, menos frequência fora de época | Feito: `chegar-a-faro.html` (autocarros 16/14, táxi, TVDE, comboio, Vamus, longo curso, aviso para quem aterra à noite). Sem "próximo autocarro" offline: não há horário oficial estável publicado da linha 16 (Próximo só em tempo real; site da ANA ilegível sem JS) | Médio |
-| 6.5 | Burocracia é a maior queixa de expats (AIMA, NIF, NISS) | Checklist do novo residente (2.3) com AIMA, NIF, NISS, utente SNS, Loja do Cidadão de Faro — só links oficiais | Médio |
+| 6.5 ✅ | Burocracia é a maior queixa de expats (AIMA, NIF, NISS) | Feito: checklist em `viver-em-faro.html` com perfil (português / UE / fora da UE), 10 passos com links oficiais, Loja de Cidadão, progresso em localStorage (`src/ui/checklist.js`) | Médio |
 | 6.6 | Barreira linguística | `frases-uteis.html` (farmácia, médico, restaurante, transportes, emergência) com pronúncia via `speechSynthesis` pt-PT | Médio |
 | 6.7 | Habitação/arrendamento (protestos, custos muito variáveis) | Secção informativa: evitar burlas, o que deve ter um contrato, apoios públicos (Porta 65 Jovem, programas municipais) | Baixo |
 | 6.8 | Nómadas digitais: coworking, SIM/eSIM, comunidade | Secção em `viver-em-faro.html` + categoria `amenity=coworking_space` no mapa | Baixo |

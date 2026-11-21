@@ -530,3 +530,24 @@ body.page-large-text .btn-maps { font-size: 1.0625rem; }
 .arrival-option { border-top: 2px solid var(--rule-strong); padding-top: var(--space-3); }
 .arrival-option h4 { margin-bottom: var(--space-2); }
 .arrival-option p { margin: 0 0 var(--space-2); color: var(--ink-2); }
+
+/* ---------- Checklist novo residente (viver-em-faro.html, src/ui/checklist.js) ---------- */
+.checklist-profiles { border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); margin: var(--space-4) 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); }
+.checklist-profiles legend { font-weight: 600; padding: 0 var(--space-2); }
+.checklist-profile-option { display: inline-flex; align-items: center; gap: var(--space-2); cursor: pointer; min-height: 44px; }
+/* Sem JS o seletor de perfil não faz nada: só aparece quando o módulo arranca */
+.checklist:not(.checklist-enhanced) .checklist-profiles,
+.checklist:not(.checklist-enhanced) .checklist-progress { display: none; }
+.checklist-progress { font-weight: 600; color: var(--ok); }
+.checklist-list { list-style: none; padding: 0; margin: 0; }
+.checklist-item { display: flex; gap: var(--space-3); padding: var(--space-4) 0; border-bottom: 1px solid var(--rule); }
+.checklist-item[hidden] { display: none; }
+.checklist-item > input[type="checkbox"] { flex: 0 0 auto; width: 1.4rem; height: 1.4rem; margin-top: 0.15rem; accent-color: var(--ok); cursor: pointer; }
+.checklist-body { max-width: var(--measure); }
+.checklist-body label { font-weight: 600; font-size: var(--font-size-lg); cursor: pointer; display: block; margin-bottom: var(--space-1); }
+.checklist-body p { margin: 0 0 var(--space-2); color: var(--ink-2); }
+.checklist-extra { font-size: var(--font-size-sm); color: var(--ink-3); }
+.checklist-item.is-done .checklist-body label { text-decoration: line-through; color: var(--ink-3); }
+.checklist-reset { margin: var(--space-4) 0; background: none; border: 1px solid var(--rule-strong); border-radius: var(--radius-md); padding: var(--space-2) var(--space-4); color: var(--ink); font: inherit; cursor: pointer; min-height: 44px; }
+.checklist-reset:hover { background: var(--paper-2); }
+.checklist-disclaimer { font-size: var(--font-size-sm); color: var(--ink-3); }

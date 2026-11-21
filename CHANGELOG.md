@@ -7,6 +7,11 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Não Lançado]
 
+### 🏠 Checklist do novo residente
+
+#### Adicionado
+- **Checklist interativa em `viver-em-faro.html`**: escolha do perfil (português / UE / fora da UE), 10 passos (morada no CC, AIMA, certificado de registo UE, NIF, NISS, atestado da Junta, centro de saúde, Chave Móvel Digital, água FAGAR, carta de condução) com links oficiais, progresso guardado no dispositivo e informação da Loja de Cidadão. Funciona sem JavaScript (lista completa). Pesquisa: NIF, NISS, AIMA, etc. levam à checklist.
+
 ### ✈️ Chegar a Faro
 
 #### Adicionado

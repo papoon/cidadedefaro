@@ -57,3 +57,14 @@ Removidos por não verificáveis: Farmácia Leonardo, Farmácia do Montepio, 12 
 | Táxi aeroporto → centro | "cerca de 10–15 € (indicativo)" | Welcome Pickups ~11/13 €, Transfeero ~10 € + 20% noite/fim de semana |
 | TVDE | ponto de recolha indicado na app | Uber e Bolt (páginas FAO) |
 | Site oficial da ANA (aeroportofaro.pt) | — | não legível por pedido automático (Incapsula / conteúdo por JS); rever manualmente |
+
+## Checklist novo residente (viver-em-faro.html) — verificado 2026-11-21
+| Passo | Fonte oficial | Nota |
+|-------|---------------|------|
+| CRUE na Câmara Municipal da área de residência; >3 meses | aima.gov.pt (Nacionais UE); balcao.cm-faro.pt (Direitos e Cidadania) | prazo de 30 dias: guias (e-konomista); taxa não publicada (fontes divergem) |
+| NIF gratuito, Finanças/Loja de Cidadão com marcação; online só via mandatário | gov.pt guia NIF/NISS estrangeiros; DECO | representante fiscal: gov.pt e AT/DECO contradizem-se → não afirmado na página |
+| NISS online e gratuito; carta registada | seg-social.pt; gov.pt notícia NISS online | |
+| NIF+NISS+utente num Espaço Cidadão (com morada em PT) | gov.pt | |
+| Utente SNS: USF da área + autorização de residência / CRUE / atestado da Junta | sns24.gov.pt (acesso de estrangeiros); ERS | |
+| Freguesias de Faro: Faro (Sé e São Pedro), Montenegro, Conceição e Estoi, Santa Bárbara de Nexe | — | sem contactos publicados (não verificados) |
+| Loja de Cidadão | ver linha "Loja de Cidadão" acima (gov.pt, 17/09/2026) | |

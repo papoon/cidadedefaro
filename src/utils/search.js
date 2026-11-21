@@ -110,6 +110,14 @@ class SearchManager {
                 description: 'Do aeroporto ao centro: autocarro 16, táxi, TVDE, comboio e autocarros regionais',
                 url: 'chegar-a-faro.html',
                 keywords: ['aeroporto', 'airport', 'chegar', 'chegada', 'arrival', 'autocarro 16', 'táxi', 'uber', 'bolt', 'comboio', 'cp', 'vamus', 'flixbus']
+            },
+            {
+                id: 'checklist-novo-residente',
+                type: 'service',
+                title: 'Checklist: Novo Residente em Faro',
+                description: 'NIF, NISS, AIMA, registo UE, centro de saúde, Junta de Freguesia e água',
+                url: 'viver-em-faro.html#checklist-title',
+                keywords: ['nif', 'niss', 'aima', 'residência', 'autorização de residência', 'crue', 'número de utente', 'atestado', 'junta de freguesia', 'chave móvel digital', 'mudar para faro', 'expat', 'burocracia', 'documentos']
             }
         ];
 
