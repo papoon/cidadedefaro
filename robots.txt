@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://papoon.github.io/cidadedefaro/sitemap.xml
+Sitemap: https://faroformoso.pt/sitemap.xml
 
 # Disallow crawling of service worker
 Disallow: /sw.js

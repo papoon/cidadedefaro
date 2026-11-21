@@ -8,15 +8,15 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Política de privacidade do Faro Formoso. Como tratamos seus dados e protegemos sua privacidade." data-i18n="pages.privacy_description" data-i18n-attr="content">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://papoon.github.io/cidadedefaro/politica-privacidade.html">
+    <link rel="canonical" href="https://faroformoso.pt/politica-privacidade.html">
     
     <!-- Alternate Language Links -->
-    <link rel="alternate" hreflang="pt" href="https://papoon.github.io/cidadedefaro/politica-privacidade.html?lang=pt">
-    <link rel="alternate" hreflang="en" href="https://papoon.github.io/cidadedefaro/politica-privacidade.html?lang=en">
+    <link rel="alternate" hreflang="pt" href="https://faroformoso.pt/politica-privacidade.html?lang=pt">
+    <link rel="alternate" hreflang="en" href="https://faroformoso.pt/politica-privacidade.html?lang=en">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://papoon.github.io/cidadedefaro/politica-privacidade.html">
+    <meta property="og:url" content="https://faroformoso.pt/politica-privacidade.html">
     <meta property="og:title" content="Política de Privacidade - Faro Formoso">
     <meta property="og:description" content="Política de privacidade do Faro Formoso. Como tratamos seus dados e protegemos sua privacidade.">
     <meta property="og:site_name" content="Faro Formoso">
@@ -43,7 +43,7 @@
         <section class="privacy-section">
             <h3 data-i18n="privacy.intro_title">Introdução</h3>
             <p data-i18n="privacy.intro_p1">O Faro Formoso respeita a sua privacidade e está comprometido em proteger os seus dados pessoais. Esta política de privacidade explica como tratamos as informações quando utiliza o nosso site.</p>
-            <p data-i18n="privacy.intro_p2">Este site não recolhe, armazena ou processa dados pessoais identificáveis em servidores externos. Todas as funcionalidades que requerem armazenamento de dados são realizadas localmente no seu dispositivo.</p>
+            <p data-i18n="privacy.intro_p2">Este site não tem servidor próprio nem contas de utilizador, e não recolhe dados pessoais identificáveis. As preferências que guarda ficam no seu dispositivo. Algumas funcionalidades contactam serviços externos, descritos mais abaixo.</p>
         </section>
 
         <!-- Dados Recolhidos -->
@@ -51,19 +51,19 @@
             <h3 data-i18n="privacy.data_collected_title">Dados Recolhidos</h3>
             
             <h4 data-i18n="privacy.local_data_title">Dados Armazenados Localmente</h4>
-            <p data-i18n="privacy.local_data_desc">O Faro Formoso utiliza o armazenamento local do navegador (LocalStorage) para guardar preferências e melhorar a sua experiência. Estes dados nunca são enviados para servidores externos e incluem:</p>
+            <p data-i18n="privacy.local_data_desc">O Faro Formoso utiliza o armazenamento local do navegador (LocalStorage e Cache Storage) para guardar preferências e melhorar a sua experiência. Estes dados ficam no seu dispositivo e incluem:</p>
             <ul>
-                <li data-i18n="privacy.local_data_item1"><strong>Preferências de idioma:</strong> Para lembrar se prefere ver o site em Português ou Inglês</li>
-                <li data-i18n="privacy.local_data_item2"><strong>Tema escolhido:</strong> Para lembrar se prefere o modo claro ou escuro</li>
+                <li data-i18n="privacy.local_data_item1"><strong>Preferências:</strong> idioma, tema claro/escuro, tamanho de letra e alto contraste, navegação por voz ativada</li>
+                <li data-i18n="privacy.local_data_item2"><strong>Avisos e notificações:</strong> se ativou notificações, que alertas já viu ou fechou, e se dispensou o convite para instalar a app</li>
                 <li data-i18n="privacy.local_data_item3"><strong>Favoritos:</strong> Lista de páginas e locais que marcou como favoritos</li>
-                <li data-i18n="privacy.local_data_item4"><strong>Cache de PWA:</strong> Páginas e recursos guardados para acesso offline</li>
+                <li data-i18n="privacy.local_data_item4"><strong>Cache:</strong> páginas e recursos guardados para acesso offline, e cópias temporárias da meteorologia e dos dados do município</li>
             </ul>
             
             <h4 data-i18n="privacy.no_personal_title">Dados Pessoais Não Recolhidos</h4>
             <p data-i18n="privacy.no_personal_desc">O Faro Formoso NÃO recolhe ou armazena:</p>
             <ul>
                 <li data-i18n="privacy.no_personal_item1">Nome, email ou informações de contacto</li>
-                <li data-i18n="privacy.no_personal_item2">Endereço IP ou localização geográfica precisa</li>
+                <li data-i18n="privacy.no_personal_item2">Endereço IP ou localização (a sua localização só é usada no seu dispositivo, e enviada ao serviço de mapas, quando pede expressamente "perto de mim")</li>
                 <li data-i18n="privacy.no_personal_item3">Informações de cartão de crédito ou pagamento</li>
                 <li data-i18n="privacy.no_personal_item4">Histórico de navegação fora deste site</li>
                 <li data-i18n="privacy.no_personal_item5">Cookies de rastreamento ou publicidade</li>
@@ -88,19 +88,20 @@
         <!-- APIs Externas -->
         <section class="privacy-section">
             <h3 data-i18n="privacy.external_apis_title">Serviços Externos e APIs</h3>
-            <p data-i18n="privacy.external_apis_desc">O Faro Formoso integra informações de fontes públicas externas. Quando acede a estas informações, pode estar sujeito às políticas de privacidade dessas entidades:</p>
+            <p data-i18n="privacy.external_apis_desc">Algumas funcionalidades fazem pedidos diretamente do seu navegador a serviços externos. Esses serviços recebem o seu endereço IP, como em qualquer visita a um site, e têm as suas próprias políticas de privacidade:</p>
             <ul>
-                <li data-i18n="privacy.external_apis_item1"><strong>GEO API PT:</strong> Dados geográficos e demográficos de Portugal</li>
-                <li data-i18n="privacy.external_apis_item2"><strong>OpenStreetMap:</strong> Mapas interativos e dados geográficos</li>
-                <li data-i18n="privacy.external_apis_item3"><strong>Fontes oficiais:</strong> Câmara Municipal de Faro, Portal do Cidadão</li>
+                <li data-i18n="privacy.external_apis_item1"><strong>Open-Meteo:</strong> previsão do tempo para Faro (não envia a sua localização)</li>
+                <li data-i18n="privacy.external_apis_item2"><strong>OpenStreetMap e Overpass API:</strong> mosaicos do mapa e pesquisa de farmácias, hospitais, multibancos e supermercados. Se usar "perto de mim", as coordenadas aproximadas são enviadas à Overpass API para fazer a pesquisa</li>
+                <li data-i18n="privacy.external_apis_item3"><strong>unpkg.com:</strong> carrega a biblioteca de mapas Leaflet nas páginas com mapa</li>
+                <li data-i18n="privacy.external_apis_item4"><strong>Navegação por voz:</strong> usa o reconhecimento de voz do navegador; em alguns navegadores (por ex. Chrome) o áudio é processado nos servidores do fornecedor do navegador</li>
             </ul>
-            <p data-i18n="privacy.external_apis_note">Estas integrações não partilham os seus dados pessoais. As consultas a APIs são feitas diretamente do seu dispositivo.</p>
+            <p data-i18n="privacy.external_apis_note">Não partilhamos dados pessoais com estes serviços além do estritamente necessário para cada pedido.</p>
         </section>
 
         <!-- Cookies -->
         <section class="privacy-section">
             <h3 data-i18n="privacy.cookies_title">Cookies</h3>
-            <p data-i18n="privacy.cookies_desc">Este site não utiliza cookies de rastreamento, cookies de publicidade ou cookies de terceiros. Utilizamos apenas o armazenamento local do navegador (LocalStorage e SessionStorage) para funcionalidades essenciais descritas acima.</p>
+            <p data-i18n="privacy.cookies_desc">Este site não utiliza cookies de rastreamento, cookies de publicidade ou cookies de terceiros, nem ferramentas de análise. Utilizamos apenas o armazenamento local do navegador para as funcionalidades descritas acima.</p>
         </section>
 
         <!-- Segurança -->
@@ -108,7 +109,7 @@
             <h3 data-i18n="privacy.security_title">Segurança</h3>
             <p data-i18n="privacy.security_p1">Implementamos medidas de segurança técnicas para proteger o site e os seus utilizadores:</p>
             <ul>
-                <li data-i18n="privacy.security_item1"><strong>HTTPS:</strong> Todas as comunicações são encriptadas</li>
+                <li data-i18n="privacy.security_item1"><strong>HTTPS:</strong> O site é servido por HTTPS</li>
                 <li data-i18n="privacy.security_item2"><strong>Content Security Policy (CSP):</strong> Proteção contra ataques de injeção de código</li>
                 <li data-i18n="privacy.security_item3"><strong>Sem backend:</strong> Não há servidor para armazenar ou comprometer dados</li>
                 <li data-i18n="privacy.security_item4"><strong>Código aberto:</strong> O código pode ser auditado publicamente no GitHub</li>
@@ -143,7 +144,7 @@
         <section class="privacy-section">
             <h3 data-i18n="privacy.changes_title">Alterações a Esta Política</h3>
             <p data-i18n="privacy.changes_desc">Podemos atualizar esta política de privacidade ocasionalmente. Quaisquer alterações serão publicadas nesta página com a data de atualização. Recomendamos que reveja esta política periodicamente.</p>
-            <p class="last-updated" data-i18n="privacy.last_updated">Última atualização: Janeiro de 2025</p>
+            <p class="last-updated" data-i18n="privacy.last_updated">Última atualização: novembro de 2026</p>
         </section>
 
         <!-- Contacto -->

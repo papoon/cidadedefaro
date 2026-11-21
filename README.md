@@ -13,7 +13,7 @@
 
 **Guia completo e gratuito para viver e visitar Faro, Portugal**
 
-[🌐 Ver Site](https://papoon.github.io/cidadedefaro) • [🐛 Reportar Bug](https://github.com/papoon/cidadedefaro/issues) • [✨ Sugerir Funcionalidade](https://github.com/papoon/cidadedefaro/issues)
+[🌐 Ver Site](https://faroformoso.pt) • [🐛 Reportar Bug](https://github.com/papoon/cidadedefaro/issues) • [✨ Sugerir Funcionalidade](https://github.com/papoon/cidadedefaro/issues)
 
 </div>
 
@@ -79,10 +79,16 @@ Este projeto tem como missão democratizar o acesso à informação sobre Faro, 
 
 ## 🔌 APIs e Fontes de Dados
 
-O projeto integra dados de múltiplas fontes públicas e abertas:
+A informação é compilada a partir de fontes públicas e abertas. Dados em tempo real vêm de APIs abertas; contactos e moradas são verificados manualmente (última revisão: novembro de 2026).
 
-| API/Fonte | Descrição | URL |
-|-----------|-----------|-----|
+| API/Fonte | Uso no site | URL |
+|-----------|-------------|-----|
+| 🌤️ **Open-Meteo** | Previsão do tempo (`src/data/tempo.js`) | [open-meteo.com](https://open-meteo.com) |
+| 🗺️ **OpenStreetMap / Overpass API** | Mapas e pontos de interesse (`src/data/mapa.js`); verificação de moradas, telefones e horários dos datasets em `assets/data/` | [openstreetmap.org](https://www.openstreetmap.org) |
+| 📊 **INE** | População do concelho (Censos 2021) em `assets/data/municipio-faro.json` | [ine.pt](https://www.ine.pt) |
+| 🏛️ **Fontes oficiais** | Câmara Municipal de Faro, gov.pt / ePortugal, SNS, FAGAR, VisitPortugal – consultadas para verificar contactos | [cm-faro.pt](https://www.cm-faro.pt) · [gov.pt](https://www.gov.pt) |
+
+-----------|-----------|-----|
 | 🗺️ **GEO API PT** | Dados geográficos e demográficos dos municípios portugueses | [geoapi.pt](https://geoapi.pt) |
 | 🏛️ **Câmara Municipal de Faro** | Informações oficiais sobre serviços municipais | [cm-faro.pt](https://www.cm-faro.pt) |
 | 🏥 **Portal do Cidadão** | Serviços de saúde e farmácias | [portaldocidadao.pt](https://www.portaldocidadao.pt) |
@@ -155,7 +161,7 @@ npm run build
 npm run preview
 ```
 
-O site estará disponível em `http://localhost:5173` (dev) ou `http://localhost:4173/cidadedefaro/` (preview).
+O site estará disponível em `http://localhost:5173` (dev) ou `http://localhost:4173` (preview).
 
 ### Opção 3: Com Docker (Desenvolvimento Isolado)
 
@@ -202,7 +208,7 @@ Para desenvolvimento simples, você pode abrir o arquivo `index.html` diretament
 O projeto está configurado com deploy automático para GitHub Pages:
 - **Deploy automático**: Todo push para a branch `main` gera um novo deploy
 - **Build com Vite**: O workflow do GitHub Actions compila o projeto automaticamente
-- **URL de produção**: https://papoon.github.io/cidadedefaro/
+- **URL de produção**: https://faroformoso.pt/
 
 Outros serviços de hospedagem gratuita compatíveis:
 - **Netlify**
@@ -286,7 +292,7 @@ cidadedefaro/
 
 ### 🔧 Sistema de Partials
 
-O projeto utiliza **vite-plugin-html** para reutilização de componentes HTML através de partials:
+O projeto utiliza um **plugin EJS próprio** (em `vite.config.js`, com o pacote `ejs`) para reutilização de componentes HTML através de partials:
 
 - **Partials** são fragmentos HTML reutilizáveis em `src/partials/`
 - Durante o build, os partials são injetados nas páginas usando sintaxe EJS (`<%- nomePartial %>`)
@@ -362,10 +368,10 @@ As páginas estão organizadas por ordem de prioridade para os utilizadores:
 
 ### A Curto Prazo
 - [ ] Adicionar mais pontos de interesse turístico
-- [ ] Integrar API de previsão do tempo
+- [x] Integrar API de previsão do tempo
 - [ ] Implementar sistema de avaliações de locais
-- [ ] Adicionar notificações push para eventos
-- [ ] Criar modo de navegação por voz
+- [x] Adicionar notificações para alertas
+- [x] Criar modo de navegação por voz
 
 ### A Médio Prazo
 - [ ] Backend para sincronização de favoritos entre dispositivos
