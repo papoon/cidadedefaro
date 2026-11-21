@@ -140,6 +140,15 @@
   </url>
   
   <url>
+    <loc>https://faroformoso.pt/frases-uteis.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://faroformoso.pt/frases-uteis.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://faroformoso.pt/frases-uteis.html?lang=en"/>
+  </url>
+  
+  <url>
     <loc>https://faroformoso.pt/mobilidade.html</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>

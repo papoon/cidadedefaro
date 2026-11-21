@@ -7,6 +7,12 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Não Lançado]
 
+### 🗣️ Frases úteis e arrendamento
+
+#### Adicionado
+- **Nova página `frases-uteis.html`**: 40 frases em português de Portugal com tradução inglesa (essencial, emergência, saúde, restaurante, transportes, serviços), dicas práticas e botão de pronúncia (Web Speech API, voz pt-PT preferida; só aparece se o browser suportar). Ligada na navegação (Viver), sitemap, pesquisa; offline (SW `v13`).
+- **Arrendar Casa sem Burlas** em `viver-em-faro.html`: sinais de alerta, como confirmar o proprietário, contrato, obrigações do senhorio, o que fazer se for vítima e apoios (Porta 65 Jovem / 65+).
+
 ### 🏠 Checklist do novo residente
 
 #### Adicionado

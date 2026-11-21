@@ -28,7 +28,8 @@
     "group_leisure": "Leisure & culture",
     "group_project": "The project",
     "beaches": "Beaches & Islands",
-    "arrival": "Arriving in Faro"
+    "arrival": "Arriving in Faro",
+    "phrases": "Useful Phrases"
   },
   "weather": {
     "section_title": "Weather in Faro",
@@ -122,7 +123,8 @@
     "terms_description": "Terms of use for the Faro Guide",
     "home_title": "Faro Formoso - Live, Discover and Take Part in the City of Faro, Portugal",
     "beaches_title": "Beaches and Islands: Ferries and Timetables - Faro Formoso",
-    "arrival_title": "Arriving in Faro: Airport to City Centre - Faro Formoso"
+    "arrival_title": "Arriving in Faro: Airport to City Centre - Faro Formoso",
+    "phrases_title": "Useful Portuguese Phrases - Faro Formoso"
   },
   "about": {
     "hero_title": "About the Project",
@@ -1909,5 +1911,51 @@
     "loja_title": "Faro Citizen Shop (Loja de Cidadão)",
     "loja_desc": "Largo Dr. Francisco Sá Carneiro (Municipal Market, 1st floor), 8000-151 Faro. Phone 300 003 990. Weekdays 8:30–19:30, Saturday 8:30–14:00. Includes Tax Office, Social Security and IMT desks. Book ahead whenever possible.",
     "disclaimer": "General information, checked in November 2026 against official sources. Rules change; always confirm with the relevant service."
+  },
+  "phrases": {
+    "hero_title": "Useful Portuguese Phrases",
+    "hero_description": "European Portuguese for everyday situations: pharmacy, doctor, restaurant, transport and emergencies. Tap the speaker to hear the pronunciation.",
+    "pt_note": "In Portugal people say autocarro (not ônibus) for bus, casa de banho (not banheiro) for toilet and pequeno-almoço (not café da manhã) for breakfast.",
+    "audio_note": "Pronunciation uses your device's voice. If no European Portuguese voice is installed, it may sound Brazilian.",
+    "listen_label": "Listen: {phrase}",
+    "cat_basics": "The Basics",
+    "cat_emergency": "Emergency",
+    "cat_health": "Health and Pharmacy",
+    "cat_restaurant": "Restaurant and Café",
+    "cat_transport": "Transport",
+    "cat_services": "Services and Home",
+    "tip_couvert": "What arrives at the table before you order (bread, olives, cheese, butter) is charged if you eat it. If you don't want it, you can ask for it to be taken away.",
+    "tip_nif": "Shops often ask “Contribuinte?”: they want to know if you want your tax number (NIF) on the receipt. You can say “Não, obrigado/a” (No, thank you).",
+    "tip_emergency": "In any emergency call 112. Calls are answered in Portuguese and English.",
+    "related_title": "See also",
+    "related_health": "Emergency care, SNS 24 and pharmacies",
+    "related_living": "Living in Faro and the new resident checklist",
+    "related_arrival": "Airport to city centre"
+  },
+  "rental": {
+    "title": "Renting a Home Without Getting Scammed",
+    "intro": "Portuguese police (PSP) recorded more than 4,500 fake-rental scams between 2023 and 2025. Before paying anything, check these points.",
+    "signs_title": "Warning signs",
+    "sign_price": "A price well below market, with real photos and a real address.",
+    "sign_upfront": "They ask for a deposit, advance payment or copies of your ID, passport or NIF before you have seen the home.",
+    "sign_abroad": "The “owner” says they are abroad, cannot show the home and is in a hurry.",
+    "protect_title": "How to protect yourself",
+    "protect_visit": "Do not pay anything before visiting the home and confirming who the owner is.",
+    "protect_owner": "Check the owner in the land registry certificate (certidão permanente, available at Registo Predial Online) and compare the name with the ID of the person signing the contract.",
+    "protect_contract": "Insist on a written contract stating the rent, deposit, duration and who pays water, electricity and building fees.",
+    "protect_tax": "The landlord must register the contract with the Tax Authority and issue electronic rent receipts. With them, you can deduct part of the rent in your income tax (IRS).",
+    "protect_docs": "Ask for the energy certificate (as a rule, required to rent out a home).",
+    "protect_pay": "Pay by bank transfer and keep every receipt.",
+    "victim_title": "If you are scammed",
+    "victim_desc": "Contact your bank immediately to try to cancel the transfer. Keep the listings, messages and payment receipts, and report it to the PSP or through the online complaint system (Queixa Eletrónica).",
+    "support_title": "Rental support",
+    "support_porta65": "Porta 65 Jovem: rent support for people aged 18 to 35, applied for on the Portal da Habitação. Funding is limited.",
+    "support_porta65plus": "Porta 65+: support for other households, with no age limit.",
+    "support_faro": "If you are in need, contact Faro City Council's Social Services (289 870 870).",
+    "link_predial": "Land registry online (Registo Predial Online)",
+    "link_habitacao": "Portal da Habitação (housing portal)",
+    "link_porta65": "Apply for Porta 65 Jovem (gov.pt)",
+    "link_queixa": "Online police complaint (Queixa Eletrónica)",
+    "disclaimer": "General information, checked in November 2026. Not a substitute for legal advice."
   }
 }

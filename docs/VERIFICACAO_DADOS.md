@@ -68,3 +68,17 @@ Removidos por não verificáveis: Farmácia Leonardo, Farmácia do Montepio, 12 
 | Utente SNS: USF da área + autorização de residência / CRUE / atestado da Junta | sns24.gov.pt (acesso de estrangeiros); ERS | |
 | Freguesias de Faro: Faro (Sé e São Pedro), Montenegro, Conceição e Estoi, Santa Bárbara de Nexe | — | sem contactos publicados (não verificados) |
 | Loja de Cidadão | ver linha "Loja de Cidadão" acima (gov.pt, 17/09/2026) | |
+
+## Arrendamento (viver-em-faro.html#rental-title) — verificado 2026-11-21
+| Dado | Fonte | Nota |
+|------|-------|------|
+| >4 500 burlas por falso arrendamento 2023–2025 | PSP via idealista/news (abr. 2026), Diário do Distrito | outras fontes dão 4 267 em 3 anos — publicado "mais de 4 500" |
+| Sinais/medidas (não pagar antes de visitar, não enviar documentos) | PSP (Pplware, 24 Notícias), CGD | |
+| Certidão permanente do registo predial confirma proprietário | Cofidis, CGD → predialonline.pt | custo (15 €) não publicado na página |
+| Senhorio comunica contrato à AT e emite recibos eletrónicos | CGD Saldo Positivo, Santander | há dispensas legais — página diz "tem de" (regra geral) |
+| Certificado energético obrigatório (em regra) | Rentila, Maxcidadela | |
+| Porta 65 Jovem 18–35 anos, candidaturas no Portal da Habitação, verba limitada | gov.pt, DECO | Porta 65+ sem limite de idade (DECO) |
+| Ação Social CM Faro 289 870 870 | já verificado (linha Câmara) | |
+
+## Frases úteis (frases-uteis.html)
+Conteúdo linguístico próprio (português europeu). Sem fontes externas — rever por falante nativo antes de grandes alterações.

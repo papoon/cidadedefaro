@@ -1,6 +1,6 @@
 // Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
-const CACHE_VERSION = 'v12';
+const CACHE_VERSION = 'v13';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
 
@@ -44,6 +44,7 @@ const HTML_PAGES = [
     './historia-faro.html',
     './favoritos.html',
     './idosos.html',
+    './frases-uteis.html',
     './sobre-projeto.html',
     './demo-alertas.html'
 ];

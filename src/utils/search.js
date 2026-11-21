@@ -118,6 +118,22 @@ class SearchManager {
                 description: 'NIF, NISS, AIMA, registo UE, centro de saúde, Junta de Freguesia e água',
                 url: 'viver-em-faro.html#checklist-title',
                 keywords: ['nif', 'niss', 'aima', 'residência', 'autorização de residência', 'crue', 'número de utente', 'atestado', 'junta de freguesia', 'chave móvel digital', 'mudar para faro', 'expat', 'burocracia', 'documentos']
+            },
+            {
+                id: 'page-frases',
+                type: 'page',
+                title: 'Frases Úteis em Português',
+                description: 'Português de Portugal com tradução e pronúncia: farmácia, médico, restaurante, transportes',
+                url: 'frases-uteis.html',
+                keywords: ['frases', 'phrases', 'português', 'portuguese', 'língua', 'language', 'traduzir', 'pronúncia', 'falar']
+            },
+            {
+                id: 'arrendamento-burlas',
+                type: 'service',
+                title: 'Arrendar Casa sem Burlas',
+                description: 'Sinais de burla, contrato, recibos de renda, Porta 65 Jovem',
+                url: 'viver-em-faro.html#rental-title',
+                keywords: ['arrendar', 'arrendamento', 'renda', 'casa', 'burla', 'senhorio', 'contrato', 'porta 65', 'rent', 'scam', 'habitação']
             }
         ];
 

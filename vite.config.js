@@ -32,6 +32,7 @@ const htmlPages = [
   'chegar-a-faro.html',
   'demo-alertas.html',
   'favoritos.html',
+  'frases-uteis.html',
   'historia-faro.html',
   'hoteis.html',
   'idosos.html',
