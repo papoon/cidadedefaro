@@ -123,7 +123,8 @@
     "privacy_title": "Política de Privacidade - Faro Formoso",
     "privacy_description": "Como protegemos e tratamos os seus dados no Faro Formoso",
     "terms_title": "Termos e Condições - Faro Formoso",
-    "terms_description": "Condições de utilização do Faro Formoso"
+    "terms_description": "Condições de utilização do Faro Formoso",
+    "home_title": "Faro Formoso - Viver, Descobrir e Participar na Cidade de Faro, Portugal"
   },
   "about": {
     "hero_title": "Sobre o Projeto",
@@ -538,7 +539,8 @@
     "filter_pharmacies": "Farmácias",
     "filter_hospitals": "Hospitais",
     "filter_atms": "Multibancos",
-    "filter_supermarkets": "Supermercados"
+    "filter_supermarkets": "Supermercados",
+    "directions": "Como chegar"
   },
   "offline": {
     "title": "Você está offline",
@@ -808,7 +810,7 @@
     "agncia_portuguesa_do_ambiente": "Agência Portuguesa do Ambiente",
     "sociedade_ponto_verde_reciclagem": "Sociedade Ponto Verde (Reciclagem)",
     "denncias_ambientais": "Denúncias Ambientais:",
-    "se_observar_situaes_de_poluio_deposio_il": "Se observar situações de poluição, deposição ilegal de resíduos ou outras infrações ambientais, contacte a Linha de Ambiente Municipal ou a GNR - Serviço de Proteção da Natureza e do Ambiente (SEPNA)."
+    "se_observar_situaes_de_poluio_deposio_il": "Se observar situações de poluição, deposição ilegal de resíduos ou outras infrações ambientais, contacte a FAGAR, a Câmara Municipal ou a GNR - Serviço de Proteção da Natureza e do Ambiente (SEPNA)."
   },
   "favoritos": {
     "key": ""
@@ -890,7 +892,7 @@
   },
   "index": {
     "key": "",
-    "index_guia_premium_de_faro": "Guia Premium do Faro Formoso"
+    "guia_premium_de_faro": "Guia Premium do Faro Formoso"
   },
   "lazer": {
     "key": "",
@@ -987,7 +989,7 @@
     "vrias_salas_3d_imax": "Várias salas",
     "biblioteca_municipal": "Biblioteca Municipal",
     "espao_moderno_com_vasto_acervo_bibliogrf": "Espaço moderno com vasto acervo bibliográfico, sala de leitura, internet e atividades culturais.",
-    "alameda_joo_de_deus_1": "Rua Pintor Carlos Porfírio, 35",
+    "alameda_joo_de_deus_1": "Rua Pintor Carlos Porfírio (junto à Alameda João de Deus)",
     "emprstimo_gratuito_com_carto_de_leitor": "Empréstimo gratuito com cartão de leitor",
     "passeios_de_barco": "Passeios de Barco",
     "tours_pela_ria_formosa_observao_de_aves": "Tours pela Ria Formosa, observação de aves, pesca desportiva e passeios ao pôr do sol.",
@@ -1166,7 +1168,7 @@
     "espao_moderno_para_ler_estudar_ou_usar_a": "Espaço moderno para ler, estudar ou usar a internet. Vasto acervo bibliográfico e salas de estudo.",
     "onde_ir_10": "Onde ir",
     "biblioteca_municipal_antnio_ramos_rosa": "Biblioteca Municipal António Ramos Rosa",
-    "rua_tenente_valadim_faro": "Rua Pintor Carlos Porfírio, 35, Faro",
+    "rua_tenente_valadim_faro": "Rua Pintor Carlos Porfírio (junto à Alameda João de Deus)",
     "como_chegar_10": "Como chegar",
     "a_p_5": "A pé:",
     "autocarro_9": "Autocarro:",
@@ -1726,7 +1728,6 @@
     "seg_social_address": "Rua Pintor Carlos Porfírio, 35, 8000-241 Faro (e balcão na Loja de Cidadão)",
     "santa_casa_label": "Santa Casa da Misericórdia de Faro",
     "santa_casa_desc": "Instituição de solidariedade social com estruturas residenciais para pessoas idosas (lares) e outras respostas sociais.",
-    "santa_casa_address": "Largo da Sé, 8000-138 Faro",
     "camara_label": "Câmara Municipal de Faro - Ação Social",
     "camara_desc": "Programas e iniciativas municipais de apoio à terceira idade.",
     "address_label": "Morada:",

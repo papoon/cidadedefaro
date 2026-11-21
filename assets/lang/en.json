@@ -123,7 +123,8 @@
     "privacy_title": "Privacy Policy - Faro Guide",
     "privacy_description": "How we protect and handle your data at Faro Guide",
     "terms_title": "Terms and Conditions - Faro Guide",
-    "terms_description": "Terms of use for the Faro Guide"
+    "terms_description": "Terms of use for the Faro Guide",
+    "home_title": "Faro Formoso - Live, Discover and Take Part in the City of Faro, Portugal"
   },
   "about": {
     "hero_title": "About the Project",
@@ -538,7 +539,8 @@
     "filter_pharmacies": "Pharmacies",
     "filter_hospitals": "Hospitals",
     "filter_atms": "ATMs",
-    "filter_supermarkets": "Supermarkets"
+    "filter_supermarkets": "Supermarkets",
+    "directions": "Get directions"
   },
   "offline": {
     "title": "You are offline",
@@ -804,11 +806,11 @@
     "key_18": "",
     "linha_de_ambiente_da_cmara_municipal_de": "FAGAR – water, sewerage and waste:",
     "links_teis": "Useful Links:",
-    "cmara_municipal_de_faro": "Câmara Municipal de Faro",
-    "agncia_portuguesa_do_ambiente": "Agência Portuguesa do Ambiente",
-    "sociedade_ponto_verde_reciclagem": "Sociedade Ponto Verde (Reciclagem)",
-    "denncias_ambientais": "Denúncias Ambientais:",
-    "se_observar_situaes_de_poluio_deposio_il": "Se observar situações de poluição, deposição ilegal de resíduos ou outras infrações ambientais, contacte a Linha de Ambiente Municipal ou a GNR - Serviço de Proteção da Natureza e do Ambiente (SEPNA)."
+    "cmara_municipal_de_faro": "Faro City Council",
+    "agncia_portuguesa_do_ambiente": "Portuguese Environment Agency",
+    "sociedade_ponto_verde_reciclagem": "Sociedade Ponto Verde (Recycling)",
+    "denncias_ambientais": "Environmental Complaints:",
+    "se_observar_situaes_de_poluio_deposio_il": "If you see pollution, illegal dumping or other environmental offences, contact FAGAR, the City Council or the GNR's nature and environment protection service (SEPNA)."
   },
   "favoritos": {
     "key": ""
@@ -890,7 +892,7 @@
   },
   "index": {
     "key": "",
-    "guia_premium_de_faro": "Faro Premium Guide"
+    "guia_premium_de_faro": "Faro Formoso Premium Guide"
   },
   "lazer": {
     "key": "",
@@ -987,7 +989,7 @@
     "vrias_salas_3d_imax": "Several screens",
     "biblioteca_municipal": "Municipal Library",
     "espao_moderno_com_vasto_acervo_bibliogrf": "Modern space with a large bibliographic collection, reading room, internet and cultural activities.",
-    "alameda_joo_de_deus_1": "Rua Pintor Carlos Porfírio, 35",
+    "alameda_joo_de_deus_1": "Rua Pintor Carlos Porfírio (by Alameda João de Deus)",
     "emprstimo_gratuito_com_carto_de_leitor": "Free loans with a reader card",
     "passeios_de_barco": "Boat Tours",
     "tours_pela_ria_formosa_observao_de_aves": "Tours of the Ria Formosa, birdwatching, sport fishing and sunset cruises.",
@@ -1166,7 +1168,7 @@
     "espao_moderno_para_ler_estudar_ou_usar_a": "Modern space to read, study or use the internet. Large book collection and study rooms.",
     "onde_ir_10": "Where to go",
     "biblioteca_municipal_antnio_ramos_rosa": "António Ramos Rosa Municipal Library",
-    "rua_tenente_valadim_faro": "Rua Pintor Carlos Porfírio, 35, Faro",
+    "rua_tenente_valadim_faro": "Rua Pintor Carlos Porfírio (by Alameda João de Deus)",
     "como_chegar_10": "How to get there",
     "a_p_5": "On foot:",
     "autocarro_9": "Bus:",
@@ -1726,7 +1728,6 @@
     "seg_social_address": "Rua Pintor Carlos Porfírio, 35, 8000-241 Faro (and a desk at the Loja de Cidadão)",
     "santa_casa_label": "Santa Casa da Misericórdia de Faro",
     "santa_casa_desc": "Social solidarity institution running residential care homes for older people and other social services.",
-    "santa_casa_address": "Largo da Sé, 8000-138 Faro",
     "camara_label": "Faro City Council - Social Action",
     "camara_desc": "Municipal programs and initiatives to support seniors.",
     "address_label": "Address:",

@@ -88,13 +88,6 @@ A informação é compilada a partir de fontes públicas e abertas. Dados em tem
 | 📊 **INE** | População do concelho (Censos 2021) em `assets/data/municipio-faro.json` | [ine.pt](https://www.ine.pt) |
 | 🏛️ **Fontes oficiais** | Câmara Municipal de Faro, gov.pt / ePortugal, SNS, FAGAR, VisitPortugal – consultadas para verificar contactos | [cm-faro.pt](https://www.cm-faro.pt) · [gov.pt](https://www.gov.pt) |
 
------------|-----------|-----|
-| 🗺️ **GEO API PT** | Dados geográficos e demográficos dos municípios portugueses | [geoapi.pt](https://geoapi.pt) |
-| 🏛️ **Câmara Municipal de Faro** | Informações oficiais sobre serviços municipais | [cm-faro.pt](https://www.cm-faro.pt) |
-| 🏥 **Portal do Cidadão** | Serviços de saúde e farmácias | [portaldocidadao.pt](https://www.portaldocidadao.pt) |
-| 🏖️ **Turismo de Portugal** | Informações turísticas oficiais e eventos | [visitportugal.com](https://www.visitportugal.com) |
-| 🗺️ **OpenStreetMap** | Mapas colaborativos abertos | [openstreetmap.org](https://www.openstreetmap.org) |
-| 🚌 **Proximo Autocarro** | Transportes públicos e horários | [proximoautocarro.pt](https://www.proximoautocarro.pt) |
 
 ---
 

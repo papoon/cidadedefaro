@@ -270,12 +270,13 @@
 
                     const marcador = L.marker(servico.coordenadas, { icon: icone }).addTo(mapa);
                     
-                    marcador.bindPopup(`
-                        <div style="text-align: center;">
-                            <strong data-i18n="saude.serviconome">${servico.nome}</strong><br>
-                            ${servico.descricao}
-                        </div>
-                    `);
+                    // Construir o popup com DOM (sem innerHTML com dados dinâmicos)
+                    const popup = document.createElement('div');
+                    popup.style.textAlign = 'center';
+                    const nome = document.createElement('strong');
+                    nome.textContent = servico.nome;
+                    popup.append(nome, document.createElement('br'), document.createTextNode(servico.descricao || ''));
+                    marcador.bindPopup(popup);
                 });
 
                 console.log('Mapa de saúde inicializado com sucesso');
