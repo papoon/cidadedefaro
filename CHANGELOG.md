@@ -7,6 +7,16 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Não Lançado]
 
+### 🗺️ Camadas do mapa: coworking, acessibilidade e animais
+
+#### Adicionado
+- **Camadas temáticas em `mapa.html`** (dados OpenStreetMap, carregadas só quando ativadas, sem precisar de geolocalização): Coworking, Casas de banho acessíveis, Estacionamento para pessoas com deficiência, Parques para cães, Veterinários. Popups com telefone e horário quando existem no OSM; contagem anunciada a leitores de ecrã; ligações diretas `mapa.html?camada=...`.
+- Link ao itinerário acessível de Faro (VisitPortugal) e convite a contribuir no OpenStreetMap.
+- Secções "Trabalhar à Distância" e "Animais de Estimação" em `viver-em-faro.html`; entradas na pesquisa.
+
+#### Alterado
+- `src/data/mapa.js`: construção do popup extraída para `criarPopup()` (partilhada entre serviços e camadas).
+
 ### 🗣️ Frases úteis e arrendamento
 
 #### Adicionado

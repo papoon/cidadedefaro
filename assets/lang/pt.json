@@ -540,7 +540,19 @@
     "filter_hospitals": "Hospitais",
     "filter_atms": "Multibancos",
     "filter_supermarkets": "Supermercados",
-    "directions": "Como chegar"
+    "directions": "Como chegar",
+    "layers_title": "Camadas",
+    "layers_intro": "Mostre no mapa de Faro:",
+    "layer_coworking": "Coworking",
+    "layer_wc_acessivel": "Casas de banho acessíveis",
+    "layer_estacionamento_pmr": "Estacionamento para pessoas com deficiência",
+    "layer_parque_canino": "Parques para cães",
+    "layer_veterinario": "Veterinários",
+    "layers_none": "nenhum local mapeado ainda",
+    "layers_error": "Não foi possível carregar a camada. Tente novamente.",
+    "layers_osm_note": "Dados do OpenStreetMap, um mapa feito por voluntários: em Faro ainda há poucos destes locais registados. Falta algum? Pode acrescentá-lo em openstreetmap.org.",
+    "layers_osm_link": "Contribuir no OpenStreetMap",
+    "accessible_route": "Itinerário acessível de Faro (VisitPortugal)"
   },
   "offline": {
     "title": "Você está offline",
@@ -1831,7 +1843,8 @@
     "related_leisure": "Praias, museus e cultura em Faro",
     "related_transport": "Autocarros, comboios e táxis",
     "related_map": "Mapa interativo de Faro",
-    "more_link": "Barcos, horários e como chegar às praias"
+    "more_link": "Barcos, horários e como chegar às praias",
+    "accessible_map_link": "Casas de banho acessíveis e estacionamento no mapa"
   },
   "arrival": {
     "hero_title": "Chegar a Faro",
@@ -1957,5 +1970,16 @@
     "link_porta65": "Candidatura ao Porta 65 Jovem (gov.pt)",
     "link_queixa": "Queixa Eletrónica",
     "disclaimer": "Informação geral, verificada em novembro de 2026. Não substitui aconselhamento jurídico."
+  },
+  "living_extra": {
+    "remote_title": "Trabalhar à Distância",
+    "remote_sim": "Cartões pré-pagos: as operadoras MEO, NOS, Vodafone e Digi vendem-nos nas suas lojas. Quem tem um cartão de outro país da UE usa-o em Portugal sem custos extra de roaming.",
+    "remote_cowork": "Espaços de coworking: veja a camada Coworking no mapa. Ainda há poucos registados no OpenStreetMap.",
+    "remote_cowork_link": "Ver coworkings no mapa",
+    "pets_title": "Animais de Estimação",
+    "pets_chip": "Cães, gatos e furões têm de ter microchip e registo no SIAC (Sistema de Informação de Animais de Companhia), até 120 dias depois de nascerem. Normalmente trata-se de tudo no veterinário.",
+    "pets_beach": "Praias: nas praias concessionadas, a presença de cães é em regra proibida durante a época balnear; os cães de assistência podem entrar sempre. Confirme o edital ou os sinais à entrada de cada praia.",
+    "pets_map_link": "Veterinários e parques para cães no mapa",
+    "pets_siac_link": "SIAC (registo de animais)"
   }
 }

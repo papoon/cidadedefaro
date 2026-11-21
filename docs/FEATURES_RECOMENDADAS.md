@@ -198,9 +198,9 @@ recorrentes que o site ainda não cobre — confirmar dados em fontes oficiais a
 | 6.5 ✅ | Burocracia é a maior queixa de expats (AIMA, NIF, NISS) | Feito: checklist em `viver-em-faro.html` com perfil (português / UE / fora da UE), 10 passos com links oficiais, Loja de Cidadão, progresso em localStorage (`src/ui/checklist.js`) | Médio |
 | 6.6 ✅ | Barreira linguística | Feito: `frases-uteis.html` — 40 frases em português de Portugal com tradução inglesa, 6 categorias, dicas (couvert, "Contribuinte?", 112) e pronúncia via `speechSynthesis` (voz pt-PT preferida; botões só aparecem se o browser suportar) | Médio |
 | 6.7 ✅ | Habitação/arrendamento (protestos, custos muito variáveis) | Feito: secção "Arrendar Casa sem Burlas" em `viver-em-faro.html` — sinais de burla (dados PSP), verificação do proprietário no registo predial, contrato, comunicação às Finanças e recibos eletrónicos, certificado energético, o que fazer se for vítima, Porta 65 Jovem/65+ | Baixo |
-| 6.8 | Nómadas digitais: coworking, SIM/eSIM, comunidade | Secção em `viver-em-faro.html` + categoria `amenity=coworking_space` no mapa | Baixo |
-| 6.9 | Acessibilidade física no centro (degraus, calçada) | Link ao itinerário acessível do VisitPortugal; camada no mapa com `wheelchair=yes` / `toilets:wheelchair` | Médio |
-| 6.10 | Animais de estimação (sem informação consolidada) | Camada no mapa com `leisure=dog_park` e `amenity=veterinary`; regras das praias | Baixo |
+| 6.8 ✅ | Nómadas digitais: coworking, SIM/eSIM, comunidade | Feito: camada Coworking no mapa (`amenity=coworking_space`/`office=coworking`) + secção "Trabalhar à Distância" em `viver-em-faro.html` (operadoras, roaming UE) | Baixo |
+| 6.9 ✅ | Acessibilidade física no centro (degraus, calçada) | Feito: camadas "Casas de banho acessíveis" e "Estacionamento para pessoas com deficiência" no mapa, link ao itinerário acessível do VisitPortugal, ligação a partir de `praias.html` | Médio |
+| 6.10 ✅ | Animais de estimação (sem informação consolidada) | Feito: camadas Veterinários e Parques para cães no mapa; secção "Animais de Estimação" (microchip/SIAC, regra das praias concessionadas) | Baixo |
 | 6.11 | A cidade "fecha" fora de época/domingos | Bloco "O que está aberto ao domingo / no inverno" em `oque-fazer-hoje.html` | Baixo |
 
 Ordem sugerida: 6.1 → 6.2 → 6.3 → 6.4 → 6.5 (junto com 2.3), depois as restantes.

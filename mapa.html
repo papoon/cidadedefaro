@@ -74,6 +74,38 @@
                 <p id="servicos-count-status" class="sr-only" aria-live="polite" aria-atomic="true"></p>
             </div>
 
+            <!-- Camadas temáticas (src/data/mapa.js → CAMADAS) -->
+            <fieldset id="camadas-tematicas" class="map-layers">
+                <legend data-i18n="map.layers_title">Camadas</legend>
+                <p data-i18n="map.layers_intro">Mostre no mapa de Faro:</p>
+                <div class="map-layers-options">
+                    <label class="filtro-checkbox">
+                        <input type="checkbox" id="camada-coworking">
+                        <span data-i18n="map.layer_coworking">Coworking</span>
+                    </label>
+                    <label class="filtro-checkbox">
+                        <input type="checkbox" id="camada-wc_acessivel">
+                        <span data-i18n="map.layer_wc_acessivel">Casas de banho acessíveis</span>
+                    </label>
+                    <label class="filtro-checkbox">
+                        <input type="checkbox" id="camada-estacionamento_pmr">
+                        <span data-i18n="map.layer_estacionamento_pmr">Estacionamento para pessoas com deficiência</span>
+                    </label>
+                    <label class="filtro-checkbox">
+                        <input type="checkbox" id="camada-parque_canino">
+                        <span data-i18n="map.layer_parque_canino">Parques para cães</span>
+                    </label>
+                    <label class="filtro-checkbox">
+                        <input type="checkbox" id="camada-veterinario">
+                        <span data-i18n="map.layer_veterinario">Veterinários</span>
+                    </label>
+                </div>
+                <p id="camadas-status" class="map-layers-status" aria-live="polite" aria-atomic="true"></p>
+                <p class="map-layers-note"><span data-i18n="map.layers_osm_note">Dados do OpenStreetMap, um mapa feito por voluntários: em Faro ainda há poucos destes locais registados. Falta algum? Pode acrescentá-lo em openstreetmap.org.</span>
+                    <a href="https://www.openstreetmap.org/#map=14/37.0194/-7.9322" target="_blank" rel="noopener noreferrer" data-i18n="map.layers_osm_link">Contribuir no OpenStreetMap</a></p>
+                <p class="map-layers-note"><a href="https://www.visitportugal.com/en/content/accessible-faro" target="_blank" rel="noopener noreferrer" data-i18n="map.accessible_route">Itinerário acessível de Faro (VisitPortugal)</a></p>
+            </fieldset>
+
             <div id="mapa"></div>
         </section>
     </main>

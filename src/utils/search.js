@@ -134,6 +134,30 @@ class SearchManager {
                 description: 'Sinais de burla, contrato, recibos de renda, Porta 65 Jovem',
                 url: 'viver-em-faro.html#rental-title',
                 keywords: ['arrendar', 'arrendamento', 'renda', 'casa', 'burla', 'senhorio', 'contrato', 'porta 65', 'rent', 'scam', 'habitação']
+            },
+            {
+                id: 'mapa-coworking',
+                type: 'service',
+                title: 'Coworking e trabalho remoto',
+                description: 'Coworkings no mapa, cartões SIM e roaming',
+                url: 'mapa.html?camada=coworking',
+                keywords: ['coworking', 'cowork', 'trabalho remoto', 'remote work', 'nómada digital', 'digital nomad', 'sim', 'esim', 'internet']
+            },
+            {
+                id: 'mapa-acessibilidade',
+                type: 'service',
+                title: 'Acessibilidade no mapa',
+                description: 'Casas de banho acessíveis e estacionamento para pessoas com deficiência',
+                url: 'mapa.html?camada=wc_acessivel,estacionamento_pmr',
+                keywords: ['acessível', 'acessibilidade', 'cadeira de rodas', 'wheelchair', 'casa de banho', 'wc', 'estacionamento', 'deficiência', 'mobilidade reduzida']
+            },
+            {
+                id: 'mapa-animais',
+                type: 'service',
+                title: 'Animais: veterinários e parques para cães',
+                description: 'Veterinários, parques caninos, microchip e regras das praias',
+                url: 'mapa.html?camada=veterinario,parque_canino',
+                keywords: ['veterinário', 'vet', 'cão', 'cães', 'gato', 'animais', 'pet', 'dog', 'parque canino', 'siac', 'microchip']
             }
         ];
 

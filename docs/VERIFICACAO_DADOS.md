@@ -82,3 +82,11 @@ Removidos por não verificáveis: Farmácia Leonardo, Farmácia do Montepio, 12 
 
 ## Frases úteis (frases-uteis.html)
 Conteúdo linguístico próprio (português europeu). Sem fontes externas — rever por falante nativo antes de grandes alterações.
+
+## Camadas do mapa e secções trabalho remoto / animais — verificado 2026-11-21
+| Dado | Fonte | Nota |
+|------|-------|------|
+| Contagens OSM (raio 6 km do centro): coworking 1, WC acessíveis 14, estacionamento PMR 4, parques caninos 2, veterinários 6 | Overpass API (consulta gerada por `construirQueryCamada`) | dados escassos → página convida a contribuir no OSM |
+| Microchip + SIAC obrigatório (cães, gatos, furões), 120 dias após nascimento | DL 82/2019; Pplware; siac.pt | taxa de registo não publicada (valor atual não confirmado) |
+| Cães em praias concessionadas proibidos na época balnear (regra geral); cães de assistência sempre permitidos | DECO PROteste; Postal | edital de cada praia prevalece |
+| Operadoras MEO, NOS, Vodafone, Digi; roaming UE sem custos extra | conhecimento geral (regulamento UE "roam like at home") | sem preços publicados |

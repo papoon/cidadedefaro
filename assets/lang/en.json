@@ -540,7 +540,19 @@
     "filter_hospitals": "Hospitals",
     "filter_atms": "ATMs",
     "filter_supermarkets": "Supermarkets",
-    "directions": "Get directions"
+    "directions": "Get directions",
+    "layers_title": "Layers",
+    "layers_intro": "Show on the map of Faro:",
+    "layer_coworking": "Coworking",
+    "layer_wc_acessivel": "Accessible toilets",
+    "layer_estacionamento_pmr": "Disabled parking",
+    "layer_parque_canino": "Dog parks",
+    "layer_veterinario": "Vets",
+    "layers_none": "no places mapped yet",
+    "layers_error": "Could not load the layer. Please try again.",
+    "layers_osm_note": "Data from OpenStreetMap, a volunteer-made map: few of these places are recorded in Faro yet. Missing one? You can add it at openstreetmap.org.",
+    "layers_osm_link": "Contribute on OpenStreetMap",
+    "accessible_route": "Accessible route around Faro (VisitPortugal)"
   },
   "offline": {
     "title": "You are offline",
@@ -1831,7 +1843,8 @@
     "related_leisure": "Beaches, museums and culture in Faro",
     "related_transport": "Buses, trains and taxis",
     "related_map": "Interactive map of Faro",
-    "more_link": "Ferries, timetables and how to get to the beaches"
+    "more_link": "Ferries, timetables and how to get to the beaches",
+    "accessible_map_link": "Accessible toilets and parking on the map"
   },
   "arrival": {
     "hero_title": "Arriving in Faro",
@@ -1957,5 +1970,16 @@
     "link_porta65": "Apply for Porta 65 Jovem (gov.pt)",
     "link_queixa": "Online police complaint (Queixa Eletrónica)",
     "disclaimer": "General information, checked in November 2026. Not a substitute for legal advice."
+  },
+  "living_extra": {
+    "remote_title": "Working Remotely",
+    "remote_sim": "Prepaid SIM cards: the operators MEO, NOS, Vodafone and Digi sell them in their shops. A SIM from another EU country works in Portugal with no extra roaming charges.",
+    "remote_cowork": "Coworking spaces: see the Coworking layer on the map. Few are recorded on OpenStreetMap yet.",
+    "remote_cowork_link": "See coworking spaces on the map",
+    "pets_title": "Pets",
+    "pets_chip": "Dogs, cats and ferrets must be microchipped and registered in SIAC (the national pet register) within 120 days of birth. This is usually all done at the vet.",
+    "pets_beach": "Beaches: dogs are generally not allowed on concessioned beaches during the bathing season; assistance dogs are always allowed. Check the notice or signs at each beach entrance.",
+    "pets_map_link": "Vets and dog parks on the map",
+    "pets_siac_link": "SIAC (pet register)"
   }
 }

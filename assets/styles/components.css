@@ -563,3 +563,12 @@ body.page-large-text .btn-maps { font-size: 1.0625rem; }
 .phrase-listen:focus-visible { outline: 3px solid var(--color-focus-ring); outline-offset: 2px; }
 .phrase-tip { margin-top: var(--space-4); padding: var(--space-3) var(--space-4); background: var(--paper-2); border-radius: var(--radius-lg); max-width: var(--measure); }
 .phrase-audio-note { font-size: var(--font-size-sm); color: var(--ink-3); }
+
+/* ---------- Camadas temáticas do mapa (mapa.html) ---------- */
+.map-layers { border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); margin: var(--space-4) 0; }
+.map-layers legend { font-weight: 600; padding: 0 var(--space-2); }
+.map-layers p { margin: 0 0 var(--space-2); }
+.map-layers-options { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-2); }
+.map-layers-status { font-weight: 600; color: var(--ink-2); min-height: 1.2em; }
+.map-layers-note { font-size: var(--font-size-sm); color: var(--ink-3); max-width: var(--measure); }
+.map-layers input[aria-busy="true"] + span::after { content: " …"; }
