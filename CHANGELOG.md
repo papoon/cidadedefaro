@@ -7,6 +7,19 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Não Lançado]
 
+### ⚠️ Avisos IPMA, urgências e ferramentas de qualidade
+
+#### Adicionado
+- **Avisos meteorológicos do IPMA** para o distrito de Faro (amarelo, laranja, vermelho) mostrados no topo de todas as páginas (`src/data/avisos-ipma.js`). A API do IPMA é tratada como *Network Only* no service worker para nunca mostrar avisos antigos.
+- **Tempos de espera nas urgências**: cartão em `saude-onde-ir-agora.html` com link para o portal oficial do SNS e explicação da triagem de Manchester.
+- **Calor extremo**: conselhos em `idosos.html`.
+- `npm run check` (consistência i18n/páginas/sitemap/SW) e `npm test` (Vitest), ambos no CI.
+- Atalhos da PWA (Onde ir agora, Mapa, Transportes, Favoritos).
+
+#### Corrigido
+- `idosos.html`: a Linha do Cidadão Idoso mostrava o número 112 em vez de 800 20 35 31.
+- Duas strings por traduzir em `en.json`.
+
 ### 🎯 Reorganização da Navegação e Arquitetura de Informação
 
 #### Alterado

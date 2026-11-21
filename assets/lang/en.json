@@ -1641,7 +1641,19 @@
     "link_home": "Home Page",
     "link_home_desc": "Back to Faro guide",
     "disclaimer_title": "Important Notice",
-    "disclaimer_text": "This page provides general information and does not replace professional medical advice, diagnosis or treatment. In case of doubt or medical emergency, always contact a qualified healthcare professional or call 112. The information presented here is in the public domain and is subject to change without notice."
+    "disclaimer_text": "This page provides general information and does not replace professional medical advice, diagnosis or treatment. In case of doubt or medical emergency, always contact a qualified healthcare professional or call 112. The information presented here is in the public domain and is subject to change without notice.",
+    "waiting_title": "Emergency Department Waiting Times",
+    "waiting_description": "The SNS (Portuguese NHS) publishes average waiting times for the Faro Hospital emergency department, updated throughout the day, by triage colour.",
+    "waiting_how": "On the portal, choose “ULS Algarve” → “Hospital de Faro”. Figures are indicative and may occasionally be wrong.",
+    "waiting_link": "See waiting times on the SNS portal",
+    "triage_title": "How triage works (Manchester system)",
+    "triage_intro": "On arrival you are given a colour according to severity. The most serious cases are seen first, regardless of arrival time. Target times:",
+    "triage_red": "Red — emergency: seen immediately",
+    "triage_orange": "Orange — very urgent: within 10 minutes",
+    "triage_yellow": "Yellow — urgent: within 60 minutes",
+    "triage_green": "Green — standard: within 120 minutes",
+    "triage_blue": "Blue — non-urgent: within 240 minutes",
+    "triage_tip": "If it is not an emergency, call SNS 24 first (808 24 24 24): you may be referred to a health centre or to the emergency department, avoiding long waits."
   },
   "alerts": {
     "close_button": "Close alert",
@@ -1714,7 +1726,17 @@
     "tip_3_desc": "The City Council has support programs for adapting homes (grab bars, ramps, etc.). Contact Social Services.",
     "tip_4_title": "Important Documents",
     "tip_4_desc": "Always carry: Citizen Card, SNS User Card and family contacts for emergencies.",
-    "health_center_usf_link": "Contact your USF (see Health page)"
+    "health_center_usf_link": "Contact your USF (see Health page)",
+    "cidadao_idoso_number": "800 20 35 31",
+    "heat_title": "Extreme Heat",
+    "heat_intro": "In summer, IPMA issues hot weather warnings for the Faro district. When a warning is active, it is shown at the top of this site. On hot days:",
+    "heat_tip_water": "Drink water often, even if you are not thirsty, and avoid alcohol.",
+    "heat_tip_hours": "Avoid going out or exerting yourself between 11am and 5pm.",
+    "heat_tip_home": "Keep your home cool: close windows and shutters during the day and open them at night.",
+    "heat_tip_clothes": "Wear light, light-coloured clothing, a hat and sunscreen.",
+    "heat_tip_neighbours": "Check daily on relatives or neighbours who live alone.",
+    "heat_tip_help": "Dizziness, confusion or shortness of breath: call SNS 24 (808 24 24 24) or, if serious, 112.",
+    "heat_link": "See weather warnings on the IPMA website"
   },
   "pwa_install": {
     "modal_title": "Install Faro Formoso",
@@ -1733,5 +1755,23 @@
   "masthead": {
     "kicker": "Free public guide · Faro, Algarve",
     "tagline": "Live, discover and take part in the city"
+  },
+  "ipma_warnings": {
+    "title": "IPMA {level} warning: {type}",
+    "area": "Faro district. {when}.",
+    "when_now": "In effect until {end}",
+    "when_future": "From {start} until {end}",
+    "source": "Source: IPMA (ipma.pt).",
+    "level_yellow": "yellow",
+    "level_orange": "orange",
+    "level_red": "red",
+    "type_sea": "rough sea",
+    "type_snow": "snow",
+    "type_fog": "fog",
+    "type_rain": "rain",
+    "type_cold": "cold weather",
+    "type_heat": "hot weather",
+    "type_thunder": "thunderstorms",
+    "type_wind": "wind"
   }
 }

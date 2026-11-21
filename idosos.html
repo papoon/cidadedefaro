@@ -32,7 +32,7 @@
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.ipma.pt; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
     
     <%- metaCommon %>
 </head>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="emergency-item">
                     <div class="label" data-i18n="seniors.inem_label">Linha do Cidadão Idoso</div>
-                    <div class="number">112</div>
+                    <div class="number" data-i18n="seniors.cidadao_idoso_number">800 20 35 31</div>
                 </div>
             </div>
         </section>
@@ -210,6 +210,27 @@
             <p>
                 <strong data-i18n="seniors.health_more_label">Mais informações:</strong> 
                 <a href="saude.html" data-i18n="seniors.health_more_link">Consulte a página de Saúde</a>
+            </p>
+        </section>
+
+        <!-- Extreme heat -->
+        <section class="service-card" aria-labelledby="heat-title">
+            <h3 id="heat-title">
+                <span data-i18n="seniors.heat_title">Calor Extremo</span>
+            </h3>
+            <div class="service-info">
+                <p data-i18n="seniors.heat_intro">No verão, o IPMA emite avisos de tempo quente para o distrito de Faro. Quando houver um aviso ativo, ele aparece no topo deste site. Nos dias de calor:</p>
+                <ul class="info-list">
+                    <li><p data-i18n="seniors.heat_tip_water">Beba água com frequência, mesmo sem sede, e evite bebidas alcoólicas.</p></li>
+                    <li><p data-i18n="seniors.heat_tip_hours">Evite sair e fazer esforços entre as 11h e as 17h.</p></li>
+                    <li><p data-i18n="seniors.heat_tip_home">Mantenha a casa fresca: feche janelas e estores durante o dia e abra-os à noite.</p></li>
+                    <li><p data-i18n="seniors.heat_tip_clothes">Use roupa leve e clara, chapéu e protetor solar.</p></li>
+                    <li><p data-i18n="seniors.heat_tip_neighbours">Contacte diariamente familiares ou vizinhos que vivam sozinhos.</p></li>
+                    <li><p data-i18n="seniors.heat_tip_help">Tonturas, confusão ou falta de ar: ligue para o SNS 24 (808 24 24 24) ou, se for grave, para o 112.</p></li>
+                </ul>
+            </div>
+            <p>
+                <a href="https://www.ipma.pt/pt/otempo/prev-sam/?p=FAR" target="_blank" rel="noopener noreferrer" data-i18n="seniors.heat_link">Ver avisos meteorológicos no site do IPMA</a>
             </p>
         </section>
 

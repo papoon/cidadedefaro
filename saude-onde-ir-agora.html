@@ -32,7 +32,7 @@
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.ipma.pt; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
     
     <%- metaCommon %>
 </head>
@@ -101,6 +101,41 @@
                data-i18n="health_now.directions_hospital">
                 Ver Direções no Mapa
             </a>
+        </section>
+
+        <!-- Waiting times + triage -->
+        <section class="emergency-card" aria-labelledby="waiting-title">
+            <h3 id="waiting-title">
+                <span data-i18n="health_now.waiting_title">Tempos de Espera nas Urgências</span>
+            </h3>
+            <p class="info-text" data-i18n="health_now.waiting_description">
+                O SNS publica os tempos médios de espera da urgência do Hospital de Faro, atualizados ao longo do dia, por cor de triagem.
+            </p>
+            <p class="info-text" data-i18n="health_now.waiting_how">
+                No portal, escolha “ULS Algarve” → “Hospital de Faro”. Os valores são indicativos e podem falhar pontualmente.
+            </p>
+            <a href="https://tempos.min-saude.pt/urgencia"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-secondary-large"
+               data-i18n="health_now.waiting_link">
+                Ver tempos de espera no portal do SNS
+            </a>
+
+            <h4 class="triage-title" data-i18n="health_now.triage_title">Como funciona a triagem (Manchester)</h4>
+            <p class="info-text" data-i18n="health_now.triage_intro">
+                À chegada, é atribuída uma cor conforme a gravidade. Quem tem situações mais graves é atendido primeiro, independentemente da hora de chegada. Tempos-alvo:
+            </p>
+            <ul class="triage-list">
+                <li class="triage-item triage-red"><span data-i18n="health_now.triage_red">Vermelho — emergente: atendimento imediato</span></li>
+                <li class="triage-item triage-orange"><span data-i18n="health_now.triage_orange">Laranja — muito urgente: até 10 minutos</span></li>
+                <li class="triage-item triage-yellow"><span data-i18n="health_now.triage_yellow">Amarelo — urgente: até 60 minutos</span></li>
+                <li class="triage-item triage-green"><span data-i18n="health_now.triage_green">Verde — pouco urgente: até 120 minutos</span></li>
+                <li class="triage-item triage-blue"><span data-i18n="health_now.triage_blue">Azul — não urgente: até 240 minutos</span></li>
+            </ul>
+            <div class="service-hours">
+                <strong data-i18n="health_now.triage_tip">Se não for uma emergência, ligue primeiro para o SNS 24 (808 24 24 24): pode ser encaminhado para o centro de saúde ou para a urgência, evitando esperas longas.</strong>
+            </div>
         </section>
 
         <!-- Health Centers -->

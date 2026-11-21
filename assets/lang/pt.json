@@ -1641,7 +1641,19 @@
     "link_home": "Página Inicial",
     "link_home_desc": "Voltar ao guia de Faro",
     "disclaimer_title": "Aviso Importante",
-    "disclaimer_text": "Esta página fornece informação de caráter geral e não substitui o aconselhamento, diagnóstico ou tratamento médico profissional. Em caso de dúvida ou emergência médica, contacte sempre um profissional de saúde qualificado ou ligue para o 112. As informações aqui apresentadas são de domínio público e estão sujeitas a alterações sem aviso prévio."
+    "disclaimer_text": "Esta página fornece informação de caráter geral e não substitui o aconselhamento, diagnóstico ou tratamento médico profissional. Em caso de dúvida ou emergência médica, contacte sempre um profissional de saúde qualificado ou ligue para o 112. As informações aqui apresentadas são de domínio público e estão sujeitas a alterações sem aviso prévio.",
+    "waiting_title": "Tempos de Espera nas Urgências",
+    "waiting_description": "O SNS publica os tempos médios de espera da urgência do Hospital de Faro, atualizados ao longo do dia, por cor de triagem.",
+    "waiting_how": "No portal, escolha “ULS Algarve” → “Hospital de Faro”. Os valores são indicativos e podem falhar pontualmente.",
+    "waiting_link": "Ver tempos de espera no portal do SNS",
+    "triage_title": "Como funciona a triagem (Manchester)",
+    "triage_intro": "À chegada, é atribuída uma cor conforme a gravidade. Quem tem situações mais graves é atendido primeiro, independentemente da hora de chegada. Tempos-alvo:",
+    "triage_red": "Vermelho — emergente: atendimento imediato",
+    "triage_orange": "Laranja — muito urgente: até 10 minutos",
+    "triage_yellow": "Amarelo — urgente: até 60 minutos",
+    "triage_green": "Verde — pouco urgente: até 120 minutos",
+    "triage_blue": "Azul — não urgente: até 240 minutos",
+    "triage_tip": "Se não for uma emergência, ligue primeiro para o SNS 24 (808 24 24 24): pode ser encaminhado para o centro de saúde ou para a urgência, evitando esperas longas."
   },
   "alerts": {
     "close_button": "Fechar alerta",
@@ -1714,7 +1726,17 @@
     "tip_3_desc": "A Câmara Municipal tem programas de apoio para adaptação de casas (barras de apoio, rampas, etc.). Contacte os Serviços Sociais.",
     "tip_4_title": "Documentos Importantes",
     "tip_4_desc": "Tenha sempre consigo: Cartão de Cidadão, Cartão de Utente do SNS e contactos de familiares para emergências.",
-    "health_center_usf_link": "Contacte a sua USF (ver página Saúde)"
+    "health_center_usf_link": "Contacte a sua USF (ver página Saúde)",
+    "cidadao_idoso_number": "800 20 35 31",
+    "heat_title": "Calor Extremo",
+    "heat_intro": "No verão, o IPMA emite avisos de tempo quente para o distrito de Faro. Quando houver um aviso ativo, ele aparece no topo deste site. Nos dias de calor:",
+    "heat_tip_water": "Beba água com frequência, mesmo sem sede, e evite bebidas alcoólicas.",
+    "heat_tip_hours": "Evite sair e fazer esforços entre as 11h e as 17h.",
+    "heat_tip_home": "Mantenha a casa fresca: feche janelas e estores durante o dia e abra-os à noite.",
+    "heat_tip_clothes": "Use roupa leve e clara, chapéu e protetor solar.",
+    "heat_tip_neighbours": "Contacte diariamente familiares ou vizinhos que vivam sozinhos.",
+    "heat_tip_help": "Tonturas, confusão ou falta de ar: ligue para o SNS 24 (808 24 24 24) ou, se for grave, para o 112.",
+    "heat_link": "Ver avisos meteorológicos no site do IPMA"
   },
   "pwa_install": {
     "modal_title": "Instalar Faro Formoso",
@@ -1733,5 +1755,23 @@
   "masthead": {
     "kicker": "Guia público e gratuito · Faro, Algarve",
     "tagline": "Viver, descobrir e participar na cidade"
+  },
+  "ipma_warnings": {
+    "title": "Aviso {level} do IPMA: {type}",
+    "area": "Distrito de Faro. {when}.",
+    "when_now": "Em vigor até {end}",
+    "when_future": "De {start} até {end}",
+    "source": "Fonte: IPMA (ipma.pt).",
+    "level_yellow": "amarelo",
+    "level_orange": "laranja",
+    "level_red": "vermelho",
+    "type_sea": "agitação marítima",
+    "type_snow": "neve",
+    "type_fog": "nevoeiro",
+    "type_rain": "precipitação",
+    "type_cold": "tempo frio",
+    "type_heat": "tempo quente",
+    "type_thunder": "trovoada",
+    "type_wind": "vento"
   }
 }

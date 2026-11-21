@@ -191,8 +191,8 @@ recorrentes que o site ainda não cobre — confirmar dados em fontes oficiais a
 
 | # | Lacuna | Proposta (100% estática) | Esforço |
 |---|--------|--------------------------|---------|
-| 6.1 | Tempos de espera nas urgências do Hospital de Faro (muito noticiado; portal SNS com falhas pontuais) | Mostrar tempo atual em `saude-onde-ir-agora.html` se o endpoint do SNS permitir CORS; senão, link direto + explicação da triagem e quando ligar SNS 24 primeiro | Baixo–Médio |
-| 6.2 | Avisos de calor do IPMA para o distrito de Faro (vários avisos laranja/amarelo em 2026) | Ler a API aberta do IPMA (confirmar CORS) e mostrar via `localAlerts`; secção "calor extremo" em `idosos.html` | Médio |
+| 6.1 ✅ | Tempos de espera nas urgências do Hospital de Faro (muito noticiado; portal SNS com falhas pontuais) | Feito: link para tempos.min-saude.pt/urgencia + triagem de Manchester + SNS 24 primeiro. O portal só expõe relatórios Power BI (sem API de dados com CORS); o portal de Transparência tem CORS mas só dados mensais | Baixo–Médio |
+| 6.2 ✅ | Avisos do IPMA para o distrito de Faro (vários avisos laranja/amarelo em 2026) | Feito: `src/data/avisos-ipma.js` (API aberta, CORS `*`) mostra avisos amarelo+ em todas as páginas via `localAlerts`; secção "Calor Extremo" em `idosos.html` | Médio |
 | 6.3 | Horários dos barcos para Deserta/Culatra/Farol mudam por época e divergem entre fontes; dúvidas no autocarro 14/16 para a Praia de Faro | Página `praias.html` + `assets/data/barcos.json` com horários por época e aviso do último barco de regresso; praia acessível (Faro-Mar, cadeira anfíbia); link para qualidade da água (APA/InfoÁgua) | Médio |
 | 6.4 | Chegada pelo aeroporto: autocarro parte pouco depois das aterragens, menos frequência fora de época | Secção "Acabei de chegar" (autocarro 16, táxi/TVDE, comboio) e "próximo autocarro" a partir de horário estático em JSON | Médio |
 | 6.5 | Burocracia é a maior queixa de expats (AIMA, NIF, NISS) | Checklist do novo residente (2.3) com AIMA, NIF, NISS, utente SNS, Loja do Cidadão de Faro — só links oficiais | Médio |

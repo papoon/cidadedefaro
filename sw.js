@@ -1,6 +1,6 @@
 // Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
-const CACHE_VERSION = 'v9';
+const CACHE_VERSION = 'v10';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
 
@@ -241,7 +241,8 @@ self.addEventListener('fetch', (event) => {
     }
     
     // Estratégia para APIs externas - Network Only (não cachear)
-    if (url.hostname === 'overpass-api.de') {
+    // (api.ipma.pt: avisos meteorológicos - nunca mostrar avisos antigos a partir da cache)
+    if (url.hostname === 'overpass-api.de' || url.hostname === 'api.ipma.pt') {
         event.respondWith(fetch(request));
         return;
     }
