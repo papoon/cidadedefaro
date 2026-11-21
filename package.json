@@ -25,5 +25,8 @@
     "vite": "^7.3.8",
     "vite-plugin-static-copy": "^3.4.0",
     "vitest": "^4.1.12"
+  },
+  "dependencies": {
+    "leaflet": "1.9.4"
   }
 }

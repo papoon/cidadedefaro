@@ -1,3 +1,5 @@
+import L from '../vendor/leaflet.js';
+
 // mapa.js - Funcionalidades relacionadas com mapas
 
 // Coordenadas de Faro, Portugal
@@ -196,7 +198,7 @@ function obterLocalizacaoUsuario() {
             const lat = posicao.coords.latitude;
             const lng = posicao.coords.longitude;
 
-            console.log(`Localização obtida: ${lat}, ${lng}`);
+            // Coordenadas não são registadas (privacidade).
 
             // Remover marcador anterior do usuário se existir
             if (marcadorUsuario) {

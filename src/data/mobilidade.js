@@ -1,3 +1,5 @@
+import L from '../vendor/leaflet.js';
+
 // mobilidade.js - Funcionalidades de mobilidade e cálculo de tempo
 
 // Coordenadas dos pontos de interesse em Faro

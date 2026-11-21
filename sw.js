@@ -1,6 +1,6 @@
 // Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
-const CACHE_VERSION = 'v13';
+const CACHE_VERSION = 'v14';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
 
@@ -214,30 +214,6 @@ self.addEventListener('fetch', (event) => {
                         '<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256"><rect width="256" height="256" fill="#f0f0f0"/><text x="128" y="128" text-anchor="middle" fill="#999" font-size="14">Offline</text></svg>',
                         { headers: { 'Content-Type': 'image/svg+xml' } }
                     );
-                });
-            })
-        );
-        return;
-    }
-    
-    // Estratégia para CDN externo (Leaflet) - Cache First com fallback para network
-    if (url.hostname === 'unpkg.com' || url.hostname === 'cdnjs.cloudflare.com') {
-        event.respondWith(
-            caches.match(request).then((cachedResponse) => {
-                if (cachedResponse) {
-                    return cachedResponse;
-                }
-                return fetch(request).then((response) => {
-                    if (response.ok) {
-                        const responseClone = response.clone();
-                        caches.open(CACHE_NAME).then((cache) => {
-                            cache.put(request, responseClone);
-                        });
-                    }
-                    return response;
-                }).catch(() => {
-                    // Falhar silenciosamente para recursos externos
-                    return new Response('', { status: 503 });
                 });
             })
         );

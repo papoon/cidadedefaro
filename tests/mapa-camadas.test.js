@@ -50,7 +50,8 @@ async function load(search = '') {
   document.body.innerHTML = mainHtml
   window.history.replaceState(null, '', `/mapa.html${search}`)
   const fake = fakeLeaflet()
-  vi.stubGlobal('L', fake.L)
+  // mapa.js importa o Leaflet local (src/vendor/leaflet.js) — substituir pelo falso
+  vi.doMock('../src/vendor/leaflet.js', () => ({ default: fake.L }))
   const fetchMock = vi.fn(async () => ({ ok: true, json: async () => overpassResponse }))
   vi.stubGlobal('fetch', fetchMock)
   const mod = await import('../src/data/mapa.js')
