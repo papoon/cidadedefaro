@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pages.beaches_title">Praias e Ilhas: Barcos e Horários - Faro Formoso</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Como ir às praias e ilhas de Faro: horários dos barcos para a Ilha do Farol e Culatra, último barco de regresso, Ilha Deserta, autocarro para a Praia de Faro e praia acessível.">
+    <meta name="keywords" content="barco Ilha do Farol, barco Culatra horário, Ilha Deserta ferry, Praia de Faro autocarro 16, praias Faro, Ria Formosa">
+    <meta name="author" content="Faro Formoso">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://faroformoso.pt/praias.html">
+
+    <!-- Alternate Language Links -->
+    <link rel="alternate" hreflang="pt" href="https://faroformoso.pt/praias.html?lang=pt">
+    <link rel="alternate" hreflang="en" href="https://faroformoso.pt/praias.html?lang=en">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://faroformoso.pt/praias.html">
+    <meta property="og:title" content="Praias e Ilhas de Faro: barcos e horários">
+    <meta property="og:description" content="Horários dos barcos para a Ilha do Farol e Culatra, último regresso, Ilha Deserta e como chegar à Praia de Faro.">
+    <meta property="og:site_name" content="Faro Formoso">
+    <meta property="og:locale" content="pt_PT">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Praias e Ilhas de Faro: barcos e horários">
+    <meta name="twitter:description" content="Barcos para as ilhas, último regresso e como chegar à Praia de Faro.">
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.ipma.pt; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
+
+    <%- metaCommon %>
+</head>
+<body>
+    <%- header %>
+
+    <main id="main-content" role="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title" data-i18n="beaches.hero_title">Praias e Ilhas</h1>
+            <p data-i18n="beaches.hero_description">Como chegar às praias da Ria Formosa: barcos para as ilhas, o último regresso do dia e o autocarro para a Praia de Faro.</p>
+        </section>
+
+        <!-- Ferries to Farol / Culatra -->
+        <section class="service-card" aria-labelledby="ferries-title">
+            <h3 id="ferries-title"><span data-i18n="beaches.ferries_title">Barcos para a Ilha do Farol e Culatra</span></h3>
+            <div class="service-info">
+                <p data-i18n="beaches.ferries_intro">Partem do Cais das Portas do Mar (Porta Nova), junto ao centro histórico. A partir de Faro só há carreiras de maio a outubro; no resto do ano há ligações a partir de Olhão.</p>
+            </div>
+            <div class="info-box ferry-warning-box">
+                <p><strong data-i18n="beaches.last_boat_tip">Atenção ao último barco de regresso: se o perder, não há outra ligação pública nesse dia.</strong></p>
+                <p data-i18n="beaches.weather_tip">Com mar agitado as viagens podem ser canceladas. Confirme sempre junto do operador antes de ir.</p>
+            </div>
+            <div id="ferry-routes" class="ferry-routes" aria-live="polite">
+                <p data-i18n="beaches.loading">A carregar horários…</p>
+            </div>
+            <noscript>
+                <p><a href="https://api.faro.pt/uploads/1/8/planear/como%20chegar/hor%C3%A1rio%20farol_2026.pdf">Horário oficial (PDF, Câmara Municipal de Faro)</a></p>
+            </noscript>
+        </section>
+
+        <!-- Ilha Deserta -->
+        <section class="service-card" aria-labelledby="deserta-title">
+            <h3 id="deserta-title"><span data-i18n="beaches.deserta_title">Ilha Deserta (Barreta)</span></h3>
+            <div class="service-info">
+                <p data-i18n="beaches.deserta_desc">A ligação é feita por um operador privado (Animaris), todo o ano, em horários marcados que variam com a época. Há também uma lancha rápida (cerca de 15 minutos). Os preços começam nos 5 € (novembro de 2026). Os horários e as reservas estão no site do operador.</p>
+            </div>
+            <a href="https://www.ilhadeserta.com/" target="_blank" rel="noopener noreferrer" class="btn-secondary-large" data-i18n="beaches.deserta_link">Ver horários e reservar (Animaris)</a>
+        </section>
+
+        <!-- Praia de Faro -->
+        <section class="service-card" aria-labelledby="praia-faro-title">
+            <h3 id="praia-faro-title"><span data-i18n="beaches.faro_beach_title">Praia de Faro</span></h3>
+            <div class="service-info">
+                <p data-i18n="beaches.faro_beach_desc">A praia mais próxima da cidade, na Península do Ancão, com acesso por estrada.</p>
+                <ul class="info-list">
+                    <li><p data-i18n="beaches.bus_16">Autocarro 16 (Próximo): Terminal Rodoviário → Aeroporto → Praia de Faro, todos os dias.</p></li>
+                    <li><p data-i18n="beaches.bus_14">Autocarro 14 (Próximo): Atalaia → Montenegro → Aeroporto → Praia de Faro, com menos partidas.</p></li>
+                    <li><p data-i18n="beaches.bus_tip">Os horários mudam entre a época alta e a baixa, e à noite há poucas partidas. Consulte os horários em tempo real antes de sair.</p></li>
+                </ul>
+            </div>
+            <a href="https://www.proximo.pt/" target="_blank" rel="noopener noreferrer" class="btn-secondary-large" data-i18n="beaches.bus_link">Horários em tempo real (Próximo)</a>
+
+            <div class="highlight-box">
+                <h4 data-i18n="beaches.accessible_title">Praia acessível</h4>
+                <p data-i18n="beaches.accessible_desc">A Praia de Faro-Mar tem o galardão “Praia Acessível, Praia para Todos!” e uma cadeira anfíbia para quem tem mobilidade reduzida (fonte: VisitPortugal). A entrada acessível está assinalada com uma bandeira branca.</p>
+            </div>
+        </section>
+
+        <!-- Safety and water quality -->
+        <section class="service-card" aria-labelledby="safety-title">
+            <h3 id="safety-title"><span data-i18n="beaches.safety_title">Segurança e Qualidade da Água</span></h3>
+            <div class="service-info">
+                <ul class="info-list">
+                    <li><p data-i18n="beaches.flag_green">Bandeira verde: banho permitido.</p></li>
+                    <li><p data-i18n="beaches.flag_yellow">Bandeira amarela: pode ir à água, mas não pode nadar.</p></li>
+                    <li><p data-i18n="beaches.flag_red">Bandeira vermelha: proibido entrar na água.</p></li>
+                    <li><p data-i18n="beaches.lifeguards">Só há nadadores-salvadores durante a época balnear e nas zonas vigiadas.</p></li>
+                    <li><p data-i18n="beaches.ipma_tip">Os avisos do IPMA de agitação marítima ou calor para o distrito de Faro aparecem no topo desta página.</p></li>
+                </ul>
+                <p data-i18n="beaches.water_quality_desc">A Agência Portuguesa do Ambiente publica a qualidade da água de cada praia durante a época balnear.</p>
+            </div>
+            <a href="https://infoagua.apambiente.pt/" target="_blank" rel="noopener noreferrer" class="btn-secondary-large" data-i18n="beaches.water_quality_link">Qualidade da água balnear (InfoÁgua)</a>
+        </section>
+
+        <!-- Related -->
+        <section aria-labelledby="related-title">
+            <h3 id="related-title" class="section-title" data-i18n="beaches.related_title">Ver também</h3>
+            <div class="quick-links">
+                <a href="lazer.html" class="quick-link-card">
+                    <h4 data-i18n="nav.leisure">Lazer</h4>
+                    <p data-i18n="beaches.related_leisure">Praias, museus e cultura em Faro</p>
+                </a>
+                <a href="transportes.html" class="quick-link-card">
+                    <h4 data-i18n="nav.transport">Transportes</h4>
+                    <p data-i18n="beaches.related_transport">Autocarros, comboios e táxis</p>
+                </a>
+                <a href="mapa.html" class="quick-link-card">
+                    <h4 data-i18n="nav.map">Mapa</h4>
+                    <p data-i18n="beaches.related_map">Mapa interativo de Faro</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <%- footer %>
+
+    <%- scriptsCommon %>
+    <script type="module" src="src/data/barcos.js"></script>
+</body>
+</html>

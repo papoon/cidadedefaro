@@ -94,6 +94,14 @@ class SearchManager {
                 description: 'Informações sobre mobilidade na cidade',
                 url: 'mobilidade.html',
                 keywords: ['mobilidade', 'deslocar', 'circulação', 'transporte']
+            },
+            {
+                id: 'page-praias',
+                type: 'page',
+                title: 'Praias e Ilhas',
+                description: 'Barcos para as ilhas, último regresso e como chegar à Praia de Faro',
+                url: 'praias.html',
+                keywords: ['praias', 'praia', 'ilhas', 'barco', 'ferry', 'culatra', 'farol', 'deserta', 'beach', 'autocarro 16']
             }
         ];
 

@@ -40,6 +40,7 @@ const htmlPages = [
   'offline.html',
   'oque-fazer-hoje.html',
   'politica-privacidade.html',
+  'praias.html',
   'problemas-frequentes.html',
   'restaurantes.html',
   'saude.html',

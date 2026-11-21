@@ -7,6 +7,12 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Não Lançado]
 
+### 🏖️ Praias e Ilhas
+
+#### Adicionado
+- **Nova página `praias.html`**: horários oficiais 2026 dos barcos Faro → Ilha do Farol e Culatra (Câmara de Faro), com o estado de hoje em hora de Lisboa (sem barcos / próxima partida / **último barco de regresso**), horário completo e preços; Ilha Deserta (Animaris); autocarros 14/16 para a Praia de Faro; praia acessível Faro-Mar; bandeiras e qualidade da água (InfoÁgua).
+- Ligada na navegação (Lazer e cultura), sitemap, pesquisa, `lazer.html` e `oque-fazer-hoje.html`; disponível offline (SW `v11`).
+
 ### ⚠️ Avisos IPMA, urgências e ferramentas de qualidade
 
 #### Adicionado

@@ -59,6 +59,15 @@
   </url>
   
   <url>
+    <loc>https://faroformoso.pt/praias.html</loc>
+    <lastmod>2026-11-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://faroformoso.pt/praias.html?lang=pt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://faroformoso.pt/praias.html?lang=en"/>
+  </url>
+  
+  <url>
     <loc>https://faroformoso.pt/restaurantes.html</loc>
     <lastmod>2026-11-21</lastmod>
     <changefreq>monthly</changefreq>
