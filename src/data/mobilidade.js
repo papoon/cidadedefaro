@@ -2,15 +2,17 @@
 
 // Coordenadas dos pontos de interesse em Faro
 
+// Coordenadas verificadas no OpenStreetMap (2026-11)
 const localizacoes = {
-    centro: { lat: 37.0168, lng: -7.9351, nome: "Centro Histórico (Arco da Vila)" },
+    centro: { lat: 37.0154, lng: -7.9352, nome: "Centro Histórico (Arco da Vila)" },
     estacao: { lat: 37.0191, lng: -7.9404, nome: "Estação de Comboios" },
-    forum: { lat: 37.0288072, lng: -7.947712, nome: "Forum Algarve" },
-    aeroporto: { lat: 37.0144, lng: -7.9659, nome: "Aeroporto de Faro" },
-    hospital: { lat: 37.0247, lng: -7.9280, nome: "Hospital de Faro" },
-    universidade: { lat: 37.0194, lng: -7.9322, nome: "Universidade do Algarve (Penha)" },
-    praia: { lat: 36.9890, lng: -7.9697, nome: "Praia de Faro" },
-    marina: { lat: 37.0154, lng: -7.9344, nome: "Marina de Faro" }
+    forum: { lat: 37.0288072, lng: -7.947712, nome: "Fórum Algarve" },
+    aeroporto: { lat: 37.0175, lng: -7.9700, nome: "Aeroporto de Faro (terminal)" },
+    hospital: { lat: 37.0247, lng: -7.9288, nome: "Hospital de Faro" },
+    universidade: { lat: 37.0270, lng: -7.9225, nome: "Universidade do Algarve (Penha)" },
+    gambelas: { lat: 37.0441, lng: -7.9715, nome: "Universidade do Algarve (Gambelas)" },
+    praia: { lat: 37.0030, lng: -7.9870, nome: "Praia de Faro" },
+    marina: { lat: 37.0160, lng: -7.9370, nome: "Marina de Faro" }
 };
 
 // Velocidades médias (km/h)
