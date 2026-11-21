@@ -201,9 +201,9 @@ recorrentes que o site ainda não cobre — confirmar dados em fontes oficiais a
 | 6.8 ✅ | Nómadas digitais: coworking, SIM/eSIM, comunidade | Feito: camada Coworking no mapa (`amenity=coworking_space`/`office=coworking`) + secção "Trabalhar à Distância" em `viver-em-faro.html` (operadoras, roaming UE) | Baixo |
 | 6.9 ✅ | Acessibilidade física no centro (degraus, calçada) | Feito: camadas "Casas de banho acessíveis" e "Estacionamento para pessoas com deficiência" no mapa, link ao itinerário acessível do VisitPortugal, ligação a partir de `praias.html` | Médio |
 | 6.10 ✅ | Animais de estimação (sem informação consolidada) | Feito: camadas Veterinários e Parques para cães no mapa; secção "Animais de Estimação" (microchip/SIAC, regra das praias concessionadas) | Baixo |
-| 6.11 | A cidade "fecha" fora de época/domingos | Bloco "O que está aberto ao domingo / no inverno" em `oque-fazer-hoje.html` | Baixo |
+| 6.11 ✅ | A cidade "fecha" fora de época/domingos | Feito: secção "Domingo e Fora de Época" em `oque-fazer-hoje.html` (aberto / atenção, só factos confirmados, painel de hoje destacado por `src/ui/fora-de-epoca.js`); corrigido Ciência Viva (ter–dom) | Baixo |
 
-Ordem sugerida: 6.1 → 6.2 → 6.3 → 6.4 → 6.5 (junto com 2.3), depois as restantes.
+Estado: todas as lacunas 6.1–6.11 implementadas (novembro 2026).
 
 ---
 

@@ -158,6 +158,14 @@ class SearchManager {
                 description: 'Veterinários, parques caninos, microchip e regras das praias',
                 url: 'mapa.html?camada=veterinario,parque_canino',
                 keywords: ['veterinário', 'vet', 'cão', 'cães', 'gato', 'animais', 'pet', 'dog', 'parque canino', 'siac', 'microchip']
+            },
+            {
+                id: 'domingo-fora-de-epoca',
+                type: 'service',
+                title: 'Domingo e Fora de Época',
+                description: 'O que está aberto ao domingo e entre novembro e abril',
+                url: 'oque-fazer-hoje.html#off-season-title',
+                keywords: ['domingo', 'sunday', 'aberto', 'open', 'fechado', 'closed', 'inverno', 'winter', 'fora de época', 'off-season', 'horários']
             }
         ];
 

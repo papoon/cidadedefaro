@@ -1981,5 +1981,31 @@
     "pets_beach": "Praias: nas praias concessionadas, a presença de cães é em regra proibida durante a época balnear; os cães de assistência podem entrar sempre. Confirme o edital ou os sinais à entrada de cada praia.",
     "pets_map_link": "Veterinários e parques para cães no mapa",
     "pets_siac_link": "SIAC (registo de animais)"
+  },
+  "off_season": {
+    "title": "Domingo e Fora de Época",
+    "intro": "Faro não fecha, mas alguns horários mudam ao domingo e entre novembro e abril. O painel que se aplica hoje aparece destacado.",
+    "today_badge": "Aplica-se hoje",
+    "open_label": "Aberto",
+    "watch_label": "Atenção",
+    "sunday_title": "Ao Domingo",
+    "sunday_open_museum": "Museu Municipal de Faro (fecha à segunda-feira).",
+    "sunday_open_science": "Centro Ciência Viva do Algarve (terça a domingo).",
+    "sunday_open_forum": "Fórum Algarve: lojas, restauração e cinema, todos os dias.",
+    "sunday_open_pharmacy": "Farmácia de serviço: há sempre uma aberta.",
+    "sunday_open_outdoor": "Jardins, ciclovias, a Doca e a zona ribeirinha.",
+    "sunday_watch_chapel": "A Capela dos Ossos (Igreja do Carmo) não recebe visitas ao domingo.",
+    "sunday_watch_services": "Serviços públicos e Loja de Cidadão fechados.",
+    "sunday_watch_shops": "Muitas lojas de rua e alguns restaurantes fecham; confirme antes de ir.",
+    "offseason_title": "Fora de Época (novembro a abril)",
+    "offseason_open_museums": "Museus, Ciência Viva e o Centro Histórico, sem filas.",
+    "offseason_open_birds": "Observação de aves na Ria Formosa, incluindo flamingos.",
+    "offseason_open_deserta": "Ilha Deserta: o operador privado mantém ligações todo o ano.",
+    "offseason_watch_ferries": "Sem barcos públicos de Faro para a Ilha do Farol e a Culatra (só de maio a outubro).",
+    "offseason_watch_lifeguards": "Praias sem nadadores-salvadores.",
+    "offseason_watch_buses": "Menos autocarros, sobretudo à noite e para a Praia de Faro.",
+    "offseason_watch_beachbars": "Alguns bares e restaurantes de praia e das ilhas fecham para férias; confirme antes de ir.",
+    "link_beaches": "Barcos e praias",
+    "link_health": "Farmácias de serviço"
   }
 }

@@ -7,6 +7,14 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Não Lançado]
 
+### 📅 Domingo e fora de época
+
+#### Adicionado
+- Secção **"Domingo e Fora de Época"** em `oque-fazer-hoje.html`: o que está aberto e a que ter atenção ao domingo e entre novembro e abril, com o painel que se aplica hoje destacado (hora de Lisboa). Pesquisável por "domingo", "inverno", "aberto"…
+
+#### Corrigido
+- Centro Ciência Viva aparecia só de quarta a domingo no filtro por dia (abre de terça a domingo).
+
 ### 🗺️ Camadas do mapa: coworking, acessibilidade e animais
 
 #### Adicionado

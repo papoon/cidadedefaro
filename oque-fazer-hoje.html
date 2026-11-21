@@ -82,6 +82,49 @@
             </button>
         </section>
 
+        <!-- Domingo e fora de época (src/ui/fora-de-epoca.js destaca o painel de hoje) -->
+        <section class="off-season" aria-labelledby="off-season-title">
+            <h2 id="off-season-title" data-i18n="off_season.title">Domingo e Fora de Época</h2>
+            <p data-i18n="off_season.intro">Faro não fecha, mas alguns horários mudam ao domingo e entre novembro e abril. O painel que se aplica hoje aparece destacado.</p>
+            <div class="off-season-grid">
+                <div class="off-season-panel" id="painel-domingo">
+                    <h3 data-i18n="off_season.sunday_title">Ao Domingo</h3>
+                    <h4 data-i18n="off_season.open_label">Aberto</h4>
+                    <ul class="off-season-open">
+                        <li data-i18n="off_season.sunday_open_museum">Museu Municipal de Faro (fecha à segunda-feira).</li>
+                        <li data-i18n="off_season.sunday_open_science">Centro Ciência Viva do Algarve (terça a domingo).</li>
+                        <li data-i18n="off_season.sunday_open_forum">Fórum Algarve: lojas, restauração e cinema, todos os dias.</li>
+                        <li data-i18n="off_season.sunday_open_pharmacy">Farmácia de serviço: há sempre uma aberta.</li>
+                        <li data-i18n="off_season.sunday_open_outdoor">Jardins, ciclovias, a Doca e a zona ribeirinha.</li>
+                    </ul>
+                    <h4 data-i18n="off_season.watch_label">Atenção</h4>
+                    <ul class="off-season-watch">
+                        <li data-i18n="off_season.sunday_watch_chapel">A Capela dos Ossos (Igreja do Carmo) não recebe visitas ao domingo.</li>
+                        <li data-i18n="off_season.sunday_watch_services">Serviços públicos e Loja de Cidadão fechados.</li>
+                        <li data-i18n="off_season.sunday_watch_shops">Muitas lojas de rua e alguns restaurantes fecham; confirme antes de ir.</li>
+                    </ul>
+                    <p><a href="saude-onde-ir-agora.html" data-i18n="off_season.link_health">Farmácias de serviço</a></p>
+                </div>
+                <div class="off-season-panel" id="painel-fora-epoca">
+                    <h3 data-i18n="off_season.offseason_title">Fora de Época (novembro a abril)</h3>
+                    <h4 data-i18n="off_season.open_label">Aberto</h4>
+                    <ul class="off-season-open">
+                        <li data-i18n="off_season.offseason_open_museums">Museus, Ciência Viva e o Centro Histórico, sem filas.</li>
+                        <li data-i18n="off_season.offseason_open_birds">Observação de aves na Ria Formosa, incluindo flamingos.</li>
+                        <li data-i18n="off_season.offseason_open_deserta">Ilha Deserta: o operador privado mantém ligações todo o ano.</li>
+                    </ul>
+                    <h4 data-i18n="off_season.watch_label">Atenção</h4>
+                    <ul class="off-season-watch">
+                        <li data-i18n="off_season.offseason_watch_ferries">Sem barcos públicos de Faro para a Ilha do Farol e a Culatra (só de maio a outubro).</li>
+                        <li data-i18n="off_season.offseason_watch_lifeguards">Praias sem nadadores-salvadores.</li>
+                        <li data-i18n="off_season.offseason_watch_buses">Menos autocarros, sobretudo à noite e para a Praia de Faro.</li>
+                        <li data-i18n="off_season.offseason_watch_beachbars">Alguns bares e restaurantes de praia e das ilhas fecham para férias; confirme antes de ir.</li>
+                    </ul>
+                    <p><a href="praias.html" data-i18n="off_season.link_beaches">Barcos e praias</a></p>
+                </div>
+            </div>
+        </section>
+
         <!-- Atividades -->
         <section class="activities-container" id="activities">
             <!-- Atividades de sol -->
@@ -221,7 +264,7 @@
                 </div>
             </div>
 
-            <div class="activity-card" data-categories="chuva,familia" data-days="quarta,quinta,sexta,sabado,domingo">
+            <div class="activity-card" data-categories="chuva,familia" data-days="terca,quarta,quinta,sexta,sabado,domingo">
                 <h3 class="activity-title" data-i18n="oque_fazer_hoje.centro_cincia_viva">Centro Ciência Viva</h3>
                 <p class="activity-description" data-i18n="oque_fazer_hoje.espao_interativo_dedicado_cincia_perfei">Espaço interativo dedicado à ciência. Perfeito para crianças e adultos curiosos explorarem exposições sobre o mar e astronomia.</p>
                 <div class="activity-location">
@@ -412,6 +455,7 @@
     <%- footer %>
 
     <%- scriptsCommon %>
+    <script type="module" src="src/ui/fora-de-epoca.js"></script>
     <script>
         // Script para filtros de atividades
         document.addEventListener('DOMContentLoaded', function() {

@@ -572,3 +572,14 @@ body.page-large-text .btn-maps { font-size: 1.0625rem; }
 .map-layers-status { font-weight: 600; color: var(--ink-2); min-height: 1.2em; }
 .map-layers-note { font-size: var(--font-size-sm); color: var(--ink-3); max-width: var(--measure); }
 .map-layers input[aria-busy="true"] + span::after { content: " …"; }
+
+/* ---------- Domingo e fora de época (oque-fazer-hoje.html, src/ui/fora-de-epoca.js) ---------- */
+.off-season { margin: var(--space-6) 0; }
+.off-season-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--space-4); margin-top: var(--space-4); }
+.off-season-panel { border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: var(--space-4); background: var(--surface); }
+.off-season-panel.is-today { border: 2px solid var(--ria); }
+.off-season-panel h4 { margin: var(--space-3) 0 var(--space-1); font-size: var(--font-size-sm); text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); }
+.off-season-panel ul { margin: 0; padding-left: var(--space-5); }
+.off-season-panel li { margin-bottom: var(--space-1); }
+.off-season-watch li::marker { color: var(--warn); }
+.today-badge { display: inline-block; margin-left: var(--space-2); padding: 0.1rem var(--space-2); border-radius: var(--radius-pill); background: var(--ria-tint); color: var(--ria-deep); font-size: var(--font-size-xs); font-weight: 700; vertical-align: middle; }

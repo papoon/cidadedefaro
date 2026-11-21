@@ -90,3 +90,13 @@ Conteúdo linguístico próprio (português europeu). Sem fontes externas — re
 | Microchip + SIAC obrigatório (cães, gatos, furões), 120 dias após nascimento | DL 82/2019; Pplware; siac.pt | taxa de registo não publicada (valor atual não confirmado) |
 | Cães em praias concessionadas proibidos na época balnear (regra geral); cães de assistência sempre permitidos | DECO PROteste; Postal | edital de cada praia prevalece |
 | Operadoras MEO, NOS, Vodafone, Digi; roaming UE sem custos extra | conhecimento geral (regulamento UE "roam like at home") | sem preços publicados |
+
+## Domingo e fora de época (oque-fazer-hoje.html#off-season-title) — verificado 2026-11-21
+| Dado | Fonte | Nota |
+|------|-------|------|
+| Museu Municipal fecha à segunda, abre ao fim de semana | algarveprimeiro, explorial, rotadietamediterranica | horas exatas divergem entre fontes → não publicadas |
+| Capela dos Ossos sem visitas ao domingo | algarve-tourist, portugalvisitor, petitfute | horários de semana divergem → não publicados |
+| Ciência Viva ter–dom | ver linha "Ciência Viva" acima | card corrigido (antes qua–dom) |
+| Barcos Farol/Culatra só mai–out; Deserta todo o ano | ver "Barcos e praias" acima | |
+| Loja de Cidadão fechada ao domingo | ver linha "Loja de Cidadão" acima | |
+| Fórum Algarve todos os dias | já no site | |

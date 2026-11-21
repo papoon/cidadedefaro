@@ -1981,5 +1981,31 @@
     "pets_beach": "Beaches: dogs are generally not allowed on concessioned beaches during the bathing season; assistance dogs are always allowed. Check the notice or signs at each beach entrance.",
     "pets_map_link": "Vets and dog parks on the map",
     "pets_siac_link": "SIAC (pet register)"
+  },
+  "off_season": {
+    "title": "Sundays and Off-Season",
+    "intro": "Faro doesn't close, but some opening hours change on Sundays and between November and April. The panel that applies today is highlighted.",
+    "today_badge": "Applies today",
+    "open_label": "Open",
+    "watch_label": "Watch out",
+    "sunday_title": "On Sundays",
+    "sunday_open_museum": "Faro Municipal Museum (closed on Mondays).",
+    "sunday_open_science": "Ciência Viva Science Centre (Tuesday to Sunday).",
+    "sunday_open_forum": "Fórum Algarve: shops, food court and cinema, every day.",
+    "sunday_open_pharmacy": "Duty pharmacy: there is always one open.",
+    "sunday_open_outdoor": "Gardens, cycle paths, the marina and the waterfront.",
+    "sunday_watch_chapel": "The Bone Chapel (Igreja do Carmo) is closed to visitors on Sundays.",
+    "sunday_watch_services": "Public services and the Loja de Cidadão are closed.",
+    "sunday_watch_shops": "Many high-street shops and some restaurants close; check before you go.",
+    "offseason_title": "Off-Season (November to April)",
+    "offseason_open_museums": "Museums, Ciência Viva and the Old Town, without the crowds.",
+    "offseason_open_birds": "Birdwatching in the Ria Formosa, including flamingos.",
+    "offseason_open_deserta": "Ilha Deserta: the private operator runs boats all year round.",
+    "offseason_watch_ferries": "No public boats from Faro to Farol and Culatra (May to October only).",
+    "offseason_watch_lifeguards": "No lifeguards on the beaches.",
+    "offseason_watch_buses": "Fewer buses, especially at night and to Praia de Faro.",
+    "offseason_watch_beachbars": "Some beach and island bars and restaurants close for the season; check before you go.",
+    "link_beaches": "Ferries and beaches",
+    "link_health": "Duty pharmacies"
   }
 }
