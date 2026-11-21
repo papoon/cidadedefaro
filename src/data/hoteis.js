@@ -201,7 +201,10 @@ function renderHoteis(hoteis, container) {
             infoRow('Zona', hotel.zona),
             infoRow('Morada', hotel.morada),
             infoRow('Preço por noite', hotel.preco, 'preco'),
-            infoRow('Telefone', hotel.telefone)
+            infoRow('Telefone', hotel.telefone),
+            // Sem telefone fixo publicado: remeter para a ficha/site do estabelecimento (não publicamos telemóveis)
+            hotel.telefone ? null : infoRow(window.i18n?.t('listings.contact_label') || 'Contacto',
+                window.i18n?.t('listings.contact_see_listing') || 'Consulte a ficha no mapa ou o site do estabelecimento')
         ].forEach(row => row && info.appendChild(row));
         card.appendChild(info);
 

@@ -40,7 +40,7 @@ Removidos por não verificáveis: Farmácia Leonardo, Farmácia do Montepio, 12 
 ## Barcos e praias (praias.html, assets/data/barcos.json) — verificado 2026-11-21
 | Dado | Valor | Fonte |
 |------|-------|-------|
-| Faro → Farol / Culatra (horários e preços 2026) | transcritos 1:1 do PDF | [Câmara de Faro, horário 2026](https://api.faro.pt/uploads/1/8/planear/como%20chegar/hor%C3%A1rio%20farol_2026.pdf) — operador Soldaria (soldaria.algarve@gmail.com) |
+| Faro → Farol / Culatra (horários e preços 2026) | transcritos 1:1 do PDF | [Câmara de Faro, horário 2026](https://api.faro.pt/uploads/1/8/planear/como%20chegar/hor%C3%A1rio%20farol_2026.pdf) — operador Soldaria (contactos no PDF) |
 | Ilha Deserta | operador privado Animaris, todo o ano, horários não publicados de forma estática → só link; "a partir de 5 €" (lancha) | ilhadeserta.com |
 | Autocarros 14/16 para a Praia de Faro | percursos apenas, sem horários (a Próximo não publica PDF estável da linha 16; horários em tempo real em proximo.pt) | site do Aeroporto de Faro, PDF PXM14 da Próximo |
 | Faro-Mar praia acessível + cadeira anfíbia | VisitPortugal ("Faro acessível") | visitportugal.com |

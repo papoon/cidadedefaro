@@ -183,7 +183,10 @@ function renderRestaurantes(restaurantes, container) {
             infoRow('Zona', rest.zona),
             infoRow('Horário', rest.horario),
             infoRow('Preço', rest.preco, 'preco'),
-            infoRow('Telefone', rest.telefone)
+            infoRow('Telefone', rest.telefone),
+            // Sem telefone fixo publicado: remeter para a ficha/site do estabelecimento (não publicamos telemóveis)
+            rest.telefone ? null : infoRow(window.i18n?.t('listings.contact_label') || 'Contacto',
+                window.i18n?.t('listings.contact_see_listing') || 'Consulte a ficha no mapa ou o site do estabelecimento')
         ].forEach(row => row && info.appendChild(row));
         card.appendChild(info);
 

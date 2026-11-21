@@ -62,7 +62,6 @@
     "horario": "Seg-Sáb 8h00-20h00",
     "preco": "€",
     "descricao": "Café com bolos, sobremesas e sandes.",
-    "telefone": "919 354 133",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=O%20Cofre%2C%20Rua%20Conselheiro%20B%C3%ADvar%2C%2054%2C%20Faro",
     "fonte": "OpenStreetMap (verificado em 2026-11)"
   },
@@ -76,7 +75,6 @@
     "horario": "Seg-Sáb 9h00-18h00, Dom 9h00-15h00",
     "preco": "€",
     "descricao": "Café de especialidade.",
-    "telefone": "961 689 463",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Yellow%20Bourbon%20Specialty%20Coffee%2C%20Rua%20Vasco%20da%20Gama%2C%2019%2C%20Faro",
     "fonte": "OpenStreetMap (verificado em 2026-11)"
   },
@@ -174,7 +172,6 @@
     "horario": "Seg-Sáb 18h00-23h00",
     "preco": "€€",
     "descricao": "Peixe e marisco de cozinha regional.",
-    "telefone": "938 735 167",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Taberna%20Z%C3%A9-Z%C3%A9%2C%20Rua%20do%20Alportel%2C%2015%2C%20Faro",
     "fonte": "OpenStreetMap (verificado em 2026-11)"
   },
@@ -188,7 +185,6 @@
     "horario": "Seg-Sáb 12h00-15h00, 17h00-23h00",
     "preco": "€€",
     "descricao": "Especialidade em peixe e marisco.",
-    "telefone": "914 875 779",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=O%20Chalavar%2C%20Rua%20Infante%20Dom%20Henrique%2C%20120%2C%20Faro",
     "fonte": "OpenStreetMap (verificado em 2026-11)"
   },
@@ -257,7 +253,6 @@
     "horario": "Seg-Qua e Sex 19h00-21h30; Sáb 12h00-15h00",
     "preco": "€",
     "descricao": "Frango e grelhados, também para levar.",
-    "telefone": "912 132 473",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Churrasqueira%20do%20Liceu%2C%20Avenida%20Dr.%20J%C3%BAlio%20Filipe%20de%20Almeida%20Carrapato%2C%202%2C%20Faro",
     "fonte": "OpenStreetMap (verificado em 2026-11)"
   },
@@ -271,7 +266,6 @@
     "horario": "Seg-Qui 12h00-22h00; Sex-Dom 12h00-23h00",
     "preco": "€",
     "descricao": "Pizzas e hambúrgueres junto ao Campus da Penha.",
-    "telefone": "912 340 004",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Maxi%20Pizza%20Faro%2C%20Estrada%20da%20Penha%2C%20lote%202%20%28frente%20%C3%A0%20Universidade%29%2C%20Faro",
     "fonte": "OpenStreetMap (verificado em 2026-11)"
   },
@@ -285,7 +279,6 @@
     "horario": "Seg-Sex 9h00-22h30; Sáb 9h00-19h30",
     "preco": "€",
     "descricao": "Snack-bar de cozinha portuguesa perto do Campus da Penha.",
-    "telefone": "919 810 667",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Snack-Bar%20O%20Javali%2C%20Estrada%20da%20Penha%2C%20162A%2C%20Faro",
     "fonte": "OpenStreetMap (verificado em 2026-11)"
   },

@@ -1837,7 +1837,7 @@
     "outdated": "{year} timetable: check with the operator whether a new one has been published.",
     "source_label": "Source:",
     "verified": "checked on {date}.",
-    "operator_contact": "Operator: {name} ({email}).",
+    "operator_contact": "Operator: {name}. For contact details, see the official City Council timetable (link above).",
     "load_error": "Could not load the timetables. Please check the official Faro City Council source.",
     "deserta_title": "Ilha Deserta (Barreta Island)",
     "deserta_desc": "Served by a private operator (Animaris) all year round, at scheduled times that vary by season. There is also a fast boat (about 15 minutes). Prices start at €5 (November 2026). Timetables and bookings are on the operator's website.",
@@ -2047,5 +2047,9 @@
     "feedback_title": "Feedback and Contact",
     "feedback_p1": "If you find an accessibility barrier or need information in another format, contact us at <a href=\"mailto:info@faroformoso.pt\">info@faroformoso.pt</a> or through the project's GitHub Issues. We aim to reply within a reasonable time.",
     "date_p": "Statement prepared on 21 November 2026 and reviewed whenever the site changes significantly."
+  },
+  "listings": {
+    "contact_label": "Contact",
+    "contact_see_listing": "See the map listing or the venue’s website"
   }
 }

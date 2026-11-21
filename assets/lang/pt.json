@@ -1837,7 +1837,7 @@
     "outdated": "Horário de {year}: confirme junto do operador se já existe horário novo.",
     "source_label": "Fonte:",
     "verified": "verificado em {date}.",
-    "operator_contact": "Operador: {name} ({email}).",
+    "operator_contact": "Operador: {name}. Para contactos, consulte o horário oficial da Câmara (link acima).",
     "load_error": "Não foi possível carregar os horários. Consulte a fonte oficial da Câmara de Faro.",
     "deserta_title": "Ilha Deserta (Barreta)",
     "deserta_desc": "A ligação é feita por um operador privado (Animaris), todo o ano, em horários marcados que variam com a época. Há também uma lancha rápida (cerca de 15 minutos). Os preços começam nos 5 € (novembro de 2026). Os horários e as reservas estão no site do operador.",
@@ -2047,5 +2047,9 @@
     "feedback_title": "Contacto e Sugestões",
     "feedback_p1": "Se encontrar alguma barreira de acessibilidade ou precisar da informação noutro formato, contacte-nos por <a href=\"mailto:info@faroformoso.pt\">info@faroformoso.pt</a> ou através das GitHub Issues do projeto. Procuramos responder num prazo razoável.",
     "date_p": "Declaração preparada em 21 de novembro de 2026 e revista sempre que o site muda de forma significativa."
+  },
+  "listings": {
+    "contact_label": "Contacto",
+    "contact_see_listing": "Consulte a ficha no mapa ou o site do estabelecimento"
   }
 }

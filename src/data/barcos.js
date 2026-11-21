@@ -166,7 +166,7 @@ function render(container, data) {
     link.rel = 'noopener noreferrer';
     source.appendChild(link);
     source.appendChild(document.createTextNode(' · ' + fill(t('beaches.verified', 'verificado em {date}.'), { date: data.verified }) + ' '));
-    source.appendChild(document.createTextNode(fill(t('beaches.operator_contact', 'Operador: {name} ({email}).'), data.operator)));
+    source.appendChild(document.createTextNode(fill(t('beaches.operator_contact', 'Operador: {name}. Para contactos, consulte o horário oficial da Câmara (link acima).'), data.operator)));
     container.appendChild(source);
 }
 
