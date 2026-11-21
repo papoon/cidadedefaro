@@ -31,20 +31,27 @@ Alinhada com o design system do site (ver `.claude/skills/ui-modernization.md`):
 - **Terra**: `#a84f26` - Faixas e cúpula do farol
 - **Lanterna**: `#ffca4f` - Luz do farol
 
-> Os logos horizontais/verticais em `/logo/` ainda usam a paleta antiga (`#667eea`) e não são usados
-> pelo site (o cabeçalho usa o wordmark em texto).
+### Logos
+Símbolo + "Faro Formoso" em **Fraunces** (peso 650, opsz 144, como o wordmark do site) e o lema em
+**Atkinson Hyperlegible**. O texto está convertido em contornos (paths), por isso os SVG não dependem
+das fontes estarem instaladas.
+- **light** (fundos claros): nome `#1d2428`, lema `#5d605a`
+- **dark** (fundos escuros): nome `#efe7d7`, lema `#a8a194`
+
+Os logos não são usados pelo site (o cabeçalho usa o wordmark em texto); servem para redes sociais,
+documentos e apresentações.
 
 ### Tipografia
-- Fonte: System fonts (sans-serif) para melhor compatibilidade
-- Estilo: Limpo, moderno, sem serifas
-- Peso: Bold para o título, Regular para o subtítulo
+- Título: Fraunces (serifa editorial), peso 650
+- Lema: Atkinson Hyperlegible, Regular
+- Ambas self-hosted em `assets/fonts/` (licença OFL)
 
 ## 📄 Assets Disponíveis
 
 ### 1. Logo Principal (`/logo/`)
 
 #### Versão Horizontal
-- **logo-horizontal-light.svg** - SVG para fundos claros (2000px width)
+- **logo-horizontal-light.svg** - SVG para fundos claros (PNG a 2000px de largura)
 - **logo-horizontal-light.png** - PNG para fundos claros (alta resolução)
 - **logo-horizontal-dark.svg** - SVG para fundos escuros
 - **logo-horizontal-dark.png** - PNG para fundos escuros (alta resolução)
@@ -52,7 +59,7 @@ Alinhada com o design system do site (ver `.claude/skills/ui-modernization.md`):
 **Uso recomendado**: Headers, rodapés, documentos, apresentações
 
 #### Versão Vertical
-- **logo-vertical-light.svg** - SVG para fundos claros (1000px width)
+- **logo-vertical-light.svg** - SVG para fundos claros (PNG a 1000px de largura)
 - **logo-vertical-light.png** - PNG para fundos claros (alta resolução)
 - **logo-vertical-dark.svg** - SVG para fundos escuros
 - **logo-vertical-dark.png** - PNG para fundos escuros (alta resolução)
