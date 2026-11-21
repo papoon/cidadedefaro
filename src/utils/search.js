@@ -518,3 +518,6 @@ function initializeGlobalSearch() {
 document.addEventListener('DOMContentLoaded', function() {
     initializeGlobalSearch();
 });
+
+// Export para testes (o ficheiro já é carregado como type="module")
+export { SearchManager };

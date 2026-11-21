@@ -344,6 +344,9 @@ function renderFavoritesList(container, filterType = null) {
 // Exportar funções globalmente para uso em scripts inline
 window.createFavoriteButton = createFavoriteButton;
 
+// Export para testes (o ficheiro já é carregado como type="module")
+export { FavoritesManager };
+
 // Inicializar quando o DOM estiver pronto
 document.addEventListener('DOMContentLoaded', function() {
     // Atualizar contador inicial

@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check": "node scripts/check-site.mjs",
+    "test": "vitest run"
   },
   "keywords": [
     "faro",
@@ -19,7 +21,9 @@
   "license": "ISC",
   "devDependencies": {
     "ejs": "^6.0.1",
+    "jsdom": "^29.1.1",
     "vite": "^7.3.8",
-    "vite-plugin-static-copy": "^3.4.0"
+    "vite-plugin-static-copy": "^3.4.0",
+    "vitest": "^4.1.12"
   }
 }
