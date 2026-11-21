@@ -51,29 +51,53 @@ class FarmaciasManager {
 const farmaciasManager = new FarmaciasManager();
 
 /**
- * Renderiza lista de farmácias
+ * Traduz uma chave i18n com fallback em português
+ */
+function tr(key, fallback) {
+    const t = window.i18n && typeof window.i18n.t === 'function' ? window.i18n.t(key) : null;
+    return t || fallback;
+}
+
+/**
+ * Cria um elemento com chave data-i18n (re-traduzido automaticamente ao mudar de idioma)
+ */
+function i18nEl(tag, key, fallback) {
+    const el = document.createElement(tag);
+    el.setAttribute('data-i18n', key);
+    el.textContent = tr(key, fallback);
+    return el;
+}
+
+/**
+ * Renderiza lista de farmácias (DOM seguro, sem innerHTML)
  */
 function renderFarmacias(farmacias, container, isExtra = false) {
-    if (!container || !farmacias || farmacias.length === 0) return '';
-
-    let html = '';
+    if (!container || !farmacias || farmacias.length === 0) return;
 
     farmacias.forEach(farmacia => {
-        const extraClass = isExtra ? ' class="farmacia-extra"' : '';
-        html += `
-            <li${extraClass}>
-                <strong>${farmacia.nome}</strong>
-                Morada: ${farmacia.morada}<br>
-                Telefone: ${farmacia.telefone}<br>
-                <a href="${farmacia.mapsLink}" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="btn-maps">Ver no Google Maps</a>
-            </li>
-        `;
-    });
+        const li = document.createElement('li');
+        if (isExtra) li.className = 'farmacia-extra';
 
-    return html;
+        const nome = document.createElement('strong');
+        nome.textContent = farmacia.nome;
+        li.appendChild(nome);
+
+        li.append(i18nEl('span', 'saude.morada', 'Morada:'), ` ${farmacia.morada}`, document.createElement('br'));
+        if (farmacia.telefone) {
+            li.append(i18nEl('span', 'saude.telefone', 'Telefone:'), ` ${farmacia.telefone}`, document.createElement('br'));
+        }
+
+        if (typeof farmacia.mapsLink === 'string' && farmacia.mapsLink.startsWith('https://')) {
+            const a = i18nEl('a', 'saude.ver_no_google_maps', 'Ver no Google Maps');
+            a.href = farmacia.mapsLink;
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            a.className = 'btn-maps';
+            li.appendChild(a);
+        }
+
+        container.appendChild(li);
+    });
 }
 
 /**
@@ -84,7 +108,7 @@ function getFarmaciasParaMapa(farmacias) {
         nome: farmacia.nome,
         coordenadas: farmacia.coordenadas,
         tipo: 'farmacia',
-        descricao: `Farmácia em ${farmacia.morada.split(',')[0]}`
+        descricao: farmacia.morada.split(',')[0]
     }));
 }
 
@@ -111,10 +135,12 @@ async function initializeFarmaciasSection() {
     const initialFarmacias = farmaciasManager.getInitialFarmacias(5);
     const extraFarmacias = farmaciasManager.getExtraFarmacias(5);
     
-    const htmlInicial = renderFarmacias(initialFarmacias, container, false);
-    const htmlExtra = renderFarmacias(extraFarmacias, container, true);
-    
-    container.innerHTML = htmlInicial + htmlExtra;
+    container.replaceChildren();
+    renderFarmacias(initialFarmacias, container, false);
+    renderFarmacias(extraFarmacias, container, true);
+
+    const btn = document.getElementById('btn-ver-mais-farmacias');
+    if (btn && extraFarmacias.length === 0) btn.hidden = true;
 
     return farmaciasManager.getFarmacias();
 }
@@ -122,19 +148,22 @@ async function initializeFarmaciasSection() {
 /**
  * Função para alternar visibilidade das farmácias extras
  */
+let farmaciasExpandidas = false;
 function toggleFarmacias() {
     const extraFarmacias = document.querySelectorAll('.farmacia-extra');
     const btn = document.getElementById('btn-ver-mais-farmacias');
     
+    farmaciasExpandidas = !farmaciasExpandidas;
     extraFarmacias.forEach(farmacia => {
-        farmacia.classList.toggle('show');
+        farmacia.classList.toggle('show', farmaciasExpandidas);
     });
-    
-    if (btn.textContent === 'Ver mais farmácias') {
-        btn.textContent = 'Ver menos farmácias';
-    } else {
-        btn.textContent = 'Ver mais farmácias';
-    }
+
+    if (!btn) return;
+    // Trocar a chave data-i18n mantém o estado correto ao mudar de idioma
+    const key = farmaciasExpandidas ? 'health.show_less_pharmacies' : 'health.show_more_pharmacies';
+    btn.setAttribute('data-i18n', key);
+    btn.setAttribute('aria-expanded', String(farmaciasExpandidas));
+    btn.textContent = tr(key, farmaciasExpandidas ? 'Ver menos farmácias' : 'Ver mais farmácias');
 }
 
 // Exportar para uso global (se necessário para compatibilidade)

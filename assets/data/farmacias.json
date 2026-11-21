@@ -5,17 +5,17 @@
     "morada": "Rua Júlio Dinis 13-B, 8005-255 Faro, Portugal",
     "telefone": "289 817 485",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Assunção+Faro",
-    "coordenadas": [37.03473, -7.960432],
+    "coordenadas": [37.03155, -7.96171],
     "destaque": false,
-    "coordsConfidence": "media"
+    "coordsConfidence": "alta"
   },
   {
     "id": "farm-02",
     "nome": "Farmácia Almeida",
-    "morada": "Estrada Senhora da Saúde 39, 8000-147 Faro, Portugal",
+    "morada": "Estrada Senhora da Saúde 39, 8005-147 Faro, Portugal",
     "telefone": "289 822 437",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Almeida+Faro",
-    "coordenadas": [37.025811, -7.940076],
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20Almeida%2C%20Estrada%20Senhora%20da%20Sa%C3%BAde%2039%2C%208005-147%20Faro%2C%20Portugal",
+    "coordenadas": [37.02574, -7.94006],
     "destaque": false,
     "coordsConfidence": "alta"
   },
@@ -32,10 +32,10 @@
   {
     "id": "farm-04",
     "nome": "Farmácia Baptista",
-    "morada": "Forum Algarve Shopping, EN125, 8005-445 Faro, Portugal",
+    "morada": "Forum Algarve, EN125, 8005-445 Faro, Portugal",
     "telefone": "289 822 649",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Baptista+Faro",
-    "coordenadas": [37.028958, -7.944979],
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20Baptista%2C%20Forum%20Algarve%2C%20EN125%2C%208005-445%20Faro%2C%20Portugal",
+    "coordenadas": [37.02826, -7.94533],
     "destaque": false,
     "coordsConfidence": "alta"
   },
@@ -55,15 +55,15 @@
     "morada": "Rua Gen. Teófilo da Trindade 15A, 8000-357 Faro, Portugal",
     "telefone": "289 828 061",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Crespo+Santos+Faro",
-    "coordenadas": [37.020349, -7.931591],
+    "coordenadas": [37.02056, -7.93194],
     "destaque": false,
-    "coordsConfidence": "media"
+    "coordsConfidence": "alta"
   },
   {
     "id": "farm-07",
     "nome": "Farmácia Pereira Gago",
     "morada": "Rua de Santo António 81, 8000-284 Faro, Portugal",
-    "telefone": "289 822 403",
+    "telefone": "289 821 386",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Pereira+Gago+Faro",
     "coordenadas": [37.016591, -7.931251],
     "destaque": false,
@@ -72,9 +72,9 @@
   {
     "id": "farm-08",
     "nome": "Farmácia da Baixa",
-    "morada": "Rua Ivens 31, 8000-437 Faro, Portugal",
-    "telefone": "289 825 888",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+da+Baixa+Faro",
+    "morada": "Rua Ivens 31, 8000-364 Faro, Portugal",
+    "telefone": "289 822 407",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20da%20Baixa%2C%20Rua%20Ivens%2031%2C%208000-364%20Faro%2C%20Portugal",
     "coordenadas": [37.016895, -7.934036],
     "destaque": false,
     "coordsConfidence": "alta"
@@ -85,25 +85,15 @@
     "morada": "Largo Dr. Francisco Sá Carneiro 69, 8000-151 Faro, Portugal",
     "telefone": "289 823 667",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Helena+Faro",
-    "coordenadas": [37.019737, -7.929434],
+    "coordenadas": [37.01937, -7.92834],
     "destaque": false,
-    "coordsConfidence": "media"
-  },
-  {
-    "id": "farm-10",
-    "nome": "Farmácia Leonardo",
-    "morada": "Rua 8 de Dezembro 2A, 8005-446 Faro, Portugal",
-    "telefone": "289 832 370",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Leonardo+Faro",
-    "coordenadas": [37.060988, -7.917347],
-    "destaque": false,
-    "coordsConfidence": "media"
+    "coordsConfidence": "alta"
   },
   {
     "id": "farm-11",
     "nome": "Farmácia Palma Batista",
     "morada": "Rua do Alportel 157A, 8000-290 Faro, Portugal",
-    "telefone": "289 804 504",
+    "telefone": "289 825 224",
     "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Palma+Batista+Faro",
     "coordenadas": [37.022136, -7.933038],
     "destaque": false,
@@ -112,9 +102,9 @@
   {
     "id": "farm-12",
     "nome": "Farmácia Higiene",
-    "morada": "Edifício Diamante, Rua José Pedro de Almeida 21, 8000-504 Faro, Portugal",
+    "morada": "Rua Doutor José de Matos 21, 8000-504 Faro, Portugal",
     "telefone": "289 822 757",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Higiene+Faro",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20Higiene%2C%20Rua%20Doutor%20Jos%C3%A9%20de%20Matos%2021%2C%208000-504%20Faro%2C%20Portugal",
     "coordenadas": [37.01516, -7.921139],
     "destaque": false,
     "coordsConfidence": "alta"
@@ -122,22 +112,12 @@
   {
     "id": "farm-13",
     "nome": "Farmácia Huguette Ribeiro",
-    "morada": "Rua Mar e Guerra 31, 8005-511 Faro, Portugal",
+    "morada": "Rua Marechal Guerra 31, Patacão, 8005-511 Faro, Portugal",
     "telefone": "289 815 103",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+Huguette+Ribeiro+Faro",
+    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farm%C3%A1cia%20Huguette%20Ribeiro%2C%20Rua%20Marechal%20Guerra%2031%2C%20Patac%C3%A3o%2C%208005-511%20Faro%2C%20Portugal",
     "coordenadas": [37.052228, -7.943538],
     "destaque": false,
     "coordsConfidence": "media"
-  },
-  {
-    "id": "farm-14",
-    "nome": "Farmácia do Montepio",
-    "morada": "Rua de Santo António 55-57, 8000-282 Faro, Portugal",
-    "telefone": "289 823 636",
-    "mapsLink": "https://www.google.com/maps/search/?api=1&query=Farmácia+do+Montepio+Faro",
-    "coordenadas": [37.016447, -7.932096],
-    "destaque": false,
-    "coordsConfidence": "alta"
   },
   {
     "id": "farm-15",
