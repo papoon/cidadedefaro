@@ -32,7 +32,7 @@
     <!-- Security Headers -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://api.ipma.pt; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;">
     
     <%- metaCommon %>
 </head>
@@ -47,6 +47,181 @@
         </section>
 
         <!-- Documentos -->
+        <!-- Checklist novo residente (src/ui/checklist.js) -->
+        <section class="info-section checklist" data-checklist="novo-residente" aria-labelledby="checklist-title">
+            <h3 id="checklist-title"><span data-i18n="checklist.title">Checklist: Novo Residente em Faro</span></h3>
+            <div class="info-content">
+                <p data-i18n="checklist.intro">Os passos para tratar da papelada quando se muda para Faro. Escolha a sua situação para ver só o que se aplica e vá marcando o que já fez. O progresso fica guardado só neste dispositivo.</p>
+
+                <fieldset class="checklist-profiles">
+                    <legend data-i18n="checklist.profile_legend">A sua situação</legend>
+                    <label class="checklist-profile-option"><input type="radio" name="checklist-profile" value="pt"> <span data-i18n="checklist.profile_pt">Cidadão português</span></label>
+                    <label class="checklist-profile-option"><input type="radio" name="checklist-profile" value="eu"> <span data-i18n="checklist.profile_eu">Cidadão da UE, EEE ou Suíça</span></label>
+                    <label class="checklist-profile-option"><input type="radio" name="checklist-profile" value="noneu"> <span data-i18n="checklist.profile_noneu">Cidadão de fora da UE</span></label>
+                </fieldset>
+
+                <p class="checklist-progress" data-checklist-progress aria-live="polite"></p>
+
+                <ol class="checklist-list">
+                    <li class="checklist-item" data-step="cc_address" data-profiles="pt">
+                        <input type="checkbox" id="step-cc_address" aria-describedby="step-cc_address-desc">
+                        <div class="checklist-body">
+                            <label for="step-cc_address" data-i18n="checklist.cc_address_title">Alterar a morada no Cartão de Cidadão</label>
+                            <p id="step-cc_address-desc" data-i18n="checklist.cc_address_desc">Pode fazê-lo online com a Chave Móvel Digital ou na Loja de Cidadão. A nova morada é comunicada automaticamente às Finanças, à Segurança Social e ao SNS.</p>
+                            <a href="https://www.gov.pt/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="checklist.official_link">Informação oficial</a>
+                        </div>
+                    </li>
+                    <li class="checklist-item" data-step="residence_noneu" data-profiles="noneu">
+                        <input type="checkbox" id="step-residence_noneu" aria-describedby="step-residence_noneu-desc">
+                        <div class="checklist-body">
+                            <label for="step-residence_noneu" data-i18n="checklist.residence_noneu_title">Autorização de residência (AIMA)</label>
+                            <p id="step-residence_noneu-desc" data-i18n="checklist.residence_noneu_desc">Com o visto de residência, o pedido de autorização de residência é feito junto da AIMA (Agência para a Integração, Migrações e Asilo). Guarde todos os comprovativos: são pedidos nos passos seguintes.</p>
+                            <a href="https://aima.gov.pt/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="checklist.official_link">Informação oficial</a>
+                        </div>
+                    </li>
+                    <li class="checklist-item" data-step="crue" data-profiles="eu">
+                        <input type="checkbox" id="step-crue" aria-describedby="step-crue-desc">
+                        <div class="checklist-body">
+                            <label for="step-crue" data-i18n="checklist.crue_title">Certificado de registo de cidadão da UE</label>
+                            <p id="step-crue-desc" data-i18n="checklist.crue_desc">Para estadias de mais de 3 meses. É pedido na Câmara Municipal da área de residência (em Faro, através do Balcão Digital), até 30 dias depois de completar os 3 meses.</p>
+                            <p class="checklist-extra" data-i18n="checklist.crue_extra">Regras gerais na AIMA: aima.gov.pt → Nacionais UE.</p>
+                            <a href="https://balcao.cm-faro.pt/menu/1461/direitos-e-cidadania" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="checklist.official_link">Informação oficial</a>
+                        </div>
+                    </li>
+                    <li class="checklist-item" data-step="nif" data-profiles="eu noneu">
+                        <input type="checkbox" id="step-nif" aria-describedby="step-nif-desc">
+                        <div class="checklist-body">
+                            <label for="step-nif" data-i18n="checklist.nif_title">Número de contribuinte (NIF)</label>
+                            <p id="step-nif-desc" data-i18n="checklist.nif_desc">É gratuito. Pede-se com marcação num Serviço de Finanças ou na Loja de Cidadão. Online, só através de um representante com procuração. Precisa do NIF para arrendar casa, abrir conta no banco e assinar contratos.</p>
+                            <a href="https://www.gov.pt/guias/como-pedir-o-nif-e-o-niss-para-pessoas-estrangeiras-em-portugal" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="checklist.official_link">Informação oficial</a>
+                        </div>
+                    </li>
+                    <li class="checklist-item" data-step="niss" data-profiles="eu noneu">
+                        <input type="checkbox" id="step-niss" aria-describedby="step-niss-desc">
+                        <div class="checklist-body">
+                            <label for="step-niss" data-i18n="checklist.niss_title">Número da Segurança Social (NISS)</label>
+                            <p id="step-niss-desc" data-i18n="checklist.niss_desc">Pode ser pedido online, sem custos, no portal da Segurança Social, com uma cópia de um documento de identificação. A resposta chega por carta registada. Se for trabalhar por conta de outrem, o empregador também o pode pedir.</p>
+                            <p class="checklist-extra" data-i18n="checklist.niss_extra">Num Espaço Cidadão, quem tem morada em Portugal pode pedir NIF, NISS e número de utente de uma só vez.</p>
+                            <a href="https://www.seg-social.pt/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="checklist.official_link">Informação oficial</a>
+                        </div>
+                    </li>
+                    <li class="checklist-item" data-step="atestado" data-profiles="eu noneu">
+                        <input type="checkbox" id="step-atestado" aria-describedby="step-atestado-desc">
+                        <div class="checklist-body">
+                            <label for="step-atestado" data-i18n="checklist.atestado_title">Atestado de residência (Junta de Freguesia)</label>
+                            <p id="step-atestado-desc" data-i18n="checklist.atestado_desc">Pede-se na Junta de Freguesia da sua morada. Em Faro, as freguesias são Faro (Sé e São Pedro), Montenegro, Conceição e Estoi, e Santa Bárbara de Nexe. É usado, por exemplo, para a inscrição no centro de saúde. Os documentos pedidos variam: leve identificação e comprovativo de morada.</p>
+                        </div>
+                    </li>
+                    <li class="checklist-item" data-step="sns" data-profiles="pt eu noneu">
+                        <input type="checkbox" id="step-sns" aria-describedby="step-sns-desc">
+                        <div class="checklist-body">
+                            <label for="step-sns" data-i18n="checklist.sns_title">Inscrição no centro de saúde (número de utente)</label>
+                            <p id="step-sns-desc" data-i18n="checklist.sns_desc">Inscreva-se na Unidade de Saúde Familiar (USF) da sua zona. Leve identificação e comprovativo de residência: autorização de residência, certificado de registo de cidadão da UE ou atestado da Junta. Quem já tem número de utente pede a transferência para uma USF de Faro.</p>
+                            <p class="checklist-extra" data-i18n="checklist.sns_extra">Contactos das USF de Faro na página Saúde.</p>
+                            <a href="https://www.sns24.gov.pt/pt/tema/prevencao-e-cuidados-de-saude/acesso-a-cuidados-por-cidadaos-estrangeiros/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="checklist.official_link">Informação oficial</a>
+                        </div>
+                    </li>
+                    <li class="checklist-item" data-step="cmd" data-profiles="pt eu noneu">
+                        <input type="checkbox" id="step-cmd" aria-describedby="step-cmd-desc">
+                        <div class="checklist-body">
+                            <label for="step-cmd" data-i18n="checklist.cmd_title">Ativar a Chave Móvel Digital</label>
+                            <p id="step-cmd-desc" data-i18n="checklist.cmd_desc">É a autenticação do Estado para tratar online de Finanças, Segurança Social, SNS e muitos outros serviços.</p>
+                            <a href="https://www.autenticacao.gov.pt/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="checklist.official_link">Informação oficial</a>
+                        </div>
+                    </li>
+                    <li class="checklist-item" data-step="water" data-profiles="pt eu noneu">
+                        <input type="checkbox" id="step-water" aria-describedby="step-water-desc">
+                        <div class="checklist-body">
+                            <label for="step-water" data-i18n="checklist.water_title">Contrato da água (FAGAR)</label>
+                            <p id="step-water-desc" data-i18n="checklist.water_desc">A água, o saneamento e os resíduos em Faro são da FAGAR: 289 860 900. Normalmente pedem identificação, NIF e o contrato de arrendamento ou a escritura.</p>
+                            <a href="https://www.fagar.pt/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="checklist.official_link">Informação oficial</a>
+                        </div>
+                    </li>
+                    <li class="checklist-item" data-step="driving" data-profiles="eu noneu">
+                        <input type="checkbox" id="step-driving" aria-describedby="step-driving-desc">
+                        <div class="checklist-body">
+                            <label for="step-driving" data-i18n="checklist.driving_title">Carta de condução</label>
+                            <p id="step-driving-desc" data-i18n="checklist.driving_desc">Uma carta da UE continua válida em Portugal. Uma carta de fora da UE pode ter de ser trocada no IMT, e há prazos a cumprir: confirme as regras para o seu país.</p>
+                            <a href="https://www.imt-ip.pt/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="checklist.official_link">Informação oficial</a>
+                        </div>
+                    </li>
+                </ol>
+
+                <button type="button" class="checklist-reset" data-checklist-reset hidden data-i18n="checklist.reset">Limpar marcações</button>
+
+                <div class="highlight-box">
+                    <h4 data-i18n="checklist.loja_title">Loja de Cidadão de Faro</h4>
+                    <p data-i18n="checklist.loja_desc">Largo Dr. Francisco Sá Carneiro (Mercado Municipal, piso 1), 8000-151 Faro. Telefone 300 003 990. Dias úteis 8h30–19h30, sábado 8h30–14h. Inclui balcões das Finanças, da Segurança Social e do IMT. Marque antes sempre que possível.</p>
+                </div>
+                <p class="checklist-disclaimer" data-i18n="checklist.disclaimer">Informação geral, verificada em novembro de 2026 em fontes oficiais. As regras mudam; confirme sempre no serviço respetivo.</p>
+            </div>
+        </section>
+
+        <!-- Arrendamento sem burlas -->
+        <section class="info-section rental" aria-labelledby="rental-title">
+            <h3 id="rental-title"><span data-i18n="rental.title">Arrendar Casa sem Burlas</span></h3>
+            <div class="info-content">
+                <p data-i18n="rental.intro">A PSP registou mais de 4 500 burlas com falsos arrendamentos entre 2023 e 2025. Antes de pagar seja o que for, confirme estes pontos.</p>
+
+                <h4 data-i18n="rental.signs_title">Sinais de alerta</h4>
+                <ul>
+                    <li data-i18n="rental.sign_price">Preço muito abaixo do mercado, com fotografias e morada reais.</li>
+                    <li data-i18n="rental.sign_upfront">Pedem sinal, caução ou cópias do Cartão de Cidadão, passaporte ou NIF antes de visitar a casa.</li>
+                    <li data-i18n="rental.sign_abroad">O “dono” diz estar no estrangeiro, não pode mostrar a casa e tem pressa.</li>
+                </ul>
+
+                <h4 data-i18n="rental.protect_title">Como se proteger</h4>
+                <ul>
+                    <li data-i18n="rental.protect_visit">Não pague nada antes de visitar a casa e confirmar quem é o proprietário.</li>
+                    <li data-i18n="rental.protect_owner">Confirme o proprietário na certidão permanente do registo predial (Registo Predial Online) e compare o nome com o documento de quem assina o contrato.</li>
+                    <li data-i18n="rental.protect_contract">Exija um contrato escrito com a renda, a caução, a duração e quem paga água, luz e condomínio.</li>
+                    <li data-i18n="rental.protect_tax">O senhorio tem de comunicar o contrato às Finanças e passar recibos de renda eletrónicos. Com eles, pode deduzir parte da renda no IRS.</li>
+                    <li data-i18n="rental.protect_docs">Peça o certificado energético (em regra obrigatório para arrendar).</li>
+                    <li data-i18n="rental.protect_pay">Pague por transferência bancária e guarde todos os comprovativos.</li>
+                </ul>
+                <p><a href="https://www.predialonline.pt/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="rental.link_predial">Registo Predial Online</a></p>
+
+                <div class="info-box info-box--warning">
+                    <h4 data-i18n="rental.victim_title">Se for vítima de burla</h4>
+                    <p data-i18n="rental.victim_desc">Contacte logo o seu banco para tentar cancelar a transferência. Guarde anúncios, mensagens e comprovativos de pagamento, e apresente queixa na PSP ou através da Queixa Eletrónica.</p>
+                    <p><a href="https://queixaselectronicas.mai.gov.pt/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="rental.link_queixa">Queixa Eletrónica</a></p>
+                </div>
+
+                <h4 data-i18n="rental.support_title">Apoios ao arrendamento</h4>
+                <ul>
+                    <li data-i18n="rental.support_porta65">Porta 65 Jovem: apoio à renda para quem tem entre 18 e 35 anos, com candidaturas no Portal da Habitação. A verba é limitada.</li>
+                    <li data-i18n="rental.support_porta65plus">Porta 65+: apoio para outros agregados, sem limite de idade.</li>
+                    <li data-i18n="rental.support_faro">Em situação de carência, contacte a Ação Social da Câmara Municipal de Faro (289 870 870).</li>
+                </ul>
+                <p><a href="https://www.gov.pt/servicos/candidatar-se-ao-porta-65-jovem" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="rental.link_porta65">Candidatura ao Porta 65 Jovem (gov.pt)</a> <a href="https://www.portaldahabitacao.pt/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="rental.link_habitacao">Portal da Habitação</a></p>
+                <p class="checklist-disclaimer" data-i18n="rental.disclaimer">Informação geral, verificada em novembro de 2026. Não substitui aconselhamento jurídico.</p>
+            </div>
+        </section>
+
+        <!-- Trabalho remoto e animais (camadas do mapa: mapa.html?camada=...) -->
+        <section class="info-section" aria-labelledby="remote-title">
+            <h3 id="remote-title"><span data-i18n="living_extra.remote_title">Trabalhar à Distância</span></h3>
+            <div class="info-content">
+                <ul>
+                    <li data-i18n="living_extra.remote_sim">Cartões pré-pagos: as operadoras MEO, NOS, Vodafone e Digi vendem-nos nas suas lojas. Quem tem um cartão de outro país da UE usa-o em Portugal sem custos extra de roaming.</li>
+                    <li data-i18n="living_extra.remote_cowork">Espaços de coworking: veja a camada Coworking no mapa. Ainda há poucos registados no OpenStreetMap.</li>
+                </ul>
+                <p><a href="mapa.html?camada=coworking" class="external-link" data-i18n="living_extra.remote_cowork_link">Ver coworkings no mapa</a></p>
+            </div>
+        </section>
+
+        <section class="info-section" aria-labelledby="pets-title">
+            <h3 id="pets-title"><span data-i18n="living_extra.pets_title">Animais de Estimação</span></h3>
+            <div class="info-content">
+                <ul>
+                    <li data-i18n="living_extra.pets_chip">Cães, gatos e furões têm de ter microchip e registo no SIAC (Sistema de Informação de Animais de Companhia), até 120 dias depois de nascerem. Normalmente trata-se de tudo no veterinário.</li>
+                    <li data-i18n="living_extra.pets_beach">Praias: nas praias concessionadas, a presença de cães é em regra proibida durante a época balnear; os cães de assistência podem entrar sempre. Confirme o edital ou os sinais à entrada de cada praia.</li>
+                </ul>
+                <p><a href="mapa.html?camada=veterinario,parque_canino" class="external-link" data-i18n="living_extra.pets_map_link">Veterinários e parques para cães no mapa</a>
+                   <a href="https://siac.pt/" target="_blank" rel="noopener noreferrer" class="external-link" data-i18n="living_extra.pets_siac_link">SIAC (registo de animais)</a></p>
+            </div>
+        </section>
+
         <section class="info-section">
             <h3><span data-i18n="living.documents_title">Como Tratar Documentos</span></h3>
             <div class="info-content">
@@ -374,5 +549,6 @@
     <%- footer %>
 
     <%- scriptsCommon %>
+    <script type="module" src="src/ui/checklist.js"></script>
 </body>
 </html>

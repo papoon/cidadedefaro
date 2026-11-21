@@ -1,6 +1,6 @@
 // Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
-const CACHE_VERSION = 'v9';
+const CACHE_VERSION = 'v13';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
 
@@ -28,10 +28,12 @@ const PRECACHE_URLS = [
 // Páginas HTML para cache
 const HTML_PAGES = [
     './transportes.html',
+    './chegar-a-faro.html',
     './saude.html',
     './saude-onde-ir-agora.html',
     './ambiente.html',
     './lazer.html',
+    './praias.html',
     './restaurantes.html',
     './hoteis.html',
     './oque-fazer-hoje.html',
@@ -42,6 +44,7 @@ const HTML_PAGES = [
     './historia-faro.html',
     './favoritos.html',
     './idosos.html',
+    './frases-uteis.html',
     './sobre-projeto.html',
     './demo-alertas.html'
 ];
@@ -52,7 +55,8 @@ const DATA_FILES = [
     './assets/data/restaurantes.json',
     './assets/data/municipio-faro.json',
     './assets/data/farmacias.json',
-    './assets/data/alertas.json'
+    './assets/data/alertas.json',
+    './assets/data/barcos.json'
 ];
 
 // Instalação do Service Worker
@@ -241,7 +245,8 @@ self.addEventListener('fetch', (event) => {
     }
     
     // Estratégia para APIs externas - Network Only (não cachear)
-    if (url.hostname === 'overpass-api.de') {
+    // (api.ipma.pt: avisos meteorológicos - nunca mostrar avisos antigos a partir da cache)
+    if (url.hostname === 'overpass-api.de' || url.hostname === 'api.ipma.pt') {
         event.respondWith(fetch(request));
         return;
     }

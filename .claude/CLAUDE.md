@@ -100,5 +100,10 @@ This tripped up a prior session badly, so it's spelled out explicitly:
 - `npm run dev` — start Vite dev server
 - `npm run build` — production build
 - `npm run preview` — preview production build locally
+- `npm run check` — consistency check (`scripts/check-site.mjs`): PT/EN i18n keys, `data-i18n` keys used in HTML,
+  and every `htmlPages` entry present in `sitemap.xml`, navigation/footer and `sw.js`. Runs in CI; `--warnings` lists
+  values identical in PT and EN. Page exceptions are the `NOT_IN_*` sets at the top of the script.
+- `npm test` — Vitest unit tests in `tests/` (jsdom). Logic files export their classes/functions for tests
+  (`export { FavoritesManager }` etc.) — they're already loaded as `type="module"`, so exports are harmless.
 
 (Run all of the above via `docker exec cidadedefaro-dev sh -c "cd /app && <command>"`, not directly on the host.)

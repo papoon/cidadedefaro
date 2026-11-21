@@ -309,6 +309,17 @@ main > section.emergency-card { padding: var(--space-6) 0; }
 .service-hours { margin-top: var(--space-4); font-size: var(--font-size-sm); color: var(--ink-3); display: flex; flex-direction: column; gap: var(--space-1); }
 .service-hours strong { color: var(--ok); }
 .info-text-spaced { margin-top: var(--space-4); }
+/* Triagem de Manchester (saude-onde-ir-agora.html). As cores são as oficiais do protocolo,
+   usadas só como marcador decorativo — o significado está sempre no texto. */
+.emergency-card .triage-title { margin-top: var(--space-6); margin-bottom: var(--space-2); }
+.triage-list { list-style: none; padding: 0; margin: 0 0 var(--space-4); max-width: var(--measure); display: flex; flex-direction: column; gap: var(--space-2); }
+.triage-item { display: flex; align-items: center; gap: var(--space-3); color: var(--ink-2); }
+.triage-item::before { content: ""; flex: 0 0 auto; width: 0.9rem; height: 0.9rem; border-radius: 50%; border: 1px solid var(--ink-4); }
+.triage-red::before { background: #d32f2f; }
+.triage-orange::before { background: #f57c00; }
+.triage-yellow::before { background: #fbc02d; }
+.triage-green::before { background: #388e3c; }
+.triage-blue::before { background: #1976d2; }
 .section-title { margin-bottom: var(--space-4); }
 .quick-access-container { margin-top: var(--space-5); }
 .btn-quick-access { border-color: var(--danger); color: var(--danger); }
@@ -490,3 +501,85 @@ body.page-large-text main :is(p, li) { font-size: inherit; }
 body.page-large-text main > section > :is(h2, h3):first-child { font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem); }
 body.page-large-text .btn,
 body.page-large-text .btn-maps { font-size: 1.0625rem; }
+
+/* ---------- Barcos para as ilhas (praias.html, src/data/barcos.js) ---------- */
+.ferry-routes { display: grid; gap: var(--space-5); margin-top: var(--space-5); }
+.ferry-route { border-top: 1px solid var(--rule); padding-top: var(--space-4); }
+.ferry-route > h3 { font-size: var(--font-size-xl); margin-bottom: var(--space-1); }
+.ferry-meta { color: var(--ink-3); font-size: var(--font-size-sm); margin-bottom: var(--space-3); }
+.ferry-today { background: var(--ok-tint); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); max-width: var(--measure); }
+.ferry-today.is-closed { background: var(--paper-2); }
+.ferry-today p { margin: 0; }
+.ferry-today p + p { margin-top: var(--space-1); }
+.ferry-last strong { color: var(--ink); }
+.ferry-details { margin-top: var(--space-3); }
+.ferry-details summary { cursor: pointer; font-weight: 600; padding: var(--space-2) 0; }
+.ferry-table { border-collapse: collapse; margin: var(--space-3) 0; min-width: 16rem; }
+.ferry-table caption { text-align: left; font-weight: 600; padding-bottom: var(--space-1); }
+.ferry-table th, .ferry-table td { text-align: left; padding: var(--space-1) var(--space-4) var(--space-1) 0; border-bottom: 1px solid var(--rule); font-variant-numeric: tabular-nums; }
+.ferry-table th { font-size: var(--font-size-sm); color: var(--ink-3); font-weight: 600; }
+.ferry-note { color: var(--ink-3); font-size: var(--font-size-sm); }
+.ferry-prices { display: grid; grid-template-columns: max-content max-content; gap: var(--space-1) var(--space-4); margin-top: var(--space-3); }
+.ferry-prices dd { margin: 0; font-variant-numeric: tabular-nums; }
+.ferry-source { color: var(--ink-3); font-size: var(--font-size-sm); }
+.ferry-warning { background: var(--warn-tint); padding: var(--space-3) var(--space-4); border-radius: var(--radius-lg); }
+@media (max-width: 480px) { .ferry-prices { grid-template-columns: 1fr max-content; } }
+
+/* ---------- Chegar a Faro (chegar-a-faro.html) ---------- */
+.arrival-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--space-4); margin: var(--space-5) 0; }
+.arrival-option { border-top: 2px solid var(--rule-strong); padding-top: var(--space-3); }
+.arrival-option h4 { margin-bottom: var(--space-2); }
+.arrival-option p { margin: 0 0 var(--space-2); color: var(--ink-2); }
+
+/* ---------- Checklist novo residente (viver-em-faro.html, src/ui/checklist.js) ---------- */
+.checklist-profiles { border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); margin: var(--space-4) 0; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); }
+.checklist-profiles legend { font-weight: 600; padding: 0 var(--space-2); }
+.checklist-profile-option { display: inline-flex; align-items: center; gap: var(--space-2); cursor: pointer; min-height: 44px; }
+/* Sem JS o seletor de perfil não faz nada: só aparece quando o módulo arranca */
+.checklist:not(.checklist-enhanced) .checklist-profiles,
+.checklist:not(.checklist-enhanced) .checklist-progress { display: none; }
+.checklist-progress { font-weight: 600; color: var(--ok); }
+.checklist-list { list-style: none; padding: 0; margin: 0; }
+.checklist-item { display: flex; gap: var(--space-3); padding: var(--space-4) 0; border-bottom: 1px solid var(--rule); }
+.checklist-item[hidden] { display: none; }
+.checklist-item > input[type="checkbox"] { flex: 0 0 auto; width: 1.4rem; height: 1.4rem; margin-top: 0.15rem; accent-color: var(--ok); cursor: pointer; }
+.checklist-body { max-width: var(--measure); }
+.checklist-body label { font-weight: 600; font-size: var(--font-size-lg); cursor: pointer; display: block; margin-bottom: var(--space-1); }
+.checklist-body p { margin: 0 0 var(--space-2); color: var(--ink-2); }
+.checklist-extra { font-size: var(--font-size-sm); color: var(--ink-3); }
+.checklist-item.is-done .checklist-body label { text-decoration: line-through; color: var(--ink-3); }
+.checklist-reset { margin: var(--space-4) 0; background: none; border: 1px solid var(--rule-strong); border-radius: var(--radius-md); padding: var(--space-2) var(--space-4); color: var(--ink); font: inherit; cursor: pointer; min-height: 44px; }
+.checklist-reset:hover { background: var(--paper-2); }
+.checklist-disclaimer { font-size: var(--font-size-sm); color: var(--ink-3); }
+
+/* ---------- Frases úteis (frases-uteis.html, src/ui/frases.js) ---------- */
+.phrase-list { list-style: none; padding: 0; margin: 0; }
+.phrase { display: grid; grid-template-columns: auto 1fr; grid-template-areas: "btn pt" "btn en"; column-gap: var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--rule); }
+.phrase-pt { grid-area: pt; font-weight: 600; font-size: var(--font-size-lg); color: var(--ink); }
+.phrase-en { grid-area: en; color: var(--ink-3); }
+.phrase:not(:has(.phrase-listen)) { grid-template-columns: 1fr; grid-template-areas: "pt" "en"; }
+.phrase-listen { grid-area: btn; align-self: center; display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: 1px solid var(--rule-strong); border-radius: var(--radius-pill); background: var(--surface); color: var(--ria-deep); cursor: pointer; }
+.phrase-listen:hover { background: var(--ria-tint); }
+.phrase-listen:focus-visible { outline: 3px solid var(--color-focus-ring); outline-offset: 2px; }
+.phrase-tip { margin-top: var(--space-4); padding: var(--space-3) var(--space-4); background: var(--paper-2); border-radius: var(--radius-lg); max-width: var(--measure); }
+.phrase-audio-note { font-size: var(--font-size-sm); color: var(--ink-3); }
+
+/* ---------- Camadas temáticas do mapa (mapa.html) ---------- */
+.map-layers { border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: var(--space-3) var(--space-4); margin: var(--space-4) 0; }
+.map-layers legend { font-weight: 600; padding: 0 var(--space-2); }
+.map-layers p { margin: 0 0 var(--space-2); }
+.map-layers-options { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-2); }
+.map-layers-status { font-weight: 600; color: var(--ink-2); min-height: 1.2em; }
+.map-layers-note { font-size: var(--font-size-sm); color: var(--ink-3); max-width: var(--measure); }
+.map-layers input[aria-busy="true"] + span::after { content: " …"; }
+
+/* ---------- Domingo e fora de época (oque-fazer-hoje.html, src/ui/fora-de-epoca.js) ---------- */
+.off-season { margin: var(--space-6) 0; }
+.off-season-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--space-4); margin-top: var(--space-4); }
+.off-season-panel { border: 1px solid var(--rule); border-radius: var(--radius-lg); padding: var(--space-4); background: var(--surface); }
+.off-season-panel.is-today { border: 2px solid var(--ria); }
+.off-season-panel h4 { margin: var(--space-3) 0 var(--space-1); font-size: var(--font-size-sm); text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-3); }
+.off-season-panel ul { margin: 0; padding-left: var(--space-5); }
+.off-season-panel li { margin-bottom: var(--space-1); }
+.off-season-watch li::marker { color: var(--warn); }
+.today-badge { display: inline-block; margin-left: var(--space-2); padding: 0.1rem var(--space-2); border-radius: var(--radius-pill); background: var(--ria-tint); color: var(--ria-deep); font-size: var(--font-size-xs); font-weight: 700; vertical-align: middle; }

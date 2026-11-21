@@ -29,8 +29,10 @@ const commonData = {
 const htmlPages = [
   'index.html',
   'ambiente.html',
+  'chegar-a-faro.html',
   'demo-alertas.html',
   'favoritos.html',
+  'frases-uteis.html',
   'historia-faro.html',
   'hoteis.html',
   'idosos.html',
@@ -40,6 +42,7 @@ const htmlPages = [
   'offline.html',
   'oque-fazer-hoje.html',
   'politica-privacidade.html',
+  'praias.html',
   'problemas-frequentes.html',
   'restaurantes.html',
   'saude.html',

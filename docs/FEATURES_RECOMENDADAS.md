@@ -8,6 +8,12 @@ independente. Ver [.claude/CLAUDE.md](../.claude/CLAUDE.md) e
 [.claude/skills/ui-modernization.md](../.claude/skills/ui-modernization.md) para as convenções
 técnicas e de design a seguir em qualquer nova funcionalidade.
 
+## Estado (novembro 2026)
+
+- ✅ = implementado. `npm run check` (`scripts/check-site.mjs`) valida i18n PT/EN, `htmlPages`, `sitemap.xml`,
+  navegação e precache do `sw.js`; `npm test` corre os testes unitários (Vitest). Ambos correm no CI antes do build.
+- Ver a secção 6 para lacunas identificadas em pesquisa online (queixas e dúvidas recorrentes de residentes/visitantes).
+
 ## Como usar este documento
 
 Cada item indica:
@@ -18,7 +24,7 @@ Cada item indica:
 
 ## 1. Alta prioridade — completar funcionalidades já iniciadas
 
-### 1.1 Ativar o sistema de alertas em produção
+### 1.1 Ativar o sistema de alertas em produção ✅
 **Esforço: Baixo** · Depende de: `src/ui/alerts.js`, `docs/ALERTAS.md`
 
 O sistema de alertas locais (`window.localAlerts`) está totalmente implementado, corrigido (XSS) e
@@ -29,7 +35,7 @@ apenas a página de demonstração o usa. Sugestões:
 - Um pequeno painel de administração local (ficheiro `.md`/`.json` editado manualmente antes de cada
   `git push`) já seria suficiente dado que o site não tem backend.
 
-### 1.2 Finalizar a tradução do Guia Premium
+### 1.2 ~~Finalizar a tradução do Guia Premium~~ (obsoleto — guia removido)
 **Esforço: Baixo** · Depende de: `assets/lang/en.json`
 
 Ainda podem existir secções do `guia-premium.html` com chaves de tradução geradas automaticamente
@@ -61,7 +67,7 @@ Muitas cidades têm horários de recolha diferentes por freguesia/zona. Um peque
 "a minha zona" (guardado em `localStorage`, como já se faz com favoritos) que filtra/realça os dias
 de recolha aplicáveis seria um upgrade natural da secção de reciclagem existente.
 
-### 2.3 Checklist interativa "Novo Residente em Faro"
+### 2.3 Checklist interativa "Novo Residente em Faro" ✅
 **Esforço: Médio** · Depende de: `viver-em-faro.html`, `src/utils/favorites.js`
 
 Uma checklist com passos (registo na Junta de Freguesia, Segurança Social, centro de saúde, NIF,
@@ -85,7 +91,7 @@ página de custo de vida e devolve uma estimativa mensal — cálculo 100% no cl
 já existentes no mapa, apresentadas como uma lista ordenada com tempos estimados e um link que abre
 o mapa com esses pontos destacados.
 
-### 3.2 Modo offline mais completo para o Guia Premium
+### 3.2 ~~Modo offline mais completo para o Guia Premium~~ (obsoleto — guia removido)
 **Esforço: Baixo-Médio** · Depende de: `guia-premium.html`, `sw.js`
 
 O guia já é descarregável em PDF; garantir que todos os recursos referenciados por
@@ -93,7 +99,7 @@ O guia já é descarregável em PDF; garantir que todos os recursos referenciado
 para que o guia completo funcione sem rede após a primeira visita — ver as notas sobre bundling e
 hashing em `.claude/CLAUDE.md` antes de mexer em `sw.js`.
 
-### 3.3 Integração com previsão do tempo
+### 3.3 Integração com previsão do tempo ✅
 **Esforço: Baixo** · API externa gratuita (Open-Meteo, sem chave necessária)
 
 Um pequeno widget na homepage/página de lazer com a previsão do tempo em Faro (relevante para
@@ -111,7 +117,7 @@ arquitetura 100% estática.
 
 ## 4. Melhorias técnicas/plataforma
 
-### 4.1 Testes automatizados
+### 4.1 Testes automatizados (parcial ✅ — Vitest para search/favorites/i18n/alertas; falta E2E)
 **Esforço: Médio** · Nenhuma dependência nova obrigatória (ex. Vitest + Playwright)
 
 O projeto não tem atualmente nenhuma framework de testes (identificado em revisões anteriores).
@@ -122,7 +128,7 @@ Prioridades sugeridas:
   `src/partials/navigation.html` (já identificado como fonte de bugs recorrentes — ver
   `.claude/CLAUDE.md`).
 
-### 4.2 Validação automática de traduções em CI
+### 4.2 Validação automática de traduções em CI ✅
 **Esforço: Baixo**
 
 Um script simples que compara chaves entre `assets/lang/pt.json` e `assets/lang/en.json` e falha o
@@ -155,7 +161,7 @@ reportarem problemas não listados ou sugerirem conteúdo, sem necessitar de bac
 
 ## 5. Ideias de maior esforço (médio/longo prazo)
 
-### 5.1 App companion / atalhos no ecrã principal por categoria
+### 5.1 App companion / atalhos no ecrã principal por categoria ✅
 **Esforço: Alto**
 
 Shortcuts do PWA Manifest (`manifest.json` já suporta `shortcuts`) para acesso direto a
@@ -174,6 +180,30 @@ O sistema de i18n já é genérico o suficiente para suportar mais idiomas além
 muitos turistas franceses, espanhóis e alemães. Cada novo idioma implica traduzir integralmente
 `assets/lang/*.json` (atualmente ~1700 linhas), pelo que só compensa com tradução profissional ou
 colaboração da comunidade.
+
+---
+
+## 6. Lacunas identificadas em pesquisa online (novembro 2026)
+
+Fontes: guias de expats (Expat Exchange, Idealista, Anchorless), reclamações públicas (Portal da Queixa),
+notícias regionais/nacionais (Postal do Algarve, RTP, DN, Observador) e guias turísticos. São queixas/dúvidas
+recorrentes que o site ainda não cobre — confirmar dados em fontes oficiais antes de publicar.
+
+| # | Lacuna | Proposta (100% estática) | Esforço |
+|---|--------|--------------------------|---------|
+| 6.1 ✅ | Tempos de espera nas urgências do Hospital de Faro (muito noticiado; portal SNS com falhas pontuais) | Feito: link para tempos.min-saude.pt/urgencia + triagem de Manchester + SNS 24 primeiro. O portal só expõe relatórios Power BI (sem API de dados com CORS); o portal de Transparência tem CORS mas só dados mensais | Baixo–Médio |
+| 6.2 ✅ | Avisos do IPMA para o distrito de Faro (vários avisos laranja/amarelo em 2026) | Feito: `src/data/avisos-ipma.js` (API aberta, CORS `*`) mostra avisos amarelo+ em todas as páginas via `localAlerts`; secção "Calor Extremo" em `idosos.html` | Médio |
+| 6.3 ✅ | Horários dos barcos para Deserta/Culatra/Farol mudam por época e divergem entre fontes; dúvidas no autocarro 14/16 para a Praia de Faro | Feito: `praias.html` + `assets/data/barcos.json` (horário oficial 2026 da Câmara) com estado de hoje, próximo barco e último regresso; Deserta e autocarros só com links (sem horários estáveis publicados); praia acessível; InfoÁgua | Médio |
+| 6.4 ✅ | Chegada pelo aeroporto: autocarro parte pouco depois das aterragens, menos frequência fora de época | Feito: `chegar-a-faro.html` (autocarros 16/14, táxi, TVDE, comboio, Vamus, longo curso, aviso para quem aterra à noite). Sem "próximo autocarro" offline: não há horário oficial estável publicado da linha 16 (Próximo só em tempo real; site da ANA ilegível sem JS) | Médio |
+| 6.5 ✅ | Burocracia é a maior queixa de expats (AIMA, NIF, NISS) | Feito: checklist em `viver-em-faro.html` com perfil (português / UE / fora da UE), 10 passos com links oficiais, Loja de Cidadão, progresso em localStorage (`src/ui/checklist.js`) | Médio |
+| 6.6 ✅ | Barreira linguística | Feito: `frases-uteis.html` — 40 frases em português de Portugal com tradução inglesa, 6 categorias, dicas (couvert, "Contribuinte?", 112) e pronúncia via `speechSynthesis` (voz pt-PT preferida; botões só aparecem se o browser suportar) | Médio |
+| 6.7 ✅ | Habitação/arrendamento (protestos, custos muito variáveis) | Feito: secção "Arrendar Casa sem Burlas" em `viver-em-faro.html` — sinais de burla (dados PSP), verificação do proprietário no registo predial, contrato, comunicação às Finanças e recibos eletrónicos, certificado energético, o que fazer se for vítima, Porta 65 Jovem/65+ | Baixo |
+| 6.8 ✅ | Nómadas digitais: coworking, SIM/eSIM, comunidade | Feito: camada Coworking no mapa (`amenity=coworking_space`/`office=coworking`) + secção "Trabalhar à Distância" em `viver-em-faro.html` (operadoras, roaming UE) | Baixo |
+| 6.9 ✅ | Acessibilidade física no centro (degraus, calçada) | Feito: camadas "Casas de banho acessíveis" e "Estacionamento para pessoas com deficiência" no mapa, link ao itinerário acessível do VisitPortugal, ligação a partir de `praias.html` | Médio |
+| 6.10 ✅ | Animais de estimação (sem informação consolidada) | Feito: camadas Veterinários e Parques para cães no mapa; secção "Animais de Estimação" (microchip/SIAC, regra das praias concessionadas) | Baixo |
+| 6.11 ✅ | A cidade "fecha" fora de época/domingos | Feito: secção "Domingo e Fora de Época" em `oque-fazer-hoje.html` (aberto / atenção, só factos confirmados, painel de hoje destacado por `src/ui/fora-de-epoca.js`); corrigido Ciência Viva (ter–dom) | Baixo |
+
+Estado: todas as lacunas 6.1–6.11 implementadas (novembro 2026).
 
 ---
 

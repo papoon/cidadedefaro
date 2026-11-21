@@ -7,6 +7,59 @@ e este projeto adere ao [Semantic Versioning](https://semver.org/lang/pt-BR/).
 
 ## [Não Lançado]
 
+### 📅 Domingo e fora de época
+
+#### Adicionado
+- Secção **"Domingo e Fora de Época"** em `oque-fazer-hoje.html`: o que está aberto e a que ter atenção ao domingo e entre novembro e abril, com o painel que se aplica hoje destacado (hora de Lisboa). Pesquisável por "domingo", "inverno", "aberto"…
+
+#### Corrigido
+- Centro Ciência Viva aparecia só de quarta a domingo no filtro por dia (abre de terça a domingo).
+
+### 🗺️ Camadas do mapa: coworking, acessibilidade e animais
+
+#### Adicionado
+- **Camadas temáticas em `mapa.html`** (dados OpenStreetMap, carregadas só quando ativadas, sem precisar de geolocalização): Coworking, Casas de banho acessíveis, Estacionamento para pessoas com deficiência, Parques para cães, Veterinários. Popups com telefone e horário quando existem no OSM; contagem anunciada a leitores de ecrã; ligações diretas `mapa.html?camada=...`.
+- Link ao itinerário acessível de Faro (VisitPortugal) e convite a contribuir no OpenStreetMap.
+- Secções "Trabalhar à Distância" e "Animais de Estimação" em `viver-em-faro.html`; entradas na pesquisa.
+
+#### Alterado
+- `src/data/mapa.js`: construção do popup extraída para `criarPopup()` (partilhada entre serviços e camadas).
+
+### 🗣️ Frases úteis e arrendamento
+
+#### Adicionado
+- **Nova página `frases-uteis.html`**: 40 frases em português de Portugal com tradução inglesa (essencial, emergência, saúde, restaurante, transportes, serviços), dicas práticas e botão de pronúncia (Web Speech API, voz pt-PT preferida; só aparece se o browser suportar). Ligada na navegação (Viver), sitemap, pesquisa; offline (SW `v13`).
+- **Arrendar Casa sem Burlas** em `viver-em-faro.html`: sinais de alerta, como confirmar o proprietário, contrato, obrigações do senhorio, o que fazer se for vítima e apoios (Porta 65 Jovem / 65+).
+
+### 🏠 Checklist do novo residente
+
+#### Adicionado
+- **Checklist interativa em `viver-em-faro.html`**: escolha do perfil (português / UE / fora da UE), 10 passos (morada no CC, AIMA, certificado de registo UE, NIF, NISS, atestado da Junta, centro de saúde, Chave Móvel Digital, água FAGAR, carta de condução) com links oficiais, progresso guardado no dispositivo e informação da Loja de Cidadão. Funciona sem JavaScript (lista completa). Pesquisa: NIF, NISS, AIMA, etc. levam à checklist.
+
+### ✈️ Chegar a Faro
+
+#### Adicionado
+- **Nova página `chegar-a-faro.html`**: do aeroporto ao centro (autocarros 16 e 14, táxi, TVDE), aviso para quem aterra à noite, e como seguir viagem (comboio CP, Vamus Algarve, Rede Expressos/FlixBus). Preços apresentados como indicativos. Ligada na navegação (Essencial), sitemap, pesquisa e `transportes.html`; disponível offline (SW `v12`).
+
+### 🏖️ Praias e Ilhas
+
+#### Adicionado
+- **Nova página `praias.html`**: horários oficiais 2026 dos barcos Faro → Ilha do Farol e Culatra (Câmara de Faro), com o estado de hoje em hora de Lisboa (sem barcos / próxima partida / **último barco de regresso**), horário completo e preços; Ilha Deserta (Animaris); autocarros 14/16 para a Praia de Faro; praia acessível Faro-Mar; bandeiras e qualidade da água (InfoÁgua).
+- Ligada na navegação (Lazer e cultura), sitemap, pesquisa, `lazer.html` e `oque-fazer-hoje.html`; disponível offline (SW `v11`).
+
+### ⚠️ Avisos IPMA, urgências e ferramentas de qualidade
+
+#### Adicionado
+- **Avisos meteorológicos do IPMA** para o distrito de Faro (amarelo, laranja, vermelho) mostrados no topo de todas as páginas (`src/data/avisos-ipma.js`). A API do IPMA é tratada como *Network Only* no service worker para nunca mostrar avisos antigos.
+- **Tempos de espera nas urgências**: cartão em `saude-onde-ir-agora.html` com link para o portal oficial do SNS e explicação da triagem de Manchester.
+- **Calor extremo**: conselhos em `idosos.html`.
+- `npm run check` (consistência i18n/páginas/sitemap/SW) e `npm test` (Vitest), ambos no CI.
+- Atalhos da PWA (Onde ir agora, Mapa, Transportes, Favoritos).
+
+#### Corrigido
+- `idosos.html`: a Linha do Cidadão Idoso mostrava o número 112 em vez de 800 20 35 31.
+- Duas strings por traduzir em `en.json`.
+
 ### 🎯 Reorganização da Navegação e Arquitetura de Informação
 
 #### Alterado

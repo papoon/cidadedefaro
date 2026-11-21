@@ -43,6 +43,51 @@ const iconesServicos = {
     }
 };
 
+// Camadas temáticas (dados OpenStreetMap via Overpass), carregadas só quando ativadas.
+// Raio a partir do centro de Faro; cada filtro é um seletor Overpass QL aplicado a nwr.
+const RAIO_CAMADAS_M = 6000;
+export const CAMADAS = {
+    coworking: {
+        icon: 'i-laptop', color: 'var(--ria-deep)', nome: 'Coworking',
+        filtros: ['["amenity"="coworking_space"]', '["office"="coworking"]']
+    },
+    wc_acessivel: {
+        icon: 'i-accessibility', color: 'var(--ria)', nome: 'Casa de banho acessível',
+        filtros: ['["amenity"="toilets"]["wheelchair"~"^(yes|designated)$"]', '["toilets:wheelchair"="yes"]']
+    },
+    estacionamento_pmr: {
+        icon: 'i-parking', color: 'var(--ria)', nome: 'Estacionamento para pessoas com deficiência',
+        filtros: ['["amenity"="parking_space"]["parking_space"="disabled"]', '["amenity"="parking"]["capacity:disabled"~"^[1-9]"]']
+    },
+    parque_canino: {
+        icon: 'i-paw', color: 'var(--ok)', nome: 'Parque para cães',
+        filtros: ['["leisure"="dog_park"]']
+    },
+    veterinario: {
+        icon: 'i-paw', color: 'var(--terra)', nome: 'Veterinário',
+        filtros: ['["amenity"="veterinary"]']
+    }
+};
+
+/** Query Overpass QL para uma camada (nós, vias e relações à volta do centro). */
+export function construirQueryCamada(id, centro = FARO_COORDENADAS, raio = RAIO_CAMADAS_M, timeoutS = OVERPASS_TIMEOUT_S) {
+    const camada = CAMADAS[id];
+    if (!camada) throw new Error(`Camada desconhecida: ${id}`);
+    const area = `(around:${raio},${centro.lat},${centro.lng})`;
+    const partes = camada.filtros.map((f) => `nwr${f}${area};`).join('\n            ');
+    return `[out:json][timeout:${timeoutS}];
+        (
+            ${partes}
+        );
+        out center tags;`;
+}
+
+/** Camadas pedidas no URL: mapa.html?camada=coworking,veterinario (ids desconhecidos ignorados). */
+export function camadasDoUrl(search) {
+    const valor = new URLSearchParams(search || '').get('camada') || '';
+    return [...new Set(valor.split(',').map((v) => v.trim()).filter((v) => v in CAMADAS))];
+}
+
 // Função para criar ícone personalizado
 // iconId = sprite id (src/partials/icons.html); cor = CSS colour/token
 function criarIconePersonalizado(iconId, cor) {
@@ -106,6 +151,7 @@ function inicializarMapa() {
 
         // Configurar event listeners para os controles
         configurarControlesServicos();
+        configurarCamadas();
     } catch (erro) {
         console.error('Erro ao inicializar o mapa:', erro);
     }
@@ -257,6 +303,64 @@ async function buscarServicosProximos(lat, lng) {
     }
 }
 
+// Popup de um elemento OSM, construído com DOM (nomes/moradas/telefones vêm do OSM: nunca usar innerHTML)
+function criarPopup(elemento, config, lat, lng) {
+    const tags = elemento.tags || {};
+    const popupContent = document.createElement('div');
+    popupContent.style.textAlign = 'center';
+    popupContent.style.minWidth = '150px';
+
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(svgNS, 'svg');
+    svg.setAttribute('class', 'icon');
+    svg.setAttribute('aria-hidden', 'true');
+    const use = document.createElementNS(svgNS, 'use');
+    use.setAttribute('href', `#${config.icon}`);
+    svg.appendChild(use);
+    const iconWrap = document.createElement('div');
+    iconWrap.style.fontSize = '24px';
+    iconWrap.style.marginBottom = '8px';
+    iconWrap.appendChild(svg);
+
+    const titulo = document.createElement('strong');
+    titulo.textContent = tags.name || config.nome;
+    popupContent.append(iconWrap, titulo, document.createElement('br'));
+
+    const endereco = tags['addr:street'] || '';
+    const numero = tags['addr:housenumber'] || '';
+    if (endereco) {
+        const morada = document.createElement('small');
+        morada.textContent = `${endereco}${numero ? ', ' + numero : ''}`;
+        popupContent.append(morada, document.createElement('br'));
+    }
+
+    const telefone = tags.phone || tags['contact:phone'];
+    if (telefone) {
+        const tel = document.createElement('a');
+        tel.href = `tel:${String(telefone).replace(/[^\d+]/g, '')}`;
+        tel.textContent = telefone;
+        const small = document.createElement('small');
+        small.appendChild(tel);
+        popupContent.append(small, document.createElement('br'));
+    }
+
+    if (tags.opening_hours) {
+        const horario = document.createElement('small');
+        horario.textContent = tags.opening_hours;
+        popupContent.append(horario, document.createElement('br'));
+    }
+
+    const linkWrap = document.createElement('small');
+    const link = document.createElement('a');
+    link.href = `https://www.google.com/maps/dir/?api=1&destination=${Number(lat)},${Number(lng)}`;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = (window.i18n && window.i18n.t('map.directions')) || 'Como chegar';
+    linkWrap.appendChild(link);
+    popupContent.appendChild(linkWrap);
+    return popupContent;
+}
+
 // Função para buscar um tipo específico de serviço
 async function buscarServico(lat, lng, raio, chave, valor, tipo) {
     const overpassUrl = 'https://overpass-api.de/api/interpreter';
@@ -301,10 +405,6 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
                 const config = iconesServicos[tipo];
                 const icone = criarIconePersonalizado(config.icon, config.color);
                 
-                const nome = elemento.tags?.name || config.nome;
-                const endereco = elemento.tags?.['addr:street'] || '';
-                const numero = elemento.tags?.['addr:housenumber'] || '';
-                
                 const marcador = L.marker([lat, lng], { 
                     icon: icone
                 }).addTo(grupoMarcadoresServicos);
@@ -312,43 +412,7 @@ async function buscarServico(lat, lng, raio, chave, valor, tipo) {
                 // Store service type safely on marker options for filtering
                 marcador.options.serviceTipo = tipo;
 
-                // Criar conteúdo do popup com DOM (nomes/moradas vêm do OSM: nunca usar innerHTML)
-                const popupContent = document.createElement('div');
-                popupContent.style.textAlign = 'center';
-                popupContent.style.minWidth = '150px';
-
-                const svgNS = 'http://www.w3.org/2000/svg';
-                const svg = document.createElementNS(svgNS, 'svg');
-                svg.setAttribute('class', 'icon');
-                svg.setAttribute('aria-hidden', 'true');
-                const use = document.createElementNS(svgNS, 'use');
-                use.setAttribute('href', `#${config.icon}`);
-                svg.appendChild(use);
-                const iconWrap = document.createElement('div');
-                iconWrap.style.fontSize = '24px';
-                iconWrap.style.marginBottom = '8px';
-                iconWrap.appendChild(svg);
-
-                const titulo = document.createElement('strong');
-                titulo.textContent = nome;
-                popupContent.append(iconWrap, titulo, document.createElement('br'));
-
-                if (endereco) {
-                    const morada = document.createElement('small');
-                    morada.textContent = `${endereco}${numero ? ', ' + numero : ''}`;
-                    popupContent.append(morada, document.createElement('br'));
-                }
-
-                const linkWrap = document.createElement('small');
-                const link = document.createElement('a');
-                link.href = `https://www.google.com/maps/dir/?api=1&destination=${Number(lat)},${Number(lng)}`;
-                link.target = '_blank';
-                link.rel = 'noopener noreferrer';
-                link.textContent = (window.i18n && window.i18n.t('map.directions')) || 'Como chegar';
-                linkWrap.appendChild(link);
-                popupContent.appendChild(linkWrap);
-
-                marcador.bindPopup(popupContent);
+                marcador.bindPopup(criarPopup(elemento, config, lat, lng));
             }
         });
     } catch (erro) {
@@ -401,6 +465,102 @@ function atualizarServicosVisiveis() {
             ? '1 serviço visível no mapa'
             : `${visiveis} serviços visíveis no mapa`;
     }
+}
+
+// ---------- Camadas temáticas ----------
+const gruposCamadas = {};   // id -> L.layerGroup (já carregado)
+const contagemCamadas = {}; // id -> número de locais
+
+function t(chave, fallback) {
+    return (window.i18n && window.i18n.t(chave)) || fallback;
+}
+
+function anunciarCamadas() {
+    const statusEl = document.getElementById('camadas-status');
+    if (!statusEl) return;
+    const partes = Object.keys(CAMADAS)
+        .filter((id) => document.getElementById(`camada-${id}`)?.checked && id in contagemCamadas)
+        .map((id) => {
+            const nome = t(`map.layer_${id}`, CAMADAS[id].nome);
+            const n = contagemCamadas[id];
+            return n === 0
+                ? `${nome}: ${t('map.layers_none', 'nenhum local mapeado ainda')}`
+                : `${nome}: ${n}`;
+        });
+    statusEl.textContent = partes.join(' · ');
+}
+
+async function carregarCamada(id) {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+    try {
+        const resposta = await fetch('https://overpass-api.de/api/interpreter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+            body: 'data=' + encodeURIComponent(construirQueryCamada(id)),
+            signal: controller.signal
+        });
+        if (!resposta.ok) throw new Error(`Erro HTTP: ${resposta.status}`);
+        const dados = await resposta.json();
+        const config = CAMADAS[id];
+        const grupo = L.layerGroup();
+        let n = 0;
+        dados.elements.forEach((elemento) => {
+            const lat = elemento.lat || elemento.center?.lat;
+            const lng = elemento.lon || elemento.center?.lon;
+            if (!lat || !lng) return;
+            L.marker([lat, lng], { icon: criarIconePersonalizado(config.icon, config.color) })
+                .bindPopup(criarPopup(elemento, config, lat, lng))
+                .addTo(grupo);
+            n++;
+        });
+        gruposCamadas[id] = grupo;
+        contagemCamadas[id] = n;
+        return grupo;
+    } finally {
+        clearTimeout(timeoutId);
+    }
+}
+
+async function alternarCamada(id, ativa) {
+    if (!mapa) return;
+    const checkbox = document.getElementById(`camada-${id}`);
+    if (!ativa) {
+        if (gruposCamadas[id]) mapa.removeLayer(gruposCamadas[id]);
+        anunciarCamadas();
+        return;
+    }
+    try {
+        checkbox?.setAttribute('aria-busy', 'true');
+        const grupo = gruposCamadas[id] || await carregarCamada(id);
+        // A pessoa pode ter desmarcado enquanto carregava
+        if (checkbox && !checkbox.checked) return;
+        grupo.addTo(mapa);
+    } catch (erro) {
+        console.error(`Erro ao carregar camada ${id}:`, erro);
+        const statusEl = document.getElementById('camadas-status');
+        if (statusEl) statusEl.textContent = t('map.layers_error', 'Não foi possível carregar a camada. Tente novamente.');
+        if (checkbox) checkbox.checked = false;
+        return;
+    } finally {
+        checkbox?.removeAttribute('aria-busy');
+    }
+    anunciarCamadas();
+}
+
+function configurarCamadas() {
+    Object.keys(CAMADAS).forEach((id) => {
+        const checkbox = document.getElementById(`camada-${id}`);
+        checkbox?.addEventListener('change', () => alternarCamada(id, checkbox.checked));
+    });
+    // Ligações diretas a partir de outras páginas (ex.: mapa.html?camada=veterinario)
+    camadasDoUrl(window.location.search).forEach((id) => {
+        const checkbox = document.getElementById(`camada-${id}`);
+        if (checkbox) {
+            checkbox.checked = true;
+            alternarCamada(id, true);
+        }
+    });
 }
 
 // Função para adicionar marcador (mantida para compatibilidade)

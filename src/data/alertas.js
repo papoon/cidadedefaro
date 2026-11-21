@@ -1,6 +1,14 @@
 // alertas.js - Carrega alertas ativos de assets/data/alertas.json e mostra-os
 // através do sistema de alertas locais (src/ui/alerts.js).
 
+// Um alerta sem "expires" (ou com data inválida) nunca expira.
+export function isExpired(alerta, now = Date.now()) {
+    if (!alerta.expires) return false;
+    const expiryDate = new Date(alerta.expires);
+    if (Number.isNaN(expiryDate.getTime())) return false;
+    return expiryDate.getTime() < now;
+}
+
 (function () {
     'use strict';
 
@@ -8,13 +16,6 @@
 
     function pickLang() {
         return localStorage.getItem('guiafaro-lang') || 'pt';
-    }
-
-    function isExpired(alerta) {
-        if (!alerta.expires) return false;
-        const expiryDate = new Date(alerta.expires);
-        if (Number.isNaN(expiryDate.getTime())) return false;
-        return expiryDate.getTime() < Date.now();
     }
 
     async function carregarAlertas() {

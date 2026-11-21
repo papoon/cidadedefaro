@@ -34,6 +34,60 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["travel", "lifestyle"],
-  "lang": "pt-PT"
+  "categories": [
+    "travel",
+    "lifestyle"
+  ],
+  "lang": "pt-PT",
+  "shortcuts": [
+    {
+      "name": "Onde ir agora (saúde)",
+      "short_name": "Urgência",
+      "description": "Urgências, SNS 24 e farmácias de serviço",
+      "url": "/saude-onde-ir-agora.html",
+      "icons": [
+        {
+          "src": "/assets/branding/pwa/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Mapa de Faro",
+      "short_name": "Mapa",
+      "url": "/mapa.html",
+      "icons": [
+        {
+          "src": "/assets/branding/pwa/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Transportes",
+      "short_name": "Transportes",
+      "url": "/transportes.html",
+      "icons": [
+        {
+          "src": "/assets/branding/pwa/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Favoritos",
+      "short_name": "Favoritos",
+      "url": "/favoritos.html",
+      "icons": [
+        {
+          "src": "/assets/branding/pwa/icon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ]
 }

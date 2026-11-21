@@ -1,0 +1,74 @@
+{
+  "verified": "2026-11-21",
+  "year": 2026,
+  "source": {
+    "name": "Câmara Municipal de Faro — Horário Ilha do Farol / Ilha da Culatra 2026",
+    "url": "https://api.faro.pt/uploads/1/8/planear/como%20chegar/hor%C3%A1rio%20farol_2026.pdf"
+  },
+  "departure_point": {
+    "name": "Cais das Portas do Mar (Porta Nova), Faro"
+  },
+  "operator": {
+    "name": "Soldaria",
+    "email": "soldaria.algarve@gmail.com"
+  },
+  "currency": "EUR",
+  "routes": [
+    {
+      "id": "farol",
+      "name": { "pt": "Ilha do Farol", "en": "Farol (Culatra Island)" },
+      "duration_min": 40,
+      "seasons": [
+        {
+          "from": "05-01",
+          "to": "05-31",
+          "trips": [
+            { "out": "08:30", "back": "09:20" },
+            { "out": "10:35", "back": "11:20" },
+            { "out": "14:45", "back": "16:05" },
+            { "out": "16:45", "back": "18:00" }
+          ]
+        },
+        {
+          "from": "06-01",
+          "to": "09-15",
+          "trips": [
+            { "out": "08:30", "back": "09:20" },
+            { "out": "10:35", "back": "11:20" },
+            { "out": "12:25", "back": "13:10" },
+            { "out": "14:45", "back": "16:05" },
+            { "out": "16:45", "back": "18:00" },
+            { "out": "18:45", "back": "19:30", "until": "08-31" }
+          ]
+        },
+        {
+          "from": "09-16",
+          "to": "10-31",
+          "trips": [
+            { "out": "08:30", "back": "09:20" },
+            { "out": "10:35", "back": "11:20" },
+            { "out": "14:45", "back": "16:05" },
+            { "out": "16:45", "back": "18:00" }
+          ]
+        }
+      ],
+      "prices": { "return_adult": 6.15, "return_child": 3.0, "single_adult": 3.6, "single_child": 2.0 }
+    },
+    {
+      "id": "culatra",
+      "name": { "pt": "Ilha da Culatra (aldeia)", "en": "Culatra Island (village)" },
+      "duration_min": 50,
+      "seasons": [
+        {
+          "from": "06-01",
+          "to": "08-31",
+          "trips": [
+            { "out": "08:30", "back": "09:35" },
+            { "out": "14:45", "back": "15:35" }
+          ]
+        }
+      ],
+      "prices": { "return_adult": 7.15, "return_child": 3.5, "single_adult": 4.1, "single_child": 2.5 }
+    }
+  ]
+}

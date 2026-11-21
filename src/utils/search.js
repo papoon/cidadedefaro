@@ -94,6 +94,78 @@ class SearchManager {
                 description: 'Informações sobre mobilidade na cidade',
                 url: 'mobilidade.html',
                 keywords: ['mobilidade', 'deslocar', 'circulação', 'transporte']
+            },
+            {
+                id: 'page-praias',
+                type: 'page',
+                title: 'Praias e Ilhas',
+                description: 'Barcos para as ilhas, último regresso e como chegar à Praia de Faro',
+                url: 'praias.html',
+                keywords: ['praias', 'praia', 'ilhas', 'barco', 'ferry', 'culatra', 'farol', 'deserta', 'beach', 'autocarro 16']
+            },
+            {
+                id: 'page-chegar',
+                type: 'page',
+                title: 'Chegar a Faro',
+                description: 'Do aeroporto ao centro: autocarro 16, táxi, TVDE, comboio e autocarros regionais',
+                url: 'chegar-a-faro.html',
+                keywords: ['aeroporto', 'airport', 'chegar', 'chegada', 'arrival', 'autocarro 16', 'táxi', 'uber', 'bolt', 'comboio', 'cp', 'vamus', 'flixbus']
+            },
+            {
+                id: 'checklist-novo-residente',
+                type: 'service',
+                title: 'Checklist: Novo Residente em Faro',
+                description: 'NIF, NISS, AIMA, registo UE, centro de saúde, Junta de Freguesia e água',
+                url: 'viver-em-faro.html#checklist-title',
+                keywords: ['nif', 'niss', 'aima', 'residência', 'autorização de residência', 'crue', 'número de utente', 'atestado', 'junta de freguesia', 'chave móvel digital', 'mudar para faro', 'expat', 'burocracia', 'documentos']
+            },
+            {
+                id: 'page-frases',
+                type: 'page',
+                title: 'Frases Úteis em Português',
+                description: 'Português de Portugal com tradução e pronúncia: farmácia, médico, restaurante, transportes',
+                url: 'frases-uteis.html',
+                keywords: ['frases', 'phrases', 'português', 'portuguese', 'língua', 'language', 'traduzir', 'pronúncia', 'falar']
+            },
+            {
+                id: 'arrendamento-burlas',
+                type: 'service',
+                title: 'Arrendar Casa sem Burlas',
+                description: 'Sinais de burla, contrato, recibos de renda, Porta 65 Jovem',
+                url: 'viver-em-faro.html#rental-title',
+                keywords: ['arrendar', 'arrendamento', 'renda', 'casa', 'burla', 'senhorio', 'contrato', 'porta 65', 'rent', 'scam', 'habitação']
+            },
+            {
+                id: 'mapa-coworking',
+                type: 'service',
+                title: 'Coworking e trabalho remoto',
+                description: 'Coworkings no mapa, cartões SIM e roaming',
+                url: 'mapa.html?camada=coworking',
+                keywords: ['coworking', 'cowork', 'trabalho remoto', 'remote work', 'nómada digital', 'digital nomad', 'sim', 'esim', 'internet']
+            },
+            {
+                id: 'mapa-acessibilidade',
+                type: 'service',
+                title: 'Acessibilidade no mapa',
+                description: 'Casas de banho acessíveis e estacionamento para pessoas com deficiência',
+                url: 'mapa.html?camada=wc_acessivel,estacionamento_pmr',
+                keywords: ['acessível', 'acessibilidade', 'cadeira de rodas', 'wheelchair', 'casa de banho', 'wc', 'estacionamento', 'deficiência', 'mobilidade reduzida']
+            },
+            {
+                id: 'mapa-animais',
+                type: 'service',
+                title: 'Animais: veterinários e parques para cães',
+                description: 'Veterinários, parques caninos, microchip e regras das praias',
+                url: 'mapa.html?camada=veterinario,parque_canino',
+                keywords: ['veterinário', 'vet', 'cão', 'cães', 'gato', 'animais', 'pet', 'dog', 'parque canino', 'siac', 'microchip']
+            },
+            {
+                id: 'domingo-fora-de-epoca',
+                type: 'service',
+                title: 'Domingo e Fora de Época',
+                description: 'O que está aberto ao domingo e entre novembro e abril',
+                url: 'oque-fazer-hoje.html#off-season-title',
+                keywords: ['domingo', 'sunday', 'aberto', 'open', 'fechado', 'closed', 'inverno', 'winter', 'fora de época', 'off-season', 'horários']
             }
         ];
 
@@ -518,3 +590,6 @@ function initializeGlobalSearch() {
 document.addEventListener('DOMContentLoaded', function() {
     initializeGlobalSearch();
 });
+
+// Export para testes (o ficheiro já é carregado como type="module")
+export { SearchManager };
