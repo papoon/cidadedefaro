@@ -31,7 +31,6 @@ const htmlPages = [
   'ambiente.html',
   'demo-alertas.html',
   'favoritos.html',
-  'guia-premium.html',
   'historia-faro.html',
   'hoteis.html',
   'idosos.html',
@@ -94,7 +93,6 @@ export default defineConfig({
         { src: 'robots.txt', dest: '' },
         { src: 'sitemap.xml', dest: '' },
         { src: 'sw.js', dest: '' },
-        { src: 'guia-premium-faro.pdf', dest: '' },
         { src: 'apple-touch-icon.png', dest: '' },
         { src: 'CNAME', dest: '' }
       ]

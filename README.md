@@ -279,7 +279,6 @@ cidadedefaro/
 ├── manifest.json                      # Configuração PWA
 ├── sw.js                              # Service Worker para offline
 ├── vite.config.js                     # Configuração do Vite com partials
-├── guia-premium-faro.pdf              # Guia premium em PDF
 └── README.md                          # Este arquivo
 ```
 
@@ -351,7 +350,6 @@ As páginas estão organizadas por ordem de prioridade para os utilizadores:
 | 🌿 **Ambiente** | Sustentabilidade e reciclagem | `ambiente.html` |
 | 🚴 **Mobilidade** | Mobilidade sustentável | `mobilidade.html` |
 | 📖 **História** | História de Faro | `historia-faro.html` |
-| 📘 **Guia Premium** | Download do guia offline | `guia-premium.html` |
 | ℹ️ **Sobre o Projeto** | Informações sobre o projeto | `sobre-projeto.html` |
 | ⭐ **Favoritos** | Seus locais favoritos | `favoritos.html` |
 
@@ -404,7 +402,7 @@ Contribuições são bem-vindas! Siga estes passos:
 
 ## 📝 Licença
 
-Este projeto é **código aberto** e está disponível para uso público livre. Todo o conteúdo pode ser consultado, utilizado e modificado livremente.
+Este projeto é **código aberto**, distribuído sob a licença [ISC](LICENSE).
 
 ### Condições de Uso
 ✅ Consulta livre por qualquer pessoa  
