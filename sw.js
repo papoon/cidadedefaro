@@ -1,6 +1,6 @@
 // Service Worker para Faro Formoso
 // Versão do cache - incrementar quando atualizar recursos
-const CACHE_VERSION = 'v8';
+const CACHE_VERSION = 'v9';
 const CACHE_NAME = `faro-formoso-${CACHE_VERSION}`;
 const OFFLINE_URL = './offline.html';
 
@@ -109,6 +109,11 @@ self.addEventListener('fetch', (event) => {
     if (!request.url.startsWith('http')) {
         return;
     }
+
+    // Só GET é cacheável (ex.: POST ao Overpass vai direto à rede)
+    if (request.method !== 'GET') {
+        return;
+    }
     
     // Estratégia para páginas HTML - Network First com fallback para cache
     if (request.mode === 'navigate' || request.headers.get('accept')?.includes('text/html')) {
@@ -141,14 +146,16 @@ self.addEventListener('fetch', (event) => {
     // Estratégia para CSS/JS/Dados/Fontes - Cache First com fallback para network
     // (.woff2: as fontes self-hosted são referenciadas a partir do CSS, por isso o
     // Vite dá-lhes nome com hash - cacheadas aqui em runtime, não no precache)
+    // Só para a própria origem: recursos de terceiros têm ramos próprios abaixo
     if (
+        url.origin === self.location.origin && (
         url.pathname.endsWith('.css') ||
         url.pathname.endsWith('.woff2') ||
         url.pathname.endsWith('.js') ||
         url.pathname.endsWith('.json') ||
         url.pathname.startsWith('/css/') ||
         url.pathname.startsWith('/js/') ||
-        url.pathname.startsWith('/data/')
+        url.pathname.startsWith('/data/'))
     ) {
         event.respondWith(
             caches.match(request).then((cachedResponse) => {
@@ -181,9 +188,9 @@ self.addEventListener('fetch', (event) => {
     }
     
     // Estratégia para Leaflet tiles - Cache First com duração longa
-    if (url.hostname === 'a.tile.openstreetmap.org' || 
-        url.hostname === 'b.tile.openstreetmap.org' || 
-        url.hostname === 'c.tile.openstreetmap.org') {
+    // (o Leaflet usa https://tile.openstreetmap.org/{z}/{x}/{y}.png, sem subdomínios)
+    if (url.hostname === 'tile.openstreetmap.org' ||
+        url.hostname.endsWith('.tile.openstreetmap.org')) {
         event.respondWith(
             caches.match(request).then((cachedResponse) => {
                 if (cachedResponse) {

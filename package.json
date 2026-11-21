@@ -19,7 +19,7 @@
   "license": "ISC",
   "devDependencies": {
     "ejs": "^6.0.1",
-    "vite": "^7.3.6",
+    "vite": "^7.3.8",
     "vite-plugin-static-copy": "^3.4.0"
   }
 }
